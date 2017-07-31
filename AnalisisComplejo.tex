@@ -1,0 +1,305 @@
+% ****************************************************************************************
+% ************************      ALGEBRA LINEAL BASICA         ****************************
+% ****************************************************************************************
+
+
+% =======================================================
+% =======         HEADER FOR DOCUMENT        ============
+% =======================================================
+    % *********   DOCUMENT ITSELF   **************
+    \documentclass[12pt, fleqn]{report}                             %Type of docuemtn and size of font and left eq
+    \usepackage[margin=1.2in]{geometry}                             %Margins and Geometry pacakge
+    \usepackage{ifthen}                                             %Allow simple programming
+    \usepackage{hyperref}                                           %Create MetaData for a PDF and LINKS!
+    \setlength{\parindent}{0pt}                                     %Eliminate ugly indentation
+    \author{Oscar Andrés Rosas}                                     %Who I am
+
+    % *********   LANGUAJE AND UFT-8   *********
+    \usepackage[spanish]{babel}                                     %Please use spanish
+    \usepackage[utf8]{inputenc}                                     %Please use spanish - UFT
+    \usepackage[T1]{fontenc}                                        %Please use spanish
+    \usepackage{textcmds}                                           %Allow us to use quoutes
+    \usepackage{changepage}                                         %Allow us to use identate paragraphs
+
+    % *********   MATH AND HIS STYLE  *********
+    \usepackage{ntheorem, amsmath, amssymb, amsfonts}               %All fucking math, I want all!
+    \usepackage{mathrsfs, mathtools, empheq}                        %All fucking math, I want all!
+    \usepackage{centernot}                                          %Allow me to negate a symbol
+    \decimalpoint                                                   %Use decimal point
+
+    % *********   GRAPHICS AND IMAGES *********
+    \usepackage{graphicx}                                           %Allow to create graphics
+    \usepackage{wrapfig}                                            %Allow to create images
+    \graphicspath{ {Graphics/} }                                    %Where are the images :D
+
+    % *********   LISTS AND TABLES ***********
+    \usepackage{listings}                                           %We will be using code here
+    \usepackage[inline]{enumitem}                                   %We will need to enumarate
+    \usepackage{tasks}                                              %Horizontal lists
+    \usepackage{longtable}                                          %Lets make tables awesome
+    \usepackage{booktabs}                                           %Lets make tables awesome
+    \usepackage{tabularx}                                           %Lets make tables awesome
+    \usepackage{multirow}                                           %Lets make tables awesome
+    \usepackage{multicol}                                           %Create multicolumns
+
+    % *********   HEADERS AND FOOTERS ********
+    \usepackage{fancyhdr}                                           %Lets make awesome headers/footers
+    \pagestyle{fancy}                                               %Lets make awesome headers/footers
+    \setlength{\headheight}{16pt}                                   %Top line
+    \setlength{\parskip}{0.5em}                                     %Top line
+    \renewcommand{\footrulewidth}{0.5pt}                            %Bottom line
+
+    \lhead{                                                         %Left Header
+        \hyperlink{chapter.\arabic{chapter}}                        %Make a link to the current chapter
+        {\normalsize{\textsc{\nouppercase{\leftmark}}}}             %And fot it put the name
+    }
+
+    \rhead{                                                         %Right Header
+        \hyperlink{section.\arabic{chapter}.\arabic{section}}       %Make a link to the current chapter
+            {\footnotesize{\textsc{\nouppercase{\rightmark}}}}      %And fot it put the name
+    }
+
+    \rfoot{\textsc{\small{\hyperref[sec:Index]{Ve al Índice}}}}     %This will always be a footer  
+
+    \fancyfoot[L]{                                                  %Algoritm for a changing footer
+        \ifthenelse{\isodd{\value{page}}}                           %IF ODD PAGE:
+            {\href{https://compilandoconocimiento.com/yo/}          %DO THIS:
+                {\footnotesize                                      %Send the page
+                    {\textsc{Oscar Andrés Rosas}}}}                 %Send the page
+            {\href{https://compilandoconocimiento.com}              %ELSE DO THIS: 
+                {\footnotesize                                      %Send the author
+                    {\textsc{Compilando Conocimiento}}}}            %Send the author
+    }
+    
+    
+    
+% ========================================
+% ===========   COMMANDS    ==============
+% ========================================
+
+    % =====  GENERAL TEXT  ==========
+    \newcommand \Quote {\qq}                                        %Use: \Quote to use quotes
+    \newenvironment{Indentation}[1][0.75em]                         %Use: \begin{Inde...}[Num]...\end{Inde...}
+    {\begin{adjustwidth}{#1}{}}                                     %If you dont put nothing i will use 0.75 em
+    {\end{adjustwidth}}                                             %This indentate a paragraph
+    \newenvironment{SmallIndentation}[1][0.75em]                    %Use: The same that we upper one, just 
+    {\begin{adjustwidth}{#1}{}\begin{footnotesize}}                 %footnotesize size of letter by default
+    {\end{footnotesize}\end{adjustwidth}}                           %that's it
+        
+    % =====  GENERAL MATH  ==========
+    \DeclareMathOperator \Space {\quad}                             %Use: \Space for a cool mega space
+    \DeclareMathOperator \MiniSpace {\;}                            %Use: \Space for a cool mini space
+    \newcommand \Such {\MiniSpace|\MiniSpace}                       %Use: \Such like in sets
+    \newcommand \Also {\Space \text{y} \Space}                      %Use: \Also so it's look cool
+
+    \newtheorem{Theorem}{Teorema}[section]                          %Use: \begin{Theorem}[Name]\label{Nombre}...
+    \newtheorem{Corollary}{Colorario}[Theorem]                      %Use: \begin{Corollary}[Name]\label{Nombre}...
+    \newtheorem{Lemma}[Theorem]{Lemma}                              %Use: \begin{Lemma}[Name]\label{Nombre}...
+    \newtheorem{Definition}{Definición}[section]                    %Use: \begin{Definition}[Name]\label{Nombre}...
+
+    \newcommand{\Set}[1]{\left\{ \MiniSpace #1 \MiniSpace \right\}} %Use: \Set {Info}
+    \newcommand{\Brackets}[1]{\left[ #1 \right]}                    %Use: \Brackets {Info} 
+    \newcommand{\Parentheses}[1]{\left( #1 \right)}                 %Use: \Parentheses {Info} 
+
+
+    \newenvironment{MultiLineEquation}[1]                           %Use: To create MultiLine equations
+        {\begin{equation}\begin{alignedat}{#1}}                     %Use: \begin{Multi..}{Num. de Columnas}
+        {\end{alignedat}\end{equation}}                             %And.. that's it!
+
+
+    % =====  LOGIC  ==================
+    \DeclareMathOperator \doublearrow {\leftrightarrow}             %Use: \doublearrow for a double arrow
+    \newcommand \lequal {\MiniSpace \Leftrightarrow \MiniSpace}     %Use: \lequal for a double arrow
+    \newcommand \linfire {\MiniSpace \Rightarrow \MiniSpace}        %Use: \lequal for a double arrow
+    \newcommand \longto {\longrightarrow}                           %Use: \longto for a long arrow
+
+    % =====  NUMBER THEORY  ==========
+    \DeclareMathOperator \Naturals  {\mathbb{N}}                     %Use: \Naturals por Notation
+    \DeclareMathOperator \Primes    {\mathbb{P}}                     %Use: \Naturals por Notation
+    \DeclareMathOperator \Integers  {\mathbb{Z}}                     %Use: \Integers por Notation
+    \DeclareMathOperator \Racionals {\mathbb{Q}}                     %Use: \Racionals por Notation
+    \DeclareMathOperator \Reals     {\mathbb{R}}                     %Use: \Reals por Notation
+    \DeclareMathOperator \Complexs  {\mathbb{C}}                     %Use: \Complex por Notation
+
+    % === LINEAL ALGEBRA & VECTORS ===
+    \DeclareMathOperator \LinealTransformation {\mathcal{T}}        %Use: \LinealTransformation for a cool T
+
+    \newcommand{\pVector}[1]{                                       %Use: \pVector {Matrix Notation} use parentesis
+        \ensuremath{\begin{pmatrix}#1\end{pmatrix}}                 %Example: \pVector{a\\b\\c} or \pVector{a&b&c} 
+    }
+    \newcommand{\lVector}[1]{                                       %Use: \lVector {Matrix Notation} use a abs 
+        \ensuremath{\begin{vmatrix}#1\end{vmatrix}}                 %Example: \lVector{a\\b\\c} or \lVector{a&b&c} 
+    }
+    \newcommand{\bVector}[1]{                                       %Use: \bVector {Matrix Notation} use a brackets 
+        \ensuremath{\begin{bmatrix}#1\end{bmatrix}}                 %Example: \bVector{a\\b\\c} or \bVector{a&b&c} 
+    }
+    \newcommand{\Vector}[1]{                                        %Use: \Vector {Matrix Notation} no parentesis
+        \ensuremath{\begin{matrix}#1\end{matrix}}                   %Example: \Vector{a\\b\\c} or \Vector{a&b&c}
+    }
+
+    % MATRIX
+    \makeatletter                                                   %Example: \begin{matrix}[cc|c]
+    \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c] {             %WTF! IS THIS
+        \hskip -\arraycolsep                                        %WTF! IS THIS
+        \let\@ifnextchar\new@ifnextchar                             %WTF! IS THIS
+        \array{#1}                                                  %WTF! IS THIS
+    }                                                               %WTF! IS THIS
+    \makeatother                                                    %WTF! IS THIS
+
+
+
+
+
+% =====================================================
+% ============     	  COVER PAGE	   ================
+% =====================================================
+\begin{document}
+\begin{titlepage}
+
+	\center
+	% ============ UNIVERSITY NAME AND DATA =========
+	\textbf{\textsc{\Large Proyecto Compilando Conocimiento}}\\[1.0cm] 
+	\textsc{\Large Matemáticas Avanzadas}\\[1.0cm] 
+
+	% ============ NAME OF THE DOCUMENT  ============
+	\rule{\linewidth}{0.5mm} \\[1.0cm]
+		{ \huge \bfseries Análisis Complejo}\\[1.0cm] 
+	\rule{\linewidth}{0.5mm} \\[2.0cm]
+	
+	% ====== SEMI TITLE ==========
+	{\LARGE Una Pequeña (Gran) Introducción}\\[7cm] 
+	
+	% ============  MY INFORMATION  =================
+	\begin{center} \large
+	\textbf{\textsc{Autor:}}\\
+	Rosas Hernandez Oscar Andrés
+	\end{center}
+
+	\vfill
+
+\end{titlepage}
+
+% =====================================================
+% ========                INDICE              =========
+% =====================================================
+\tableofcontents{}
+\label{sec:Index}
+
+\clearpage
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% ///////////////////////////////////         NUMEROS COMPLEJOS       //////////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Números Complejos}
+\clearpage
+
+
+    % ===============================================================================
+    % ===================           DEFINICIONES               ======================
+    % ===============================================================================
+    \chapter{Definiciones}
+
+        % ==============================================
+        % ========      NUMEROS COMPLEJOS      =========
+        % ==============================================
+        \clearpage
+        \section{Definición de Números Complejos}
+
+            \begin{Definition}[Números Complejos]
+            \label{NumerosComplejos}
+                Definamos al Conjunto de los números complejos $\Complexs$ como:
+                \begin{equation}
+                    \Complexs = 
+                        \Set{ a + bi \Such a,b \in \Reals \Also i = \sqrt{-1} }
+                \end{equation}
+
+            \end{Definition}
+
+
+            Podemos usar la notación $a+bi$ y $a+ib$ de manera intercambiable (pero personalmente 
+            la primera se me hace la más cool).
+
+
+        % ==============================================
+        % ========      TERMINOS COMUNES       =========
+        % ==============================================
+        \section{Términos Comúnes} 
+
+            \begin{itemize}
+                \item \textbf{Unidad Imaginaria:}
+                    Usamos el símbolo $i$ para simplificar $i = \sqrt{-1}$, de ahí una propiedad
+                    muy famosa de que $i^2 = -1$.
+
+                \item \textbf{Parte Real:}
+                    Considere el número $z = a+bi \in \Complexs$, entonces decimos que $Re(z) = a$
+
+                \item \textbf{Parte Imaginaria:}
+                    Considere el número $z = a+bi \in \Complexs$, entonces decimos que $Im(z) = b$
+            \end{itemize}
+
+
+
+
+
+    % ===============================================================================
+    % ===================          ARITMETICA COMPLEJA         ======================
+    % ===============================================================================
+    \chapter{Aritmética Compleja}
+
+        % ==============================================
+        % ========      NUMEROS COMPLEJOS      =========
+        % ==============================================
+        \clearpage
+        \section{Definición de Operaciones con Complejos}
+            Si $z_1 = a_1 + b_1i \in \Complexs$ y $z_2 = a_2 + b_2i \in \Complexs$ entonces:
+
+            \begin{itemize}
+
+                \item
+                    \begin{Definition}[Suma de Complejos]
+                    \label{SumaComplejos}
+                        \begin{equation}
+                            z_1 + z_2 = (a_1+a_2) + (b_1+b_2)i
+                        \end{equation}
+                    \end{Definition}
+
+                \item
+                    \begin{Definition}[Resta de Complejos]
+                    \label{RestaComplejos}
+                        \begin{equation}
+                            z_1 - z_2 = (a_1-a_2) + (b_1-b_2)i
+                        \end{equation}
+                    \end{Definition}
+
+                \item 
+                    \begin{Definition}[Multiplicación de Complejos]
+                    \label{MultiplicacionComplejos}
+
+                        \begin{MultiLineEquation}{1}
+                            z_1+z_2 &=  (a_1+b_1i)(a_2+b_2i) 
+                                     = (a_1a_2 + b_1b_2i^2) + (a_1b_2 + b_1a_2)i  \\
+                                    &= (a_1a_2 - b_1b_2)   + (a_1b_2 + b_1a_2)i
+                        \end{MultiLineEquation}
+
+                    \end{Definition}
+
+
+
+
+
+            \end{itemize}
+
+
+
+          
+
+
+
+
+
+            
+
+\end{document}

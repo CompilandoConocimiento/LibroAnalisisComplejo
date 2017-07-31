@@ -1,0 +1,7 @@
+\select@language {spanish}
+\contentsline {part}{I\hspace {1em}N\IeC {\'u}meros Complejos}{2}{part.1}
+\contentsline {chapter}{\numberline {1}Definiciones}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Definici\IeC {\'o}n de N\IeC {\'u}meros Complejos}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}T\IeC {\'e}rminos Com\IeC {\'u}nes}{4}{section.1.2}
+\contentsline {chapter}{\numberline {2}Aritm\IeC {\'e}tica Compleja}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Definici\IeC {\'o}n de Operaciones con Complejos}{6}{section.2.1}
