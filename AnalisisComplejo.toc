@@ -4,4 +4,9 @@
 \contentsline {section}{\numberline {1.1}Definici\IeC {\'o}n de N\IeC {\'u}meros Complejos}{4}{section.1.1}
 \contentsline {section}{\numberline {1.2}T\IeC {\'e}rminos Com\IeC {\'u}nes}{4}{section.1.2}
 \contentsline {chapter}{\numberline {2}Aritm\IeC {\'e}tica Compleja}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Definici\IeC {\'o}n de Operaciones con Complejos}{6}{section.2.1}
+\contentsline {section}{\numberline {2.1}Operaciones B\IeC {\'a}sicas}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}Campo de los Complejos}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}Cero y la Identidad}{8}{section.2.3}
+\contentsline {section}{\numberline {2.4}Conjugados}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}M\IeC {\'o}dulo o Valor Absoluto}{9}{section.2.5}
+\contentsline {section}{\numberline {2.6}Inverso Multiplicativo}{11}{section.2.6}

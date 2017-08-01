@@ -79,6 +79,9 @@
 
     % =====  GENERAL TEXT  ==========
     \newcommand \Quote {\qq}                                        %Use: \Quote to use quotes
+    \newcommand \Over {\overline}                                   %Use: \Bar to use just for short
+    \newcommand \ForceNewLine {$\Space$\\}                          %Use it in theorems for example
+    
     \newenvironment{Indentation}[1][0.75em]                         %Use: \begin{Inde...}[Num]...\end{Inde...}
     {\begin{adjustwidth}{#1}{}}                                     %If you dont put nothing i will use 0.75 em
     {\end{adjustwidth}}                                             %This indentate a paragraph
@@ -100,11 +103,14 @@
     \newcommand{\Set}[1]{\left\{ \MiniSpace #1 \MiniSpace \right\}} %Use: \Set {Info}
     \newcommand{\Brackets}[1]{\left[ #1 \right]}                    %Use: \Brackets {Info} 
     \newcommand{\Parentheses}[1]{\left( #1 \right)}                 %Use: \Parentheses {Info} 
-
+    \newcommand{\pfrac}[2]{\Parentheses{\dfrac{#1}{#2}}}            %Use: Put fractions in parentesis
 
     \newenvironment{MultiLineEquation}[1]                           %Use: To create MultiLine equations
         {\begin{equation}\begin{alignedat}{#1}}                     %Use: \begin{Multi..}{Num. de Columnas}
         {\end{alignedat}\end{equation}}                             %And.. that's it!
+    \newenvironment{MultiLineEquation*}[1]                          %Use: To create MultiLine equations
+        {\begin{equation*}\begin{alignedat}{#1}}                    %Use: \begin{Multi..}{Num. de Columnas}
+        {\end{alignedat}\end{equation*}}                            %And.. that's it!
 
 
     % =====  LOGIC  ==================
@@ -242,8 +248,6 @@
 
 
 
-
-
     % ===============================================================================
     % ===================          ARITMETICA COMPLEJA         ======================
     % ===============================================================================
@@ -253,7 +257,7 @@
         % ========      NUMEROS COMPLEJOS      =========
         % ==============================================
         \clearpage
-        \section{Definición de Operaciones con Complejos}
+        \section{Operaciones Básicas}
             Si $z_1 = a_1 + b_1i \in \Complexs$ y $z_2 = a_2 + b_2i \in \Complexs$ entonces:
 
             \begin{itemize}
@@ -279,13 +283,285 @@
                     \label{MultiplicacionComplejos}
 
                         \begin{MultiLineEquation}{1}
-                            z_1+z_2 &=  (a_1+b_1i)(a_2+b_2i) 
+                            z_1+z_2 &= (a_1+b_1i)(a_2+b_2i) 
                                      = (a_1a_2 + b_1b_2i^2) + (a_1b_2 + b_1a_2)i  \\
                                     &= (a_1a_2 - b_1b_2)   + (a_1b_2 + b_1a_2)i
                         \end{MultiLineEquation}
 
                     \end{Definition}
 
+                \item 
+                    \begin{Definition}[División de Complejos]
+                    \label{DivisionComplejos}
+                    \ForceNewLine
+                        Vamos a necesitar además que $z_2 \neq 0$ (muy obvio)
+                        \begin{MultiLineEquation}{1}
+                            \dfrac{z_1}{z_2}    &= \dfrac{a_1+b_1i}{a_2+b_2i} 
+                                                &= \dfrac{(a_1a_2+b_1b_2)-(a_1b_2-a_2b_1)i}{(a_2)^2+(b_2)^2}
+                        \end{MultiLineEquation}
+
+                    \end{Definition}
+
+            \end{itemize}
+
+
+        % =====================================================
+        % ==========   CAMPO DE LOS COMPLEJOS      ============
+        % =====================================================
+        \clearpage
+        \section{Campo de los Complejos}
+
+            Recuerda que el hecho de que los Complejos sean un campo nos dice que cumple con que:
+
+            \begin{itemize}
+                    
+                \item 
+                    \begin{Definition}[Ley Aditiva Asociativa]
+                        \begin{equation}
+                            \forall z_1, z_2, z_3 \in \Complexs, \MiniSpace
+                                (z_1 + z_2) + z_3 = z_1 + (z_2 + z_3)
+                        \end{equation}
+                    \end{Definition}
+
+                \item
+                    \begin{Definition}[Ley Aditiva Conmutativa]
+                        \begin{equation}
+                            \forall z_1, z_2 \in \Complexs, \MiniSpace z_1 + z_2 =  z_2 + z_1
+                        \end{equation}
+                    \end{Definition}
+
+                \item
+                    \begin{Definition}[Elemento Indentidad Aditivo]
+                        \begin{equation}
+                            \exists 0 \in \Complexs, \MiniSpace
+                                \forall z_1 \in \Complexs, \MiniSpace 0 + z_1 = z_1  + 0 = z_1
+                        \end{equation}
+                    \end{Definition}
+
+
+                \item
+                    \begin{Definition}[Existen Inversos Aditivos]
+                        \begin{equation}
+                            \forall z_1 \in \Complexs, \MiniSpace
+                                \exists z_2 \in \Complexs, \MiniSpace
+                                    z_1  + z_2 = z_2 + z_1 = 0
+                        \end{equation}
+                    \end{Definition}
+
+                \item
+                    \begin{Definition}[Ley Distributiva]
+                        \begin{MultiLineEquation}{1}
+                            \forall z_1, z_2, z_3 \in \Complexs, \MiniSpace
+                                z_1 \cdot (z_2  + z_3) = (z_1  \cdot z_2) + (z_1  \cdot z_3)        \\
+                            \forall z_1, z_2, z_3 \in \Complexs, \MiniSpace
+                                (z_2 + z_3) \cdot z_1  = (z_2 \cdot z_1) + (z_3  \cdot z_1)
+                        \end{MultiLineEquation}
+                    \end{Definition}
+
+
+                \item 
+                    \begin{Definition}[Ley Multiplicativa Asociativa]
+                        \begin{equation}
+                            \forall z_1, z_2, z_3 \in \Complexs, \MiniSpace
+                                z_1  \cdot z_2 = z_2 \cdot z_1
+                        \end{equation}
+                    \end{Definition}
+
+                \item 
+                    \begin{Definition}[Ley Multiplicativa Distributiva]
+                        \begin{equation}
+                            \forall z_1, z_2, z_3 \in \Complexs, \MiniSpace
+                                (z_1  \cdot z_2)  \cdot z_3 = z_1  \cdot (z_2  \cdot z_3)
+                        \end{equation}
+                    \end{Definition}
+
+                \item
+                    \begin{Definition}[Elemento Indentidad Multiplicativo]
+                        \begin{equation}
+                            \exists 1 \in \Complexs, \MiniSpace
+                                \forall z_1 \in \Complexs, \MiniSpace 1 \cdot z_1 = z_1  \cdot 1 = z_1
+                        \end{equation}
+                    \end{Definition}
+
+                \item
+                    \begin{Definition}[Existen Inversos Multiplicativos]
+                        \begin{equation}
+                            \forall z_1 \in \Complexs - \{0\}, \MiniSpace
+                                \exists z_2 \in \Complexs, \MiniSpace
+                                    z_1  + z_2= z_2 + z_1 = 1
+                        \end{equation}
+                    \end{Definition}
+
+                \end{itemize}
+
+
+        % ==============================================
+        % ========      CERO Y LA IDENTIDAD    =========
+        % ==============================================
+        \clearpage
+        \section{Cero y la Identidad}
+
+            \begin{itemize}
+                \item Denotamos a $0 = 0 + 0i$ como el elemento cero o identidad aditiva, ya que se cumple 
+                        $\forall z \in \Complexs, \MiniSpace z + 0 = 0 + z = z$
+
+                \item Denotamos a $1 = 1 + 0i$ como el elemento identidad multiplicatica, ya que se cumple 
+                        $\forall z \in \Complexs, \MiniSpace z \cdot 1 = 1 \cdot z = z$
+            \end{itemize}
+
+        % ==============================================
+        % ========          CONJUGADO          =========
+        % ==============================================
+        \section{Conjugados}
+            Tenemos que el Conjugado de $z = a+bi \in \Complexs$ es simplemente $\overline{z} = a-bi$
+
+            Además tenemos que:
+            \begin{itemize}
+                \item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
+                
+                \item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
+                
+                \item $\overline{\overline{z}} = z$
+
+                \item $z + \overline{z} = (a + ib) + (a - ib) = 2a$
+
+                \item $z - \overline{z} = (a + ib) - (a - ib) = 2bi$
+                
+                \item $z \cdot \overline{z} = (a+ib)(a-ib) = a^2 + b^2$
+
+                \item $Re(z) = \dfrac{z+\overline{z}}{2}$
+
+                \item $Im(z) = \dfrac{z-\overline{z}}{2i}$
+            \end{itemize}
+
+
+
+        % ==============================================
+        % ========    MODULO O VALOR ABSOLUTO    =======
+        % ==============================================
+        \clearpage
+        \section{Módulo o Valor Absoluto}
+            Tenemos que el Módulo de $z = a+bi \in \Complexs$ es simplemente $|z| = \sqrt{a^2 + b^2}$.
+
+            \begin{itemize}
+                \item $|z| = \sqrt{z \cdot \overline{z}}$
+                \item $|z| = \sqrt{a^2 + b^2} = \sqrt{a^2 + (-b)^2} = |\Over{z}|$
+            \end{itemize}
+
+            \begin{itemize}
+                \item
+                    \begin{Lemma}
+                        $|Re(z)| \leq |z|$ y $|Im(z)| \leq |z|$ 
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+                            
+                            Ya habiamos visto que $|z|^2 = x^2 + y^2 = Re(z)^2 + Im(z)^2$
+                            
+                            Entonces podemos ver que $|z|^2 - Im(z)^2 = Re(z)$ (recuerda que $Im(z)^2 > 0$) 
+                            por lo tanto tenemos que $|Re(z)|^2 \leq |z|^2$ ya que $|Re(z)| = Re(z)$
+                            
+                            Entonces podemos ver que $|z|^2 - Re(z)^2 = Im(z)$ (recuerda que $Re(z)^2 > 0$) 
+                            por lo tanto tenemos que $|Im(z)|^2 \leq |z|^2$ ya que $|Im(z)| = Im(z)$
+
+                        \end{SmallIndentation}
+
+                    \end{Lemma}
+
+                \item
+                    \begin{Lemma}
+                        $|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2Re(z_1\Over{z_2})$ 
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+
+                            Ya sabemos que $|z+\Over{z}|^2 = z \cdot \Over{z}$ y recuerda que
+                            $2Re(z) = z+\overline{z}$, $|z|^2 = z \cdot \overline{z}$ entonces tenemos que:
+                            \begin{MultiLineEquation*}{2}
+                                |z_1+z_2|^2 &= (z_1+z_2) \cdot \Over{(z_1+z_2)}                                 \\
+                                        &= (z_1+z_2) \cdot (\Over{z_1}+\Over{z_2})                              \\
+                                        &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1}z_2) + z_2 \Over{z_2}       \\
+                                        &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1\Over{z_2}})+z_2 \Over{z_2}  \\
+                                        &= |z_1|^2 + 2Re(z_1\Over{z_2}) + |z_2|^2 
+                            \end{MultiLineEquation*}
+                            
+                        \end{SmallIndentation}
+
+                    \end{Lemma}
+
+
+                \item
+                    \begin{Lemma}
+                        $(|z_1|+|z_2|)^2 = |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|$ 
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+
+                            Esta la vamos a empezar al réves, solo recuerda que $|z|=|\Over{z}|$:
+                            \begin{MultiLineEquation*}{2}
+                                |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|                                  
+                                        &= |z_1|^2 + |z_2|^2 + 2|z_1||\Over{z_2}|                     \\
+                                        &= |z_1|^2 + |z_2|^2 + 2|z_1||z_2|                            \\
+                                        &= (|z_1| + |z_2|)^2
+                            \end{MultiLineEquation*}
+                            
+                        \end{SmallIndentation}
+
+                    \end{Lemma}
+
+                \clearpage
+                \item
+                    \begin{Lemma}[Desigualdad del Triángulo]
+                    \label{DesiguldadTriangulo}
+                        $|z_1|-|z_2| \leq |z_1+z_2| \leq |z_1|+|z_2|$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+
+
+                            Ok, esto aún estará intenso, así que sígueme, vamos a hacerlo más
+                            interesante, ya tenemos las piezas necesarias.
+                            Así que vamos a hacerlo al réves:
+
+                            $|z_1+z_2| \leq |z_1|+|z_2|$ si y solo si 
+                            $|z_1+z_2|^2 = (|z_1|+|z_2|)^2$ y además $|z_1+z_2|,|z_1|,|z_2| \geq 0$
+                            lo cual si que se cumple, pues los módulos nunca son negativos.
+
+                            Y lo que dije anteriormente se cumple si y solo si $|z_1+z_2|^2=(|z_1|+|z_2|)^2+k$
+                            donde $k \geq 0$.
+
+                            Ya sabemos que $|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2Re(z_1\Over{z_2})$
+                            y $(|z_1|+|z_2|)^2 = |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|$, ahora vamos a acomodar
+                            un poco, podemos poner lo último como
+                            $(|z_1|+|z_2|)^2  - 2|z_1\Over{z_2}| = |z_1|^2 + |z_2|^2$
+
+                            Ahora veamos que:
+                            \begin{MultiLineEquation*}{2}
+                                |z_1+z_2|^2 &= \Brackets{|z_1|^2 + |z_2|^2} + 2Re(z_1\Over{z_2})  
+                                             = \Brackets{(|z_1|+|z_2|)^2-2|z_1\Over{z_2}|} + 2Re(z_1\Over{z_2}) \\
+                                            &= (|z_1|+|z_2|)^2 + k
+                            \end{MultiLineEquation*}
+
+                            Donde $k = 2Re(z_1\Over{z_2})- 2|z_1\Over{z_2}|$, ahora además podemos decir
+                            que si $k \geq 0$ entonces así lo será $\frac{k}{2}$, por lo tanto:
+                            $\frac{k}{2} = Re(z_1\Over{z_2}) - |z_1\Over{z_2}|$, pero si les cambias en nombre
+                            ves que todo se simplifica $w = z_1\Over{z_2}$ y tenemos que $Re(w) - |w|$.
+                            Espera, recuerda que ya habíamos demostrado que $|Re(z)| \leq |z|$, así que por lo
+                            tanto $k \geq 0$ y la propiedad siempre se cumple.
+
+                            Sabemos que $z_1 = z_1 + z_2 + (-z_2)$ además ahora sabemos que:
+                            $|z_1| = |z_1 + z_2 +(-z_2)| \leq |z_1 + z_2| + |-z_2|$ y como $|z|=|-z|$
+                            Que es lo mismo que $|z_1| - |z_2| \leq |z_1 + z_2|$.
+
+                            Y listo, todas las propiedades están listas.
+
+                        \end{SmallIndentation}
+
+                    \end{Lemma}
 
 
 
@@ -294,8 +570,58 @@
 
 
 
-          
+        % ==============================================
+        % ========      NUMEROS COMPLEJOS      =========
+        % ==============================================
+        \clearpage
+        \section{Inverso Multiplicativo}
+            
+            Si $z = a + bi \in \Complexs - \Set{0}$ entonces podemos denotar al inverso de $z$ como
+            $z^{-1}$
 
+            Creo que es más que obvio que $z^{-1} = \dfrac{1}{a+bi}$.
+
+            \begin{itemize}
+
+                \item
+                    Podemos escribir a $z^{-1}$ como $\dfrac{a-ib}{a^2+b^2}$
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Veamos como llegar a eso paso a paso:
+                        \begin{MultiLineEquation*}{1}
+                            \dfrac{1}{z} &= \dfrac{1}{a+bi}                         
+                                          = \dfrac{1}{a+bi}\pfrac{a-bi}{a-bi}
+                                          = \dfrac{a-bi}{(a+bi)(a-bi)}              \\
+                                         &= \dfrac{a-bi}{a^2+b^2}                 
+                        \end{MultiLineEquation*}
+
+                    \end{SmallIndentation}
+
+
+
+                \item
+                    Gracias al inciso anterior podemos separar la parte real y la imaginaria como:
+                    \begin{equation}
+                         \dfrac{1}{z} = \pfrac{a}{a^2+b^2} - \pfrac{b}{a^2+b^2}i 
+                    \end{equation}
+
+
+                \item
+                    Gracias al inciso anterior podemos separar la parte real y la imaginaria como:
+                    \begin{equation}
+                         \dfrac{1}{z} = \dfrac{\overline{z}}{|z|^2}
+                    \end{equation}
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Recuerda}: $\overline{z} = a - bi$ y $|z| = a^2 + b^2$
+                    \end{SmallIndentation}
+
+                
+
+            \end{itemize}
 
 
 
