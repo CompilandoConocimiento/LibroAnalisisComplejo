@@ -283,7 +283,7 @@
                     \label{MultiplicacionComplejos}
 
                         \begin{MultiLineEquation}{1}
-                            z_1+z_2 &= (a_1+b_1i)(a_2+b_2i) 
+                            z_1 z_2 &= (a_1+b_1i)(a_2+b_2i) 
                                      = (a_1a_2 + b_1b_2i^2) + (a_1b_2 + b_1a_2)i  \\
                                     &= (a_1a_2 - b_1b_2)   + (a_1b_2 + b_1a_2)i
                         \end{MultiLineEquation}
@@ -435,7 +435,6 @@
             \end{itemize}
 
 
-
         % ==============================================
         % ========    MODULO O VALOR ABSOLUTO    =======
         % ==============================================
@@ -559,6 +558,10 @@
 
                             Y listo, todas las propiedades están listas.
 
+
+                            Además creo que es bastante obvio que por inducción tenemos que:
+                            $|z_1 + z_2 +z_3 + \cdots + z_n| \leq |z_1|+|z_2|+|z_3|+ \cdots +|z_n|$
+
                         \end{SmallIndentation}
 
                     \end{Lemma}
@@ -611,7 +614,7 @@
                 \item
                     Gracias al inciso anterior podemos separar la parte real y la imaginaria como:
                     \begin{equation}
-                         \dfrac{1}{z} = \dfrac{\overline{z}}{|z|^2}
+                        \dfrac{1}{z} = \dfrac{\overline{z}}{|z|^2}
                     \end{equation}
 
                     % ======== DEMOSTRACION ========
@@ -625,6 +628,182 @@
 
 
 
+    % ===============================================================================
+    % ===================              FORMA POLAR             ======================
+    % ===============================================================================
+    \chapter{Forma Polar y Argumentos}
+
+        % ==============================================
+        % ========         FORMA POLAR         =========
+        % ==============================================
+        \clearpage
+        \section{Forma Polar}
+            
+            Podemos expresar un punto en el plano complejo mediante la tupla $(r, \theta)$ , donde
+            $r \geq 0$ y $\theta$ esta medido en radianes.
+
+            Entonces podemos pasar rápido y fácil de un sistema de coordenadas a otro como:
+
+            % ==============================
+            % ===  POLAR -> RECTANGULAR  ===
+            % ==============================
+            \subsection{De forma Polar a forma Rectangular}
+
+                Supongamos que tenemos un punto que podemos describir como $(r, \theta)$,
+                donde $r \geq 0$ y $\theta$ medido como radianes.
+
+                Entonces tenemos que:
+
+                \begin{itemize}
+                     \item $a = r \cos(\theta)$
+                     \item $b = r \sin(\theta)$
+                 \end{itemize}
+
+                 Otra forma de escribirlo es $r(\cos(\theta) +ivtt\sin(\theta))$
+
+            % ==============================
+            % ===  RECTANGULAR -> POLAR  ===
+            % ==============================
+            \subsection{De forma Rectangular a forma Polar}
+
+                Supongamos que tenemos un punto que podemos describir como $(a+bi)$,
+                entonces podemos decir que:
+
+                \begin{itemize}
+                    \item $r = \sqrt{a^2+b^2}$
+                    \item $\theta = \begin{cases}
+                                        \tan(\frac{b}{a})^{-1}      \Space &\text{ si } a > 0                   \\
+                                        \tan(\frac{b}{a})^{-1} +\pi \Space &\text{ si } a < 0 \text{ y } b > 0  \\
+                                        \tan(\frac{b}{a})^{-1} -\pi \Space &\text{ si } a < 0 \text{ y } b < 0  \\
+                                    \end{cases}$
+                \end{itemize}
+
+        % ==============================================
+        % ========         ARGUMENTOS          =========
+        % ==============================================
+        \clearpage
+        \section{Argumento de $z$}
+            
+            Definimos al argumento de un número $z = a+bi \in \Complexs$ como $\theta = arg(z)$,
+            es decir, al final del día $arg(z)$ es un ángulo.
+
+            Este ángulo tiene que cumplir las dos siguientes ecuaciones:
+
+            \begin{itemize}
+                \item $\cos(\theta) = \dfrac{x}{\sqrt{a^2+b^2}}$
+                \item $\sin(\theta) = \dfrac{y}{\sqrt{a^2+b^2}}$
+            \end{itemize}
+
+            Pero como $\sin$ y $\cos$ con funciones periodicas con $2\pi$, es decir $arg(z)$ no es único.
+
+            Además para encontrarlo usamos $\tan(\frac{b}{a})^{-1}$ pero resulta que esta función solo
+            regresa ángulos entre $-\frac{\pi}{2}$ y $\frac{\pi}{2}$ por lo tanto habrá problemas con
+            números en el segundo y tercer cuadrante.
+
+            % =================================
+            % ====   ARGUMENTO PRINCIPAL  =====
+            % =================================
+            \subsection*{Argumento Principal}
+
+                Ya que $arg(z)$ es más bien un conjunto de ángulos, podemos considerar al ángulo o 
+                argumento principal de $z$ como $Arg(z)$ y que será el ángulo que cumpla con que:
+
+                \begin{itemize}
+                    \item $\cos(Arg(z)) = \dfrac{x}{\sqrt{a^2+b^2}}$
+                    \item $\sin(Arg(z)) = \dfrac{y}{\sqrt{a^2+b^2}}$
+                    \item $-\frac{\pi}{2} < Arg(z) \leq \frac{\pi}{2}$
+                \end{itemize}
+
+                Podemos probar que $Arg(z)$ para alguna $z$ cualquiera será única.
+
+                Por lo tanto ahora podemos definir a $arg(z)$ como:
+                \begin{equation}
+                    arg(z) = \Set{ Arg(z) + 2n\pi \Such n \in \Integers }
+                \end{equation}
+
+
+
+
+        % ==============================================
+        % =======     LEYES DE ARITMETICA      =========
+        % ==============================================
+        \clearpage
+        \section{Leyes de Aritmetica}
+            
+            Supón dos números complejos de manera polar como $z_1 = (r_1, \theta_1)$ y $z_1 = (r_2, \theta_2)$ 
+            es decir $z_1 = r_1(\cos(\theta_1) + i\sin(\theta_1)$ y $z_2 = r_2(\cos(\theta_2) + i\sin(\theta_2)$
+            entonces tenemos que:
+
+            \begin{itemize}
+                \item
+                    \textbf{Producto de Números Complejos:} \\
+                    $z_1z_2 = [(r_1r_2), (\theta_1 + \theta_2)]$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Esto es muy sencillo, primero ya que tenemos los dos números en forma rectangular
+                        podemos multiplicar como ya sabemos:
+                        \begin{MultiLineEquation*}{2}
+                            z_1 z_2 &= (a_1a_2 - b_1b_2) + (a_1b_2 + b_1a_2)i \\
+                            z_1 z_2 &= r_1r_2[(\cos(\theta_1)\cos(\theta_2) - \sin(\theta_1)\sin(\theta_2)) 
+                                        + (\cos(\theta_1)\sin(\theta_2) + \sin(\theta_1)\cos(\theta_2))i]
+                        \end{MultiLineEquation*}
+
+                        Usando las leyes de senos y cosenos:
+                        \begin{itemize}
+                            \item $cos(a\pm b) = cos(a)cos(b) \mp sen(a)sin(b)$
+                            \item $sin(a\pm b) = sin(a)cos(b) \pm cos(a)sin(b)$
+                        \end{itemize}
+
+                        Podemos reducirlo a:
+                        $z_1 z_2 = r_1r_2 [\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)]$
+                        y creo que de ahí podemos reducirlo casi mentalmente ya que 
+                        $(r, \theta) = r(\cos(\theta) + i \sin(\theta))$
+
+                    \end{SmallIndentation}
+
+                \item
+                    \textbf{División de Números Complejos:} \\
+                    $\frac{z_1}{z_2} = [(\frac{r_1}{r_2}), (\theta_1 - \theta_2)]$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Esto es muy sencillo, primero ya que tenemos los dos números en forma rectangular
+                        podemos dividir como ya sabemos, pero vamos a hacer un poco de trampa ingeniosa,
+                        usamos la idea de que $\dfrac{1}{z} = \dfrac{\overline{z}}{|z|^2}$ y hacer:
+
+                        \begin{MultiLineEquation*}{2}
+                            \frac{z_1}{z_2} &= z_1 \dfrac{\overline{z_2}}{|z_2|^2} 
+                                             = z_1 \dfrac{\overline{z_2}}{(r_2)^2} 
+                                             = \frac{1}{(r_2)^2} z_1 \overline{z_2} 
+                        \end{MultiLineEquation*}
+
+                        \begin{MultiLineEquation*}{2}
+                            \frac{z_1}{z_2} &= \frac{1}{(r_2)^2} (a_1a_2 - b_1b_2) + (a_1b_2 - b_1a_2)i \\
+                            \frac{z_1}{z_2} &= \frac{r_1}{r_2}
+                                                [(\cos(\theta_1)\cos(\theta_2) + \sin(\theta_1)\sin(\theta_2)) 
+                                                + (\cos(\theta_1)\sin(\theta_2) - \sin(\theta_1)\cos(\theta_2))i]
+                        \end{MultiLineEquation*}
+
+                        Usando las leyes de senos y cosenos:
+                        \begin{itemize}
+                            \item $cos(a\pm b) = cos(a)cos(b) \mp sen(a)sin(b)$
+                            \item $sin(a\pm b) = sin(a)cos(b) \pm cos(a)sin(b)$
+                        \end{itemize}
+
+                        Podemos reducirlo a:
+                        $z_1 z_2 = \frac{r_1}{r_2} [\cos(\theta_1 - \theta_2) + i\sin(\theta_1 - \theta_2)]$
+                        y creo que de ahí podemos reducirlo casi mentalmente ya que 
+                        $(r, \theta) = r(\cos(\theta) + i \sin(\theta))$
+
+                    \end{SmallIndentation}
+
+
+            \end{itemize}
 
             
 

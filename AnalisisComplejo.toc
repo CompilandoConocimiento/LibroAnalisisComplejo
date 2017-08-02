@@ -10,3 +10,9 @@
 \contentsline {section}{\numberline {2.4}Conjugados}{8}{section.2.4}
 \contentsline {section}{\numberline {2.5}M\IeC {\'o}dulo o Valor Absoluto}{9}{section.2.5}
 \contentsline {section}{\numberline {2.6}Inverso Multiplicativo}{11}{section.2.6}
+\contentsline {chapter}{\numberline {3}Forma Polar y Argumentos}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}Forma Polar}{13}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}De forma Polar a forma Rectangular}{13}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}De forma Rectangular a forma Polar}{13}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Argumento de $z$}{14}{section.3.2}
+\contentsline {section}{\numberline {3.3}Leyes de Aritmetica}{15}{section.3.3}
