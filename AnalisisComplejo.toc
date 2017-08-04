@@ -16,3 +16,7 @@
 \contentsline {subsection}{\numberline {3.1.2}De forma Rectangular a forma Polar}{13}{subsection.3.1.2}
 \contentsline {section}{\numberline {3.2}Argumento de $z$}{14}{section.3.2}
 \contentsline {section}{\numberline {3.3}Leyes de Aritmetica}{15}{section.3.3}
+\contentsline {section}{\numberline {3.4}Ley de Moivre's}{17}{section.3.4}
+\contentsline {chapter}{\numberline {4}Forma Exponencial}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}F\IeC {\'o}rmula de Euler}{19}{section.4.1}
+\contentsline {section}{\numberline {4.2}Identidad de Lagrange}{20}{section.4.2}

@@ -94,6 +94,7 @@
     \DeclareMathOperator \MiniSpace {\;}                            %Use: \Space for a cool mini space
     \newcommand \Such {\MiniSpace|\MiniSpace}                       %Use: \Such like in sets
     \newcommand \Also {\Space \text{y} \Space}                      %Use: \Also so it's look cool
+    \newcommand \Remember[1]{\Space\text{\scriptsize{#1}}}          %Use: \Remember so it's look cool
 
     \newtheorem{Theorem}{Teorema}[section]                          %Use: \begin{Theorem}[Name]\label{Nombre}...
     \newtheorem{Corollary}{Colorario}[Theorem]                      %Use: \begin{Corollary}[Name]\label{Nombre}...
@@ -102,8 +103,8 @@
 
     \newcommand{\Set}[1]{\left\{ \MiniSpace #1 \MiniSpace \right\}} %Use: \Set {Info}
     \newcommand{\Brackets}[1]{\left[ #1 \right]}                    %Use: \Brackets {Info} 
-    \newcommand{\Parentheses}[1]{\left( #1 \right)}                 %Use: \Parentheses {Info} 
-    \newcommand{\pfrac}[2]{\Parentheses{\dfrac{#1}{#2}}}            %Use: Put fractions in parentesis
+    \newcommand{\Wrap}[1]{\left( #1 \right)}                        %Use: \Wrap {Info} 
+    \newcommand{\pfrac}[2]{\Wrap{\dfrac{#1}{#2}}}                   %Use: Put fractions in parentesis
 
     \newenvironment{MultiLineEquation}[1]                           %Use: To create MultiLine equations
         {\begin{equation}\begin{alignedat}{#1}}                     %Use: \begin{Multi..}{Num. de Columnas}
@@ -152,8 +153,9 @@
     }                                                               %WTF! IS THIS
     \makeatother                                                    %WTF! IS THIS
 
-
-
+    % TRIGONOMETRIC FUNCTIONS
+    \newcommand{\Cos}[1]{\cos\Wrap{#1}}
+    \newcommand{\Sin}[1]{\sin\Wrap{#1}}
 
 
 % =====================================================
@@ -655,11 +657,11 @@
                 Entonces tenemos que:
 
                 \begin{itemize}
-                     \item $a = r \cos(\theta)$
-                     \item $b = r \sin(\theta)$
+                     \item $a = r \Cos{\theta}$
+                     \item $b = r \Sin{\theta}$
                  \end{itemize}
 
-                 Otra forma de escribirlo es $r(\cos(\theta) +ivtt\sin(\theta))$
+                 Otra forma de escribirlo es $r(\Cos{\theta} + i\Sin{\theta})$
 
             % ==============================
             % ===  RECTANGULAR -> POLAR  ===
@@ -690,8 +692,8 @@
             Este ángulo tiene que cumplir las dos siguientes ecuaciones:
 
             \begin{itemize}
-                \item $\cos(\theta) = \dfrac{x}{\sqrt{a^2+b^2}}$
-                \item $\sin(\theta) = \dfrac{y}{\sqrt{a^2+b^2}}$
+                \item $\Cos{\theta} = \dfrac{x}{\sqrt{a^2+b^2}}$
+                \item $\Sin{\theta}   = \dfrac{y}{\sqrt{a^2+b^2}}$
             \end{itemize}
 
             Pero como $\sin$ y $\cos$ con funciones periodicas con $2\pi$, es decir $arg(z)$ no es único.
@@ -709,8 +711,8 @@
                 argumento principal de $z$ como $Arg(z)$ y que será el ángulo que cumpla con que:
 
                 \begin{itemize}
-                    \item $\cos(Arg(z)) = \dfrac{x}{\sqrt{a^2+b^2}}$
-                    \item $\sin(Arg(z)) = \dfrac{y}{\sqrt{a^2+b^2}}$
+                    \item $\Cos{Arg(z)} = \dfrac{x}{\sqrt{a^2+b^2}}$
+                    \item $\Sin{Arg(z)}   = \dfrac{y}{\sqrt{a^2+b^2}}$
                     \item $-\frac{\pi}{2} < Arg(z) \leq \frac{\pi}{2}$
                 \end{itemize}
 
@@ -722,8 +724,6 @@
                 \end{equation}
 
 
-
-
         % ==============================================
         % =======     LEYES DE ARITMETICA      =========
         % ==============================================
@@ -731,8 +731,8 @@
         \section{Leyes de Aritmetica}
             
             Supón dos números complejos de manera polar como $z_1 = (r_1, \theta_1)$ y $z_1 = (r_2, \theta_2)$ 
-            es decir $z_1 = r_1(\cos(\theta_1) + i\sin(\theta_1)$ y $z_2 = r_2(\cos(\theta_2) + i\sin(\theta_2)$
-            entonces tenemos que:
+            es decir $z_1 = r_1(\Cos{\theta_1} + i\Sin{\theta_1}$ y
+            $z_2 = r_2(\Cos{\theta_2} + i\Sin{\theta_2}$ entonces tenemos que:
 
             \begin{itemize}
                 \item
@@ -747,20 +747,20 @@
                         podemos multiplicar como ya sabemos:
                         \begin{MultiLineEquation*}{2}
                             z_1 z_2 &= (a_1a_2 - b_1b_2) + (a_1b_2 + b_1a_2)i \\
-                            z_1 z_2 &= r_1r_2[(\cos(\theta_1)\cos(\theta_2) - \sin(\theta_1)\sin(\theta_2)) 
-                                        + (\cos(\theta_1)\sin(\theta_2) + \sin(\theta_1)\cos(\theta_2))i]
+                            z_1 z_2 &= r_1r_2[(\Cos{\theta_1}\Cos{\theta_2} - \Sin{\theta_1}\Sin{\theta_2}) 
+                                        + (\Cos{\theta_1}\Sin{\theta_2} + \Sin{\theta_1}\Cos{\theta_2})i]
                         \end{MultiLineEquation*}
 
                         Usando las leyes de senos y cosenos:
                         \begin{itemize}
-                            \item $cos(a\pm b) = cos(a)cos(b) \mp sen(a)sin(b)$
-                            \item $sin(a\pm b) = sin(a)cos(b) \pm cos(a)sin(b)$
+                            \item $Cos{a\pm b} = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
+                            \item $Sin{a\pm b} = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
                         \end{itemize}
 
                         Podemos reducirlo a:
-                        $z_1 z_2 = r_1r_2 [\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)]$
+                        $z_1 z_2 = r_1r_2 [\Cos{\theta_1 + \theta_2} + i\Sin{\theta_1 + \theta_2}]$
                         y creo que de ahí podemos reducirlo casi mentalmente ya que 
-                        $(r, \theta) = r(\cos(\theta) + i \sin(\theta))$
+                        $(r, \theta) = r(\Cos{\theta} + i \Sin{\theta})$
 
                     \end{SmallIndentation}
 
@@ -778,32 +778,197 @@
 
                         \begin{MultiLineEquation*}{2}
                             \frac{z_1}{z_2} &= z_1 \dfrac{\overline{z_2}}{|z_2|^2} 
-                                             = z_1 \dfrac{\overline{z_2}}{(r_2)^2} 
-                                             = \frac{1}{(r_2)^2} z_1 \overline{z_2} 
-                        \end{MultiLineEquation*}
-
-                        \begin{MultiLineEquation*}{2}
-                            \frac{z_1}{z_2} &= \frac{1}{(r_2)^2} (a_1a_2 - b_1b_2) + (a_1b_2 - b_1a_2)i \\
-                            \frac{z_1}{z_2} &= \frac{r_1}{r_2}
-                                                [(\cos(\theta_1)\cos(\theta_2) + \sin(\theta_1)\sin(\theta_2)) 
-                                                + (\cos(\theta_1)\sin(\theta_2) - \sin(\theta_1)\cos(\theta_2))i]
+                                             = z_1 \dfrac{\overline{z_2}}{(r_2)^2}                          \\
+                                            &= \frac{1}{(r_2)^2} z_1 \overline{z_2} 
+                                             = \frac{1}{(r_2)^2} (a_1 + ib_1) (a_2 - ib_2)                  \\
+                                            &= \frac{1}{(r_2)^2} (a_1a_2 - b_1b_2) + (a_1b_2 - b_1a_2)i     \\
+                                            &= \frac{r_1}{r_2}
+                                                [(\Cos{\theta_1}\Cos{\theta_2} +  \Sin{\theta_1}\Sin{\theta_2}) 
+                                                + (\Cos{\theta_1}\Sin{\theta_2} - \Sin{\theta_1}\Cos{\theta_2})i]
                         \end{MultiLineEquation*}
 
                         Usando las leyes de senos y cosenos:
                         \begin{itemize}
-                            \item $cos(a\pm b) = cos(a)cos(b) \mp sen(a)sin(b)$
-                            \item $sin(a\pm b) = sin(a)cos(b) \pm cos(a)sin(b)$
+                            \item $Cos{a\pm b} = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
+                            \item $Sin{a\pm b} = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
                         \end{itemize}
 
                         Podemos reducirlo a:
-                        $z_1 z_2 = \frac{r_1}{r_2} [\cos(\theta_1 - \theta_2) + i\sin(\theta_1 - \theta_2)]$
+                        $z_1 z_2 = \frac{r_1}{r_2} [\Cos{\theta_1 - \theta_2} + i\Sin{\theta_1 - \theta_2}]$
                         y creo que de ahí podemos reducirlo casi mentalmente ya que 
-                        $(r, \theta) = r(\cos(\theta) + i \sin(\theta))$
+                        $(r, \theta) = r(\Cos{\theta} + i \Sin{\theta})$
 
                     \end{SmallIndentation}
 
 
+            \clearpage
+            \item
+                \textbf{Potencias de $z$:} \\
+                    
+                    $z^n = [(r^n), (n \cdot \theta)]$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        No considero a esto una demostración, pero si te das cuenta usando
+                        $z^2 = [(r^2), (\theta + \theta)]$.
+
+                        Y cosas como $z^{-2} = [(r^{-2}), (-\theta -\theta)]$
+                        
+                    \end{SmallIndentation}
+
             \end{itemize}
+
+
+        % ==============================================
+        % ========         LEYES               =========
+        % ==============================================
+        \clearpage
+        \section{Ley de Moivre's}
+
+            $(\Cos{\theta}+i\Sin{\theta})^n = \Cos{n \cdot \theta} + i \Sin{n \cdot \theta}$
+            
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Demostración}:
+
+                Supongamos que tenemos un número donde $|z|=1$ entonces $z= \Cos{\theta}+i\Sin{\theta}$
+                y al preguntar por $z^n = $ tenemos que:
+
+                $(\Cos{\theta}+i\Sin{\theta})^n = \Cos{n \cdot \theta} + i \Sin{n \cdot \theta}$
+                
+            \end{SmallIndentation}
+
+
+
+    % ===============================================================================
+    % ===================         FORMA EXPONENCIAL             =====================
+    % ===============================================================================
+    \chapter{Forma Exponencial}
+
+
+
+        % ==============================================
+        % =====      FORMULAR DE EULER             =====
+        % ==============================================
+        \clearpage
+        \section{Fórmula de Euler}  
+
+            \begin{equation}
+                e^{i\theta} = \Cos{\theta} + i\Sin{\theta}
+            \end{equation}
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Ideas}:
+
+                Esta formula sale de una serie infinita:
+                $e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots$
+
+                Pasa algo muy interesante al poner $k=i\theta$:
+                \begin{MultiLineEquation*}{2}
+                    e^{i\theta} &= 
+                                \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots}
+                                +
+                                i\Wrap{\theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots} \\
+                                &= \Cos{\theta} + i\Sin{\theta}
+                \end{MultiLineEquation*}
+
+            \end{SmallIndentation}
+
+        
+
+
+        % ==============================================
+        % =====     IDENTIDAD DE LAGRANGE          =====
+        % ==============================================
+        \clearpage
+        \section{Identidad de Lagrange}
+
+            \begin{equation}
+                1+\Cos{1\theta}+\Cos{2\theta}+\cdots+\Cos{n\theta}  = 
+                    \dfrac{1}{2} \Wrap{\dfrac{\Sin{(n+\frac{1}{2})\theta}}{\Sin{\dfrac{\theta}{2}}}+1}
+            \end{equation}
+                
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Ideas}:
+
+                \begin{MultiLineEquation*}{3}
+                    \sum_{k=0}^{n} \Cos{k\theta} 
+                        &= \dfrac{1}{2} \sum_{k=0}^{n}\Wrap{e^{ik\theta}+e^{-ik\theta}}
+                        &&  \Remember{Recuerda que: $\Cos{x} = \dfrac{e^{ik\theta}+e^{-ik\theta}}{2}$}   \\
+                        &= \dfrac{1}{2} \Wrap{
+                                            \dfrac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}   +
+                                            \dfrac{e^{(n+1)-i\theta} - 1}{e^{-i\theta} - 1} }
+                        &&  \Remember{Recuerda que: $\sum_{k=0}^n r^k = \dfrac{r^{n+1}-1}{r-1}$}        \\
+                        &= \dfrac{1}{2} \Wrap{
+                                            \dfrac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}
+                                                \pfrac{e^{-i\frac{\theta}{2}}}{e^{-i\frac{\theta}{2}}}
+                                            +
+                                            \dfrac{e^{(n+1)-i\theta} - 1}{e^{-i\theta} - 1}
+                                                \pfrac{-e^{i\frac{\theta}{2}}}{-e^{i\frac{\theta}{2}}}
+                                        }
+                        &&  \Remember{Multiplica por Uno ;)}                                            \\
+                        &= \dfrac{1}{2} \Wrap{
+                                            \dfrac{e^{(n+\frac{1}{2})i\theta} - e^{i\frac{\theta}{2}}}
+                                                  {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
+                                            +
+                                            \dfrac{e^{i\frac{\theta}{2}} - e^{(n+\frac{1}{2})-i\theta}}
+                                                  {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
+                                        }
+                        &&  \Remember{Expande}                                                          \\
+                        &= \dfrac{1}{2} \Wrap{
+                                            \dfrac{e^{(n+\frac{1}{2})i\theta} - e^{(n+\frac{1}{2})-i\theta}}
+                                                  {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
+                                            +
+                                            \dfrac{e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
+                                                  {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
+                                        }
+                        &&  \Remember{Organizando, gracias denominador común}                           \\
+                        &= \dfrac{1}{2} \Wrap{
+                                            \dfrac{e^{(n+\frac{1}{2})i\theta} - e^{(n+\frac{1}{2})-i\theta}}
+                                                  {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
+                                            +
+                                            1
+                                        }
+                        &&  \Remember{Simplificar}                                                      \\
+                        &= \dfrac{1}{2} \Wrap{
+                                            \dfrac{
+                                                \dfrac{
+                                                        e^{(n+\frac{1}{2})i\theta}
+                                                           - 
+                                                        e^{(n+\frac{1}{2})-i\theta}
+                                                      }
+                                                      {2i}
+                                            }
+                                            {\dfrac{e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}{2i}}
+                                            +
+                                            1
+                                        }
+                        &&  \Remember{Añadimos esto}                                                    \\
+                        &= \dfrac{1}{2} \Wrap{
+                                            \dfrac{\Sin{(n+\frac{1}{2})\theta}}
+                                            {\Sin{\dfrac{\theta}{2}}}
+                                            +
+                                            1
+                                        }
+                        &&  \Remember{Recuerda que $\Sin{x} = \dfrac{e^{ix} - e^{-ix}}{2i}$}            \\
+                \end{MultiLineEquation*}
+
+            \end{SmallIndentation}
+
+
+        
+
+
+
+            
+
+
+            
+
 
             
 
