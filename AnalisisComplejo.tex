@@ -1,5 +1,5 @@
 % ****************************************************************************************
-% ************************      ALGEBRA LINEAL BASICA         ****************************
+% ************************      ANALISIS COMPLEJO             ****************************
 % ****************************************************************************************
 
 
@@ -156,6 +156,11 @@
     % TRIGONOMETRIC FUNCTIONS
     \newcommand{\Cos}[1]{\cos\Wrap{#1}}
     \newcommand{\Sin}[1]{\sin\Wrap{#1}}
+
+    % === COMPLEX ANALYSIS ===
+    \newcommand \Cis[1]  {\Cos{#1} + i \Sin{#1}}                    %Use: \Cis for cos(x) + i sin(x)
+    \newcommand \pCis[1] {\Wrap{\Cis{#1}}}                          %Use: \pCis for the same ut parantesis
+
 
 
 % =====================================================
@@ -630,6 +635,81 @@
 
 
 
+        % ==============================================
+        % ========      RAICES DE UN NUMERO N     ======
+        % ==============================================
+        \clearpage
+        \section{n-Raíces de un Numero $z$}
+
+            En general decir que un número $w$ es un raíz enesíma de un número complejo $z$ (siempre
+            que $z \neq 0$) si cumpla que:
+            \begin{equation}
+                w^n = z
+            \end{equation}
+            Donde obviamente $n \in \Integers^+$.
+
+
+            \begin{Theorem}{Existen exactamente $n$ raíces para $w^n = z$}
+
+                Y puedes encontrar las $n$ raíces variando $k$ de 0 a $n$:
+                \begin{equation}
+                    w_k = n\sqrt{r} \Cis{\dfrac{\theta + (2\pi) k}{n}}
+                \end{equation}
+
+                % ======== DEMOSTRACION ========s
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Tengamos dos números:
+                        \begin{itemize}
+                            \item $z = r\pCis{\theta}$
+                            \item $w = p\pCis{\phi}$
+                        \end{itemize}
+
+                        Entonces de la ecuación:
+                        \begin{MultiLineEquation*}{3}
+                            w^n &= z  \\ 
+                            \Brackets{p\pCis{\phi}}^n &= r\pCis{\theta}
+                                &&  \Remember{Simplemente sustituimos}                              \\
+                        \end{MultiLineEquation*}
+
+                        Tenemos que:
+                        \begin{itemize}
+                            \item $p^n = r$\\
+                                
+                                Por lo tanto podemos definir a $p = \sqrt{n}$ donde $\sqrt{n}$
+                                es la única raíz positiva de un número $r \in \Reals$.
+
+                            \item $\Cis{\theta}^n = \Cis{\phi}$\\
+
+                                Gracias por $\Cis{n \theta} = \Cis{\phi}$
+                                Por lo tanto podemos decir que:
+                                \begin{itemize}
+                                    \item $\Cos{n \theta} = \Cos{\phi}$
+                                    \item $\Sin{n \theta} = \Sin{\phi}$
+                                \end{itemize}
+
+                                Por $\phi = \dfrac{\theta + 2(n + m) \pi}{n} = \dfrac{\theta + 2mn\pi}{n} + 2\pi$
+                                y por lo tanto tener que:
+                                \begin{itemize}
+                                    \item $\Sin{\phi} = \Sin{\dfrac{\theta + (2\pi) k}{n}}$
+                                    \item $\Cos{\phi} = \Cos{\dfrac{\theta + (2\pi) k}{n}}$
+                                \end{itemize}
+
+                        \end{itemize}
+
+
+                        Por lo tanto podemos generalizar los resultados como:
+                        \begin{equation}
+                            w_k = n\sqrt{r} \Cis{\dfrac{\theta + (2\pi) k}{n}}
+                        \end{equation}
+
+
+                    \end{SmallIndentation}
+            \end{Theorem}
+
+
+
     % ===============================================================================
     % ===================              FORMA POLAR             ======================
     % ===============================================================================
@@ -846,7 +926,6 @@
     % ===================         FORMA EXPONENCIAL             =====================
     % ===============================================================================
     \chapter{Forma Exponencial}
-
 
 
         % ==============================================
