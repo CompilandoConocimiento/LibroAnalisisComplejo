@@ -17,8 +17,9 @@
 \contentsline {subsection}{\numberline {3.1.2}De forma Rectangular a forma Polar}{15}{subsection.3.1.2}
 \contentsline {section}{\numberline {3.2}Argumento de $z$}{16}{section.3.2}
 \contentsline {section}{\numberline {3.3}Leyes de Aritmetica}{17}{section.3.3}
-\contentsline {section}{\numberline {3.4}Ley de Moivre's}{18}{section.3.4}
-\contentsline {chapter}{\numberline {4}Forma Exponencial}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}F\IeC {\'o}rmula de Euler}{20}{section.4.1}
-\contentsline {section}{\numberline {4.2}Identidad de Lagrange}{21}{section.4.2}
-\contentsline {chapter}{\numberline {5}Funciones complejas}{22}{chapter.5}
+\contentsline {section}{\numberline {3.4}Ley de Moivre's}{19}{section.3.4}
+\contentsline {chapter}{\numberline {4}Forma Exponencial}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}F\IeC {\'o}rmula de Euler}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Identidad de Lagrange}{22}{section.4.2}
+\contentsline {part}{II\hspace {1em}Funciones Complejas}{23}{part.2}
+\contentsline {chapter}{\numberline {5}Funciones Complejas}{24}{chapter.5}
