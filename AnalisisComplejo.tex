@@ -184,8 +184,9 @@
 	
 	% ============  MY INFORMATION  =================
 	\begin{center} \large
-	\textbf{\textsc{Autor:}}\\
-	Rosas Hernandez Oscar Andrés
+	\textbf{\textsc{Autores:}}\\
+	Rosas Hernandez Oscar Andrés \\
+	Lopez Manriquez Angel
 	\end{center}
 
 	\vfill
@@ -232,8 +233,8 @@
             \end{Definition}
 
 
-            Podemos usar la notación $a+bi$ y $a+ib$ de manera intercambiable (pero personalmente 
-            la primera se me hace la más cool).
+            Podemos usar la notación $a+bi$, $a+ib$ y $(a, b)$ de manera intercambiable (pero personalmente 
+            la primera se me hace la más cool pero la ultima mas concreta).
 
 
         % ==============================================
@@ -243,14 +244,14 @@
 
             \begin{itemize}
                 \item \textbf{Unidad Imaginaria:}
-                    Usamos el símbolo $i$ para simplificar $i = \sqrt{-1}$, de ahí una propiedad
-                    muy famosa de que $i^2 = -1$.
+                    Usamos el símbolo $i$ para simplificar $i = \sqrt{-1}$, de ahí la propiedad
+                    famosa $i^2 = -1$.
 
                 \item \textbf{Parte Real:}
-                    Considere el número $z = a+bi \in \Complexs$, entonces decimos que $Re(z) = a$
+                    Considere el complejo $z = a+bi \in \Complexs$, entonces decimos que $Re(z) = a$
 
                 \item \textbf{Parte Imaginaria:}
-                    Considere el número $z = a+bi \in \Complexs$, entonces decimos que $Im(z) = b$
+                    Considere el complejo $z = a+bi \in \Complexs$, entonces decimos que $Im(z) = b$
             \end{itemize}
 
 
@@ -301,10 +302,9 @@
                     \begin{Definition}[División de Complejos]
                     \label{DivisionComplejos}
                     \ForceNewLine
-                        Vamos a necesitar además que $z_2 \neq 0$ (muy obvio)
                         \begin{MultiLineEquation}{1}
                             \dfrac{z_1}{z_2}    &= \dfrac{a_1+b_1i}{a_2+b_2i} 
-                                                &= \dfrac{(a_1a_2+b_1b_2)-(a_1b_2-a_2b_1)i}{(a_2)^2+(b_2)^2}
+                                                &= \dfrac{(a_1a_2+b_1b_2)-(a_1b_2-a_2b_1)i}{(a_2)^2+(b_2)^2} \Space z_2 \neq 0
                         \end{MultiLineEquation}
 
                     \end{Definition}
@@ -401,7 +401,7 @@
 
                 \end{itemize}
 
-
+v
         % ==============================================
         % ========      CERO Y LA IDENTIDAD    =========
         % ==============================================
@@ -426,15 +426,11 @@
             \begin{itemize}
                 \item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
                 
-                \item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
+                \item $\overline{\Pi_{j = 1}^n {z_j}} = \prod_{j = 1} ^ n \overline{z_j} $
                 
                 \item $\overline{\overline{z}} = z$
-
-                \item $z + \overline{z} = (a + ib) + (a - ib) = 2a$
-
-                \item $z - \overline{z} = (a + ib) - (a - ib) = 2bi$
                 
-                \item $z \cdot \overline{z} = (a+ib)(a-ib) = a^2 + b^2$
+                \item $z \cdot \overline{z} = (a+ib)(a-ib) = a^2 + b^2 = |z| ^ 2$
 
                 \item $Re(z) = \dfrac{z+\overline{z}}{2}$
 
@@ -833,8 +829,8 @@
 
                         Usando las leyes de senos y cosenos:
                         \begin{itemize}
-                            \item $Cos{a\pm b} = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
-                            \item $Sin{a\pm b} = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
+                            \item $\cos(a\pm b) = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
+                            \item $\sin(a\pm b) = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
                         \end{itemize}
 
                         Podemos reducirlo a:
@@ -869,8 +865,8 @@
 
                         Usando las leyes de senos y cosenos:
                         \begin{itemize}
-                            \item $Cos{a\pm b} = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
-                            \item $Sin{a\pm b} = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
+                            \item $\cos(a\pm b) = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
+                            \item $\sin(a\pm b) = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
                         \end{itemize}
 
                         Podemos reducirlo a:
@@ -882,21 +878,7 @@
 
 
             \clearpage
-            \item
-                \textbf{Potencias de $z$:} \\
-                    
-                    $z^n = [(r^n), (n \cdot \theta)]$
-
-                    % ======== DEMOSTRACION ========
-                    \begin{SmallIndentation}[1em]
-                        \textbf{Demostración}:
-
-                        No considero a esto una demostración, pero si te das cuenta usando
-                        $z^2 = [(r^2), (\theta + \theta)]$.
-
-                        Y cosas como $z^{-2} = [(r^{-2}), (-\theta -\theta)]$
-                        
-                    \end{SmallIndentation}
+            
 
             \end{itemize}
 
@@ -907,17 +889,18 @@
         \clearpage
         \section{Ley de Moivre's}
 
-            $(\Cos{\theta}+i\Sin{\theta})^n = \Cos{n \cdot \theta} + i \Sin{n \cdot \theta}$
+            $z ^ n = r ^ n (\cos (n\theta) + i\sin (n\theta)), \quad \text{donde } n\in \mathbb Z$
             
             % ======== DEMOSTRACION ========
             \begin{SmallIndentation}[1em]
                 \textbf{Demostración}:
 
-                Supongamos que tenemos un número donde $|z|=1$ entonces $z= \Cos{\theta}+i\Sin{\theta}$
-                y al preguntar por $z^n = $ tenemos que:
+                Se puede dar una demostracion muy sencilla, no se porque los libros usan induccion matematica para demostrar el teorema de Moivre... en fin, expresando a $z$ en su forma polar y usando la formula de Euler, tenemos: 
 
-                $(\Cos{\theta}+i\Sin{\theta})^n = \Cos{n \cdot \theta} + i \Sin{n \cdot \theta}$
-                
+                \begin{align}  %  Si se le pone * no se enumeran las ecuaciones
+				  z ^ n &= (r(\cos (\theta) + i \sin (\theta)) ^ n = r ^ n(\cos (\theta) + i \sin (\theta)) ^ n   \\
+				  		&= r ^ n e ^ {n\theta i} = r ^ n(\cos (n\theta) + i \sin (n\theta)) 	\\ 
+				\end{align}
             \end{SmallIndentation}
 
 
@@ -934,18 +917,16 @@
         \clearpage
         \section{Fórmula de Euler}  
 
-            \begin{equation}
-                e^{i\theta} = \Cos{\theta} + i\Sin{\theta}
-            \end{equation}
+            \[ e^{i\theta} = \Cos{\theta} + i\Sin{\theta} \]
 
             % ======== DEMOSTRACION ========
             \begin{SmallIndentation}[1em]
-                \textbf{Ideas}:
+      
+                Esta formula sale de a partir de la serie de McLaurin para la funcion exponencial
 
-                Esta formula sale de una serie infinita:
-                $e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots$
+                \[e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots\]
 
-                Pasa algo muy interesante al poner $k=i\theta$:
+                Pasa algo muy interesante al hacer $k=i\theta$, pues vemos que se hayan las series de McLaurin del seno y coseno:
                 \begin{MultiLineEquation*}{2}
                     e^{i\theta} &= 
                                 \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots}
@@ -972,8 +953,7 @@
                 
             % ======== DEMOSTRACION ========
             \begin{SmallIndentation}[1em]
-                \textbf{Ideas}:
-
+              
                 \begin{MultiLineEquation*}{3}
                     \sum_{k=0}^{n} \Cos{k\theta} 
                         &= \dfrac{1}{2} \sum_{k=0}^{n}\Wrap{e^{ik\theta}+e^{-ik\theta}}
@@ -981,7 +961,7 @@
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}   +
                                             \dfrac{e^{(n+1)-i\theta} - 1}{e^{-i\theta} - 1} }
-                        &&  \Remember{Recuerda que: $\sum_{k=0}^n r^k = \dfrac{r^{n+1}-1}{r-1}$}        \\
+                        &&  \Remember{Recuerda que: $\sum_{k=0}^n r^k = \dfrac{r^{n+1}-1}{r-1}  \iff |r| < 1$}        \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}
                                                 \pfrac{e^{-i\frac{\theta}{2}}}{e^{-i\frac{\theta}{2}}}
@@ -1039,13 +1019,14 @@
             \end{SmallIndentation}
 
 
-        
+	\chapter{Funciones complejas}
+        \clearpage
+
+        Cualquier funcion compleja $w = f(z)$ puede ser representada como $f(z) = u(x, y) + iv(x, y)$ donde $x, y \in \Reals $
 
 
 
-            
-
-
+      
             
 
 
