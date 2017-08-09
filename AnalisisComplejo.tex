@@ -401,7 +401,7 @@
 
                 \end{itemize}
 
-v
+
         % ==============================================
         % ========      CERO Y LA IDENTIDAD    =========
         % ==============================================
@@ -426,6 +426,8 @@ v
             \begin{itemize}
                 \item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
                 
+                \item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
+
                 \item $\overline{\Pi_{j = 1}^n {z_j}} = \prod_{j = 1} ^ n \overline{z_j} $
                 
                 \item $\overline{\overline{z}} = z$
@@ -436,6 +438,7 @@ v
 
                 \item $Im(z) = \dfrac{z-\overline{z}}{2i}$
             \end{itemize}
+
 
 
         % ==============================================
@@ -829,8 +832,8 @@ v
 
                         Usando las leyes de senos y cosenos:
                         \begin{itemize}
-                            \item $\cos(a\pm b) = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
-                            \item $\sin(a\pm b) = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
+                            \item $\Cos{a\pm b} = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
+                            \item $\Sin{a\pm b} = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
                         \end{itemize}
 
                         Podemos reducirlo a:
@@ -865,8 +868,8 @@ v
 
                         Usando las leyes de senos y cosenos:
                         \begin{itemize}
-                            \item $\cos(a\pm b) = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
-                            \item $\sin(a\pm b) = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
+                            \item $\Cos{a\pm b} = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
+                            \item $\Sin{a\pm b} = \Sin{a}\Cos{b} \pm \Cos{a}\Sin{b}$
                         \end{itemize}
 
                         Podemos reducirlo a:
@@ -874,6 +877,23 @@ v
                         y creo que de ahí podemos reducirlo casi mentalmente ya que 
                         $(r, \theta) = r(\Cos{\theta} + i \Sin{\theta})$
 
+                    \end{SmallIndentation}
+
+
+                \item
+                    \textbf{Simplificar Potencias de $z$:} \\
+                    
+                    $z^n = [(r^n), (n \cdot \theta)]$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Ideas}:
+
+                         No considero a esto una demostración, pero si te das cuenta usando
+                         $z^2 = [(r^2), (\theta + \theta)]$.
+ 
+                         Y cosas como $z^{-2} = [(r^{-2}), (-\theta -\theta)]$
+                         
                     \end{SmallIndentation}
 
 
@@ -889,19 +909,22 @@ v
         \clearpage
         \section{Ley de Moivre's}
 
-            $z ^ n = r ^ n (\cos (n\theta) + i\sin (n\theta)), \quad \text{donde } n\in \mathbb Z$
+            $z^n = r^n \Wrap{\Cis{n \cdot \theta} \Space \text{donde } n \in \Integers$
             
             % ======== DEMOSTRACION ========
             \begin{SmallIndentation}[1em]
                 \textbf{Demostración}:
 
-                Se puede dar una demostracion muy sencilla, no se porque los libros usan induccion matematica para demostrar el teorema de Moivre... en fin, expresando a $z$ en su forma polar y usando la formula de Euler, tenemos: 
+                Se puede dar una demostracion muy sencilla, no se porque los libros usan induccion matematica para
+                demostrar el teorema de Moivre... en fin, expresando a $z$ en su forma polar y usando la formula de Euler, tenemos: 
 
-                \begin{align}  %  Si se le pone * no se enumeran las ecuaciones
-				  z ^ n &= (r(\cos (\theta) + i \sin (\theta)) ^ n = r ^ n(\cos (\theta) + i \sin (\theta)) ^ n   \\
-				  		&= r ^ n e ^ {n\theta i} = r ^ n(\cos (n\theta) + i \sin (n\theta)) 	\\ 
+                \begin{MultiLineEquation}{2}
+				  z ^ n &= \Wrap{r \Cis{\theta}}^n              \\
+                        &= r^n \Wrap{\Cis{\theta}^n             \\
+				  		&= r^n e^{n\theta i}                    \\
+                        &= r^n \Wrap{\Cis{n \cdot \theta}	    \\ 
 				\end{align}
-            \end{SmallIndentation}
+            \end{MultiLineEquation}
 
 
 
@@ -926,7 +949,9 @@ v
 
                 \[e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots\]
 
-                Pasa algo muy interesante al hacer $k=i\theta$, pues vemos que se hayan las series de McLaurin del seno y coseno:
+                Pasa algo muy interesante al hacer $k = i\theta$, pues vemos que se hayan las series de
+                McLaurin del seno y coseno:
+
                 \begin{MultiLineEquation*}{2}
                     e^{i\theta} &= 
                                 \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots}
@@ -1019,15 +1044,23 @@ v
             \end{SmallIndentation}
 
 
-	\chapter{Funciones complejas}
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% ///////////////////////////////////         NUMEROS COMPLEJOS       //////////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Funciones Complejas}
+\clearpage
+
+    % ===============================================================================
+    % ===================        DEFINICIONES Y BASES            ====================
+    % ===============================================================================
+	\chapter{Funciones Complejas}
         \clearpage
 
-        Cualquier funcion compleja $w = f(z)$ puede ser representada como $f(z) = u(x, y) + iv(x, y)$ donde $x, y \in \Reals $
+        Cualquier función compleja $w = f(z)$ puede ser representada como $f(z) = u(x, y) + iv(x, y)$ donde $x, y \in \Reals$
 
-
-
-      
-            
 
 
             
