@@ -940,24 +940,25 @@
         \clearpage
         \section{Fórmula de Euler}  
 
-            \[ e^{i\theta} = \Cos{\theta} + i\Sin{\theta} \]
+            Podemos también expresar un número complejo de la siguiente manera:
+            \begin{equation}
+                e^{i\theta} = \Cos{\theta} + i\Sin{\theta}
+            \end{equation}
 
             % ======== DEMOSTRACION ========
             \begin{SmallIndentation}[1em]
       
                 Esta formula sale de a partir de la serie de McLaurin para la funcion exponencial
-
                 \[e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots\]
 
                 Pasa algo muy interesante al hacer $k = i\theta$, pues vemos que se hayan las series de
                 McLaurin del seno y coseno:
-
-                \begin{MultiLineEquation*}{2}
+                \begin{MultiLineEquation*}{3}
                     e^{i\theta} &= 
                                 \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots}
-                                +
+                                &&+
                                 i\Wrap{\theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots} \\
-                                &= \Cos{\theta} + i\Sin{\theta}
+                                &= \Cos{\theta} &&+ i\Sin{\theta}
                 \end{MultiLineEquation*}
 
             \end{SmallIndentation}
