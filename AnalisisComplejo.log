@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  10 AUG 2017 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  13 AUG 2017 15:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1149,20 +1149,20 @@ LaTeX Info: Redefining \% on input line 23.
 )
 \openout1 = `AnalisisComplejo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1199,7 +1199,7 @@ LaTeX Font Info:    ... okay on input line 169.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box84
-Package hyperref Info: Link coloring OFF on input line 169.
+Package hyperref Info: Link coloring OFF on input line 170.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1208,16 +1208,16 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count276
 )
-LaTeX Info: Redefining \ref on input line 169.
-LaTeX Info: Redefining \pageref on input line 169.
-LaTeX Info: Redefining \nameref on input line 169.
+LaTeX Info: Redefining \ref on input line 170.
+LaTeX Info: Redefining \pageref on input line 170.
+LaTeX Info: Redefining \nameref on input line 170.
 
 (./AnalisisComplejo.out) (./AnalisisComplejo.out)
 \@outlinefile=\write3
 \openout3 = `AnalisisComplejo.out'.
 
-LaTeX Info: Redefining \. on input line 169.
-LaTeX Info: Redefining \% on input line 169.
+LaTeX Info: Redefining \. on input line 170.
+LaTeX Info: Redefining \% on input line 170.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1273,17 +1273,17 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 ...pace {1em}Funciones Complejas}{23}{part.2}
+l.24 ....2}Identidad de Lagrange}{23}{section.4.2}
                                                    [1
 
 ])
 \tf@toc=\write4
 \openout4 = `AnalisisComplejo.toc'.
 
-LaTeX Info: Redefining \. on input line 202.
-LaTeX Info: Redefining \% on input line 202.
-LaTeX Info: Redefining \. on input line 202.
-LaTeX Info: Redefining \% on input line 202.
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
  [2] [3
 
 
@@ -1294,11 +1294,11 @@ Cap\'{\i }tulo 1.
 
 ]
 Package hyperref Info: bookmark level for unknown Definition defaults to 0 on i
-nput line 225.
-LaTeX Info: Redefining \. on input line 262.
-LaTeX Info: Redefining \% on input line 262.
-LaTeX Info: Redefining \. on input line 262.
-LaTeX Info: Redefining \% on input line 262.
+nput line 226.
+LaTeX Info: Redefining \. on input line 263.
+LaTeX Info: Redefining \% on input line 263.
+LaTeX Info: Redefining \. on input line 263.
+LaTeX Info: Redefining \% on input line 263.
  [5
 
 ]
@@ -1306,81 +1306,52 @@ Cap\'{\i }tulo 2.
 [6
 
 ]
-LaTeX Info: Redefining \. on input line 318.
-LaTeX Info: Redefining \% on input line 318.
-LaTeX Info: Redefining \. on input line 318.
-LaTeX Info: Redefining \% on input line 318.
+LaTeX Info: Redefining \. on input line 333.
+LaTeX Info: Redefining \% on input line 333.
+LaTeX Info: Redefining \. on input line 333.
+LaTeX Info: Redefining \% on input line 333.
  [7
 
 ]
-LaTeX Info: Redefining \. on input line 408.
-LaTeX Info: Redefining \% on input line 408.
-LaTeX Info: Redefining \. on input line 408.
-LaTeX Info: Redefining \% on input line 408.
+LaTeX Info: Redefining \. on input line 423.
+LaTeX Info: Redefining \% on input line 423.
+LaTeX Info: Redefining \. on input line 423.
+LaTeX Info: Redefining \% on input line 423.
  [8
 
 ]
-LaTeX Info: Redefining \. on input line 447.
-LaTeX Info: Redefining \% on input line 447.
-LaTeX Info: Redefining \. on input line 447.
-LaTeX Info: Redefining \% on input line 447.
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
  [9
 
 ]
-Package hyperref Info: bookmark level for unknown Lemma defaults to 0 on input 
-line 459.
-LaTeX Info: Redefining \. on input line 520.
-LaTeX Info: Redefining \% on input line 520.
-LaTeX Info: Redefining \. on input line 520.
-LaTeX Info: Redefining \% on input line 520.
+LaTeX Info: Redefining \. on input line 552.
+LaTeX Info: Redefining \% on input line 552.
+LaTeX Info: Redefining \. on input line 552.
+LaTeX Info: Redefining \% on input line 552.
  [10
 
 ]
-LaTeX Info: Redefining \. on input line 585.
-LaTeX Info: Redefining \% on input line 585.
-LaTeX Info: Redefining \. on input line 585.
-LaTeX Info: Redefining \% on input line 585.
+LaTeX Info: Redefining \. on input line 614.
+LaTeX Info: Redefining \% on input line 614.
+LaTeX Info: Redefining \. on input line 614.
+LaTeX Info: Redefining \% on input line 614.
  [11
 
 ]
-LaTeX Info: Redefining \. on input line 640.
-LaTeX Info: Redefining \% on input line 640.
-LaTeX Info: Redefining \. on input line 640.
-LaTeX Info: Redefining \% on input line 640.
+LaTeX Info: Redefining \. on input line 677.
+LaTeX Info: Redefining \% on input line 677.
+LaTeX Info: Redefining \. on input line 677.
+LaTeX Info: Redefining \% on input line 677.
  [12
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 641.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 641.
-
-Package hyperref Info: bookmark level for unknown Theorem defaults to 0 on inpu
-t line 651.
-
-Underfull \hbox (badness 10000) in paragraph at lines 677--678
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 687.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 687.
-LaTeX Info: Redefining \. on input line 715.
-LaTeX Info: Redefining \% on input line 715.
-LaTeX Info: Redefining \. on input line 715.
-LaTeX Info: Redefining \% on input line 715.
+LaTeX Info: Redefining \. on input line 734.
+LaTeX Info: Redefining \% on input line 734.
+LaTeX Info: Redefining \. on input line 734.
+LaTeX Info: Redefining \% on input line 734.
  [13
 
 ]
@@ -1388,51 +1359,56 @@ Cap\'{\i }tulo 3.
 [14
 
 ]
-LaTeX Info: Redefining \. on input line 765.
-LaTeX Info: Redefining \% on input line 765.
-LaTeX Info: Redefining \. on input line 765.
-LaTeX Info: Redefining \% on input line 765.
+LaTeX Info: Redefining \. on input line 784.
+LaTeX Info: Redefining \% on input line 784.
+LaTeX Info: Redefining \. on input line 784.
+LaTeX Info: Redefining \% on input line 784.
  [15
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 766.
+(hyperref)                removing `math shift' on input line 785.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 766.
+(hyperref)                removing `math shift' on input line 785.
 
-LaTeX Info: Redefining \. on input line 809.
-LaTeX Info: Redefining \% on input line 809.
-LaTeX Info: Redefining \. on input line 809.
-LaTeX Info: Redefining \% on input line 809.
+LaTeX Info: Redefining \. on input line 828.
+LaTeX Info: Redefining \% on input line 828.
+LaTeX Info: Redefining \. on input line 828.
+LaTeX Info: Redefining \% on input line 828.
 [16
 
 ]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 835.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 854.
 
-Underfull \hbox (badness 10000) in paragraph at lines 884--885
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 854.
+
+Underfull \hbox (badness 10000) in paragraph at lines 903--904
 
  []
 
-LaTeX Info: Redefining \. on input line 892.
-LaTeX Info: Redefining \% on input line 892.
-LaTeX Info: Redefining \. on input line 892.
-LaTeX Info: Redefining \% on input line 892.
+LaTeX Info: Redefining \. on input line 911.
+LaTeX Info: Redefining \% on input line 911.
+LaTeX Info: Redefining \. on input line 911.
+LaTeX Info: Redefining \% on input line 911.
 [17
 
 ]
-LaTeX Info: Redefining \. on input line 900.
-LaTeX Info: Redefining \% on input line 900.
-LaTeX Info: Redefining \. on input line 900.
-LaTeX Info: Redefining \% on input line 900.
+LaTeX Info: Redefining \. on input line 921.
+LaTeX Info: Redefining \% on input line 921.
+LaTeX Info: Redefining \. on input line 921.
+LaTeX Info: Redefining \% on input line 921.
  [18]
-LaTeX Info: Redefining \. on input line 934.
-LaTeX Info: Redefining \% on input line 934.
-LaTeX Info: Redefining \. on input line 934.
-LaTeX Info: Redefining \% on input line 934.
+LaTeX Info: Redefining \. on input line 960.
+LaTeX Info: Redefining \% on input line 960.
+LaTeX Info: Redefining \. on input line 960.
+LaTeX Info: Redefining \% on input line 960.
  [19
 
 
@@ -1441,61 +1417,115 @@ Cap\'{\i }tulo 4.
 [20
 
 ]
-LaTeX Info: Redefining \. on input line 972.
-LaTeX Info: Redefining \% on input line 972.
-LaTeX Info: Redefining \. on input line 972.
-LaTeX Info: Redefining \% on input line 972.
- [21
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 996.
+
+LaTeX Info: Redefining \. on input line 1007.
+LaTeX Info: Redefining \% on input line 1007.
+LaTeX Info: Redefining \. on input line 1007.
+LaTeX Info: Redefining \% on input line 1007.
+[21
 
 ]
-Overfull \hbox (43.29724pt too wide) detected at line 1043
+LaTeX Info: Redefining \. on input line 1060.
+LaTeX Info: Redefining \% on input line 1060.
+LaTeX Info: Redefining \. on input line 1060.
+LaTeX Info: Redefining \% on input line 1060.
+ [22
+
+]
+Overfull \hbox (43.29724pt too wide) detected at line 1131
   $[] []$ 
  []
 
-LaTeX Info: Redefining \. on input line 1054.
-LaTeX Info: Redefining \% on input line 1054.
-LaTeX Info: Redefining \. on input line 1054.
-LaTeX Info: Redefining \% on input line 1054.
-[22
-
-] [23
+LaTeX Info: Redefining \. on input line 1143.
+LaTeX Info: Redefining \% on input line 1143.
+LaTeX Info: Redefining \. on input line 1143.
+LaTeX Info: Redefining \% on input line 1143.
+[23
 
 ]
 Cap\'{\i }tulo 5.
 [24
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1150.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1150.
+
+Package hyperref Info: bookmark level for unknown Theorem defaults to 0 on inpu
+t line 1160.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1182--1183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1187--1188
+
+ []
+
+LaTeX Info: Redefining \. on input line 1218.
+LaTeX Info: Redefining \% on input line 1218.
+LaTeX Info: Redefining \. on input line 1218.
+LaTeX Info: Redefining \% on input line 1218.
+[25
+
+]
+Cap\'{\i }tulo 6.
+[26
+
+] [27
+
+]
+Cap\'{\i }tulo 7.
+[28
 
 
 ]
 \tf@thm=\write5
 \openout5 = `AnalisisComplejo.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1069.
-LaTeX Info: Redefining \. on input line 1069.
-LaTeX Info: Redefining \% on input line 1069.
- [25
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1241.
+LaTeX Info: Redefining \. on input line 1241.
+LaTeX Info: Redefining \% on input line 1241.
+ [29
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1069.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1241.
  (./AnalisisComplejo.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1069.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1069.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1241.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1241.
 
 Package rerunfilecheck Info: File `AnalisisComplejo.out' has not changed.
-(rerunfilecheck)             Checksum: C5C43400C2ACBBD4B2647EC389F2B8EA;1593.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1069.
+(rerunfilecheck)             Checksum: B04773BE5F0B52B3FAED53972C1A392D;1845.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1241.
  ) 
 Here is how much of TeX's memory you used:
- 20278 strings out of 493014
- 344674 string characters out of 6133351
- 439595 words of memory out of 5000000
- 23441 multiletter control sequences out of 15000+600000
- 33819 words of font info for 82 fonts, out of 8000000 for 9000
+ 20280 strings out of 493014
+ 344695 string characters out of 6133351
+ 439553 words of memory out of 5000000
+ 23445 multiletter control sequences out of 15000+600000
+ 32768 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,15n,52p,10482b,714s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section.5.0} has been referenced but does not exi
+pdfTeX warning (dest): name{section.7.0} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{section.0.0} has been referenced but does not exist
@@ -1524,30 +1554,27 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2016/texmf-di
-st/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2016/texmf-dist
-/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2016/texmf-dist/fon
-ts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2016/texmf-dist/fonts
-/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
-ype1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
-e1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/cm-super/sfcc1728.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
-ublic/cm-super/sfrm0800.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
-lic/cm-super/sfrm1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
-c/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
-cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm
--super/sfrm2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-s
-uper/sfti0800.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-sup
-er/sfti1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super
-/sfti1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/s
-fxc1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfx
-c1728.pfb>
-Output written on AnalisisComplejo.pdf (26 pages, 543298 bytes).
+f-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2016/texmf-di
+st/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist
+/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2016/texmf-dist/f
+onts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2016/texmf-dist/fon
+ts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2016/texmf-dist/fonts
+/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
+ype1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
+e1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
+/public/cm-super/sfrm0800.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
+ublic/cm-super/sfrm1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
+c/cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+cm-super/sfrm2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm
+-super/sfti1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-s
+uper/sfxc1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-sup
+er/sfxc1728.pfb>
+Output written on AnalisisComplejo.pdf (30 pages, 491986 bytes).
 PDF statistics:
- 534 PDF objects out of 1000 (max. 8388607)
- 462 compressed objects within 5 object streams
- 97 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 560 PDF objects out of 1000 (max. 8388607)
+ 487 compressed objects within 5 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

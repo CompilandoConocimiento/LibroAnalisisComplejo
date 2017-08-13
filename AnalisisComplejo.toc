@@ -5,12 +5,11 @@
 \contentsline {section}{\numberline {1.2}T\IeC {\'e}rminos Com\IeC {\'u}nes}{5}{section.1.2}
 \contentsline {chapter}{\numberline {2}Aritm\IeC {\'e}tica Compleja}{6}{chapter.2}
 \contentsline {section}{\numberline {2.1}Operaciones B\IeC {\'a}sicas}{7}{section.2.1}
-\contentsline {section}{\numberline {2.2}Campo de los Complejos}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Cero y la Identidad}{9}{section.2.3}
+\contentsline {section}{\numberline {2.2}Cero y la Identidad}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}Campo de los Complejos}{8}{section.2.3}
 \contentsline {section}{\numberline {2.4}Conjugados}{9}{section.2.4}
-\contentsline {section}{\numberline {2.5}M\IeC {\'o}dulo o Valor Absoluto}{10}{section.2.5}
-\contentsline {section}{\numberline {2.6}Inverso Multiplicativo}{12}{section.2.6}
-\contentsline {section}{\numberline {2.7}n-Ra\IeC {\'\i }ces de un Numero $z$}{13}{section.2.7}
+\contentsline {section}{\numberline {2.5}M\IeC {\'o}dulo o Valor Absoluto}{11}{section.2.5}
+\contentsline {section}{\numberline {2.6}Inverso Multiplicativo}{13}{section.2.6}
 \contentsline {chapter}{\numberline {3}Forma Polar y Argumentos}{14}{chapter.3}
 \contentsline {section}{\numberline {3.1}Forma Polar}{15}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}De forma Polar a forma Rectangular}{15}{subsection.3.1.1}
@@ -19,7 +18,12 @@
 \contentsline {section}{\numberline {3.3}Leyes de Aritmetica}{17}{section.3.3}
 \contentsline {section}{\numberline {3.4}Ley de Moivre's}{19}{section.3.4}
 \contentsline {chapter}{\numberline {4}Forma Exponencial}{20}{chapter.4}
-\contentsline {section}{\numberline {4.1}F\IeC {\'o}rmula de Euler}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}Identidad de Lagrange}{22}{section.4.2}
-\contentsline {part}{II\hspace {1em}Funciones Complejas}{23}{part.2}
-\contentsline {chapter}{\numberline {5}Funciones Complejas}{24}{chapter.5}
+\contentsline {section}{\numberline {4.1}Forma de Euler}{21}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}$e^z$}{21}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Lemmas y Propiedades}{22}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Identidad de Lagrange}{23}{section.4.2}
+\contentsline {chapter}{\numberline {5}Ecuaciones y Ra\IeC {\'\i }ces}{24}{chapter.5}
+\contentsline {section}{\numberline {5.1}n-Ra\IeC {\'\i }ces de un Numero $z$}{25}{section.5.1}
+\contentsline {chapter}{\numberline {6}Producto Punto y Cruz}{26}{chapter.6}
+\contentsline {part}{II\hspace {1em}Funciones Complejas}{27}{part.2}
+\contentsline {chapter}{\numberline {7}Funciones Complejas}{28}{chapter.7}

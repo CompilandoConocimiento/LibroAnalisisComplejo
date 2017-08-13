@@ -160,6 +160,7 @@
     % === COMPLEX ANALYSIS ===
     \newcommand \Cis[1]  {\Cos{#1} + i \Sin{#1}}                    %Use: \Cis for cos(x) + i sin(x)
     \newcommand \pCis[1] {\Wrap{\Cis{#1}}}                          %Use: \pCis for the same ut parantesis
+    \newcommand \bCis[1] {\Brackets{\Cis{#1}}}                      %Use: \bCis for the same to Brackets
 
 
 
@@ -312,6 +313,20 @@
             \end{itemize}
 
 
+        % ==============================================
+        % ========      CERO Y LA IDENTIDAD    =========
+        % ==============================================
+        \section{Cero y la Identidad}
+
+            \begin{itemize}
+                \item Denotamos a $0 = 0 + 0i$ como el elemento cero o identidad aditiva, ya que se cumple 
+                        $\forall z \in \Complexs, \MiniSpace z + 0 = 0 + z = z$
+
+                \item Denotamos a $1 = 1 + 0i$ como el elemento identidad multiplicatica, ya que se cumple 
+                        $\forall z \in \Complexs, \MiniSpace z \cdot 1 = 1 \cdot z = z$
+            \end{itemize}
+
+
         % =====================================================
         % ==========   CAMPO DE LOS COMPLEJOS      ============
         % =====================================================
@@ -403,40 +418,130 @@
 
 
         % ==============================================
-        % ========      CERO Y LA IDENTIDAD    =========
-        % ==============================================
-        \clearpage
-        \section{Cero y la Identidad}
-
-            \begin{itemize}
-                \item Denotamos a $0 = 0 + 0i$ como el elemento cero o identidad aditiva, ya que se cumple 
-                        $\forall z \in \Complexs, \MiniSpace z + 0 = 0 + z = z$
-
-                \item Denotamos a $1 = 1 + 0i$ como el elemento identidad multiplicatica, ya que se cumple 
-                        $\forall z \in \Complexs, \MiniSpace z \cdot 1 = 1 \cdot z = z$
-            \end{itemize}
-
-        % ==============================================
         % ========          CONJUGADO          =========
         % ==============================================
+        \clearpage
         \section{Conjugados}
-            Tenemos que el Conjugado de $z = a+bi \in \Complexs$ es simplemente $\overline{z} = a-bi$
+            Tenemos que el Conjugado de $z = a+bi \in \Complexs$ que lo definimos como:
+            $\Over{z} = a-bi$
 
-            Además tenemos que:
+            Usando la definición podemos demostrar algunas propiedades muy importantes:
+
             \begin{itemize}
-                \item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
-                
-                \item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
 
-                \item $\overline{\Pi_{j = 1}^n {z_j}} = \prod_{j = 1} ^ n \overline{z_j} $
-                
-                \item $\overline{\overline{z}} = z$
-                
-                \item $z \cdot \overline{z} = (a+ib)(a-ib) = a^2 + b^2 = |z| ^ 2$
+                \item
+                    $\Over{z_1 + z_2} = \Over{z_1} + \Over{z_2} \MiniSpace$
+                    y mas general tenemos que: 
+                    $\Over{z_1 + z_2 + \cdots + z_n} = \Over{z_1} + \Over{z_2} + \cdots + \Over{z_n}$
 
-                \item $Re(z) = \dfrac{z+\overline{z}}{2}$
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Definidos $z_1 = a_1 + ib_1$ y $z_2 = a_2 + ib_2$.
+                        Entonces tenemos que:
+                        \begin{MultiLineEquation*}{2}
+                            \Over{z_1 + z_2}    &=  \Over{a_1 + ib_1 + a_2 + ib_2}       
+                                                &&= \Over{(a_1+a_2) +i(b_1+b_2)}        \\        
+                                                &=  (a_1+a_2) - i(b_1+b_2)                   
+                                                &&= a_1 - ib_1 + a_2 - ib_2             \\
+                                                &=  \Over{z_1} + \Over{z_2}         
+                        \end{MultiLineEquation*}
 
-                \item $Im(z) = \dfrac{z-\overline{z}}{2i}$
+                        Ahora para la parte mas general:
+
+                        Creo que cuando $k=1$ es demasiado sencillo hasta para escribirlo y lo que acabamos
+                        de demostrar es para cuando $k=2$, por lo tanto lo único que tenemos que probar es que:
+
+                        Si $\Over{z_1 + \cdots + z_n} = \Over{z_1} + \cdots + \Over{z_n}$
+                        se cumple entonces también lo hará 
+                        $\Over{z_1 + \cdots + z_{n+1}} = \Over{z_1} + \cdots + \Over{z_{n+1}}$
+
+                        Lo cual se logra dandote cuenta que $z_a = \Over{z_1 + z_2 + \cdots + z_n}$.
+                        y dandote cuenta que volviste al caso de $k=2$.
+
+                    \end{SmallIndentation}
+                
+                \item
+                    $\Over{z_1 \cdot z_2} = \Over{z_1} \cdot \Over{z_2} \MiniSpace$
+                    y mas general tenemos que: 
+                    $\Over{z_1 \cdot z_2 \cdot \dots \cdot z_n} =
+                    \Over{z_1} \cdot \Over{z_2} \cdot \dots \cdot \Over{z_n}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Ideas}:
+                        
+                        Definidos $z_1 = a_1 + ib_1$ y $z_2 = a_2 + ib_2$.
+                        Entonces tenemos que:
+                        \begin{MultiLineEquation*}{2}
+                            \Over{z_1 \cdot z_2}    &=  \Over{a_1 + ib_1 \cdot a_2 + ib_2}       
+                                                    &&= \Over{(a_1a_2 - b_1b_2) + (a_1b_2 + b_1a_2)i}    \\        
+                                                    &=  (a_1a_2 - b_1b_2) - (a_1b_2 + b_1a_2)i                   
+                                                    &&= (a_1 - ib_1) \cdot (a_2 - ib_2)                 \\
+                                                    &=  \Over{z_1} \cdot \Over{z_2}         
+                        \end{MultiLineEquation*}
+
+                        Ahora para la parte mas general se demuestra de manera casi identica a la propiedad
+                        pasada.
+
+                    \end{SmallIndentation}
+
+                \clearpage
+                \item
+                    $\Over{\Over{z}} = z$
+                    
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        $\Over{\Over{z}} = \Over{\Over{a+bi}} = \Over{a-bi} = a+bi $
+
+                    \end{SmallIndentation}
+
+                
+                \item
+                    $z \cdot \Over{z} = |z|^2$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        $z \cdot \Over{z} = (a+ib) \cdot (a-ib) = a^2 + b^2 = |z|^2$
+
+                    \end{SmallIndentation}
+
+                \item
+                    $Re(z) = \dfrac{z+\Over{z}}{2}$
+                    
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                            
+                        Dado a $z = a+ib$
+                        \begin{MultiLineEquation*}{2}
+                            \dfrac{z+\Over{z}}{2}   &= \dfrac{(a+bi) + (a-bi)}{2}
+                                                     = \dfrac{2a}{2}
+                                                     = a                            \\
+                                                    &= Re(a + bi)
+                        \end{MultiLineEquation*}
+
+                    \end{SmallIndentation}
+
+                \item
+                    $Im(z) = \dfrac{z-\Over{z}}{2i}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                            
+                        Dado a $z = a+ib$
+                        \begin{MultiLineEquation*}{2}
+                            \dfrac{z-\Over{z}}{2}   &= \dfrac{(a+bi) - (a-bi)}{2i}
+                                                     = \dfrac{2bi}{2i}
+                                                     = b                            \\
+                                                    &= Im(a + bi)
+                        \end{MultiLineEquation*}
+
+                    \end{SmallIndentation}
             \end{itemize}
 
 
@@ -446,131 +551,118 @@
         % ==============================================
         \clearpage
         \section{Módulo o Valor Absoluto}
-            Tenemos que el Módulo de $z = a+bi \in \Complexs$ es simplemente $|z| = \sqrt{a^2 + b^2}$.
-
-            \begin{itemize}
-                \item $|z| = \sqrt{z \cdot \overline{z}}$
-                \item $|z| = \sqrt{a^2 + b^2} = \sqrt{a^2 + (-b)^2} = |\Over{z}|$
-            \end{itemize}
+            Tenemos que definir el Módulo de $z = a+bi \in \Complexs$ como $|z| = \sqrt{a^2 + b^2}$.
 
             \begin{itemize}
                 \item
-                    \begin{Lemma}
-                        $|Re(z)| \leq |z|$ y $|Im(z)| \leq |z|$ 
+                    $|Re(z)| \leq |z|$ y $|Im(z)| \leq |z|$ 
 
-                        % ======== DEMOSTRACION ========
-                        \begin{SmallIndentation}[1em]
-                            \textbf{Demostración}:
-                            
-                            Ya habiamos visto que $|z|^2 = x^2 + y^2 = Re(z)^2 + Im(z)^2$
-                            
-                            Entonces podemos ver que $|z|^2 - Im(z)^2 = Re(z)$ (recuerda que $Im(z)^2 > 0$) 
-                            por lo tanto tenemos que $|Re(z)|^2 \leq |z|^2$ ya que $|Re(z)| = Re(z)$
-                            
-                            Entonces podemos ver que $|z|^2 - Re(z)^2 = Im(z)$ (recuerda que $Re(z)^2 > 0$) 
-                            por lo tanto tenemos que $|Im(z)|^2 \leq |z|^2$ ya que $|Im(z)| = Im(z)$
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Ya habiamos visto que $|z|^2 = x^2 + y^2 = Re(z)^2 + Im(z)^2$
+                        
+                        Entonces podemos ver que $|z|^2 - Im(z)^2 = Re(z)$ (recuerda que $Im(z)^2 > 0$) 
+                        por lo tanto tenemos que $|Re(z)|^2 \leq |z|^2$ ya que $|Re(z)| = Re(z)$
+                        
+                        Entonces podemos ver que $|z|^2 - Re(z)^2 = Im(z)$ (recuerda que $Re(z)^2 > 0$) 
+                        por lo tanto tenemos que $|Im(z)|^2 \leq |z|^2$ ya que $|Im(z)| = Im(z)$
 
-                        \end{SmallIndentation}
-
-                    \end{Lemma}
-
-                \item
-                    \begin{Lemma}
-                        $|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2Re(z_1\Over{z_2})$ 
-
-                        % ======== DEMOSTRACION ========
-                        \begin{SmallIndentation}[1em]
-                            \textbf{Demostración}:
-
-                            Ya sabemos que $|z+\Over{z}|^2 = z \cdot \Over{z}$ y recuerda que
-                            $2Re(z) = z+\overline{z}$, $|z|^2 = z \cdot \overline{z}$ entonces tenemos que:
-                            \begin{MultiLineEquation*}{2}
-                                |z_1+z_2|^2 &= (z_1+z_2) \cdot \Over{(z_1+z_2)}                                 \\
-                                        &= (z_1+z_2) \cdot (\Over{z_1}+\Over{z_2})                              \\
-                                        &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1}z_2) + z_2 \Over{z_2}       \\
-                                        &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1\Over{z_2}})+z_2 \Over{z_2}  \\
-                                        &= |z_1|^2 + 2Re(z_1\Over{z_2}) + |z_2|^2 
-                            \end{MultiLineEquation*}
-                            
-                        \end{SmallIndentation}
-
-                    \end{Lemma}
+                    \end{SmallIndentation}
 
 
                 \item
-                    \begin{Lemma}
-                        $(|z_1|+|z_2|)^2 = |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|$ 
+                    $|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2Re(z_1\Over{z_2})$ 
 
-                        % ======== DEMOSTRACION ========
-                        \begin{SmallIndentation}[1em]
-                            \textbf{Demostración}:
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
 
-                            Esta la vamos a empezar al réves, solo recuerda que $|z|=|\Over{z}|$:
-                            \begin{MultiLineEquation*}{2}
-                                |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|                                  
-                                        &= |z_1|^2 + |z_2|^2 + 2|z_1||\Over{z_2}|                     \\
-                                        &= |z_1|^2 + |z_2|^2 + 2|z_1||z_2|                            \\
-                                        &= (|z_1| + |z_2|)^2
-                            \end{MultiLineEquation*}
-                            
-                        \end{SmallIndentation}
+                        Ya sabemos que $|z+\Over{z}|^2 = z \cdot \Over{z}$ y recuerda que
+                        $2Re(z) = z+\Over{z}$, $|z|^2 = z \cdot \Over{z}$ entonces tenemos que:
+                        \begin{MultiLineEquation*}{2}
+                            |z_1+z_2|^2 &= (z_1+z_2) \cdot \Over{(z_1+z_2)}                                 \\
+                                    &= (z_1+z_2) \cdot (\Over{z_1}+\Over{z_2})                              \\
+                                    &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1}z_2) + z_2 \Over{z_2}       \\
+                                    &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1\Over{z_2}})+z_2 \Over{z_2}  \\
+                                    &= |z_1|^2 + 2Re(z_1\Over{z_2}) + |z_2|^2 
+                        \end{MultiLineEquation*}
+                        
+                    \end{SmallIndentation}
 
-                    \end{Lemma}
+
+
+                \item
+                    $(|z_1|+|z_2|)^2 = |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|$ 
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Esta la vamos a empezar al réves, solo recuerda que $|z|=|\Over{z}|$:
+                        \begin{MultiLineEquation*}{2}
+                            |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|                                  
+                                    &= |z_1|^2 + |z_2|^2 + 2|z_1||\Over{z_2}|                     \\
+                                    &= |z_1|^2 + |z_2|^2 + 2|z_1||z_2|                            \\
+                                    &= (|z_1| + |z_2|)^2
+                        \end{MultiLineEquation*}
+                        
+                    \end{SmallIndentation}
+
 
                 \clearpage
                 \item
-                    \begin{Lemma}[Desigualdad del Triángulo]
-                    \label{DesiguldadTriangulo}
-                        $|z_1|-|z_2| \leq |z_1+z_2| \leq |z_1|+|z_2|$
+                    \textbf{Desigualdad del Triangulo:}
+                    $|z_1|-|z_2| \leq |z_1+z_2| \leq |z_1|+|z_2|$
 
-                        % ======== DEMOSTRACION ========
-                        \begin{SmallIndentation}[1em]
-                            \textbf{Demostración}:
-
-
-                            Ok, esto aún estará intenso, así que sígueme, vamos a hacerlo más
-                            interesante, ya tenemos las piezas necesarias.
-                            Así que vamos a hacerlo al réves:
-
-                            $|z_1+z_2| \leq |z_1|+|z_2|$ si y solo si 
-                            $|z_1+z_2|^2 = (|z_1|+|z_2|)^2$ y además $|z_1+z_2|,|z_1|,|z_2| \geq 0$
-                            lo cual si que se cumple, pues los módulos nunca son negativos.
-
-                            Y lo que dije anteriormente se cumple si y solo si $|z_1+z_2|^2=(|z_1|+|z_2|)^2+k$
-                            donde $k \geq 0$.
-
-                            Ya sabemos que $|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2Re(z_1\Over{z_2})$
-                            y $(|z_1|+|z_2|)^2 = |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|$, ahora vamos a acomodar
-                            un poco, podemos poner lo último como
-                            $(|z_1|+|z_2|)^2  - 2|z_1\Over{z_2}| = |z_1|^2 + |z_2|^2$
-
-                            Ahora veamos que:
-                            \begin{MultiLineEquation*}{2}
-                                |z_1+z_2|^2 &= \Brackets{|z_1|^2 + |z_2|^2} + 2Re(z_1\Over{z_2})  
-                                             = \Brackets{(|z_1|+|z_2|)^2-2|z_1\Over{z_2}|} + 2Re(z_1\Over{z_2}) \\
-                                            &= (|z_1|+|z_2|)^2 + k
-                            \end{MultiLineEquation*}
-
-                            Donde $k = 2Re(z_1\Over{z_2})- 2|z_1\Over{z_2}|$, ahora además podemos decir
-                            que si $k \geq 0$ entonces así lo será $\frac{k}{2}$, por lo tanto:
-                            $\frac{k}{2} = Re(z_1\Over{z_2}) - |z_1\Over{z_2}|$, pero si les cambias en nombre
-                            ves que todo se simplifica $w = z_1\Over{z_2}$ y tenemos que $Re(w) - |w|$.
-                            Espera, recuerda que ya habíamos demostrado que $|Re(z)| \leq |z|$, así que por lo
-                            tanto $k \geq 0$ y la propiedad siempre se cumple.
-
-                            Sabemos que $z_1 = z_1 + z_2 + (-z_2)$ además ahora sabemos que:
-                            $|z_1| = |z_1 + z_2 +(-z_2)| \leq |z_1 + z_2| + |-z_2|$ y como $|z|=|-z|$
-                            Que es lo mismo que $|z_1| - |z_2| \leq |z_1 + z_2|$.
-
-                            Y listo, todas las propiedades están listas.
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
 
 
-                            Además creo que es bastante obvio que por inducción tenemos que:
-                            $|z_1 + z_2 +z_3 + \cdots + z_n| \leq |z_1|+|z_2|+|z_3|+ \cdots +|z_n|$
+                        Ok, esto aún estará intenso, así que sígueme, vamos a hacerlo más
+                        interesante, ya tenemos las piezas necesarias.
+                        Así que vamos a hacerlo al réves:
 
-                        \end{SmallIndentation}
+                        $|z_1+z_2| \leq |z_1|+|z_2|$ si y solo si 
+                        $|z_1+z_2|^2 = (|z_1|+|z_2|)^2$ y además $|z_1+z_2|,|z_1|,|z_2| \geq 0$
+                        lo cual si que se cumple, pues los módulos nunca son negativos.
 
-                    \end{Lemma}
+                        Y lo que dije anteriormente se cumple si y solo si $|z_1+z_2|^2=(|z_1|+|z_2|)^2+k$
+                        donde $k \geq 0$.
+
+                        Ya sabemos que $|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2Re(z_1\Over{z_2})$
+                        y $(|z_1|+|z_2|)^2 = |z_1|^2 + |z_2|^2 + 2|z_1\Over{z_2}|$, ahora vamos a acomodar
+                        un poco, podemos poner lo último como
+                        $(|z_1|+|z_2|)^2  - 2|z_1\Over{z_2}| = |z_1|^2 + |z_2|^2$
+
+                        Ahora veamos que:
+                        \begin{MultiLineEquation*}{2}
+                            |z_1+z_2|^2 &= \Brackets{|z_1|^2 + |z_2|^2} + 2Re(z_1\Over{z_2})  
+                                         = \Brackets{(|z_1|+|z_2|)^2-2|z_1\Over{z_2}|} + 2Re(z_1\Over{z_2}) \\
+                                        &= (|z_1|+|z_2|)^2 + k
+                        \end{MultiLineEquation*}
+
+                        Donde $k = 2Re(z_1\Over{z_2})- 2|z_1\Over{z_2}|$, ahora además podemos decir
+                        que si $k \geq 0$ entonces así lo será $\frac{k}{2}$, por lo tanto:
+                        $\frac{k}{2} = Re(z_1\Over{z_2}) - |z_1\Over{z_2}|$, pero si les cambias en nombre
+                        ves que todo se simplifica $w = z_1\Over{z_2}$ y tenemos que $Re(w) - |w|$.
+                        Espera, recuerda que ya habíamos demostrado que $|Re(z)| \leq |z|$, así que por lo
+                        tanto $k \geq 0$ y la propiedad siempre se cumple.
+
+                        Sabemos que $z_1 = z_1 + z_2 + (-z_2)$ además ahora sabemos que:
+                        $|z_1| = |z_1 + z_2 +(-z_2)| \leq |z_1 + z_2| + |-z_2|$ y como $|z|=|-z|$
+                        Que es lo mismo que $|z_1| - |z_2| \leq |z_1 + z_2|$.
+
+                        Y listo, todas las propiedades están listas.
+
+
+                        Además creo que es bastante obvio que por inducción tenemos que:\\
+                        $|z_1 + z_2 +z_3 + \cdots + z_n| \leq |z_1|+|z_2|+|z_3|+ \cdots +|z_n|$
+
+                    \end{SmallIndentation}
+
 
 
 
@@ -620,12 +712,12 @@
                 \item
                     Gracias al inciso anterior podemos separar la parte real y la imaginaria como:
                     \begin{equation}
-                        \dfrac{1}{z} = \dfrac{\overline{z}}{|z|^2}
+                        \dfrac{1}{z} = \dfrac{\Over{z}}{|z|^2}
                     \end{equation}
 
                     % ======== DEMOSTRACION ========
                     \begin{SmallIndentation}[1em]
-                        \textbf{Recuerda}: $\overline{z} = a - bi$ y $|z| = a^2 + b^2$
+                        \textbf{Recuerda}: $\Over{z} = a - bi$ y $|z| = a^2 + b^2$
                     \end{SmallIndentation}
 
                 
@@ -634,80 +726,7 @@
 
 
 
-        % ==============================================
-        % ========      RAICES DE UN NUMERO N     ======
-        % ==============================================
-        \clearpage
-        \section{n-Raíces de un Numero $z$}
-
-            En general decir que un número $w$ es un raíz enesíma de un número complejo $z$ (siempre
-            que $z \neq 0$) si cumpla que:
-            \begin{equation}
-                w^n = z
-            \end{equation}
-            Donde obviamente $n \in \Integers^+$.
-
-
-            \begin{Theorem}{Existen exactamente $n$ raíces para $w^n = z$}
-
-                Y puedes encontrar las $n$ raíces variando $k$ de 0 a $n$:
-                \begin{equation}
-                    w_k = n\sqrt{r} \Cis{\dfrac{\theta + (2\pi) k}{n}}
-                \end{equation}
-
-                % ======== DEMOSTRACION ========s
-                    \begin{SmallIndentation}[1em]
-                        \textbf{Demostración}:
-                        
-                        Tengamos dos números:
-                        \begin{itemize}
-                            \item $z = r\pCis{\theta}$
-                            \item $w = p\pCis{\phi}$
-                        \end{itemize}
-
-                        Entonces de la ecuación:
-                        \begin{MultiLineEquation*}{3}
-                            w^n &= z  \\ 
-                            \Brackets{p\pCis{\phi}}^n &= r\pCis{\theta}
-                                &&  \Remember{Simplemente sustituimos}                              \\
-                        \end{MultiLineEquation*}
-
-                        Tenemos que:
-                        \begin{itemize}
-                            \item $p^n = r$\\
-                                
-                                Por lo tanto podemos definir a $p = \sqrt{n}$ donde $\sqrt{n}$
-                                es la única raíz positiva de un número $r \in \Reals$.
-
-                            \item $\Cis{\theta}^n = \Cis{\phi}$\\
-
-                                Gracias por $\Cis{n \theta} = \Cis{\phi}$
-                                Por lo tanto podemos decir que:
-                                \begin{itemize}
-                                    \item $\Cos{n \theta} = \Cos{\phi}$
-                                    \item $\Sin{n \theta} = \Sin{\phi}$
-                                \end{itemize}
-
-                                Por $\phi = \dfrac{\theta + 2(n + m) \pi}{n} = \dfrac{\theta + 2mn\pi}{n} + 2\pi$
-                                y por lo tanto tener que:
-                                \begin{itemize}
-                                    \item $\Sin{\phi} = \Sin{\dfrac{\theta + (2\pi) k}{n}}$
-                                    \item $\Cos{\phi} = \Cos{\dfrac{\theta + (2\pi) k}{n}}$
-                                \end{itemize}
-
-                        \end{itemize}
-
-
-                        Por lo tanto podemos generalizar los resultados como:
-                        \begin{equation}
-                            w_k = n\sqrt{r} \Cis{\dfrac{\theta + (2\pi) k}{n}}
-                        \end{equation}
-
-
-                    \end{SmallIndentation}
-            \end{Theorem}
-
-
+       
 
     % ===============================================================================
     % ===================              FORMA POLAR             ======================
@@ -853,12 +872,12 @@
 
                         Esto es muy sencillo, primero ya que tenemos los dos números en forma rectangular
                         podemos dividir como ya sabemos, pero vamos a hacer un poco de trampa ingeniosa,
-                        usamos la idea de que $\dfrac{1}{z} = \dfrac{\overline{z}}{|z|^2}$ y hacer:
+                        usamos la idea de que $\dfrac{1}{z} = \dfrac{\Over{z}}{|z|^2}$ y hacer:
 
                         \begin{MultiLineEquation*}{2}
-                            \frac{z_1}{z_2} &= z_1 \dfrac{\overline{z_2}}{|z_2|^2} 
-                                             = z_1 \dfrac{\overline{z_2}}{(r_2)^2}                          \\
-                                            &= \frac{1}{(r_2)^2} z_1 \overline{z_2} 
+                            \frac{z_1}{z_2} &= z_1 \dfrac{\Over{z_2}}{|z_2|^2} 
+                                             = z_1 \dfrac{\Over{z_2}}{(r_2)^2}                          \\
+                                            &= \frac{1}{(r_2)^2} z_1 \Over{z_2} 
                                              = \frac{1}{(r_2)^2} (a_1 + ib_1) (a_2 - ib_2)                  \\
                                             &= \frac{1}{(r_2)^2} (a_1a_2 - b_1b_2) + (a_1b_2 - b_1a_2)i     \\
                                             &= \frac{r_1}{r_2}
@@ -889,13 +908,15 @@
                     \begin{SmallIndentation}[1em]
                         \textbf{Ideas}:
 
-                         No considero a esto una demostración, pero si te das cuenta usando
-                         $z^2 = [(r^2), (\theta + \theta)]$.
- 
-                         Y cosas como $z^{-2} = [(r^{-2}), (-\theta -\theta)]$
-                         
-                    \end{SmallIndentation}
+                        No considero a esto una demostración, por basta con darte cuenta que
+                        $z^n$ es $z \cdot z \cdot z \dots$ n veces.
 
+                        Por lo tanto puedes aplicar la regla: $z_1z_2 = [(r_1r_2), (\theta_1 + \theta_2)]$
+                        que ya que $z_1 = z_2$ se puede simplificar a $z \cdot z = [2r, 2\theta]$.
+
+                        Y llegar a ese resultado mediante la inducción.
+
+                    \end{SmallIndentation}
 
             \clearpage
             
@@ -916,14 +937,19 @@
                 \textbf{Demostración}:
 
                 Se puede dar una demostracion muy sencilla, no se porque los libros usan induccion matematica para
-                demostrar el teorema de Moivre... en fin, expresando a $z$ en su forma polar y usando la formula de Euler, tenemos: 
+                demostrar el teorema de Moivre...
 
-                \begin{MultiLineEquation}{2}
-				  z ^ n &= \Wrap{r \Cis{\theta}}^n              \\
-                        &= r^n \Wrap{\Cis{\theta}}^n             \\
-				  		&= r^n e^{n\theta i}                    \\
-                        &= r^n \Wrap{\Cis{n \cdot \theta}}	    \\ 
-				\end{MultiLineEquation}
+                En fin, expresando a $z$ en su forma polar y usando la fórmula de Euler, tenemos: 
+
+                \begin{MultiLineEquation*}{2}
+                  z^n   &= (a+bi)^n                                 \\ 
+                        &= \Brackets{r \Wrap{\Cis{\theta}}}^n       \\
+                        &= r^n \Wrap{\Cis{\theta}}^n                \\
+                        &= r^n \Wrap{e^{\theta i}}^n                \\
+                        &= r^n e^{(\theta i)n}                      \\
+				  		&= r^n e^{(n \theta)i}                      \\
+                        &= r^n \Wrap{\Cis{n \cdot \theta}}	        \\ 
+				\end{MultiLineEquation*}
             \end{SmallIndentation}
 
 
@@ -938,32 +964,94 @@
         % =====      FORMULAR DE EULER             =====
         % ==============================================
         \clearpage
-        \section{Fórmula de Euler}  
+        \section{Forma de Euler}  
 
             Podemos también expresar un número complejo de la siguiente manera:
             \begin{equation}
                 e^{i\theta} = \Cos{\theta} + i\Sin{\theta}
             \end{equation}
 
-            % ======== DEMOSTRACION ========
-            \begin{SmallIndentation}[1em]
-      
-                Esta formula sale de a partir de la serie de McLaurin para la funcion exponencial
-                \[e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots\]
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Ideas:}
 
-                Pasa algo muy interesante al hacer $k = i\theta$, pues vemos que se hayan las series de
-                McLaurin del seno y coseno:
-                \begin{MultiLineEquation*}{3}
-                    e^{i\theta} &= 
-                                \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots}
-                                &&+
-                                i\Wrap{\theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots} \\
-                                &= \Cos{\theta} &&+ i\Sin{\theta}
-                \end{MultiLineEquation*}
+                    Esta fórmula sale de a partir de la serie de McLaurin para la función exponencial:
+                    \[ e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots \]
 
-            \end{SmallIndentation}
+                    Pasa algo muy interesante al hacer $k = i\theta$, pues vemos que se hayan las series de
+                    McLaurin del seno y coseno:
+                    \begin{MultiLineEquation*}{3}
+                        e^{i\theta} &= 
+                                    \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots}
+                                    &&+
+                                    \Wrap{\theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots}i\\
+                                    &= \Cos{\theta} &&+ \Sin{\theta}i
+                    \end{MultiLineEquation*}
+
+                \end{SmallIndentation}
+
+            % =============================
+            % =====      e ^ z        =====
+            % =============================
+            \subsection{$e^z$}
+
+                También podemos ver más generalmente que $e^z$ se puede reducir a:
+                \begin{equation*}
+                    e^z = e^{a+bi} = e^a \cdot e^{bi} = e^a \cdot \pCis{b} = e^a \pCis{b}
+                \end{equation*}
 
         
+            % ==============================================
+            % =====      LEMMAS Y PROPIEDADES          =====
+            % ==============================================
+            \clearpage
+            \subsection{Lemmas y Propiedades}
+
+                \begin{itemize}
+                    \item $\Cos{\theta} = \dfrac{ e^{i\theta} + e^{-i\theta} }{2}$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración:}
+
+                            \begin{MultiLineEquation*}{3}
+                                \dfrac{ e^{i\theta} + e^{-i\theta} }{2}
+                                    &= \dfrac{ \bCis{\theta} + \bCis{-\theta} }{2}  
+                                        && \Remember{Tip: $\Cos{\theta}  =  \Cos{-\theta}$ y 
+                                                          $\Sin{-\theta} = -\Sin{\theta} $}                     \\
+                                    &= \dfrac{ \Cos{\theta} + i\Sin{\theta} + \Cos{\theta} - i\Sin{\theta} }{2} 
+                                        && \Remember{Y si simplificamos}                                        \\ 
+                                    &= \dfrac{2\Cos{\theta}}{2}                                                 \\
+                                    &= \Cos{\theta}
+                            \end{MultiLineEquation*}
+
+                        \end{SmallIndentation}
+
+
+                    \item $\Sin{\theta} = \dfrac{ e^{i\theta} - e^{-i\theta} }{2i}$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración:}
+
+                            \begin{MultiLineEquation*}{3}
+                                \dfrac{ e^{i\theta} - e^{-i\theta} }{2}
+                                    &= \dfrac{ \bCis{\theta} - \bCis{-\theta} }{2}  
+                                        && \Remember{Tip: $\Cos{\theta}  =  \Cos{-\theta}$ y 
+                                                          $\Sin{-\theta} = -\Sin{\theta} $}                     \\
+                                    &= \dfrac{ \Cos{\theta} + i\Sin{\theta} - \Cos{\theta} + i\Sin{\theta} }{2}
+                                        && \Remember{Y si simplificamos}                                        \\ 
+                                    &= \dfrac{2i\Sin{\theta}}{2i}                                               \\
+                                    &= \Sin{\theta}
+                            \end{MultiLineEquation*}
+
+                        \end{SmallIndentation}
+
+
+                \end{itemize}
+
+
+
 
 
         % ==============================================
@@ -983,7 +1071,7 @@
                 \begin{MultiLineEquation*}{3}
                     \sum_{k=0}^{n} \Cos{k\theta} 
                         &= \dfrac{1}{2} \sum_{k=0}^{n}\Wrap{e^{ik\theta}+e^{-ik\theta}}
-                        &&  \Remember{Recuerda que: $\Cos{x} = \dfrac{e^{ik\theta}+e^{-ik\theta}}{2}$}   \\
+                        &&  \Remember{Recuerda que: $\Cos{x} = \dfrac{e^{ix}+e^{-ix}}{2}$}              \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}   +
                                             \dfrac{e^{(n+1)-i\theta} - 1}{e^{-i\theta} - 1} }
@@ -1044,6 +1132,90 @@
 
             \end{SmallIndentation}
 
+
+
+
+
+
+    % ===============================================================================
+    % ===================         ECUACIONES, POLINOMIOS Y RAICES    ================
+    % ===============================================================================
+    \chapter{Ecuaciones y Raíces}
+
+
+        % ==============================================
+        % ========      RAICES DE UN NUMERO N     ======
+        % ==============================================
+        \clearpage
+        \section{n-Raíces de un Numero $z$}
+
+            En general decir que un número $w$ es un raíz enesíma de un número complejo
+            $z \in \Complexs - \Set{0}$ se cumpla que:
+            \begin{equation*}
+                w^n = z
+            \end{equation*}
+            Donde obviamente $n \in \Integers^+$.
+
+
+            \begin{Theorem}{Existen exactamente $n$ raíces para $w^n = z$}\end{Theorem}
+
+                Que puedes encontrar con:
+                \begin{equation}
+                    w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
+                    \MiniSpace k = 0, 1, 2, \dots, n
+                \end{equation}
+
+                % ======== DEMOSTRACION ========s
+                \begin{SmallIndentation}[1.5em]
+                    \textbf{Demostración}:
+                    
+                    Tengamos dos números: $z = r\bCis{\theta}$ y $w = p\bCis{\phi}$
+
+                    Entonces de la ecuación decir $w^n = z$ es lo mismo que decir que:
+                    \begin{MultiLineEquation*}{2}
+                        \Wrap{p\bCis{\phi}}^n &= r\bCis{\theta}
+                        p^n \bCis{\phi}^n     &= r\bCis{\theta}
+                    \end{MultiLineEquation*}
+
+                    De esta ecuación tenemos que:
+                    \begin{itemize}
+                        \item $p^n = r$\\
+                            
+                            Por lo tanto podemos definir a $p = \sqrt{n}$ donde $\sqrt{n}$
+                            es la única raíz positiva de un número $r \in \Reals$.
+
+                        \item $\pCis{\theta}^n = \Cis{\phi}$\\
+
+                            Gracias a $\Cis{n \theta} = \Cis{\phi}$
+                            Por lo tanto podemos decir que:
+                            \begin{itemize}
+                                \item $\Cos{n \theta} = \Cos{\phi}$
+                                \item $\Sin{n \theta} = \Sin{\phi}$
+                            \end{itemize}
+
+                            Y por lo tanto tener que:
+                            \begin{itemize}
+                                \item $\Sin{\phi} = \Sin{\dfrac{\theta + (2\pi) k}{n}}$
+                                \item $\Cos{\phi} = \Cos{\dfrac{\theta + (2\pi) k}{n}}$
+                            \end{itemize}
+
+                    \end{itemize}
+
+
+                    Y finalmente podemos generalizar los resultados como:
+                    \begin{equation}
+                        w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
+                    \end{equation}
+
+
+                \end{SmallIndentation}
+
+
+
+    % ===============================================================================
+    % ===================      PRODUCTO PUNTO Y CRUZ        =========================
+    % ===============================================================================
+    \chapter{Producto Punto y Cruz}
 
 
 
