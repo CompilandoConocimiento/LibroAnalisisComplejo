@@ -130,6 +130,7 @@
 
     % === LINEAL ALGEBRA & VECTORS ===
     \DeclareMathOperator \LinealTransformation {\mathcal{T}}        %Use: \LinealTransformation for a cool T
+    \newcommand{\Mag}[1]{\left| #1 \right|}                         %Use: \Mag {Info} 
 
     \newcommand{\pVector}[1]{                                       %Use: \pVector {Matrix Notation} use parentesis
         \ensuremath{\begin{pmatrix}#1\end{pmatrix}}                 %Example: \pVector{a\\b\\c} or \pVector{a&b&c} 
@@ -314,9 +315,10 @@
 
 
         % ==============================================
-        % ========      CERO Y LA IDENTIDAD    =========
+        % ========     ELEMENTOS IDENTIDAD     =========
         % ==============================================
-        \section{Cero y la Identidad}
+        \clearpage
+        \section{Elemento Identidad}
 
             \begin{itemize}
                 \item Denotamos a $0 = 0 + 0i$ como el elemento cero o identidad aditiva, ya que se cumple 
@@ -325,6 +327,56 @@
                 \item Denotamos a $1 = 1 + 0i$ como el elemento identidad multiplicatica, ya que se cumple 
                         $\forall z \in \Complexs, \MiniSpace z \cdot 1 = 1 \cdot z = z$
             \end{itemize}
+
+
+
+        % ==============================================
+        % =====     INVERSO MULTIPLICATIVO     =========
+        % ==============================================
+        \section{Inverso Multiplicativo}
+            
+            Si $z = a + bi \in \Complexs - \Set{0}$ entonces podemos denotar al inverso de $z$ como
+            $z^{-1}$
+
+            Creo que es más que obvio que $z^{-1} = \dfrac{1}{a+bi}$.
+
+            Pero además podemos escribir a $z^{-1}$ como $\dfrac{a-ib}{a^2+b^2}$
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Demostración}:
+                
+                Veamos como llegar a eso paso a paso:
+                \begin{MultiLineEquation*}{1}
+                    \dfrac{1}{z} &= \dfrac{1}{a+bi}                         
+                                  = \dfrac{1}{a+bi}\pfrac{a-bi}{a-bi}
+                                  = \dfrac{a-bi}{(a+bi)(a-bi)}              \\
+                                 &= \dfrac{a-bi}{a^2+b^2}                 
+                \end{MultiLineEquation*}
+
+            \end{SmallIndentation}
+
+            Gracias a lo anterior podemos escribirlo de distintas maneras:
+
+            \begin{itemize}
+
+                \item
+                    \textbf{De forma Rectangular:}
+                    \begin{equation}
+                         \dfrac{1}{z} = \dfrac{a-bi}{a^2+b^2} = \pfrac{a}{a^2+b^2} - \pfrac{b}{a^2+b^2}i 
+                    \end{equation}
+
+
+                \item
+                    \textbf{Con Magnitudes y Conjugados:}
+                    \begin{equation}
+                        \dfrac{1}{z} = \dfrac{a-bi}{a^2+b^2} = \dfrac{\Over{z}}{|z|^2}
+                    \end{equation}
+
+
+            \end{itemize}
+
+
 
 
         % =====================================================
@@ -470,7 +522,7 @@
 
                     % ======== DEMOSTRACION ========
                     \begin{SmallIndentation}[1em]
-                        \textbf{Ideas}:
+                        \textbf{Demostración}:
                         
                         Definidos $z_1 = a_1 + ib_1$ y $z_2 = a_2 + ib_2$.
                         Entonces tenemos que:
@@ -488,6 +540,30 @@
                     \end{SmallIndentation}
 
                 \clearpage
+
+                \item
+                    $\Over{\pfrac{z_1}{z_2}} = \dfrac{\MiniSpace\Over{z_1}\MiniSpace}{\Over{z_2}}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Definidos $z_1 = a_1 + ib_1$ y $z_2 = a_2 + ib_2$
+
+                        Entonces tenemos que:
+                        \begin{MultiLineEquation*}{2}
+                            \Over{\pfrac{z_1}{z_2}} &=  \Over{z_1 \cdot \dfrac{1}{z_2}}                             
+                                         =  \Over{z_1} \cdot \Over{\dfrac{1}{z_2}}                                  
+                                         =  \Over{z_1} \cdot \Over{\pfrac{a}{a^2+b^2} - \pfrac{b}{a^2+b^2}i}        \\
+                                        &=  \Over{z_1} \cdot \Brackets{\pfrac{a}{a^2+b^2} + \pfrac{b}{a^2+b^2}i}    
+                                         =  \Over{z_1} \cdot \Brackets{\pfrac{a}{a^2+b^2} - \pfrac{-b}{a^2+b^2}i}   
+                                         =  \Over{z_1} \cdot \dfrac{1}{\Over{z_2}}                                  \\
+                                        &=  \dfrac{\Over{z_1}}{\Over{z_2}}         
+                        \end{MultiLineEquation*}
+
+                    \end{SmallIndentation}
+
+
                 \item
                     $\Over{\Over{z}} = z$
                     
@@ -663,70 +739,62 @@
 
                     \end{SmallIndentation}
 
+                \clearpage
 
+                \item $\Mag{ z_1 \cdot z_2 } = \Mag{z_1} \cdot \Mag{z_2}$
 
-
-
-            \end{itemize}
-
-
-
-        % ==============================================
-        % ========      NUMEROS COMPLEJOS      =========
-        % ==============================================
-        \clearpage
-        \section{Inverso Multiplicativo}
-            
-            Si $z = a + bi \in \Complexs - \Set{0}$ entonces podemos denotar al inverso de $z$ como
-            $z^{-1}$
-
-            Creo que es más que obvio que $z^{-1} = \dfrac{1}{a+bi}$.
-
-            \begin{itemize}
-
-                \item
-                    Podemos escribir a $z^{-1}$ como $\dfrac{a-ib}{a^2+b^2}$
                     % ======== DEMOSTRACION ========
                     \begin{SmallIndentation}[1em]
                         \textbf{Demostración}:
                         
-                        Veamos como llegar a eso paso a paso:
-                        \begin{MultiLineEquation*}{1}
-                            \dfrac{1}{z} &= \dfrac{1}{a+bi}                         
-                                          = \dfrac{1}{a+bi}\pfrac{a-bi}{a-bi}
-                                          = \dfrac{a-bi}{(a+bi)(a-bi)}              \\
-                                         &= \dfrac{a-bi}{a^2+b^2}                 
+                        Recuerda que: $z \cdot \Over{z} = |z|^2$
+                        Entonces $|z| = \sqrt{z \cdot \Over{z}}$
+
+                        Entonces tenemos que:
+                        \begin{MultiLineEquation*}{2}
+                            \Mag{z_1\cdot z_2}  &=  \sqrt{z_1 z_2 \cdot \Over{z_1 z_2}          }    \\
+                                                &=  \sqrt{z_1 z_2 \cdot \Over{z_1} \; \Over{z_2}}    \\
+                                                &=  \sqrt{z_1 \Over{z_1}  z_2 \Over{z_2}        }    \\
+                                                &=  \sqrt{z_1 \Over{z_1}} \sqrt{z_2 \Over{z_2}  }    \\
+                                                &=  \Mag{z_1} \cdot \Mag{z_2}            
                         \end{MultiLineEquation*}
+
 
                     \end{SmallIndentation}
 
-
-
-                \item
-                    Gracias al inciso anterior podemos separar la parte real y la imaginaria como:
-                    \begin{equation}
-                         \dfrac{1}{z} = \pfrac{a}{a^2+b^2} - \pfrac{b}{a^2+b^2}i 
-                    \end{equation}
-
-
-                \item
-                    Gracias al inciso anterior podemos separar la parte real y la imaginaria como:
-                    \begin{equation}
-                        \dfrac{1}{z} = \dfrac{\Over{z}}{|z|^2}
-                    \end{equation}
+                \item $\Mag{\pfrac{z_1}{z_2}} = \dfrac{\; \Mag{z_1}\; }{\Mag{z_2}}$
 
                     % ======== DEMOSTRACION ========
                     \begin{SmallIndentation}[1em]
-                        \textbf{Recuerda}: $\Over{z} = a - bi$ y $|z| = a^2 + b^2$
+                        \textbf{Demostración}:
+
+                        Usando la idea de que: $\Mag{ z_1 \cdot z_2 } = \Mag{z_1} \cdot \Mag{z_2}$
+                        
+                        Entonces tenemos que:
+                        \begin{MultiLineEquation*}{2}
+                            \Mag{\pfrac{z_1}{z_2}}
+                                    &=  \Mag{z_1 \cdot \dfrac{1}{z_2}}                                  
+                                     =  \Mag{z_1} \cdot \Mag{\dfrac{1}{z_2}}                            
+                                     =  \Mag{z_1} \cdot \Mag{\dfrac{a-bi}{a^2+b^2}}                     \\
+                                    &=  \Mag{z_1} \cdot \sqrt{\dfrac{a^2+b^2}{(a^2+b^2)^2}}             
+                                     =  \Mag{z_1} \cdot \dfrac{\sqrt{a^2+b^2}}{\sqrt{(a^2+b^2)^2}}      
+                                     =  \Mag{z_1} \cdot \dfrac{\sqrt{a^2+b^2}}{(a^2+b^2)}               \\
+                                    &=  \Mag{z_1} \dfrac{\sqrt{a^2+b^2}}{\sqrt{a^2+b^2}\sqrt{a^2+b^2}}  
+                                     =  \Mag{z_1} \dfrac{1}{\sqrt{a^2+b^2}}                             
+                                     =  \Mag{z_1} \cdot \dfrac{1}{\Mag{a +bi}}                          
+                                     =  \Mag{z_1} \cdot \dfrac{1}{\Mag{z_2}}                            \\
+                                    &=  \dfrac{\; \Mag{z_1}\; }{\Mag{z_2}}         
+                        \end{MultiLineEquation*}
+
+
                     \end{SmallIndentation}
 
-                
+
 
             \end{itemize}
 
 
 
-       
 
     % ===============================================================================
     % ===================              FORMA POLAR             ======================
