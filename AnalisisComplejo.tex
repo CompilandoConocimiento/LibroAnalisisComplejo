@@ -165,32 +165,32 @@
 
 
 % =====================================================
-% ============     	  COVER PAGE	   ================
+% ============        COVER PAGE       ================
 % =====================================================
 \begin{document}
 \begin{titlepage}
 
-	\center
-	% ============ UNIVERSITY NAME AND DATA =========
-	\textbf{\textsc{\Large Proyecto Compilando Conocimiento}}\\[1.0cm] 
-	\textsc{\Large Matemáticas Avanzadas}\\[1.0cm] 
+    \center
+    % ============ UNIVERSITY NAME AND DATA =========
+    \textbf{\textsc{\Large Proyecto Compilando Conocimiento}}\\[1.0cm] 
+    \textsc{\Large Matemáticas Avanzadas}\\[1.0cm] 
 
-	% ============ NAME OF THE DOCUMENT  ============
-	\rule{\linewidth}{0.5mm} \\[1.0cm]
-		{ \huge \bfseries Análisis Complejo}\\[1.0cm] 
-	\rule{\linewidth}{0.5mm} \\[2.0cm]
-	
-	% ====== SEMI TITLE ==========
-	{\LARGE Una Pequeña (Gran) Introducción}\\[7cm] 
-	
-	% ============  MY INFORMATION  =================
-	\begin{center} \large
-	\textbf{\textsc{Autores:}}\\
-	Rosas Hernandez Oscar Andrés \\
-	Lopez Manriquez Angel
-	\end{center}
+    % ============ NAME OF THE DOCUMENT  ============
+    \rule{\linewidth}{0.5mm} \\[1.0cm]
+        { \huge \bfseries Análisis Complejo}\\[1.0cm] 
+    \rule{\linewidth}{0.5mm} \\[2.0cm]
+    
+    % ====== SEMI TITLE ==========
+    {\LARGE Una Pequeña (Gran) Introducción}\\[7cm] 
+    
+    % ============  MY INFORMATION  =================
+    \begin{center} \large
+    \textbf{\textsc{Autores:}}\\
+    Rosas Hernandez Oscar Andrés \\
+    Lopez Manriquez Angel
+    \end{center}
 
-	\vfill
+    \vfill
 
 \end{titlepage}
 
@@ -947,9 +947,9 @@
                         &= r^n \Wrap{\Cis{\theta}}^n                \\
                         &= r^n \Wrap{e^{\theta i}}^n                \\
                         &= r^n e^{(\theta i)n}                      \\
-				  		&= r^n e^{(n \theta)i}                      \\
-                        &= r^n \Wrap{\Cis{n \cdot \theta}}	        \\ 
-				\end{MultiLineEquation*}
+                        &= r^n e^{(n \theta)i}                      \\
+                        &= r^n \Wrap{\Cis{n \cdot \theta}}          \\ 
+                \end{MultiLineEquation*}
             \end{SmallIndentation}
 
 
@@ -1071,11 +1071,11 @@
                 \begin{MultiLineEquation*}{3}
                     \sum_{k=0}^{n} \Cos{k\theta} 
                         &= \dfrac{1}{2} \sum_{k=0}^{n}\Wrap{e^{ik\theta}+e^{-ik\theta}}
-                        &&  \Remember{Recuerda que: $\Cos{x} = \dfrac{e^{ix}+e^{-ix}}{2}$}              \\
+                            &&  \Remember{Recuerda que: $\Cos{x} = \dfrac{e^{ix}+e^{-ix}}{2}$}               \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}   +
                                             \dfrac{e^{(n+1)-i\theta} - 1}{e^{-i\theta} - 1} }
-                        &&  \Remember{Recuerda que: $\sum_{k=0}^n r^k = \dfrac{r^{n+1}-1}{r-1} $}        \\
+                            &&  \Remember{Recuerda que: $\sum_{k=0}^n r^k = \dfrac{r^{n+1}-1}{r-1} $}        \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+1)i\theta} - 1}{e^{i\theta} - 1}
                                                 \pfrac{e^{-i\frac{\theta}{2}}}{e^{-i\frac{\theta}{2}}}
@@ -1083,7 +1083,7 @@
                                             \dfrac{e^{(n+1)-i\theta} - 1}{e^{-i\theta} - 1}
                                                 \pfrac{-e^{i\frac{\theta}{2}}}{-e^{i\frac{\theta}{2}}}
                                         }
-                        &&  \Remember{Multiplica por Uno ;)}                                            \\
+                            &&  \Remember{Multiplica por Uno ;)}                                            \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+\frac{1}{2})i\theta} - e^{i\frac{\theta}{2}}}
                                                   {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
@@ -1091,7 +1091,7 @@
                                             \dfrac{e^{i\frac{\theta}{2}} - e^{(n+\frac{1}{2})-i\theta}}
                                                   {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
                                         }
-                        &&  \Remember{Expande}                                                          \\
+                            &&  \Remember{Expande}                                                          \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+\frac{1}{2})i\theta} - e^{(n+\frac{1}{2})-i\theta}}
                                                   {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
@@ -1099,14 +1099,14 @@
                                             \dfrac{e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
                                                   {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
                                         }
-                        &&  \Remember{Organizando, gracias denominador común}                           \\
+                            &&  \Remember{Organizando, gracias denominador común}                           \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{e^{(n+\frac{1}{2})i\theta} - e^{(n+\frac{1}{2})-i\theta}}
                                                   {e^{i\frac{\theta}{2}} - e^{-i\frac{\theta}{2}}}
                                             +
                                             1
                                         }
-                        &&  \Remember{Simplificar}                                                      \\
+                            &&  \Remember{Simplificar}                                                      \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{
                                                 \dfrac{
@@ -1120,14 +1120,14 @@
                                             +
                                             1
                                         }
-                        &&  \Remember{Añadimos esto}                                                    \\
+                            &&  \Remember{Añadimos esto}                                                    \\
                         &= \dfrac{1}{2} \Wrap{
                                             \dfrac{\Sin{(n+\frac{1}{2})\theta}}
                                             {\Sin{\dfrac{\theta}{2}}}
                                             +
                                             1
                                         }
-                        &&  \Remember{Recuerda que $\Sin{x} = \dfrac{e^{ix} - e^{-ix}}{2i}$}            \\
+                            &&  \Remember{Recuerda que $\Sin{x} = \dfrac{e^{ix} - e^{-ix}}{2i}$}            \\
                 \end{MultiLineEquation*}
 
             \end{SmallIndentation}
@@ -1212,12 +1212,6 @@
 
 
 
-    % ===============================================================================
-    % ===================      PRODUCTO PUNTO Y CRUZ        =========================
-    % ===============================================================================
-    \chapter{Producto Punto y Cruz}
-
-
 
 
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1229,7 +1223,7 @@
     % ===============================================================================
     % ===================        DEFINICIONES Y BASES            ====================
     % ===============================================================================
-	\chapter{Funciones Complejas}
+    \chapter{Funciones Complejas}
         \clearpage
 
         Cualquier función compleja $w = f(z)$ puede ser representada como $f(z) = u(x, y) + iv(x, y)$ donde $x, y \in \Reals$
