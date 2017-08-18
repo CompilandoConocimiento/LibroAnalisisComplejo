@@ -241,9 +241,9 @@
 
 
         % ==============================================
-        % ========      TERMINOS COMUNES       =========
+        % =======    COSAS QUE DEBERIAS SABER    =======
         % ==============================================
-        \section{Términos Comúnes} 
+        \section{Definiciones Utiles} 
 
             \begin{itemize}
                 \item \textbf{Unidad Imaginaria:}
@@ -256,6 +256,67 @@
                 \item \textbf{Parte Imaginaria:}
                     Considere el complejo $z = a+bi \in \Complexs$, entonces decimos que $Im(z) = b$
             \end{itemize}
+
+
+
+
+        % ==============================================
+        % =====    FUNCIONES TRIGONOMETRICA    =========
+        % ==============================================
+        \clearpage
+        \section{Funciones Trigonometricos}
+
+            % =========================================
+            % =====      EVALUACION RAPIDA    =========
+            % =========================================
+            \subsection{Evaluación Rápida}
+
+                \begin{itemize}
+                    \item
+                        $
+                            \Cos{n \cdot \theta} = 
+                            \begin{cases}
+                                =  1 & \text{Si $n$ es par}      \\
+                                = -1 & \text{Si $n$ es impar}
+                            \end{cases} 
+                        $                        
+
+                    \item $\Cos{\dfrac{2n+1}{2} \pi } = 0$
+
+                    \item $\Sin{n \cdot \theta} = 0$
+
+                    \item
+                        $
+                            \Sin{\dfrac{2n+1}{2} \pi }
+                            \begin{cases}
+                                =  1 & \text{Si $n$ es par}      \\
+                                = -1 & \text{Si $n$ es impar}
+                            \end{cases}
+                        $
+                \end{itemize}
+
+
+
+
+            % =========================================
+            % =====    IDENTATIDADES          =========
+            % =========================================
+            \subsection{Identidades Importantes}
+
+                \begin{itemize}
+                    \item
+                        \textbf{Pitagórica: } $\Cos{\theta}^2 + \Sin{\theta}^2 = 1$
+
+                    \item 
+                        $\Cos{a \pm b } = \Cos{a}\Cos{b} \mp \Sin{a}\Sin{b}$
+
+                    \item
+                        $\Sin{a \pm b } = \Cos{a}\Sin{b} \pm \Sin{a}\Cos{b}$
+
+                \end{itemize}
+
+
+
 
 
 
@@ -1026,7 +1087,7 @@
     % ===============================================================================
     % ===================         FORMA EXPONENCIAL             =====================
     % ===============================================================================
-    \chapter{Forma Exponencial}
+    \chapter{Forma Exponencial ó de Euler}
 
 
         % ==============================================
@@ -1044,17 +1105,30 @@
                 \begin{SmallIndentation}[1em]
                     \textbf{Ideas:}
 
-                    Esta fórmula sale de a partir de la serie de McLaurin para la función exponencial:
-                    \[ e^k = 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots \]
+                    Esta fórmula sale de a partir de las Series de Taylor para la función exponencial:
+                    \begin{MultiLineEquation}{2}
+                        e^k 
+                            &= \sum_{n=0}^{\infty} \dfrac{\theta^n}{n!}
+                            &= 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots
+                    \end{MultiLineEquation}
 
-                    Pasa algo muy interesante al hacer $k = i\theta$, pues vemos que se hayan las series de
-                    McLaurin del seno y coseno:
+                    Pasa algo muy interesante al hacer $k = i\theta$, pues vemos que aparecen claramente
+                    la forma en que tenemos de representar a las funciones seno y coseno como polinomios
+                    infinitos:
+
+                    \begin{itemize}
+                        \item $\Sin{\theta} = \sum_{n=0}^{\infty} (-1)^n \dfrac{\theta^{2n+1}}{(2n+1)!}$
+                        \item $\Cos{\theta} = \sum_{n=0}^{\infty} (-1)^n \dfrac{\theta^{2n}}{(2n)!}$
+                    \end{itemize}
+
                     \begin{MultiLineEquation*}{3}
-                        e^{i\theta} &= 
-                                    \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} + \cdots}
-                                    &&+
-                                    \Wrap{\theta - \dfrac{\theta^3}{3!} + \dfrac{\theta^5}{5!} + \cdots}i\\
-                                    &= \Cos{\theta} &&+ \Sin{\theta}i
+                        e^{i\theta}
+                            &=
+                                \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} - \dfrac{\theta^5}{5!} \cdots}
+                                &&+
+                                \Wrap{-\theta + \dfrac{\theta^3}{3!} - \dfrac{\theta^5}{5!} + \dfrac{\theta^7}{7!} \cdots}i\\
+                            &=
+                                \Cos{\theta} &&+ \Sin{\theta}i
                     \end{MultiLineEquation*}
 
                 \end{SmallIndentation}
