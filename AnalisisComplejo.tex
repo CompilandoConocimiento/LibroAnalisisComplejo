@@ -259,6 +259,20 @@
 
 
 
+        % ==============================================
+        % =======        REPETICIONES DE I       =======
+        % ==============================================
+        \section{Repeticiones de $i$} 
+
+            \begin{itemize}
+                \item $\forall n \in \Integers, i^{4n} = 1$
+                \item $\forall n \in \Integers, i^{4n+1} = i$
+                \item $\forall n \in \Integers, i^{4n+2} = -1$
+                \item $\forall n \in \Integers, i^{4n+3} = -i$
+            \end{itemize}
+
+
+
 
         % ==============================================
         % =====    FUNCIONES TRIGONOMETRICA    =========
@@ -1290,68 +1304,89 @@
         % ========      RAICES DE UN NUMERO N     ======
         % ==============================================
         \clearpage
-        \section{n-Raíces de un Numero $z$}
+        \section{n-Raíces de un Numero Complejo}
 
             En general decir que un número $w$ es un raíz enesíma de un número complejo
-            $z \in \Complexs - \Set{0}$ se cumpla que:
+            $z \in \Complexs - \Set{0}$ es que cumple que:
             \begin{equation*}
                 w^n = z
             \end{equation*}
             Donde obviamente $n \in \Integers^+$.
 
 
-            \begin{Theorem}{Existen exactamente $n$ raíces para $w^n = z$}\end{Theorem}
+            % ==============================================
+            % ======   TEOREMA FUNDAMENTAL ALGEBRA    ======
+            % ==============================================
+            \subsection{Teorema Fundamental del Álgebra}
 
-                Que puedes encontrar con:
-                \begin{equation}
-                    w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
-                    \MiniSpace k = 0, 1, 2, \dots, n
-                \end{equation}
+                \begin{Theorem}{Teorema Fundamental del Álgebra}
+                    Todo polinomio de grado $n$ tiene mínimo 1 raíz
+                \end{Theorem}
 
-                % ======== DEMOSTRACION ========s
-                \begin{SmallIndentation}[1.5em]
-                    \textbf{Demostración}:
-                    
-                    Tengamos dos números: $z = r\bCis{\theta}$ y $w = p\bCis{\phi}$
-
-                    Entonces de la ecuación decir $w^n = z$ es lo mismo que decir que:
-                    \begin{MultiLineEquation*}{2}
-                        \Wrap{p\bCis{\phi}}^n &= r\bCis{\theta}
-                        p^n \bCis{\phi}^n     &= r\bCis{\theta}
-                    \end{MultiLineEquation*}
-
-                    De esta ecuación tenemos que:
-                    \begin{itemize}
-                        \item $p^n = r$\\
-                            
-                            Por lo tanto podemos definir a $p = \sqrt{n}$ donde $\sqrt{n}$
-                            es la única raíz positiva de un número $r \in \Reals$.
-
-                        \item $\pCis{\theta}^n = \Cis{\phi}$\\
-
-                            Gracias a $\Cis{n \theta} = \Cis{\phi}$
-                            Por lo tanto podemos decir que:
-                            \begin{itemize}
-                                \item $\Cos{n \theta} = \Cos{\phi}$
-                                \item $\Sin{n \theta} = \Sin{\phi}$
-                            \end{itemize}
-
-                            Y por lo tanto tener que:
-                            \begin{itemize}
-                                \item $\Sin{\phi} = \Sin{\dfrac{\theta + (2\pi) k}{n}}$
-                                \item $\Cos{\phi} = \Cos{\dfrac{\theta + (2\pi) k}{n}}$
-                            \end{itemize}
-
-                    \end{itemize}
+                No desmotraremos este asombroso teorema por ahora, pero si un colorario (específicamente)
+                en el campo de los complejos: \Quote{Un polinomio de grado $n$ tiene exactamente $n$ raíces}.
 
 
-                    Y finalmente podemos generalizar los resultados como:
+            % ==============================================
+            % ==  ENCONTAR LAS N RAICES DE UN COMPLEJO   ===
+            % ==============================================
+            \clearpage
+            \subsection{Encontrar las Raíces de un Número Complejo}
+
+                \begin{Theorem}
+                    {Existen exactamente $n$ raíces para $w^n = z$ donde $w, z \in \Complexs$}
+                \end{Theorem}
+
+                    Suponiendo a $z = (r, \theta)$ entonces las podemos encontrar tan fácil como:
                     \begin{equation}
                         w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
+                        \MiniSpace k = 0, 1, 2, \dots, n-1
                     \end{equation}
 
+                    % ======== DEMOSTRACION ========s
+                    \begin{SmallIndentation}[1.5em]
+                        \textbf{Demostración}:
+                        
+                        Tengamos dos números: $z = r\bCis{\theta}$ y $w = p\bCis{\phi}$
 
-                \end{SmallIndentation}
+                        Entonces de la ecuación decir $w^n = z$ es lo mismo que decir que:
+                        \begin{MultiLineEquation*}{2}
+                            \Wrap{p\bCis{\phi}}^n &= r\bCis{\theta}     \\
+                            p^n \bCis{\phi}^n     &= r\bCis{\theta}
+                        \end{MultiLineEquation*}
+
+                        De esta ecuación tenemos que:
+                        \begin{itemize}
+                            \item $p^n = r$\\
+                                
+                                Por lo tanto podemos definir a $p = \sqrt{r}$ donde $\sqrt{r}$
+                                es la raíz enesíma del módulo de dicho número.
+
+                            \item $\pCis{\theta}^n = \Cis{\phi}$\\
+
+                                Gracias a $\Cis{n \theta} = \Cis{\phi}$
+                                Por lo tanto podemos decir que:
+                                \begin{itemize}
+                                    \item $\Cos{n \theta} = \Cos{\phi}$
+                                    \item $\Sin{n \theta} = \Sin{\phi}$
+                                \end{itemize}
+
+                                Y gracias a que ambas funciones son periodicas cada $2\pi$, por lo tanto:
+                                \begin{itemize}
+                                    \item $\Sin{\phi} = \Sin{\dfrac{\theta + (2\pi) k}{n}}$
+                                    \item $\Cos{\phi} = \Cos{\dfrac{\theta + (2\pi) k}{n}}$
+                                \end{itemize}
+
+                        \end{itemize}
+
+
+                        Y finalmente podemos generalizar los resultados como:
+                        \begin{equation}
+                            w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
+                        \end{equation}
+
+
+                    \end{SmallIndentation}
 
 
 
