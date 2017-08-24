@@ -156,8 +156,8 @@
     \makeatother                                                    %WTF! IS THIS
 
     % TRIGONOMETRIC FUNCTIONS
-    \newcommand{\Cos}[1]{\cos\Wrap{#1}}
-    \newcommand{\Sin}[1]{\sin\Wrap{#1}}
+    \newcommand{\Cos}[1]{\cos\Wrap{#1}}                             %Simple wrappers
+    \newcommand{\Sin}[1]{\sin\Wrap{#1}}                             %Simple wrappers
 
     % === COMPLEX ANALYSIS ===
     \newcommand \Cis[1]  {\Cos{#1} + i \Sin{#1}}                    %Use: \Cis for cos(x) + i sin(x)
@@ -1404,7 +1404,146 @@
     \chapter{Funciones Complejas}
         \clearpage
 
-        Cualquier función compleja $w = f(z)$ puede ser representada como $f(z) = u(x, y) + iv(x, y)$ donde $x, y \in \Reals$
+        % ==============================================
+        % ========   FUNCIONES EN GENERAL      =========
+        % ==============================================
+        \clearpage
+        \section{Funciones en General}
+
+
+        Cualquier función compleja $w = f(z)$ puede ser representada como:
+
+        $f(z) = f(x+yi) = u(x, y) + iv(x, y)$ donde $x, y \in \Reals$
+
+        Es decir donde $u(x,y), v(x,y) : \Reals^2 \to \Reals$.
+
+
+        Ahora que las hemos definido formalmente podemos mostar las funciones complejas
+        mas famosas.
+
+
+
+
+
+        % ==============================================
+        % ========      NUMEROS COMPLEJOS      =========
+        % ==============================================
+        \clearpage
+        \section{Funciones Hiperbolicas $cosh(x)$ y $senh(x)$}
+
+            A ver, antes que nada, estas no son funciones complejas en si, pero nos
+            van a servir mucho.
+
+            Recuerda que dijimos que:
+
+            \begin{itemize}
+                \item $\Cos{\theta} = \dfrac{ e^{i\theta} + e^{-i\theta} }{2}$
+                \item $\Sin{\theta} = \dfrac{ e^{i\theta} - e^{-i\theta} }{2i}$
+            \end{itemize}
+
+            Por lo tanto podemos ver que:
+
+            \begin{MultiLineEquation}{2}
+                cos(ix) &= \dfrac{ e^{i(ix)} + e^{-i(ix)} }{2}  \\
+                        &= \dfrac{ e^{-x} + e^x }{2}            \\
+                        &= \dfrac{ e^x + e^{-x} }{2}            \\
+                        &= cosh(x) 
+            \end{MultiLineEquation}
+
+            \begin{MultiLineEquation}{2}
+                sen(ix) &= \dfrac{ e^{i(ix)} - e^{-i(ix)} }{2i} \\
+                        &= \dfrac{ e^{-x} - e^x }{2i}           \\
+                        &= \dfrac{-1}{2i} e^x + e^{-x}          \\
+                        &= \dfrac{i}{2} e^x + e^{-x}            \\
+                        &= i\pfrac{e^x + e^{-x}}{2}             \\
+                        &= i \cdot senh(x) 
+            \end{MultiLineEquation}
+
+
+            \clearpage
+
+            Estas funciones tiene unas propiedades bien locas como:
+            \begin{itemize}
+                \item $sinh(x)^2 + cosh(x)^2 = 1$ 
+                    
+                    % ======== DEMOSTRACION ========s
+                    \begin{SmallIndentation}[1.5em]
+                        \textbf{Demostración}:
+                        
+                        \begin{MultiLineEquation*}{2}
+                            cosh(x)^2 - sinh(x)^2s
+                                &= \pfrac{e^x + e^{-x}}{2}^2 - \pfrac{e^x - e^{-x}}{2}^2                \\
+                                &= \pfrac{e^x + e^{-x}}{4}^2 - \pfrac{e^x - e^{-x}}{2}^2                \\
+                                &= \pfrac{e^{2x} + 2 + e^{-2x}}{4} - \pfrac{e^{2x} - 2 + e^{-2x}}{4}    \\
+                                &= \pfrac{e^{2x} + 2 + e^{-2x}}{4} + \pfrac{-e^{2x} + 2 - e^{-2x}}{4}   \\
+                                &= \pfrac{e^{2x} + 2 + e^{-2x} + -e^{2x} + 2 - e^{-2x}}{4}              \\
+                                &= \pfrac{4}{4}                                                         \\
+                                &= 1
+                        \end{MultiLineEquation*}
+
+                    \end{SmallIndentation} 
+
+            \end{itemize}
+
+
+
+        % ==============================================
+        % ====   TRIGONOMETRICAS COMPLEJAS      ========
+        % ==============================================
+        \clearpage
+        \section{Trigonometricas Complejas: $cos(z)$ y $sin(z)$}
+
+            \begin{MultiLineEquation}{2}
+                cos(a+bi)   &= cos(a)cos(bi) - sen(a)sen(bi)    \\
+                            &= cos(a)cosh(b) - i(sen(a)senh(b)) \\
+            \end{MultiLineEquation}
+
+            \begin{MultiLineEquation}{2}
+                sin(a+bi)   &= sin(a)cos(bi) + cos(a)sen(bi)    \\
+                            &= sin(a)cosh(b) + i(cos(a)senh(i)) \\
+            \end{MultiLineEquation}
+
+
+        % ==============================================
+        % ====   TRIGONOMETRICAS COMPLEJAS      ========
+        % ==============================================
+        \clearpage
+        \section{Funciones $e^z$ y $Ln(z)$}
+
+
+            La función exponencial es demasiado sencilla de definir:
+
+            \begin{MultiLineEquation}{2}
+                e^{a+bi}    &= e^a e^{bi}                   \\
+                            &= e^a \Cis{b}                  \\
+                            &= e^a \Cos{b} + i e^a \Sin{b}  
+            \end{MultiLineEquation}
+
+
+            Vamos a definir de manera completamente arbitraria al
+            logaritmo de un número complejo:
+
+            \begin{equation}
+                Ln(z) = ln(|z|) + i Arg(z)
+            \end{equation}
+
+            Esta definición nos permite que esta nueva función herede las propiedades 
+            comunes del logaritmo.
+
+
+            % ===========================
+            % ====   EXPONENCIALES    ===
+            % ===========================
+            \clearpage
+            \section{$z_1^{z_2}$}
+
+            Gracias a la definición podemos definir esta operación como:
+
+            \begin{MultiLineEquation*}{2}
+                z_1^{z_2}   &= (z_1)^a + (z_2)^{bi}           \\
+                            &= (z_1)^a e^{Ln(z_2^{bi})}       \\
+                            &= (z_1)^a e^{bi \cdot Ln(z_2)}   \\
+            \end{MultiLineEquation*}
 
 
 
