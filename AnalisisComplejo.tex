@@ -1453,9 +1453,9 @@
             \begin{MultiLineEquation}{2}
                 sen(ix) &= \dfrac{ e^{i(ix)} - e^{-i(ix)} }{2i} \\
                         &= \dfrac{ e^{-x} - e^x }{2i}           \\
-                        &= \dfrac{-1}{2i} e^x + e^{-x}          \\
-                        &= \dfrac{i}{2} e^x + e^{-x}            \\
-                        &= i\pfrac{e^x + e^{-x}}{2}             \\
+                        &= \dfrac{-1}{2i} e^x - e^{-x}          \\
+                        &= \dfrac{i}{2} e^x - e^{-x}            \\
+                        &= i\pfrac{e^x - e^{-x}}{2}             \\
                         &= i \cdot senh(x) 
             \end{MultiLineEquation}
 
@@ -1471,7 +1471,7 @@
                         \textbf{Demostración}:
                         
                         \begin{MultiLineEquation*}{2}
-                            cosh(x)^2 - sinh(x)^2s
+                            cosh(x)^2 - sinh(x)^2
                                 &= \pfrac{e^x + e^{-x}}{2}^2 - \pfrac{e^x - e^{-x}}{2}^2                \\
                                 &= \pfrac{e^x + e^{-x}}{4}^2 - \pfrac{e^x - e^{-x}}{2}^2                \\
                                 &= \pfrac{e^{2x} + 2 + e^{-2x}}{4} - \pfrac{e^{2x} - 2 + e^{-2x}}{4}    \\
@@ -1490,7 +1490,6 @@
         % ==============================================
         % ====   TRIGONOMETRICAS COMPLEJAS      ========
         % ==============================================
-        \clearpage
         \section{Trigonometricas Complejas: $cos(z)$ y $sin(z)$}
 
             \begin{MultiLineEquation}{2}
@@ -1522,7 +1521,6 @@
 
             Vamos a definir de manera completamente arbitraria al
             logaritmo de un número complejo:
-
             \begin{equation}
                 Ln(z) = ln(|z|) + i Arg(z)
             \end{equation}
@@ -1534,7 +1532,6 @@
             % ===========================
             % ====   EXPONENCIALES    ===
             % ===========================
-            \clearpage
             \section{$z_1^{z_2}$}
 
             Gracias a la definición podemos definir esta operación como:
@@ -1547,6 +1544,180 @@
 
 
 
-            
+
+
+
+    % ===============================================================================
+    % ===================        LIMITES COMPLEJOS               ====================
+    % ===============================================================================
+    \chapter{Límites}
+        \clearpage
+
+        % ==============================================
+        % ========     LIMITES COMPLEJOS       =========
+        % ==============================================
+        \clearpage
+        \section{Límites en Cálculo Real}
+
+            Antes de empezar a hablar sobre como podemos definir el límite en el campo de
+            los complejos, veamos como llegamos a esa definición en los números reales.
+            \begin{equation}
+                \lim_{x \to a} f(x) = L
+            \end{equation}
+
+            De manera completamente informal podemos decir que el Límite de arriba es cierto
+            si cuando $f(x)$ se acerca a $L$, $x$ se acerca a $a$. 
+
+            Es decir, si se acerca, la distancia entre $f(x)$ y $L$ y $x$ y $a$ cada vez 
+            se va haciendo más pequeña, lo cuando lo podemos añadir para hacer a la definición
+            más precisa.
+
+            \textbf{Límite}: $|f(x)-L|$ se hace casi cero cuando $|x-a|$ se acerca a cero.
+
+            Ahora simplemente vamos a formalizar lo que significa pequeño:
+            \begin{itemize}
+                 \item $\delta$ hablará de lo pequeño que será $|x-a|$
+                 \item $\epsilon$ hablará de lo pequeño que será $|f(x)-L|$
+             \end{itemize} 
+
+            Por lo tanto estamos listo para la definición formal en todo su esplendor:
+
+
+            % ==============================================
+            % ========     DEFINICION FORMAL       =========
+            % ==============================================
+            \subsection{Definición Formal}
+
+                \begin{itemize}
+
+                    \item
+                        En forma geométrica, si $a$ es un punto en la recta númerica, entonces
+                        $\lim_{x \to a} f(x) = L$ si el valor absoluto de la diferencia entre
+                        $f(x)$ y $L$ puede hacerse tan pequeña como se desee al eligir puntos
+                        lo bastante cercanos a $a$ (excluyendo a $x = a$).
+
+                    \item
+                        Se dice que un número $L$ es el límite de $f(x)$ cuando $x$ tiende a $a$
+                        si para todo número positivo $\epsilon$ (tan pequeño como se desee) se
+                        halla un número positivo $\delta$ (que por lo general depende de $\epsilon$)
+                        tal que $|f(x) - L| < \epsilon$ siempre que $0 < |x - a| < \delta$.
+
+                    \item 
+                        Decimos que $\lim_{x \to a} f(x) = L$ si y solo si se cumple que:
+                        \begin{equation*}
+                            \forall \epsilon > 0, \MiniSpace
+                                \exists \delta > 0 \text{ que cumple que }
+                                    |f(x) - L| < \epsilon \text{ siempre que } 0 < |x - a| < \delta  
+                        \end{equation*}
+
+                \end{itemize}
+
+               
+
+
+    % ===============================================================================
+    % ===================        DERIVADAS COMPLEJAS             ====================
+    % ===============================================================================
+    \chapter{Derivación Compleja}
+        \clearpage
+
+        % ==============================================
+        % ========     DEFINICION FORMAL       =========
+        % ==============================================
+        \clearpage
+        \section{Definición Formal}
+
+            \begin{MultiLineEquation}{2}
+                f'(z) &= \lim_{\Delta z \to 0} \dfrac{f(z + \Delta z) - f(z)}{\Delta z}     \\
+                      &= \lim_{\Delta z \to z_0} \dfrac{f(z) - f(z_0)}{z - z_0}
+            \end{MultiLineEquation}
+
+
+
+
+        % ==============================================
+        % ========        CONTINUIDAD          =========
+        % ==============================================
+        \section{Continuidad}
+
+            Decimos que una función $f(z)$ es continua en un punto si y solo si:
+            \begin{itemize}
+                \item La función $f(z)$ tiene que estar valuado en $z_0$
+                \item El $\lim_{z \to z_0} f(z)$ tiene que existir
+                \item Ambos tienen que coincidir
+            \end{itemize}
+
+
+
+        % ==============================================
+        % ===   ECUACIONES DE CAUCHY - RIEMANN    ======
+        % ==============================================
+        \clearpage
+        \section{Ecuaciones de Cauchy - Riemann}
+
+
+            Recuerda que el hecho de que una función $f(z) = u(x, y) + iv (x, y)$ sea diferenciable
+            nos da grandes restricciones sobre como son $u(x, y), v(x, y)$, veamos que dichas
+            restricciones salen de la misma definición:
+
+            \begin{MultiLineEquation*}{2}
+                f'(z)   &= \lim_{\Delta z \to 0} \dfrac{f(z + \Delta z) - f(z)}{\Delta z}           \\
+                        &= \lim_{\tiny{\Vector{\Delta x \to 0\\\Delta y \to 0}}}
+                            \dfrac
+                            {  u(x + \Delta x, y +\Delta y) + iv(x \Delta x, y + \Delta y)
+                               -
+                               u(x, y) + iv (x, y)
+                            }
+                            {\Delta x + i\Delta y}                                                    
+            \end{MultiLineEquation*}
+
+
+            Además sabemos que si es diferenciable, los límites tiene que coincidir sin 
+            importar de por donde nos acercamos al valor, por lo tanto tenemos que:
+
+            \begin{MultiLineEquation*}{2}
+                f'(z)   &= \lim_{\tiny{\Vector{\Delta x \to 0\\\Delta y \to 0}}}
+                            \dfrac
+                            {  u(x + \Delta x, y +\Delta y) + iv(x \Delta x, y + \Delta y)
+                               -
+                               u(x, y) + iv (x, y)
+                            }
+                            {\Delta x + i\Delta y}                                              \\
+                        &= \lim_{\tiny{\Vector{\Delta x \to 0\\\Delta y = 0}}}
+                            \Brackets{
+                                \dfrac{u(x + \Delta x, y) - u(x, y)}{\Delta x}
+                                +
+                                i\dfrac{v(x + \Delta x, y) - v(x, y)}{\Delta x}
+                            }                                                                   \\
+                        &= \lim_{\tiny{\Vector{\Delta x = 0\\\Delta y \to 0}}}
+                            \Brackets{
+                                \dfrac{u(x, y +\Delta y) - u(x, y)}{i \Delta y}
+                                +
+                                \dfrac{v(x, y +\Delta y) - v(x, y)}{\Delta y}
+                            }                        
+            \end{MultiLineEquation*}
+
+            Y si te das cuentas, estos dos límites estan mostrando derivadas parciales,
+            así que al igualar ambas tenemos que:
+
+
+            \begin{MultiLineEquation*}{2}
+                \dfrac{\partial u(x, y)}{\partial x} + i\dfrac{\partial v(x, y)}{\partial x}
+                &=
+                -i\dfrac{\partial u(x, y)}{\partial y} + \dfrac{\partial v(x, y)}{\partial y}
+            \end{MultiLineEquation*}
+
+            Por lo tanto podemos comparar la parte real e imaginaria como:
+
+            \begin{itemize}
+                \item $\dfrac{\partial u(x, y)}{\partial x} =   \dfrac{\partial v(x, y)}{\partial y}$
+                \item $\dfrac{\partial v(x, y)}{\partial x} = - \dfrac{\partial u(x, y)}{\partial y}$
+            \end{itemize}
+
+            Estas son conocidas como las ecuaciones de Cauchy-Riemann.
+
+            Por lo tanto formalizamos como que una condición necesaria para que
+            $f(z) = u(x, y) + iv (x, y)$ sea analítica en una región es que cumplan
+            las Ecucaciones de Cauchy-Riemann.
 
 \end{document}
