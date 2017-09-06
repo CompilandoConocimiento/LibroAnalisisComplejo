@@ -1600,14 +1600,14 @@
                         Se dice que un número $L$ es el límite de $f(x)$ cuando $x$ tiende a $a$
                         si para todo número positivo $\epsilon$ (tan pequeño como se desee) se
                         halla un número positivo $\delta$ (que por lo general depende de $\epsilon$)
-                        tal que $|f(x) - L| < \epsilon$ siempre que $0 < |x - a| < \delta$.
+                        tal que si$0 < |x - a| < \delta$ entonces $|f(x) - L| < \epsilon$.
 
                     \item 
                         Decimos que $\lim_{x \to a} f(x) = L$ si y solo si se cumple que:
                         \begin{equation*}
                             \forall \epsilon > 0, \MiniSpace
-                                \exists \delta > 0 \text{ que cumple que }
-                                    |f(x) - L| < \epsilon \text{ siempre que } 0 < |x - a| < \delta  
+                                \exists \delta > 0 \text{ tal que si }
+                                    0 < |x - a| < \delta \text{ entonces } |f(x) - L| < \epsilon 
                         \end{equation*}
 
                 \end{itemize}
