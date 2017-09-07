@@ -159,6 +159,9 @@
     \newcommand{\Cos}[1]{\cos\Wrap{#1}}                             %Simple wrappers
     \newcommand{\Sin}[1]{\sin\Wrap{#1}}                             %Simple wrappers
 
+    % === CALCULUS ===
+    \newcommand \Partial[2] {\dfrac{\partial #1}{\partial #2}}      %Use: \Partial for simple use
+
     % === COMPLEX ANALYSIS ===
     \newcommand \Cis[1]  {\Cos{#1} + i \Sin{#1}}                    %Use: \Cis for cos(x) + i sin(x)
     \newcommand \pCis[1] {\Wrap{\Cis{#1}}}                          %Use: \pCis for the same ut parantesis
@@ -1618,7 +1621,7 @@
     % ===============================================================================
     % ===================        DERIVADAS COMPLEJAS             ====================
     % ===============================================================================
-    \chapter{Derivación Compleja}
+    \chapter{Derivación}
         \clearpage
 
         % ==============================================
@@ -1653,7 +1656,7 @@
         % ===   ECUACIONES DE CAUCHY - RIEMANN    ======
         % ==============================================
         \clearpage
-        \section{Ecuaciones de Cauchy - Riemann}
+        \section{Ecuaciones de Cauchy - Riemann en Rectangular}
 
 
             Recuerda que el hecho de que una función $f(z) = u(x, y) + iv (x, y)$ sea diferenciable
@@ -1719,5 +1722,256 @@
             Por lo tanto formalizamos como que una condición necesaria para que
             $f(z) = u(x, y) + iv (x, y)$ sea analítica en una región es que cumplan
             las Ecucaciones de Cauchy-Riemann.
+
+
+        % ==============================================
+        % == ECUACIONES DE CAUCHY - RIEMANN: POLAR  ====
+        % ==============================================
+        \clearpage
+        \section{Ecuaciones de Cauchy - Riemann en forma Polar}
+
+            % ==============================================
+            % ======   PROBEMOS LAS ECUACIONES      ========
+            % ==============================================
+            \subsection{Demostración usando Rectangular}
+
+                Sea una función $f(r, \theta) = u(r, \theta) + iv(r, \theta)$ ananlítica,
+                entonces se satisface las ecuaciones en forma rectangular:
+
+                \begin{itemize}
+                    \item $\Partial{u(x, y)}{x} =   \Partial{v(x, y)}{y}$
+                    \item $\Partial{u(x, y)}{y} = - \Partial{v(x, y)}{x}$
+                \end{itemize}
+
+                Y dado que $z = x + iy = r(\Cis{\theta})$, entonces:
+                \begin{itemize}
+                    \item $r(x, y) = \Wrap{x^2 + y^2}^{\frac{1}{2}}$
+                    \item $\theta(x, y) = arctan\pfrac{y}{x}$
+                \end{itemize}  
+
+                y también tenemos que:
+                \begin{itemize}
+                    \item $x(r, \theta) = r\Cos{\theta}$
+                    \item $y(r, \theta) = r\Sin{\theta}$
+                \end{itemize}
+
+                \clearpage
+
+                Ahora, hay que demostrar estas 4 ecuaciones:
+
+                \begin{equation*}
+                    \begin{split}
+                        \Partial{r}{x} = \Cos{\theta}
+                    \end{split}
+                    \Space
+                    \begin{split}
+                        \Partial{r}{y} = \Sin{\theta}
+                    \end{split}
+                    \Space
+                    \begin{split}
+                        \Partial{\theta}{x} = \dfrac{-\Sin{\theta}}{r}
+                    \end{split}
+                    \Space
+                    \begin{split}
+                        \Partial{\theta}{y} = \dfrac{\Cos{\theta}}{r}
+                    \end{split}
+                \end{equation*}
+
+
+                \subsubsection{Demostración}
+
+                    \begin{equation*}
+                        \begin{split}
+                            \Partial{r}{x}
+                                &= \Partial{\Wrap{x^2 + y^2}^{\frac{1}{2}}}{x}      \\
+                                &= \frac{1}{2}\Wrap{x^2 + y^2}^{\frac{-1}{2}}(2x)   \\ 
+                                &= x \Wrap{x^2 + y^2}^{\frac{-1}{2}}                \\
+                                &= r\Cos{\theta} \Wrap{r^2}^{\frac{-1}{2}}          \\
+                                &= r\Cos{\theta} r^{-1}                             \\
+                                &= \Cos{\theta}     
+                        \end{split}
+                        \Space\Space
+                        \Space\Space
+                        \begin{split}
+                            \Partial{r}{y}
+                                &= \Partial{\Wrap{x^2 + y^2}^{\frac{1}{2}}}{y}      \\
+                                &= \frac{1}{2}\Wrap{x^2 + y^2}^{\frac{-1}{2}}(2y)   \\
+                                &= y \Wrap{x^2 + y^2}^{\frac{-1}{2}}                \\
+                                &= r\Sin{\theta} \Wrap{r^2}^{\frac{-1}{2}}          \\
+                                &= r\Sin{\theta} r^{-1}                             \\
+                                &= \Sin{\theta}                                     
+                        \end{split}
+                    \end{equation*}
+
+
+
+                    \begin{equation*}
+                        \begin{split}
+                            \Partial{\theta}{x}
+                                &= \Partial{arctan\pfrac{y}{x}}{x}                  \\
+                                &= \dfrac{1}{1 + \pfrac{y}{x}^{2}} \dfrac{-y}{x^2}  \\
+                                &= \dfrac{1}{\pfrac{y^2 + x^2}{x^2}}\dfrac{-y}{x^2} \\
+                                &= \dfrac{1}{\pfrac{y^2 + x^2}{x^2}}\dfrac{-y}{x^2} \\
+                                &= \dfrac{-y}{y^2 + x^2}                            \\
+                                &= \dfrac{-r\Sin{\theta}}{r^2}                      \\
+                                &= \dfrac{-\Sin{\theta}}{r}                         
+                        \end{split}
+                        \Space\Space
+                        \Space\Space
+                        \begin{split}
+                            \Partial{\theta}{y}
+                                &= \Partial{arctan\pfrac{y}{x}}{y}                  \\
+                                &= \dfrac{1}{1 + \pfrac{y}{x}^{2}} \dfrac{1}{x}     \\
+                                &= \dfrac{1}{\pfrac{y^2 + x^2}{x^2}}\dfrac{1}{x}    \\
+                                &= \dfrac{1}{\pfrac{y^2 + x^2}{x^2}}\dfrac{1}{x}    \\
+                                &= \dfrac{x}{y^2 + x^2}                             \\
+                                &= \dfrac{r\Cos{\theta}}{r^2}                       \\
+                                &= \dfrac{\Cos{\theta}}{r}                          
+                        \end{split}
+                    \end{equation*}
+
+                \clearpage
+
+
+                Entonces usando la gran regla de la cadena tenemos que:
+                \begin{MultiLineEquation*}{3}
+                    \Partial{u(r, \theta)}{x} 
+                        &= \Partial{u}{r}\Partial{r}{x} + \Partial{u}{\theta}\Partial{\theta}{x}  
+                            &&\Space \text{Regla de la Cadena}                                      \\
+                        &= \Partial{u}{r}\Cos{\theta} - \Partial{u}{\theta}\dfrac{\Sin{\theta}}{r}  
+                            &&\Space \text{Sustituyendo}                                            \\
+                \end{MultiLineEquation*}
+
+                Por otro lado:
+                \begin{MultiLineEquation*}{3}
+                    \Partial{v(r, \theta)}{y} 
+                        &= \Partial{v}{r}\Partial{r}{y} + \Partial{v}{\theta}\Partial{\theta}{y}  
+                            &&\Space \text{Regla de la Cadena}                                      \\
+                        &= \Partial{u}{r}\Sin{\theta} + \Partial{u}{\theta}\dfrac{\Cos{\theta}}{r}  
+                            &&\Space \text{Sustituyendo}                                            \\
+                \end{MultiLineEquation*}
+
+                Ahora de las ecuaciones de Cauchy - Riemann tenemos que:
+                \begin{MultiLineEquation*}{3}
+                    0
+                        &= \Partial{u}{x} - \Partial{v}{y}                                          \\
+                        &= \Wrap{
+                            \Partial{u}{r}\Cos{\theta} - \Partial{u}{\theta}\dfrac{\Sin{\theta}}{r}
+                            }
+                            -
+                            \Wrap{
+                            \Partial{u}{r}\Sin{\theta} + \Partial{u}{\theta}\dfrac{\Cos{\theta}}{r}
+                            }                                                                       \\
+                        &=  \Cos{\theta} \Wrap{\Partial{u}{r} - \Partial{v}{\theta}\dfrac{1}{r}}
+                            +
+                            \Sin{\theta} \Wrap{-\Partial{u}{\theta} - \Partial{v}{r}\dfrac{1}{r}}
+                \end{MultiLineEquation*}
+
+                Y ya que $\Sin{\theta}$ y $\Cos{\theta}$ son linealmente independientes 
+                (si no me creen intenten hacer el Wroksiano, porque yo no lo intentaré)
+                tenemos que todo lo que las multiplique tiene que ser cero, es decir:
+
+                Tenemos que $0 = \Partial{u}{r} - \Partial{v}{\theta}\dfrac{1}{r}$
+                por lo que un simple despeje tenemos que:
+                $\Partial{u}{r} = \dfrac{1}{r}\Partial{v}{\theta}$
+
+                Tenemos que $0 = -\Partial{u}{\theta} - \Partial{v}{r}\dfrac{1}{r}$
+                por lo que un simple despeje tenemos que:
+                $\Partial{u}{\theta} = \dfrac{-1}{r}\Partial{v}{r}$
+
+
+                Por lo tanto tenemos que:
+                \begin{itemize}
+                    \item $\Partial{u}{r} = \dfrac{1}{r} \Wrap{\Partial{v}{\theta}} $
+                    \item $\Partial{v}{r} = \dfrac{-1}{r}\Wrap{\Partial{u}{\theta}} $
+                \end{itemize}
+
+
+
+            % ==============================================
+            % ======   PROBEMOS LAS ECUACIONES      ========
+            % ==============================================
+            \clearpage
+            \subsection{Comprobación usando Rectangular}
+
+                Sea una función $f(x+iy) = u(x, y) + iv(x, y)$ analítica, entonces se
+                satisface las ecuaciones en forma rectangular:
+
+                \begin{itemize}
+                    \item $\Partial{u(x, y)}{x} =   \Partial{v(x, y)}{y}$
+                    \item $\Partial{u(x, y)}{y} = - \Partial{v(x, y)}{x}$
+                \end{itemize}
+
+                Y dado que $z = x + iy = r(\Cis{\theta})$, entonces:
+
+                \begin{itemize}
+                    \item $x(r, \theta) = r\Cos{\theta}$
+                    \item $y(r, \theta) = r\Sin{\theta}$
+                \end{itemize}
+
+                Entonces usando la gran regla de la cadena tenemos que:
+
+                \begin{MultiLineEquation*}{3}
+                    \Partial{u}{r} 
+                        &= \Partial{u}{x}\Partial{x}{r} + \Partial{u}{y}\Partial{y}{r}  
+                            &&\Space \text{Regla de la Cadena}                                      \\
+                        &=  \Partial{u}{x}\Partial{r\Cos{\theta}}{r}
+                            + 
+                            \Partial{u}{y}\Partial{r\Sin{\theta}}{r}                    
+                            &&\Space \text{Expandamos}                                              \\
+                        &= \Partial{u}{x}\Cos{\theta} + \Partial{u}{y}\Sin{\theta}      
+                            &&\Space \text{Resolvemos}                                              \\
+                        &= \frac{1}{r}\Wrap{
+                            \Partial{u}{x}r\Cos{\theta} + \Partial{u}{y}r\Sin{\theta}}  
+                            &&\Space \text{Creamos una r mágica}                                    \\
+                        &= \frac{1}{r}\Wrap{
+                            \Partial{v}{y}r\Cos{\theta} - \Partial{v}{x}r\Sin{\theta}}  
+                            &&\Space \text{Usando Cauchy - Riemann}                                 \\
+                        &= \frac{1}{r}\Wrap{
+                            \Partial{v}{x}-r\Sin{\theta} + \Partial{v}{y}r\Cos{\theta}}  
+                            &&\Space \text{Reordenamos}                                             \\
+                        &= \frac{1}{r}\Wrap{
+                            \Partial{v}{x}\Partial{x}{\theta} + \Partial{v}{y}\Partial{y}{\theta}}  
+                            &&\Space \text{Ve que son iguales}                                      \\
+                        &= \frac{1}{r}\Wrap{\Partial{v}{\theta}}  
+                            &&\Space \text{Regla de la Cadena a la inversa}                         \\
+                \end{MultiLineEquation*}
+
+
+                De manera analoga tenemos que:
+
+                \begin{MultiLineEquation*}{3}
+                    \Partial{v}{r} 
+                        &= \Partial{v}{x}\Partial{x}{r} + \Partial{v}{y}\Partial{y}{r}  
+                            &&\Space \text{Regla de la Cadena}                                      \\
+                        &=  \Partial{v}{x}\Partial{r\Cos{\theta}}{r}
+                            + 
+                            \Partial{v}{y}\Partial{r\Sin{\theta}}{r}                    
+                            &&\Space \text{Expandamos}                                              \\
+                        &= \Partial{v}{x}\Cos{\theta} + \Partial{v}{y}\Sin{\theta}      
+                            &&\Space \text{Resolvemos}                                              \\
+                        &= \frac{-1}{r}\Wrap{
+                            -\Partial{v}{x}r\Cos{\theta} - \Partial{v}{y}r\Sin{\theta}}  
+                            &&\Space \text{Creamos una r mágica}                                    \\
+                        &= \frac{-1}{r}\Wrap{
+                            \Partial{u}{y}r\Cos{\theta} - \Partial{u}{x}r\Sin{\theta}}  
+                            &&\Space \text{Usando Cauchy - Riemann}                                 \\
+                        &= \frac{-1}{r}\Wrap{
+                            \Partial{u}{x}\Wrap{-r\Sin{\theta}} + \Partial{u}{y}r\Cos{\theta}}  
+                            &&\Space \text{Reordenamos}                                             \\
+                        &= \frac{-1}{r}\Wrap{
+                            \Partial{u}{x}\Partial{x}{\theta} + \Partial{u}{y}\Partial{y}{\theta}}  
+                            &&\Space \text{Ve que son iguales}                                      \\
+                        &= \frac{-1}{r}\Wrap{\Partial{u}{\theta}}  
+                            &&\Space \text{Regla de la Cadena a la inversa}                         \\
+                \end{MultiLineEquation*}
+
+
+                Por lo tanto tenemos que:
+
+                \begin{itemize}
+                    \item $\Partial{u}{r} = \dfrac{1}{r} \Wrap{\Partial{v}{\theta}} $
+                    \item $\Partial{v}{r} = \dfrac{-1}{r}\Wrap{\Partial{u}{\theta}} $
+                \end{itemize}
 
 \end{document}
