@@ -700,6 +700,32 @@
             \end{itemize}
 
 
+            % ==============================================
+            % ========    COORDENADAS CONJUGADAS     =======
+            % ==============================================
+            \subsection{Coordenadas Conjugadas}
+
+                Hay alguien que usando las propiedades de $a + ib$
+                donde tenemos que:
+                \begin{itemize}
+                    \item $a = \frac{(z + \Over{z})}{2}$
+                    \item $b = \frac{(z - \Over{z})}{2i}$
+                \end{itemize}
+
+                Para hablar de coordenadas conjugadas a los que denominamos
+                de manera similiar a las polares y rectanguales (que veremos
+                mas a detalle en este libro):
+                \begin{itemize}
+                    \item $z = (a, b)$
+                    \item $z = (r, \theta)$
+                    \item $z = (z, \Over{z})$
+                \end{itemize}
+
+
+
+
+
+
 
         % ==============================================
         % ========    MODULO O VALOR ABSOLUTO    =======
@@ -734,11 +760,11 @@
                     \begin{SmallIndentation}[1em]
                         \textbf{Demostración}:
 
-                        Ya sabemos que $|z+\Over{z}|^2 = z \cdot \Over{z}$ y recuerda que
-                        $2Re(z) = z+\Over{z}$, $|z|^2 = z \cdot \Over{z}$ entonces tenemos que:
+                        Ya sabemos que $|z+\Over{z}|^2 = z \Over{z}$ y recuerda que
+                        $2Re(z) = z+\Over{z}$, $|z|^2 = z \Over{z}$ entonces tenemos que:
                         \begin{MultiLineEquation*}{2}
-                            |z_1+z_2|^2 &= (z_1+z_2) \cdot \Over{(z_1+z_2)}                                 \\
-                                    &= (z_1+z_2) \cdot (\Over{z_1}+\Over{z_2})                              \\
+                            |z_1+z_2|^2 &= (z_1+z_2) \Over{(z_1+z_2)}                                 \\
+                                    &= (z_1+z_2) (\Over{z_1}+\Over{z_2})                              \\
                                     &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1}z_2) + z_2 \Over{z_2}       \\
                                     &= z_1 \bar{z_1} + (z_1\Over{z_2}+\Over{z_1\Over{z_2}})+z_2 \Over{z_2}  \\
                                     &= |z_1|^2 + 2Re(z_1\Over{z_2}) + |z_2|^2 
@@ -871,6 +897,72 @@
 
 
             \end{itemize}
+
+
+
+
+
+
+
+
+
+        % ==============================================
+        % ========    PRODUCTO PUNTO Y CRUZ      =======
+        % ==============================================
+        \clearpage
+        \section{Producto Punto y Cruz}
+
+
+
+            % ==============================================
+            % ========          PRODUCTO PUNTO       =======
+            % ==============================================    
+            \subsection{Producto Punto}
+
+                De manera muy parecido a como definimos el producto punto entre dos
+                vectores, podemos definir el producto punto entre dos números complejos
+                como:
+                \begin{equation}
+                    z_1 \cdot z_2
+                        = (a_1 + ib_1) \cdot (a_2 + ib_2)
+                        = (a_1 a_2) + (b_1 b_2)
+                        = |z_1||z_2| \Cos{\theta}
+                \end{equation}
+
+                Donde $\theta$ es el angulo más pequeño entre dichos números.
+
+
+            % ==============================================
+            % ========          PRODUCTO CRUZ        =======
+            % ==============================================    
+            \subsection{Producto Punto}
+
+                De manera muy parecido a como definimos el producto cruz entre dos
+                vectores, podemos definir el producto cruz entre dos números complejos
+                como:
+                \begin{equation}
+                    z_1 \times z_2 = (0, 0, a_1 b_2 - a_2 b_1)
+                \end{equation}
+
+                Nota que dicho \Quote{vector} es perpendicular al plano complejo.
+
+                Pero generalmente lo que nos importa es su magnitud, que recuerda
+                que se puede entender como el área del paralelogramo formado por
+                esos dos números.
+
+                Lo entendemos como:
+                \begin{equation}
+                    |z_1 \times z_2|
+                        = a_1 b_2 - a_2 b_1 
+                        = |z_1||z_2| \Sin{\theta}
+                \end{equation}
+
+                Donde $\theta$ es el angulo más pequeño entre dichos números.
+
+
+
+
+
 
 
 
