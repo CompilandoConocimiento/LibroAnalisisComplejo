@@ -1505,16 +1505,29 @@
         \clearpage
         \section{Funciones en General}
 
+            Una función compleja es aquella que toma un número complejo y regresa otro número complejo
+            es decir $f : \Complexs \to \Complexs$.
 
-        Cualquier función compleja $w = f(z)$ puede ser representada como:
+            Podemos decir entonces que bajo una función compleja $f$ dada un número $z$
+            este será \Quote{mapeado} a $w$.
+            \begin{MultiLineEquation*}{3}
+                z       &\Space\overset{\scriptsize{f(z)}}{\longto}\Space w           \\
+                x + yi  &\Space\overset{\scriptsize{f(z)}}{\longto}\Space u + iv          
+            \end{MultiLineEquation*}
 
-        $f(z) = f(x+yi) = u(x, y) + iv(x, y)$ donde $x, y \in \Reals$
+            Si te das cuenta podemos ver que tanto la parte imaginaria de $w$ ($v$) como su parte
+            real ($u$) depende de los valores de $x, y$ por lo tanto podemos verlas como funciones
+            multivariables, por lo tanto tenemos que:
+                
 
-        Es decir donde $u(x,y), v(x,y) : \Reals^2 \to \Reals$.
+            Cualquier función compleja $w = f(z)$ puede ser representada como:
+            \begin{equation}
+               f(z) = f(x+yi) = u_{(x, y)} + iv_{(x, y)} \Space\text{ donde}\; x, y \in \Reals 
+            \end{equation}
 
 
-        Ahora que las hemos definido formalmente podemos mostar las funciones complejas
-        mas famosas.
+            Ahora que las hemos definido formalmente podemos mostar las funciones complejas
+            mas famosas.
 
 
 
@@ -1582,6 +1595,8 @@
 
 
 
+
+
         % ==============================================
         % ====   TRIGONOMETRICAS COMPLEJAS      ========
         % ==============================================
@@ -1596,6 +1611,9 @@
                 sin(a+bi)   &= sin(a)cos(bi) + cos(a)sen(bi)    \\
                             &= sin(a)cosh(b) + i(cos(a)senh(i)) \\
             \end{MultiLineEquation}
+
+
+
 
 
         % ==============================================
@@ -1636,6 +1654,15 @@
                             &= (z_1)^a e^{Ln(z_2^{bi})}       \\
                             &= (z_1)^a e^{bi \cdot Ln(z_2)}   \\
             \end{MultiLineEquation*}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1716,18 +1743,33 @@
     \chapter{Derivación}
         \clearpage
 
+
+   
+
+
+
         % ==============================================
-        % ========     DEFINICION FORMAL       =========
+        % =======   FUNCIONES ANALITICAS    ============
         % ==============================================
-        \clearpage
-        \section{Definición Formal}
+        \section{Funciones Analíticas}
 
-            \begin{MultiLineEquation}{2}
-                f'(z) &= \lim_{\Delta z \to 0} \dfrac{f(z + \Delta z) - f(z)}{\Delta z}     \\
-                      &= \lim_{\Delta z \to z_0} \dfrac{f(z) - f(z_0)}{z - z_0}
-            \end{MultiLineEquation}
+            Eventualmente nuestra meta con estas funciones complejas es hacer 
+            calculo con ellas, es derivarlas e integrarlas (en especial integrales
+            de contorno o de línea), hacer un montón de cosas locas, y para poder
+            hacer todo eso tendremos que hacer que nuestra funciones se porten bien,
+            es decir que sean diferenciables, que sus derivadas esten definidas y
+            que sean continuas.
 
+            Si recuerdas de Análisis Real teníamos que para que una función fuera 
+            continua ambos límites, tanto por la derecha como por la izquierda 
+            tenian que existir y ser iguales.
 
+            Ahora bien, con las funciones complejas la restricción es mucho mas fuerte
+            pues no solo nos podemos acercar por la derecha o por la izquierda, sino que 
+            por todos lados.
+
+            Despúes veremos que hay algo llamado las Ecuaciones de Cauchy Riemann que
+            nos hablan mucho de si una función es analítica o no.
 
 
         % ==============================================
@@ -1739,8 +1781,21 @@
             \begin{itemize}
                 \item La función $f(z)$ tiene que estar valuado en $z_0$
                 \item El $\lim_{z \to z_0} f(z)$ tiene que existir
-                \item Ambos tienen que coincidir
+                \item Sin importar desde donde te aproximes los límites existen y son iguales
             \end{itemize}
+
+
+
+        % ==============================================
+        % ========     DEFINICION FORMAL       =========
+        % ==============================================
+        \section{Definición Formal}
+
+            Podemos definir formalmente a nuestra derivada de una manera muy sencilla:
+            \begin{MultiLineEquation}{2}
+                f'(z) &= \lim_{\Delta z \to 0} \dfrac{f(z + \Delta z) - f(z)}{\Delta z}     \\
+                      &= \lim_{z \to z_0} \dfrac{f(z) - f(z_0)}{z - z_0}
+            \end{MultiLineEquation}
 
 
 
@@ -1820,7 +1875,7 @@
         % == ECUACIONES DE CAUCHY - RIEMANN: POLAR  ====
         % ==============================================
         \clearpage
-        \section{Ecuaciones de Cauchy - Riemann en forma Polar}
+        \section{Ecuaciones de Cauchy - Riemann en Forma Polar}
 
             % ==============================================
             % ======   PROBEMOS LAS ECUACIONES      ========
@@ -2067,6 +2122,79 @@
                 \end{itemize}
 
 
+        % ==============================================
+        % ==  FUNCIONES ANALITICAS Y CAUCHY RIEMANN  ===
+        % ==============================================
+        \clearpage
+        \section{Funciones Analíticas y Cauchy - Riemann}
+
+            Recapitulemos todo lo que hemos visto de las ecuaciones de Cauchy - Riemann
+            usando estos dos teoremas:
+
+            \begin{Theorem}
+                Si $f(z) = u_{(x, y)} + iv_{(x, y)}$ es analítica en una región $R$ entonces
+                se satisface estas ecuaciones dentro de $R$.
+                \begin{MultiLineEquation*}{3}
+                    \Partial{u_{(x, y)}}{x} &=  &&\Partial{v_{(x, y)}}{y}
+                    \Space \Space
+                    \Partial{u_{(x, y)}}{y} &= -&&\Partial{v_{(x, y)}}{x}
+                \end{MultiLineEquation*}
+                    
+            \end{Theorem}
+
+            Por otro lado también tenemos que:
+
+
+            \begin{Theorem}
+                Si las siguientes condiciones se cumplen en una región $R$ entonces
+                la función es analítica.
+
+                \begin{itemize}
+                    \item Todas las derividas parciales existen y son continuas
+                    \begin{MultiLineEquation*}{3}
+                        \Partial{u}{x} \Space
+                        \Partial{u}{y} \Space
+                        \Space
+                        \Partial{v}{x} \Space
+                        \Partial{v}{y} \Space
+                    \end{MultiLineEquation*}
+
+
+                    \item Satisfacen las Relaciones de Cauchy Riemann:
+                        \begin{MultiLineEquation*}{3}
+                            \Partial{u_{(x, y)}}{x} &=  &&\Partial{v_{(x, y)}}{y}
+                            \Space \Space
+                            \Partial{u_{(x, y)}}{y} &= -&&\Partial{v_{(x, y)}}{x}
+                        \end{MultiLineEquation*}
+
+                \end{itemize}
+                    
+            \end{Theorem}
+
+
+        % ==============================================
+        % ==  FUNCIONES ARMONICAS Y LAPLACE         ====
+        % ==============================================
+        \section{Funciones Armonicas y Ecuaciones de Laplace}
+
+            \begin{Theorem}
+                Si $f(z) = u_{(x, y)} + iv_{(x, y)}$ es analítica en una región $R$ entonces
+                se satisface estas ecuaciones dentro de $R$.    
+                \begin{MultiLineEquation*}{3}
+                    \nabla^2 u_{(x, y)} = 0
+                    \Also
+                    \nabla^2 v_{(x, y)} = 0
+                \end{MultiLineEquation*}
+            \end{Theorem}
+
+            Este Teorema sale simplemente derivando las Ecuaciones de Cauchy - Riemann
+            y haciendo un poco de algebra.
+
+            Debido a que $u_{(x, y)}, v_{(x, y)}$ satisfacen la Ecuación de Laplace 
+            tenemos que son consideradas funciones armonicas.
+
+
+
 
 
 
@@ -2081,31 +2209,132 @@
         % ========     DEFINICION FORMAL       =========
         % ==============================================
         \clearpage
-        \section{Integrales}
+        \section{Integrales Complejas}
 
-            Supongamos que tenemos una función $f(z)$ si queremos integrarla tendremos que:
-            \begin{MultiLineEquation*}{3}
-                \int f(z) dz
-                    &= \int f(x+iy) d(x+iy)                                                 \\
-                    &= \int u_{(x, y)} + iv_{(x, y)} (dx+idy)                               
-            \end{MultiLineEquation*}
+
+            Supongamos que tenemos una función $f(z)$ si queremos integrarla desde un 
+            punto complejo $a$ hasta otro punto complejo $b$.
+
+            Si estuvieramos hablando de una simple integral en los números reales entonces
+            tenemos que basta con recorrer la recta númerica desde $a$ hasta $b$.
+
+            Pero ¡Sorpresa! Eso no se puede hacer con una integral compleja porque ya que son
+            efectivamente números en dos dimensiones, no hay un camino para llegar, sino
+            una infinidad de caminos.
+
+            \begin{wrapfigure}{r}{0.45\textwidth}
+                \centering
+                \includegraphics[width=0.43\textwidth]{CaminosDeIntegralCompleja.jpg}
+                \caption{\scriptsize{¿Qué camino sigo? $C_1$ ó $C_2$}}
+            \end{wrapfigure}
+
+            Y el gran problema es que cada camino podría darte un valor diferente
+            al momento de calcular la integral.
+
+            Así que para integrar una función compleja es necesario que me digas
+            cual será la curva por la cual integraremos dicha función, debido a esto
+            hay grandes relaciones sobre como funciona una integral compleja y una 
+            integral de línea.
+
+            Esto se debe basicamente a que los números complejos no viven en una línea, 
+            una recta númerica, sino en todo un plano complejo.
+
+
+            % ==============================================
+            % ========          INTEGRALES         =========
+            % ==============================================
+            \clearpage
+            \subsection{Calcular un Integral Compleja sobre $C$}
+
+
+                Supongamos que tenemos una función $f(z) = u_{(x,y)} + iv_{(x,y)}$
+                sobre una curva arbitraria $\mathcal{C}$ desde el punto $a$ hasta $b$
+
+                Supongamos que dicha curva se puede expresar usando ecuaciones parametricas
+                de tal manera que $x,y$ son funciones de un párametro $t$ tal que
+                así: $x(t)$ y $y(t)$.
+
+                Entonces tenemos que podemos expresar a $a$ y a $b$ como:
+                \begin{itemize}
+                    \item $a = x(\alpha) + iy(\alpha)$
+                    \item $b = x(\beta) + iy(\beta)$
+                \end{itemize}
+
+                Entonces ya podemos definir lo que significa una integral compleja:
+
+                \begin{MultiLineEquation*}{3}
+                    \int_C f(z) dz
+                    &   = \int_C f(x+iy) (dx+idy)
+                    \\& = \int_C (u +iv) (dx+idy)
+                    \\& = \int_C udx - vdy + i\int_c vdx + udy 
+                \end{MultiLineEquation*}
+
+                Apliquemos un cambio de variable: 
+                $dx = \frac{dx}{dt} dt$ y $dy = \frac{dy}{dt} dt$
+
+                Por lo tanto finalmento podemos decir que:
+                \begin{MultiLineEquation*}{3}
+                    \int_c f(z) dz 
+                        &=
+                        \int_\alpha^\beta u\frac{dx}{dt} dt - v\frac{dy}{dt} dt
+                        + 
+                        i\int_\alpha^\beta v\frac{dx}{dt} dt + u\frac{dy}{dt} dt
+                    \\  &=
+                        \int_\alpha^\beta u_{(x,y)} x'(t) dt - v_{(x,y)} y'(t) dt
+                        + 
+                        i\int_\alpha^\beta v_{(x,y)} x'(t) dt + u_{(x,y)} y'(t) dt
+                \end{MultiLineEquation*}
                 
 
+                Otra forma complemente igual de valida es no parametrizar las funciones
+                en parte real e imaginaria, con lo cual podemos reducir a que si 
+                supongamos que tenemos una función $f(z)$ si queremos integrarla a lo largo de 
+                una curva $\mathcal{C}$ como:
+
+                \begin{equation*}
+                    \int_{\mathcal{C}} f(z) dz = \int_\alpha^\beta f\Wrap{z(t)} \;z'(t) \; dt
+                \end{equation*}
+
+                Donde $z(t)$ es una función parametrica de $z$.
+
 
         % ==============================================
-        % ========     DEFINICION FORMAL       =========
+        % ==  TEOREMA DE CAUCHY DE LAS INTEGRALES   ====
         % ==============================================
         \clearpage
-        \section{Integrales de Línea}
+        \section{Integrales Bonitas: Antiderivadas}
 
-            Supongamos que tenemos una función $f(z)$ si queremos integrarla a lo largo de 
-            una curva $\mathcal{C}$ como:
+            Ya que hemos aprendido todo esto sobre las integrales podemos ver que el hecho
+            de parametrizar simplifica enormemente todo el trabajo que tenemos que hacer sobre
+            las mismas, llegando a esto tan bonito:
 
-            \begin{equation}
-                \int_{\mathcal{C}} f(z) dz = \int_a^b f\Wrap{z(t)} \;z'(t) \; dt
-            \end{equation}
+            Sea $z(t) = x(t) + iy(t)$ entonces suponiendo que sean continuas en $[a,b]$
+            tenemos que:
+            \begin{equation*}
+                \int_a^b z(t) dt 
+                    = \int_a^b (x(t) + iy(t))dt
+                    = \int_a^b x(t)dt + i\int_a^b y(t)dt
+            \end{equation*}
 
-            Donde $z(t)$ es una función parametrica de $z$.
+
+
+        % ==============================================
+        % ==  TEOREMA DE CAUCHY DE LAS INTEGRALES   ====
+        % ==============================================
+        \clearpage
+        \section{Teorema de Cauchy}
+
+            Si $f(z)$ es analítica y estamos hablando de una curva simple, es decir
+            en la que no se cruza consigo mismo, entonces tenemos que:
+            \begin{equation*}
+                \oint_C f(z) dz = 0
+            \end{equation*}
+
+
+
+
+
+
 
 
 \end{document}
