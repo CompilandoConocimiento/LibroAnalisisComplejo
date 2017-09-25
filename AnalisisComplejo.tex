@@ -2286,22 +2286,32 @@
                 \end{MultiLineEquation*}
                 
 
-                Otra forma complemente igual de valida es no parametrizar las funciones
-                en parte real e imaginaria, con lo cual podemos reducir a que si 
-                supongamos que tenemos una función $f(z)$ si queremos integrarla a lo largo de 
-                una curva $\mathcal{C}$ como:
 
+            % ==============================================
+            % ========     PARAMETRIZACION         =========
+            % ==============================================
+            \clearpage
+            \subsection{Parametrización}
+
+                Otra forma complemente igual de valida es no parametrizar las funciones
+                en parte real e imaginaria.
+
+                Entonces podemos defininir $\int_c f(z)dz$ para cualquier curva
+                cerrada. Si $C$ esta parametrizada por $r(t), \; a \leq t \leq b$
+                tenemos que podemos ver a $r'(t)$ como una curva compleja y:
                 \begin{equation*}
-                    \int_{\mathcal{C}} f(z) dz = \int_\alpha^\beta f\Wrap{z(t)} \;z'(t) \; dt
+                    \int_C f(z) dz = \int_a^b f(r(t)) \; r'(t) \; dt
                 \end{equation*}
 
-                Donde $z(t)$ es una función parametrica de $z$.
+                O también es común ponerlo como:
+                \begin{equation*}
+                    \int_C f(z) dz = \int_a^b f(z(t)) \; z'(t) \; dt
+                \end{equation*}
 
 
         % ==============================================
         % ==  TEOREMA DE CAUCHY DE LAS INTEGRALES   ====
         % ==============================================
-        \clearpage
         \section{Integrales Bonitas: Antiderivadas}
 
             Ya que hemos aprendido todo esto sobre las integrales podemos ver que el hecho
@@ -2319,6 +2329,23 @@
 
 
         % ==============================================
+        % =====  TEOREMA DE LA DEFORMACION     =========
+        % ==============================================
+        \section{Teorema de la Deformación}
+
+            Sea $\Gamma$ y $\gamma$ dos trayectorias cerradas en una región del plano $R$
+            con $\gamma$ en el interior de $\Gamma$.
+
+            Sea $f(z)$ una función diferenciable en un conjunto abierta que contiene ambas
+            trayectorias y todos los puntos entre ellas, entonces:
+            \begin{equation*}
+                \oint_\Gamma f(z) dz = \oint_\gamma f(z) dz
+            \end{equation*}
+
+
+
+
+        % ==============================================
         % ==  TEOREMA DE CAUCHY DE LAS INTEGRALES   ====
         % ==============================================
         \clearpage
@@ -2329,6 +2356,331 @@
             \begin{equation*}
                 \oint_C f(z) dz = 0
             \end{equation*}
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Ideas}:
+                
+                Antes que hablar de la demostración del Teorema tenemos que recordar lo que 
+                significa que una Región $R$ sea simplemente conexa.
+
+                \Quote{Un Región $R$ es simplemente conexa si cada curva simple en $R$ es la
+                frontera de una región contenida en $R$}
+
+                De esto podemos ver que por ejemplo el disco $\Set{z \in \Complexs, \Such |z| < 1}$
+                es simplemente conexo, pero el anillo $\Set{z \in \Complexs, \Such 1 < |z| < 1}$
+                no lo es.
+
+
+                \textbf{\\Usando el Teorema de Green}:
+
+                Supongamos que $C$ es un curva simple cerrada que esta limitada por D
+                entonces si queremos aplicar el Teorema de Green a la integral:
+                $\int_C f(z) dz$ ya que tenemos que:
+                \begin{MultiLineEquation*}{3}
+                    f(z) dz 
+                        &= (u+iv)(dx+idy)
+                        &= (udx - vdy) + i (vdx + udy) 
+                \end{MultiLineEquation*}
+                
+                Entonces podemos ver que:
+                \begin{MultiLineEquation*}{3}
+                    \int_C f(z) dz 
+                        &=    \iint_D \Wrap{ - \Partial{v}{x} - \Partial{u}{y}} dA
+                            +i\iint_D \Wrap{\Partial{u}{x} - \Partial{v}{y}} dA
+                \end{MultiLineEquation*}
+
+                Entonces el integrando será siempre cero si y solo si las ecuaciones
+                de Cauchy Riemann se mantienen.
+                    
+            \end{SmallIndentation}
+                
+
+
+
+
+
+        % ==============================================
+        % ==  TEOREMA DE LA INTEGRAL DE CAUCHY      ====
+        % ==============================================
+        \clearpage
+        \section{Teorema de la Integral de Cauchy}
+
+            Sea $f(z)$ analítica en el interior y sobre la frontera de $\mathcal{C}$, donde
+            $\mathcal{C}$ es cerrada y simplemente conexa en una región $R$, entonces
+            tenemos si $a$ pertenece a la región $R$ se cumple que:
+            \begin{equation*}
+                f(a) = \dfrac{1}{2 \pi i} \oint_C \dfrac{f(z) dz}{z-a}
+            \end{equation*}
+
+            Pero esta no es la forma en la que comunmente la usamos, sino que la usamos
+            como un pequeño truco para poder calcular algunas integrales,
+            esto lo escribimos entonces así:
+            \begin{equation*}
+                2 \pi i \; f(a) = \oint_C \dfrac{f(z) dz}{z-a}
+            \end{equation*}
+
+
+
+
+
+
+            % ==============================
+            % ===   TEOREMA DE LA INTEGRAL = 
+            % === VS FORMULA DE LA INTEGRAL=
+            % ==============================
+            \subsection{Teorema de Integral vs Formula de la Integral}
+            \begin{SmallIndentation}[1em]
+
+                Consideremos un ejemplo que creo que pone todo mas claro, 
+                supon la función $f(z) = z^2 + z + 1$ a lo largo de 
+                el circulo unitario.
+
+                Por lo tanto tenemos que:
+                \begin{MultiLineEquation*}{3}
+                    \int_C f(z) dz 
+                        &= \int_0^{2\pi} (e^{2it} + e^{it} + 1) ie^{it} dt
+                        &= i \int_0^{2\pi} (e^{3it} + e^{2it} + e^{it}) dt
+                \end{MultiLineEquation*}
+
+                Creo que es muy sencillo ver que esta integral será cero, porque
+                el periodo de el seno y coseno es $2\pi$, por lo tanto
+                al momento de evaluar todo se cancela.
+
+                Pero por otro lado imagina:
+                \begin{MultiLineEquation*}{3}
+                    \int_C \dfrac{1}{z} dz 
+                        &= \int_0^{2\pi} (e^{-it}) ie^{it} dt           
+                        &= i \int_0^{2\pi} dt
+                        &= 2 \pi i
+                \end{MultiLineEquation*}
+
+                ¿Pero porque no dio cero?
+
+                Porque $\dfrac{1}{z}$ es analítica en la región $\Complexs - \Set{0}$
+                pero vimos que esta región no es simplemente conexa, por lo tanto no
+                podemos aplicar el Teorema de Cauchy.
+
+            \end{SmallIndentation}
+
+                
+            % ==============================
+            % ========  EJEMPLO   ==========
+            % ==============================
+            \clearpage
+            \subsection{Ejemplos}
+
+                \begin{SmallIndentation}[1em]
+
+                    Sea la curva aquella descrita por el circulo $|z+1|=\frac{1}{2}$
+                    calcule:
+                    \begin{equation*}
+                        \oint_C \dfrac{dz}{z^2(z+1)}
+                    \end{equation*}
+
+                    \textbf{Solución}:
+
+                    Simplemente tenemos que darnos cuenta que el punto de indeterminación de
+                    nuestra integral es $z=0$ y $z=-1$, ahora, si te das cuenta podemos poner
+                    nuestra integral como:
+                    \begin{equation*}
+                        \oint_C \dfrac{dz}{z^2(z- (-1))}
+                    \end{equation*}
+
+                    Entonces podemos separarlo como:
+                    \begin{itemize}
+                        \item $f(z) = \dfrac{1}{z^2}$
+                        \item $a = -1$
+                        \item $f(a) = \dfrac{1}{(-1)^2} = \dfrac{1}{1} = 1$
+                    \end{itemize}
+
+                    Por lo tanto:
+                    \begin{equation*}
+                        \oint_C \dfrac{dz}{z^2(z+1)} = 2 \pi i \; f(a) = 2 \pi i
+                    \end{equation*}
+
+                \end{SmallIndentation}
+
+
+
+
+
+
+
+
+
+
+
+
+        % ==============================================
+        % ==  TEOREMA DE DERIVACION DE ORDEN SUPERIOR ==
+        % ==============================================
+        \clearpage
+        \section{Teorema de Derivación de Orden Superior}
+
+            Sea $f(z)$ diferenciable en un conjunto $G$ entonces $f(z)$ tiene derivadas de todos
+            los ordenes en cada punto de $G$, más aún si $C$ es una trayectoria cerrada en $G$
+            que encierra unicamente puntos de $G$, en particular a $z_0$ tenemos que:
+            \begin{equation*}
+                f^{(n)}(z_0) = \dfrac{n!}{2 \pi i} \oint_C \dfrac{f(z) dz}{(z-z_0)^{n+1}}
+            \end{equation*}
+
+            Pero esta no es la forma en la que comunmente la usamos, sino que la usamos
+            como un pequeño truco para poder calcular algunas integrales,
+            esto lo escribimos entonces así:
+            \begin{equation*}
+                \dfrac{2 \pi i}{n!}f^{(n)}(z_0) = \oint_C \dfrac{f(z) dz}{(z-z_0)^{n+1}}
+            \end{equation*}
+                
+            % ==============================
+            % ========  EJEMPLO   ==========
+            % ==============================
+            \subsection{Ejemplos}
+
+                \subsection*{Ejemplo 1}
+                \begin{SmallIndentation}[1em]
+
+
+                    Sea la curva aquella descrita por el circulo $|z|=\frac{1}{2}$
+                    calcule:
+                    \begin{equation*}
+                        \oint_C \dfrac{dz}{z^2(z+1)}
+                    \end{equation*}
+
+                    \textbf{Solución}:
+
+                    Simplemente tenemos que darnos cuenta que el punto de indeterminación de
+                    nuestra integral es $z=0$ y $z=-1$, ahora, si te das cuenta podemos poner
+                    nuestra integral como:
+                    \begin{equation*}
+                        \oint_C \dfrac{dz}{z^2(z+1)}
+                    \end{equation*}
+
+                    Entonces podemos separarlo como:
+                    \begin{itemize}
+                        \item $n=1$
+                        \item $f(z) = \dfrac{1}{z+1}$
+                        \item $f'(z) = -\dfrac{1}{(z+1)^2}$
+                        \item $z_0 = 0$
+                        \item $f'(z_0) = -\dfrac{1}{1^2} = -1$
+                    \end{itemize}
+
+                    Por lo tanto:
+                    \begin{equation*}
+                        \oint_C \dfrac{dz}{z^2(z+1)} 
+                            = \dfrac{2 \pi i}{n!}f^{(n)}(z_0)
+                            = (2 \pi i) -1
+                            = -2 \pi i
+                    \end{equation*}
+
+                \end{SmallIndentation}
+
+                \clearpage
+
+
+                \subsection*{Ejemplo 2}
+                \begin{SmallIndentation}[1em]
+
+                    Sea la curva aquella descrita por el circulo $|z|=3$
+                    calcule:
+                    \begin{equation*}
+                        \oint_C \dfrac{dz}{z^2(z+1)}
+                    \end{equation*}
+
+                    \textbf{Solución}:
+
+                    Ya que nuestra curva encierra a ambos puntos de indeterminación tenemos que 
+                    separarla:
+                    \begin{MultiLineEquation*}{3}
+                        \dfrac{dz}{z^2(z+1)} &= \dfrac{Az + B}{z^2} + \dfrac{C}{z+1}     \\
+                        1 &= (Az + B)(z+1) + z^2(C)                                      \\
+                        1 &= Az^2 + Bz + Az + B + Cz^2
+                    \end{MultiLineEquation*}
+
+                    Por lo tanto:
+                    \begin{MultiLineEquation*}{3}
+                        A + C = 0
+                        \Space
+                        \Space
+                        A + B = 0
+                        \Space
+                        \Space
+                        B = 1
+                    \end{MultiLineEquation*}
+
+                    Es decir:
+                    \begin{MultiLineEquation*}{3}
+                        A = -1
+                        \Space
+                        \Space
+                        B = 1
+                        \Space
+                        \Space
+                        C = 1
+                    \end{MultiLineEquation*}
+
+                    Entonces podemos separarlo como:
+                    \begin{MultiLineEquation*}{3}
+                        \oint_C \dfrac{dz}{z^2(z+1)}
+                            &= \oint_C \dfrac{Az + B}{z^2} dz + \oint_C \dfrac{C}{z+1} dz                    
+                        \\  &= \oint_C \dfrac{-(z)dz}{z^2} + \oint_C \dfrac{dz}{z^2} + \oint_C \dfrac{dz}{z+1}
+                        \\  &= \oint_C \dfrac{-dz}{z} + \oint_C \dfrac{dz}{z^2} + \oint_C \dfrac{dz}{z+1}
+                    \end{MultiLineEquation*}
+                    \clearpage
+
+                    Ahora vamos a ir resolviendo una por una:
+                    \begin{itemize}
+                        \item
+                            La primera se puede resolver con la Teorema de la Integral de Cauchy
+                            pues tenemos que:
+                            \begin{itemize}
+                                \item $f(z) = -1$
+                                \item $f(0) = -1$
+                            \end{itemize}
+
+                            Por lo tanto:
+                            \begin{MultiLineEquation*}{3}
+                                \oint_C \dfrac{-dz}{z} = 2 \pi i f(0) = -2 \pi i
+                            \end{MultiLineEquation*}
+
+
+                        \item
+                            La segunda se puede resolver con la Teorema de Derivación Superior
+                            pues tenemos que:
+                            \begin{itemize}
+                                \item $f(z) = 1$
+                                \item $f'(z) = 0$
+                            \end{itemize}
+
+                            Por lo tanto:
+                            \begin{MultiLineEquation*}{3}
+                                \oint_C \dfrac{dz}{z^2} = \dfrac{2 \pi i}{n!} 0 = 0 
+                            \end{MultiLineEquation*}
+
+
+                        \item
+                            La tercera se puede resolver con la Teorema de la Integral de Cauchy
+                            pues tenemos que:
+                            \begin{itemize}
+                                \item $f(z) = 1$
+                                \item $f(-1) = 1$
+                            \end{itemize}
+
+                            Por lo tanto:
+                            \begin{MultiLineEquation*}{3}
+                                \oint_C \dfrac{dz}{z+1} = 2 \pi i f(-1) = 2 \pi i
+                            \end{MultiLineEquation*}
+                            
+                    \end{itemize}
+
+                    Finalmente tenemos entonces que:
+                    \begin{MultiLineEquation*}{5}
+                        \oint_C \dfrac{dz}{z^2(z+1)}
+                            &= \oint_C \dfrac{-dz}{z} &&+ \oint_C \dfrac{dz}{z^2} &&+ \oint_C \dfrac{dz}{z+1}
+                        \\  &= -2 \pi i &&+ 0 &&+ 2 \pi i
+                        \\  &= 0
+                    \end{MultiLineEquation*}  
+                \end{SmallIndentation}
 
 
 
