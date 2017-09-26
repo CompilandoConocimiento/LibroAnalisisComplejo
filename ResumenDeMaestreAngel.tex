@@ -1,0 +1,326 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage{graphicx}		%Paquete para anexar fotos
+\usepackage[utf8]{inputenc}
+\usepackage[english,spanish]{babel}
+\usepackage{amsmath, amsfonts, amsthm, amssymb, physics}  %Paquetes matematicos
+\usepackage{mathrsfs}
+\usepackage[margin=2cm]{geometry}	
+\usepackage{fancyhdr} %encabezados y pie de pagina
+\usepackage{multicol}  %columnas
+\usepackage{algpseudocode}	%Los 2 paquetes son para poner pseudocodigo 
+\usepackage{algorithm}
+\usepackage{listingsutf8}	%	Los dos paquetes son para citar codigo	
+\usepackage{xcolor}
+
+%\usepackage[doublespacing]{setspace}	%doble espaciado por linea
+
+%\usepackage[onehalfspacing]{setspace}		%	espaciado por linea de 1.5
+%	\documentclass[twocolumn]{report}		%	pone dos columnas
+
+%	======================================================================
+%	Permite poner pie de pagina
+	\pagestyle{fancy}
+	\fancyhf{}
+	\rhead{Ángel López Manríquez}
+	\lhead{Matematicas avanzadas para la ingenieria}
+	\rfoot{Pagina \thepage}
+
+%	======================================================================
+%	Permite el anexo de teoremas, corolarios y lemas
+	\newtheorem{theorem}{Teorema}[section]
+	\newtheorem{corollary}{Corollary}[theorem]
+	\newtheorem{lemma}[theorem]{Lema}
+	
+	\theoremstyle{definition}
+	\newtheorem{definition}{Definición}[section]
+
+%	======================================================================
+%	Portada
+\begin{document}
+\begin{titlepage}
+	\centering
+%	\includegraphics[width=0.15\textwidth]{ipn.png}\par\vspace{1cm}
+	{\scshape\LARGE Escuela Superior de Cómputo \par}
+	\vspace{1cm}
+	{\scshape\Large Notas \par}
+	\vspace{1.5cm}
+	{\huge\bfseries Matematicas avanzadas para la ingenieria \par}
+	\vspace{2cm}
+	{\Large\itshape por: \\ López Manríquez Ángel  \par}
+	\vfill
+	profesores\par
+	Dennis G. Zill \\
+	Jean-Baptiste Joseph Fourier
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+%	======================================================================
+
+\section{Integracion en el plano complejo}
+	
+	\theoremstyle{definition} 
+ 	\begin{definition}{La integral compleja} 
+ 	La integral compleja $f$ sobre $C$ es
+
+ 		\[\displaystyle{ \int_C f(z)dz = \lim_{||P|| \rightarrow 0} \sum_{k=1}^n} f(z_k^*)\Delta z_k \]	
+ 	\end{definition}
+
+	\begin{theorem}[Evaluacion de una integral de contorno] 
+		Si $f$ es continua sobre una curva $C$ dada por la parametrizacion $z(t)=x(t)+iy(t)$, $a \leq t \leq b$, entonces
+			\[ \int_C f(z)dz = \int_a^b f(z(t))\dot z(t)dt \]
+	\end{theorem}
+
+	\begin{theorem}[Teorema del acotamiento]
+		Si $f$ es continua sobre una curva suave $C$ y $|f(z)| \leq M \ \forall z$ en $C$, entonces 
+			\[ \abs{\int_C f(z)dz} \leq ML \]
+		donde $L$ es la longitud de $C$.
+	\end{theorem}
+
+	\begin{theorem}[Teorema de Cauchy-Goursat]
+		Suponga que $f$ es analitica en un dominio simplemente conexo $D$. Entonces para cada contorno simplemente cerrado $C$ en $D$
+			\[\displaystyle{\oint_C f(z)dz = 0} \]
+
+	\end{theorem}
+
+	\begin{theorem}[Singularidad]
+		Sea $C$ un contorno simplemente cerrado que contiene a un solo punto 	singular $z_0$, entonces $\forall n \in \mathbb{Z}$
+
+			\[\displaystyle{\oint_C \frac{dz}{(z-z_0)^n} 
+				=	\left\{ \begin{array}{lcc}
+             2\pi i &   si  & n = 1 \\
+             \\ 0 &  si & n \neq 1
+             \end{array}
+   				\right.} \]
+	\end{theorem}
+
+	\begin{theorem}[Teorema de Cauchy-Goursat para dominios simplemente conexos]
+		Sean $C,\ C_1,\ C_2,\ ...,\ C_n$ contornos simplemente cerrados con una orientacion positiva tales que $C_k,\ k = 1, 2, ... n$ estan contenidos en $C$ donde $C_i,\ C_j$ con $i \neq j$ no tienen puntos en comun y $f$ es analitica en el interior de $C$ y fuera de $C_k,\ k = 1, 2, ... n$. Entonces
+			\[ \oint_C f(z)dz = \sum_{k=1}^n \oint_{C_k} f(z)dz \]
+	\end{theorem}
+	 
+	\begin{theorem}[Analiticidad implica indepencia de la trayectoria]
+		Suponga que D es un dominio simplemente conexo y C una trayectoria en D, entonces $\displaystyle{\int_C f(z)dz}$ es independiente de la trayectoria. 
+	\end{theorem}
+
+	\begin{theorem}[Teorema fundamental de las integrales de contorno]
+		Sea f una funcion continua en D, sea F la antiderivada de f en D, Sea C una camino con un punto inicial $z_0$ y un punto final $z_1$, entonces 
+			\[ \int_C f(z)dz = F(z_1) - F(z_0) \] 
+	\end{theorem}
+
+	\begin{theorem}[Existencia de la antiderivada]
+		Suponga que f es analitica en un dominio simplemente conexo D, entonces $\exists F$ para f en D.
+	\end{theorem}
+
+ \begin{theorem}[Formula de la integral de Cauchy]
+		Suponga que f es analitica en un dominio simplemente conexo D y C una curva simplemente cerrada, donde cada punto de C esta en D, entonces para un punto $z_0$ encerrado por C
+
+			\[ f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)dz}{z-z_0}	\]
+	\end{theorem}
+
+ \begin{theorem}[Formula de la integral de Cauchy para derivadas]
+	Suponga que f es analitica en un dominio simplemente conexo D y C una curva simplemente cerrada situada enteramente en D, entonces para un punto $z_0$ dentro de C
+
+		\[ f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)\ dz}{(z-z_0)^{n+1}}	\]
+	\end{theorem}
+ 
+\section{Series y el teorema del residuo}
+
+	\begin{theorem}[Criterio de convergencia de una sucesion]
+		una secuencia $\{z_n\}$ converge a un valor L tanto $Re(z_n)$ como $Im(z_n)$ convergen.
+	\end{theorem}
+
+	\begin{lemma}[Reordenacion de una serie de potencias]
+		Una serie de potencias converge absolutamente dentro de su radio de convergencia. Como consecuencia, se pueden reordenar los sumandos sin el problema de afectar su valor de convergencia.
+	\end{lemma}
+
+	\begin{theorem}[Continuidad]
+		Una serie de potencias dentro de su radio de convergencia representa una funcion continua.
+	\end{theorem}
+
+	\begin{theorem}[Diferenciacion e integracion de una serie de potencias]
+		Cualquier serie de potencias es diferenciable en su radio  de convergencia R e integrable bajo una curva simple cerrada C, donde C esta situada en el R.
+	\end{theorem}
+
+	\begin{theorem}[El teorema de Taylor]
+		Sea f una funcion analitica en un dominio D y $z_0$ un punto en D, entonces f tiene una representacion en series de la forma
+
+			\[f(z)=\sum_{k=0}^\infty \frac{f^{(k)}(z_0)}{k!}(z-z_0)^k\]
+		
+		Si el circulo de convergencia de la serie esta en D.		
+	\end{theorem}
+
+	\begin{theorem}[El teorema de Laurent]
+		Suponga f analitica en un dominio D definido por $r \le \abs{z-z_0} \le R$. Asi, f tiene una representacion en D de la forma
+
+			\[f(z)=\sum_{k=-\infty}^\infty a_k(z-z_0)^k\]
+
+		donde los coeficientes $a_k$ estan dados por
+			\[ a_k = \frac{1}{2\pi i} \oint_C \frac{f(s)\ ds}{(s-z_0)^{k+1}}, \quad k \in \mathbb Z \]
+
+		con C un contorno simple cerrado en D y $z_0$ esta en su interior. 
+	\end{theorem}
+
+\section{Series de Fourier}
+	\begin{definition}{Producto interno}
+		Se dice que una funcion (,): $V \rightarrow \mathbb K$ es un producto interno si para $u,\ v,\ w\ \in V$, con $V$ un espacio vectorial, $\alpha \in \mathbb K$ si se cumple que
+
+		\begin{multicols}{3}
+			\begin{enumerate}
+				\item $(u, v) = (v, u)$ 
+				\item $(\alpha u, v) = \alpha (u, v)$ 
+				\item $(u + v, w) = (u, w) + (v, w)$ 
+				\item $(u, u) > 0$ si $u \neq 0$ 
+				\item $(u, u) = 0$ si $u = 0$ 
+			\end{enumerate}
+		\end{multicols}
+	
+	\end{definition}
+
+	\begin{definition}{La norma de un vector}
+		La norma de un vector bajo un producto interno definido de un vector $v \in V$ es $ \norm{v} = \sqrt {(v, v)} $
+	\end{definition}
+
+
+	\begin{definition}{Vector ortogonal}
+		Se dice que un vector $u$ es ortogonal a $v$ si $(u, v) = 0$.
+	\end{definition} 
+
+	\begin{definition}{Conjunto ortogonal}
+		Se dice que un conjunto $\{u_i\}_{i=0}^\infty$ es ortogonal si $(u_i, u_j) = 0 \quad i \neq j$.
+	\end{definition}
+
+	\begin{definition}{El producto interno de funciones}
+		El producto interno de dos funciones $f$ y $g$ en el intervalo $[a, b]$ es
+			\[ \int_a^b f(x)g(x)dx \]
+	\end{definition}
+
+	\begin{theorem}[Expansion ortogonal en series]
+		Suponga que $ \{ \phi _k(x) \}_{k=0}^\infty $ es un conjunto ortogonal en $[a, b]$, entonces una funcion puede ser escrita como
+			\[ f(x) = \sum_{k=0}^\infty \frac{(f, \phi_k)}{\norm{\phi_k}^2}\phi_k\]
+	\end{theorem}
+
+	\begin{theorem}[Conjunto ortogonal y funcion peso]
+		Un conjunto $ \{ \phi _k(x) \}_{k=0}^\infty $ es ortogonal con respecto a una funcion peso w(x) en $[a, b]$ si
+			\[ \int_a^b w(x)\phi_m\phi_n dx = 0, \quad m \neq n\]
+	\end{theorem}
+
+	\begin{definition}{Las series de Fourier}
+		Una funicion $f$ definida en un un intervalo $(-p, p)$ esta dada por
+
+			\[f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \left[a_n \cos(\frac{n\pi}{p}x) + b_n \sin(\frac{n\pi}{p}x)\right] \]
+		donde
+			\[ a_0 = \frac{1}{p} \int_{-p}^{p}f(x)dx, \quad
+				 a_n = \frac{1}{p} \int_{-p}^{p}f(x)\cos(\frac{n\pi}{p}x)dx , \quad
+				 b_n = \frac{1}{p} \int_{-p}^{p}f(x)\sin(\frac{n\pi}{p}x)dx, \quad
+				 \]
+	\end{definition}
+
+	\begin{theorem}[Convergencia de las series de Fourier]
+		Sea f una funcion continua a trozos. La serie de fourier convergera en los tramos continuos a f y convergera a los puntos discontinuos a la semisuma
+			\[ \frac{f(x+) + f(x-)}{2} \]
+	\end{theorem}
+
+	\begin{definition}{Paridad de funciones}
+		Se dice que una funcion $f$ es par si $f(-x) = f(x)$ (simetrica respecto al eje $y$) e impar si $f(-x) = -f(x)$ (simetrica respecto al origen.
+	\end{definition}
+
+	\begin{theorem}{Propiedades de funciones pares e impares}
+		\begin{enumerate}
+			\item El producto de dos funciones, ya sean ambas pares o impares, es par.
+			\item El producto de una funcion par con una impar es impar. 
+			\item La suma de dos funciones pares da una funcion par.
+			\item La suma de dos funciones impares da una funcion impar.
+			\item Si $f$ es par, entonces $\int_{-p}^p f(x)dx = 2\int_{0}^pf(x)dx$
+			\item Si $f$ es impar, entonces $\int_{-p}^pf(x)dx = 0$
+		\end{enumerate}
+	\end{theorem}
+
+	\begin{theorem}[Serie de cosenos]
+		La series de Fourier para una funcion par en (-p, p) es
+
+			\[f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos(\frac{n\pi}{p}x) \]
+		donde
+			\[ a_0 = \frac{2}{p} \int_{0}^{p}f(x)dx, \quad
+				 a_n = \frac{2}{p} \int_{0}^{p}f(x)\cos(\frac{n\pi}{p}x)dx
+				 \]
+	\end{theorem}
+
+	\begin{theorem}[Serie de senos]
+		La series de Fourier para una funcion impar en (-p, p) es
+
+			\[f(x) = \sum_{n=1}^\infty b_n \sin(\frac{n\pi}{p}x) \]
+		donde
+			\[ b_n = \frac{2}{p} \int_{0}^{p}f(x)\sin(\frac{n\pi}{p}x)dx	\]	
+	\end{theorem}
+
+	\begin{definition}{Serie compleja de Fourier}
+		Suponga $f$ continua a trozos en un intervalo $(-p,p)$, entonces 
+			\[f(x) = \sum_{n=-\infty}^\infty c_n e^{\pi nxi/p} \]	
+			donde 
+			\[c_n = \frac{1}{2p} \int_{-p}^{p}f(x)e^{-\pi nxi/p}dx\]
+	\end{definition}
+
+	\begin{definition}{Frecuencia angular fundamental y espectro de frecuencia}
+		$\omega = 2 \pi / T = \pi / p$ es la frecuencia angular de la serie de Fourier.
+		Los espectros de frecuencia son es la grafica $(nw, \abs{c_n})$.
+	\end{definition}
+
+\section{La transformada integral de Fourier}
+	
+	\begin{definition}{Las transformadas de integrales}
+		La transformada de una integral es una transformacion lineal $T:t \rightarrow s$ para una funcion $f$ tal que 
+			\[ F(s) = \int_a^bf(t)k(t,s)dt \]
+		donde $k(t,s)$ es el kernel integral y $F(s)$ es la transformada de la funcion $f$.
+	\end{definition}
+
+	\begin{definition}
+		La integral de Fourier para una funcion $f$ definida en $(-\infty, \infty)$ es
+			\[f(x) = \frac{1}{\pi} \int_{-\infty}^{\infty} A(\alpha) \cos(\alpha x) + B(\alpha) \sin(\alpha x) dx \]
+		donde 
+			\[ A(\alpha) = \int_{\infty}^{\infty} f(x) \cos (\alpha x) dx, \quad B(\alpha) = \int_{\infty}^{\infty} f(x) \sin (\alpha x) dx  \]
+
+	\end{definition}
+	
+	\begin{definition}
+		La transformada de Fourier se define como
+			\[ F(w) = \mathscr F \{f(t)\} =  \int_{-\infty}^{\infty} f(t)e^{-iwt}dt \]
+	\end{definition}
+
+	
+
+
+	\[ x = \left(\sum_{n=0}^\infty  \frac{(-1)^n}{n+1} \right)^{-1}(ln \abs{?}+i\ arg(?)) - 1 \]
+
+	Demostracion
+
+	Haciendo $y = ?$ tenemos: 
+			\begin{align}  %  Si se le pone * no se enumeran las ecuaciones
+			  2^x + 2^x &= 2^{x+1} = y = e^{(x+1)\ln 2}   \\
+			  e^{x+1} &= y ^ {1/\ln 2}	\\
+			  x + 1 &= \ln(y ^ {1/\ln 2}) = (1/\ln 2) \ln y \\
+			  x &= (1/\ln 2) \ln y - 1 
+			\end{align}
+	Usando la serie de Taylor para $\ln 2 = \sum_{n=0}^\infty  \frac{(-1)^n}{n+1}$  y considerando $\ln z = \ln|z| + i\ arg(z)$ con $z \in \mathbb C$ para considerar el campo de los complejos, la demostracion queda completada. \qed
+
+	
+
+
+\section{Apendice}
+	\subsection*{Producto a suma}
+
+		\begin{multicols}{2}
+			\begin{align*}  %  Si se le pone * no se enumeran las ecuaciones
+			  \sin x \sin y &= \frac{1}{2}\big[\cos(x - y) - \cos(x + y)\big]\\
+			  \cos x \cos y &= \frac{1}{2}\big[\cos(x - y) + \cos(x + y)\big]\\
+			  \sin x \cos y &= \frac{1}{2}\big[\sin(x + y) + \sin(x - y)\big]\\
+			  \tan x \tan y &= \frac{ \tan x + \tan y }{ \cot x + \cot y }\\
+			  \tan x \cot y &= \frac{ \tan x + \cot y }{ \cot x + \tan y }
+			\end{align*}
+		\end{multicols}
+
+\end{document}
