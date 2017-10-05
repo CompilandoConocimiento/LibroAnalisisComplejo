@@ -2729,6 +2729,74 @@
     \chapter{Series}
         \clearpage
 
+
+        % ==============================================
+        % ===========    SERIES GEOMETRICAS    =========
+        % ==============================================
+        \clearpage
+        \section{Serie Geométrica}
+
+            Si $|z| < 1$ entonces la Serie:
+            \begin{MultiLineEquation*}{3}
+                \sum_{n=1}^\infty az^{k-1} = \sum_{n=0}^\infty az^k
+                    &= a + az + az^2 + az^3 + \dots
+            \end{MultiLineEquation*}
+
+            Converge a $\dfrac{a}{1 - z}$
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Demostración}:
+
+                Ahora podemos encontrar una expresión para la suma parcial $S_n$ como:\\
+                $S_n = a + az + az^2 + az^3 + \dots + az^{n-1}$.
+
+                Ahora el gran truco para poder evaluar más sencillo $S_n$ lo que podemos hacer
+                es:
+                \begin{MultiLineEquation*}{3}
+                    S_n         &= a  + az   + az^2 + az^3 + \dots + az^{n-1}       \\
+                    zS_n        &= az + az^2 + az^3 + az^4 + \dots + az^n           \\
+                    S_n - zS_n  &= (a  + az   + az^2 + az^3 + \dots + az^{n-1})     
+                                    -
+                                   (az + az^2 + az^3 + az^4 + \dots + az^n)         \\
+                    S_n - zS_n  &= a - az^n                                         \\
+                    S_n(1 - z)  &= a - az^n                                         \\
+                    S_n         &= \dfrac{a(1 - z^n)}{1 - z}                      
+                \end{MultiLineEquation*}
+
+                Ahora $\lim_{n \to \infty} z^n = 0$ siempre que $|z| < 1$, entonces:
+                \begin{MultiLineEquation*}{3}
+                    \lim_{n \to \infty} \dfrac{a(1 - z^n)}{1 - z} 
+                        &= \dfrac{a(1 - 0)}{1 - z}                                  \\
+                        &= \dfrac{a}{1 - z}
+                \end{MultiLineEquation*}
+            
+            \end{SmallIndentation}
+                
+
+
+        % ==============================================
+        % ===========    SERIES DE POTENCIAS   =========
+        % ==============================================
+        \clearpage
+        \section{Series de Potencias}
+
+            Una serie de Potencias es una serie de la forma:
+            \begin{MultiLineEquation*}{3}
+                \sum_{n=0}^\infty a_k (z - z_0)^k
+                    &= a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + a_3(z-z_0)^3 + \dots 
+            \end{MultiLineEquation*}
+
+            Se dice que dicha serie esta centrada en $z_0$ y hablamos de un radio
+            de convergencia de dicha serie, el radio puede ser 0, entonces decimos
+            que solo converge en $z=z_0$, puede que el radio de convergencia sea un número
+            finito entonces la serie converge siempre que $z$ este dentro del radio, o
+            bien puede ser que el radio de convergencia sea infinito, en ese caso siempre
+            converge.
+            
+                
+                
+
         % ==============================================
         % ===========    TEOREMA DE TAYLOR     =========
         % ==============================================
