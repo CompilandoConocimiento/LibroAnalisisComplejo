@@ -166,7 +166,24 @@
     \newcommand \bCis[1] {\Brackets{\Cis{#1}}}                      %Use: \bCis for the same to Brackets
 
     % === CALCULUS ===
-    \newcommand \Partial[2] {\dfrac{\partial #1}{\partial #2}}      %Use: \Partial for simple use
+    \newcommand \MiniDerivate[1][x] {\dfrac{d}{d #1}}               %Use: \MiniDerivate for simple use
+    \newcommand \Derivate[2]                                        %Complete Derivate -- [f(x)][x]
+        {\dfrac{d \; #1}{d #2}}                                     %Use: \Partial for simple use
+    
+    \newcommand \MiniUpperDerivate[2]                               %Mini Derivate High Orden Derivate -- [x][1]
+        {\dfrac{d^{#2}}{d^{#2}#1}}                                  %Mini Derivate High Orden Derivate
+    \newcommand \UpperDerivate[3]                                   %Complete High Orden Derivate -- [f(x)][x][1]
+        {\dfrac{d^{#3} \; #1}{d^{#3} #2}}                           %Use: \UpperDerivate for simple use
+    
+    \newcommand \MiniPartial[1][x] {\dfrac{\partial}{\partial #1}} %Use: \MiniDerivate for simple use
+    \newcommand \Partial[2]                                        %Complete Derivate -- [f(x)][x]
+        {\dfrac{\partial \; #1}{\partial #2}}                      %Use: \Partial for simple use
+    
+    \newcommand \MiniUpperPartial[2]                                %Mini Derivate High Orden Derivate -- [x][1] 
+        {\dfrac{\partial^{#2}}{\partial^{#2}#1}}                    %Mini Derivate High Orden Derivate
+    \newcommand \UpperPartial[3]                                    %Complete High Orden Derivate -- [f(x)][x][1]
+        {\dfrac{\partial^{#3} \; #1}{\partial^{#3} #2}}             %Use: \UpperDerivate for simple use
+
 
     % =====  GENERAL COLOR  =========
     \definecolor{IndigoMD}{HTML}{3F51B5}                            %Use: Color :D
@@ -1692,16 +1709,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     % ===============================================================================
     % ===================        LIMITES COMPLEJOS               ====================
     % ===============================================================================
@@ -1766,6 +1773,7 @@
                         \end{equation*}
 
                 \end{itemize}
+
 
                
 
@@ -2382,7 +2390,7 @@
         % ==  TEOREMA DE CAUCHY DE LAS INTEGRALES   ====
         % ==============================================
         \clearpage
-        \section{Teorema de Cauchy}
+        \section{Teorema de Cauchy-Goursat}
 
             Si $f(z)$ es analítica y estamos hablando de una curva simple, es decir
             en la que no se cruza consigo mismo, entonces tenemos que:
@@ -2538,18 +2546,11 @@
 
 
 
-
-
-
-
-
-
-
         % ==============================================
         % ==  TEOREMA DE DERIVACION DE ORDEN SUPERIOR ==
         % ==============================================
         \clearpage
-        \section{Teorema de Derivación de Orden Superior}
+        \section{Teorema de Cauchy de Derivación de Orden Superior}
 
             Sea $f(z)$ diferenciable en un conjunto $G$ entonces $f(z)$ tiene derivadas de todos
             los ordenes en cada punto de $G$, más aún si $C$ es una trayectoria cerrada en $G$
@@ -2717,16 +2718,19 @@
 
 
 
+
+
+
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% ///////////////////////////////////        SERIES DE FURIER       ////////////////////////////////////////
+% ///////////////////////////////////        SERIES COMPLEJAS       ////////////////////////////////////////
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-\part{Series de Furier}
+\part{Series Complejas y Residuos}
 \clearpage
 
     % ===============================================================================
     % ========================           SERIES          ============================
     % ===============================================================================
-    \chapter{Series}
+    \chapter{Series Complejas}
         \clearpage
 
 
@@ -2787,12 +2791,30 @@
                     &= a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + a_3(z-z_0)^3 + \dots 
             \end{MultiLineEquation*}
 
-            Se dice que dicha serie esta centrada en $z_0$ y hablamos de un radio
-            de convergencia de dicha serie, el radio puede ser 0, entonces decimos
-            que solo converge en $z=z_0$, puede que el radio de convergencia sea un número
-            finito entonces la serie converge siempre que $z$ este dentro del radio, o
-            bien puede ser que el radio de convergencia sea infinito, en ese caso siempre
-            converge.
+            Ahora, hay muchas cosas que debes saber, muchos nombres y designaciones que hacemos a 
+            las series de potencias:
+
+            \begin{itemize}
+
+                \item Se dice que la Serie centrada en $z_0$
+
+                \item Hablamos de un radio de convergencia de dicha serie, el radio puede ser:
+                    \begin{itemize}
+                        \item El radio es 0, entonces decimos que solo converge en $z=z_0$
+                        \item El radio es finito, entonces la serie converge siempre que $z$
+                            este dentro del radio
+                        \item El radio es infinito, en ese cado siempre converge
+                     \end{itemize}
+
+                \item Es conveniente decir que $(z-z_0)^0 = 1$ incluso cuando $z = z_0$
+
+                \item La corresponcia entre un número complejo $z$ que se encuentre dentro
+                    del círculo de convergencia y en número $w$ al cual converge la serie
+                    $\sum_{n=0}^\infty a_k (z - z_0)^k$ es de uno a uno.
+
+                    Por lo tanto podemos ver a una serie de convergencia como una función $f(z) = w$
+            \end{itemize}
+
             
                 
                 
@@ -2813,13 +2835,55 @@
             Además para cualquier círculo en el interior de $C_0$ la serie converge
             uniformemente.
 
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Ideas}:
+
+                    Podemos diferenciar a una serie de potencias simplemente diferenciando término por término,
+                    y como creo que es más que obvio, el diferenciar una serie de potencias no hace que cambie 
+                    su radio de convergencia.
+
+                    Es decir, una serie de pontencia define a una función infinitamente derivable que tendrá
+                    el mismo radio de convergencia. 
+
+
+                    Ahora, veamos que pasa el derivar una serie de potencia:\\
+                    $f(z) = \sum_{n=0}^\infty a_k (z - z_0)^k = a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \dots$
+
+
+                    \begin{MultiLineEquation*}{3}
+                        f'(z) 
+                                &= \sum_{n=0}^\infty a_k \; k(z - z_0)^{k-1}            
+                                &&= a_1 + 2a_2(z-z_0) + 3a_3(z-z_0)^2 + \dots           \\
+                        f''(z) 
+                                &= \sum_{n=0}^\infty a_k \; (k)(k-1)(z - z_0)^{k-2}     
+                                &&= (2)(1)a_2 + (3)(2)a_3(z-z_0) + \dots                \\
+                        f'''(z)                                                         
+                                &= \sum_{n=0}^\infty a_k \; (k)(k-1)(k-2)(z - z_0)^{k-3} 
+                                &&= (3)(2)a_3 + \dots                                
+                    \end{MultiLineEquation*}
+
+                    Hay una relación entre los coeficientes de $a_k$ y la derivadas de $f(z)$, entonces
+                    tenemos que $f(z_0) = a_0$, $f'(z_0) = 1!(a_1)$, $f''(z_0) = 2!(a_2)$, $f'''(z_0) = 3!(a_3)$.
+
+                    Entonces en general tenemos que $\UpperDerivate{f(z)}{z}{n} = (n!) a_n$
+
+                    Con lo que con un simple despeje tenemos que $a_n = \dfrac{f^{(n)} (z_0)}{n!}$
+
+                    Por lo tanto tenemos que:
+                    \begin{equation*}
+                        f(z) = \sum_{n=0}^\infty \dfrac{f^{(n)}(z_0)}{n!} (z-z_0)^n
+                    \end{equation*}
+            
+            \end{SmallIndentation}
+
 
 
             % =========================================
             % =========    SERIES FAMOSAS     =========
             % =========================================
             \clearpage
-            \section{Series más Famosas}
+            \subsection{Series de Taylor Famosas}
 
                 \begin{MultiLineEquation*}{3}
                     e^z = \sum_{n=0}^\infty \dfrac{z^n}{n!}
@@ -2834,7 +2898,12 @@
                 \end{MultiLineEquation*}
 
                 \begin{MultiLineEquation*}{3}
-                    \dfrac{1}{1-z} = \sum_{n=0}^\infty z^n \Space \text{si } |z| < 1 
+                    a\pfrac{1}{1-z} = \sum_{n=0}^\infty a (z^n) \Space \text{si } |z| < 1 
+                \end{MultiLineEquation*}
+
+                \begin{MultiLineEquation*}{3}
+                    a\pfrac{1}{1+z} = \sum_{n=0}^\infty a (z^n)(-1)^{n-1} \Space 
+                    \text{si } |z| < 1 
                 \end{MultiLineEquation*}
 
                 \begin{MultiLineEquation*}{3}
@@ -2843,18 +2912,301 @@
                     
 
 
+        % ==============================================
+        % ===========    SERIES DE MACLAURIN    ========
+        % ==============================================
+        \section{Series de Maclaurin}
+
+            Si $z_0 = 0$ entonces la Serie de Taylor recibe un nombre especial
+            \begin{equation*}
+                f(z) = \sum_{n=0}^\infty \dfrac{f^{(n)}(0)}{n!} z^n
+            \end{equation*}
+
+            Y si, eso es todo, una Serie de Taylor con $z_0 = 0$. 
 
 
 
 
 
 
+        % ==============================================
+        % ===========    SERIES DE LAURENT      ========
+        % ==============================================
+        \clearpage
+        \section{Series de Laurent}
+
+            Si $z = z_0$ es una singularidad aislada de una función $f(z)$ entonces tenemos
+            que podemos escribir a la función como:
+            \begin{equation*}
+                \sum_{-\infty}^\infty a_{n}(z - z_0)^n
+            \end{equation*}
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Ideas}:
+                
+                Si una función no es analítica en el punto $z = z_0$, entonces
+                en este punto decimos que tenemos una singularidad o un punto singular de la
+                función.
+
+                Ahora vamos a ver un nuevo tipo de las Series de Potencias de $f(z)$ sobre
+                una singularidad aislada sobre $z_0$.
+                Esta nueva serie involucrará a potencias positivas como no negativas de $(z - z_0)$.
+
+                Si $z = z_0$ es una singularidad de una función $f(z)$ entonces es muy obvio que
+                no podemos expandirla como una Serie de Potencias común con $z_0$ en su centro.
+
+                Pero si $z = z_0$ es una singularidad aislada entonces podemos representarla como
+                una Serie Potencias que involucra potencias negativas y positivas.
+
+                \begin{MultiLineEquation*}{3}
+                    f(z) 
+                        &= \cdots + \dfrac{a_{-2}}{(z - z_0)^2} + \dfrac{a_{-1}}{(z - z_0)^1}
+                            &&+ a_0 + a_1(z - z_0)^1 + + a_2(z - z_0)^2 + \cdots            \\
+                        &= \sum_{n=1}^\infty a_{-n}(z - z_0)^{-n} 
+                            &&+
+                           \sum_{n=0}^\infty a_{n}(z - z_0)^n                               \\
+                        &= \sum_{-\infty}^\infty a_{n}(z - z_0)^n
+                \end{MultiLineEquation*}
+
+                Llamamos a la parte $\sum_{n=0}^\infty a_{n}(z - z_0)^n$ como la parte principal,
+                y decimos que esta suma converge si $|z - z_0| > r$
+
+                La parte $\sum_{n=1}^\infty a_{-n}(z - z_0)^{-n}$como la parte análitica
+                y decimos que esta suma converge si $|z - z_0| < R$
+            
+            \end{SmallIndentation}
+
+
+            % =====================================
+            % ===========    EJEMPLOS      ========
+            % =====================================
+            \subsection{Coeficientes}
+
+                Podemos decir que los coeficientes de la Serie de Laurent son:
+                \begin{equation*}
+                    a_k = \dfrac{1}{2\pi i} \oint_C \dfrac{f(s) ds}{(s - z_0)^{k+1}}
+                \end{equation*}
+
+
+
+
+
+            % =====================================
+            % ===========    EJEMPLOS      ========
+            % =====================================
+            \clearpage
+            \subsection{Ejemplos}
+
+
+                % =====================================
+                % ===========    EJEMPLO 1     ========
+                % =====================================
+                \subsection{Ejemplo 1}
+
+                    Encuentra la expansión de $f(z) = \dfrac{\Sin{z}}{z^4}$ alrededor
+                    de $z = 0$
+
+                    % ======== SOLUCIÓN ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+                        
+                        Recuerda que $\Sin{z} = z - \dfrac{z^3}{3!} + \dfrac{z^5}{5!} - 
+                        \dfrac{z^7}{7!} + \dots$
+
+                        \begin{MultiLineEquation*}{3}
+                            \dfrac{\Sin{z}}{z^4} = \dfrac{1}{z^3} - \dfrac{1}{3!z} + 
+                            \dfrac{z}{5!} - \dfrac{z^3}{7!} + \dots
+                        \end{MultiLineEquation*}
+
+                        Donde tenemos que:
+                        \begin{itemize}
+                            \item Parte Analítica: $\dfrac{z}{5!} - \dfrac{z^3}{7!} + \dots$
+                            \item Parte Principal: $\dfrac{1}{z^3} - \dfrac{1}{3!z}$
+                        \end{itemize}
+                            
+                    \end{SmallIndentation}
+
+
+                % =====================================
+                % ===========    EJEMPLO 2     ========
+                % =====================================
+                \subsection{Ejemplo 2}
+
+                    Encuentre la expansión de $f(z) = \dfrac{1}{z(z-1)}$ en:
+
+                    \begin{itemize}
+                        \item $0 < |z| < 1$
+
+                            % ======== DEMOSTRACION ========
+                            \begin{SmallIndentation}[1em]
+                                \textbf{Demostración}:
+                                
+                                Estamos de acuerdo en que la Superficie $0 < |z| < 1$ representa 
+                                el círculo unitario menos $z = 0$, por lo tanto tenemos una
+                                superficie que encierra a un punto de singularidad.
+
+                                Por lo tanto tenemos que hacer una expansión de $\dfrac{1}{z(z-1)}$
+                                que involucre a $(z - 0)$.
+
+                                Ahora tenemos que:
+                                \begin{MultiLineEquation*}{3}
+                                    f(z)
+                                        &= \dfrac{1}{z(z-1)}                            \\
+                                        &= \pfrac{-1}{z}\pfrac{1}{1-z}                  \\
+                                        &= \pfrac{-1}{z}\Wrap{1+z+z^2+z^3+z^4+\dots}    \\
+                                        &= -\pfrac{1}{z} -1 - z - z^2 - z^3 - \dots     \\
+                                \end{MultiLineEquation*}
+
+                                Sabemos que $\dfrac{1}{1-z} = \Wrap{1+z+z^2+z^3+z^4+\dots}$
+                                si y solo si $|z|< 1$ y al multiplicarlo por $\dfrac{1}{z}$
+                                entonces tenemos que la expresión general converge si y solo si
+                                $0 < |z| < 1$.
+                            \end{SmallIndentation}
+
+                        \item $1 < |z|$
+
+                            % ======== DEMOSTRACION ========
+                            \begin{SmallIndentation}[1em]
+                                \textbf{Demostración}:
+                                
+                                Estamos de acuerdo en que la Superficie $1 < |z|$ representa
+                                todo el plano complejo excepto el círculo unitario, por lo tanto tenemos una superficie que encierra a un punto de singularidad.
+
+                                Por lo tanto tenemos que hacer una expansión que involucre a 
+                                $(z - 0)$.
+
+                                Ahora tenemos que:
+                                \begin{MultiLineEquation*}{3}
+                                    f(z)
+                                        &= \dfrac{1}{z(z-1)}                                \\
+                                        &= \pfrac{1}{z^2}\pfrac{1}{1-\frac{1}{z}}           \\
+                                        &= \pfrac{1}{z^2}\pfrac{1}{1+z+z^2+z^3+z^4+\dots}   \\
+                                        &= \dfrac{1}{z^2} + \dfrac{1}{z^3} + \dfrac{1}{z^4}
+                                            + \dfrac{1}{z^5} + \dots
+                                \end{MultiLineEquation*}
+
+                                La serie $1+z+z^2+z^3+z^4+\dots$ converge si y solo si 
+                                $|\dfrac{1}{z}| < 1$ por lo tanto su inversa converge 
+                                si y solo si $|z| > 1$
+                            \end{SmallIndentation}
+
+                        \item $0 < |z - 1| < 1$
+
+                            % ======== DEMOSTRACION ========
+                            \begin{SmallIndentation}[1em]
+                                \textbf{Demostración}:
+                                
+                                Estamos de acuerdo en que la Superficie $0 < |z - 1| < 1$
+                                representa el círculo unitario pero centrado en $z=1$, por lo
+                                tanto tenemos una superficie que encierra a un punto de
+                                singularidad.
+
+                                Por lo tanto tenemos que hacer una expansión que involucre a 
+                                $(z - 1)$.
+
+                                Ahora tenemos que:
+                                \begin{MultiLineEquation*}{3}
+                                    f(z)
+                                        &= \dfrac{1}{z(z-1)}                                \\
+                                        &= \dfrac{1}{(z+1-1)(z-1)}                          \\
+                                        &= \pfrac{1}{z-1}\pfrac{1}{ 1+ (z-1)}               \\
+                                        &= \pfrac{1}{z-1}[1 - (z-1) + (z-1)^2 - 
+                                                (z-1)^3 + (z-1)^4 - \dots]                  \\
+                                        &= \pfrac{1}{z-1} + 1 + (z-1) + 
+                                                (z-1)^3 + (z-1)^4 + \dots]                  \\
+                                \end{MultiLineEquation*}
+
+                                Ahora como $z \neq 1$ entonces $0 < |z-1|$, y gracias a la
+                                serie geometrica tenemos que $|z-1|<1$, por lo tanto
+                                la expresión converge si $0 < |z-1| < 1$
+
+                            \end{SmallIndentation}
+                            
+                    \end{itemize}
+
+
+            % =====================================
+            % ====    POLOS Y SINGULARIDADES   ====
+            % =====================================
+            \subsection{Polos y Singularidades Aisladas}
+
+                Supongamos que tenemos una función como:
+                \begin{MultiLineEquation*}{3}
+                    f(z) 
+                    &= \sum_{-\infty}^\infty a_{n}(z - z_0)^n                               \\
+                    &= \sum_{n=1}^\infty a_{-n}(z - z_0)^{-n} 
+                        + \sum_{n=0}^\infty a_{n}(z - z_0)^n
+                \end{MultiLineEquation*}
+
+                Y que $z = z_0$ es nuestra singularidad.
+
+                \begin{itemize}
+                    \item Si la parte principal de nuestra Serie de Laurent no tiene elementos
+                        entonces decimos que existe una singularidad removible.
+
+                        $a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots$
+
+                    \item Si la parte principal de nuestra Serie de Laurent tiene una cantidad
+                        finita de elementos entonces decimos que tenemos un Polo de Orden $n$.
+
+                        Si es que tenemos solo un elemento decimos que es un Polo Simple
+
+                        $a_{-n}(z - z_0)^{-n} + \cdots + a_{-1}(z - z_0)^{-1}+ a_0 + a_1(z-z_0)
+                            + a_2(z-z_0)^2 + \cdots$
+
+                    \item Si la parte principal de nuestra Serie de Laurent tiene una cantidad
+                        infinita de elementos entonces decimos que tenemos una Singularidad
+                        escencial 
+
+                        $\cdots + a_{-2}(z - z_0)^{-2} + a_{-1}(z - z_0)^{-1}+ a_0 + a_1(z-z_0)
+                            + a_2(z-z_0)^2 + \cdots$
+                \end{itemize}
 
 
 
 
 
 
+        % ==============================================
+        % ===========          RESIDUOS       ==========
+        % ==============================================
+        \clearpage
+        \section{Residuos} 
+
+            % =====================================
+            % ===========    DEFINICION    ========
+            % =====================================
+            \subsection{Definición}
+
+                Supongamos que tenemos una función como:
+                \begin{MultiLineEquation*}{3}
+                    f(z) 
+                    &= \sum_{-\infty}^\infty a_{n}(z - z_0)^n                               \\
+                    &= \sum_{n=1}^\infty a_{-n}(z - z_0)^{-n} 
+                        + \sum_{n=0}^\infty a_{n}(z - z_0)^n
+                \end{MultiLineEquation*}
+
+                Entonces en especial el primer coeficiente ($a_{-1}$) es tan especial que recibe
+                el nombre de residuo.
+
+            % =====================================
+            % =====    RESIDUO E INTEGRAL  ========
+            % =====================================
+            \subsection{Residuo e Integral}
+
+                Ahora recuerda que ya habiamos dado una formula para poder saber el valor
+                del residuo como:
+                \begin{equation*}
+                    a_{-1} = \dfrac{1}{2 \pi i} \oint f(z) dz 
+                \end{equation*}
+
+                Como resulta ser mucho más fácil encontrar los residuos que la integral
+                entonces generalmente decimos que:
+
+                \begin{equation*}
+                    \oint f(z) dz = (2 \pi i)a_{-1} 
+                \end{equation*}
 
 
 
