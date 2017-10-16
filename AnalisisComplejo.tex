@@ -3168,16 +3168,17 @@
 
 
 
-        % ==============================================
-        % ===========          RESIDUOS       ==========
-        % ==============================================
-        \clearpage
-        \section{Residuos} 
 
-            % =====================================
-            % ===========    DEFINICION    ========
-            % =====================================
-            \subsection{Definición}
+    % ===============================================================================
+    % ========================           RESIDUOS        ============================
+    % ===============================================================================
+    \chapter{Residuos} 
+        \clearpage
+
+            % ==============================================
+            % ===========        DEFINICION        =========
+            % ==============================================
+            \section{Definición}
 
                 Supongamos que tenemos una función como:
                 \begin{MultiLineEquation*}{3}
@@ -3190,24 +3191,84 @@
                 Entonces en especial el primer coeficiente ($a_{-1}$) es tan especial que recibe
                 el nombre de residuo.
 
-            % =====================================
-            % =====    RESIDUO E INTEGRAL  ========
-            % =====================================
-            \subsection{Residuo e Integral}
-
-                Ahora recuerda que ya habiamos dado una formula para poder saber el valor
-                del residuo como:
+                Solemos denotar el Residuo de $f(z)$ sobre el punto $z = z_0$ como:
                 \begin{equation*}
-                    a_{-1} = \dfrac{1}{2 \pi i} \oint f(z) dz 
+                    a_{-1} = Res(f(z), z_0)
                 \end{equation*}
 
-                Como resulta ser mucho más fácil encontrar los residuos que la integral
-                entonces generalmente decimos que:
 
-                \begin{equation*}
-                    \oint f(z) dz = (2 \pi i)a_{-1} 
-                \end{equation*}
 
+
+
+            % ==============================================
+            % ======     ENCONTRAR RESIDUOS        =========
+            % ==============================================
+            \clearpage
+            \section{Encontrar Residuos}
+
+
+                % =====================================
+                % =====    RESIDUO E INTEGRAL  ========
+                % =====================================
+                \subsection{Residuo e Integral}
+
+                    Ahora recuerda que ya habiamos dado una formula para poder saber el valor
+                    del residuo como:
+                    \begin{equation*}
+                        a_{-1} = \dfrac{1}{2 \pi i} \oint f(z) dz 
+                    \end{equation*}
+
+                    Como resulta ser mucho más fácil encontrar los residuos que la integral
+                    entonces generalmente decimos que:
+                    \begin{equation*}
+                        (2 \pi i) a_{-1} = \oint f(z) dz 
+                    \end{equation*}
+
+
+                \begin{itemize}
+                    
+                    \item 
+                        Si $f(z)$ tiene un Polo Simple en $z = z_0$, entonces
+                        tenemos que:
+                        \begin{equation*}
+                            Res(f(z), z_0) = \lim_{z \to z_0} (z - z_0) f(z)
+                        \end{equation*} 
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+                            
+                            Considera que $z_0$ es un Polo Simple, entonces la función
+                            tiene esta forma:
+
+                            \begin{MultiLineEquation*}{3}
+                                \dfrac{a_{-1}}{z-z_0} a_0 + a_1(z - z_0)^1 
+                                        + a_2(z - z_0)^2 + \dots
+                            \end{MultiLineEquation*}
+
+                            Donde $a_{-1}$ es diferente de cero. Ahora simplemente al
+                            multiplicar todo por $(z-z_0)$ y más aún tomando el
+                            límite tenemos que:
+                            \begin{MultiLineEquation*}{3}
+                                \lim_{z \to z_0} (z - z_0) f(z)
+                                    &= \lim_{z \to z_0} [a_{-1} + a_0(z - z_0) 
+                                        + a_1(z - z_0)^2 + \dots]                   \\
+                                    &= a_1
+                            \end{MultiLineEquation*}
+                                
+                        \end{SmallIndentation}
+
+
+                    \item 
+                        Si $f(z)$ tiene un Polo de Orden $n$ en $z = z_0$, entonces
+                        tenemos que:
+                        \begin{equation*}
+                            Res(f(z), z_0) = \dfrac{1}{(n-1)!} 
+                                \lim_{z \to z_0} \MiniUpperDerivate{z}{n-1}(z - z_0)^n f(z)
+                        \end{equation*} 
+                            
+
+                \end{itemize}
 
 
 \end{document}
