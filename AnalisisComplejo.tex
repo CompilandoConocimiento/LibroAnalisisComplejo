@@ -3391,36 +3391,251 @@
                             \dfrac{z + z^{-1}}{2}, 
                             \dfrac{z - z^{-1}}{2i} } \dfrac{dz}{iz}
                 \end{MultiLineEquation*}
+
+
+                % =====================================
+                % ===========    EJEMPLOS      ========
+                % =====================================
+                \clearpage
+                \subsection{Ejemplo}
+
+
+                Calcule $\int_0^{2\pi} \dfrac{1}{5 + 4\Sin{\theta}} d\theta$
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+                    
+                    \begin{MultiLineEquation*}{3}
+                        \int_0^{2\pi} \dfrac{1}{5 + 4\Sin{\theta}} d\theta
+                            &= \oint_C \dfrac{1}{5 + \dfrac{4}{2i}\Wrap{z - z^{-1}}} \dfrac{dz}{iz}     \\
+                            &= \oint_C \dfrac{1}{2z^2 + 5iz - 2} \dfrac{dz}{iz}                         \\
+                            &= \oint_C \dfrac{1}{(2z+4i)(2z+i)} \dfrac{dz}{iz}                          \\
+                    \end{MultiLineEquation*}
+
+                    Ahora usemos el Teorema de Residuo, recuerda que nuestro recorrido es alrededor del
+                    círculo unitario, ve que solo uno de las raíces cae dentro del círculo unitario.
+                    (z = -0.5i) pues la otra es $z = -2i$.
+                    \begin{MultiLineEquation*}{3}
+                        Res\Wrap{f(z), -0.5i}
+                            &= \lim_{z \to -0.5i} (z+0.5i) f(z)                             \\
+                            &= \lim_{z \to -0.5i} (z+0.5i)\dfrac{1}{(2z+4i)(2z+i)}          \\
+                            &= \lim_{z \to -0.5i} (z+0.5i)\dfrac{1}{(2z+4i)(z+0.5i)}        \\
+                            &= \lim_{z \to -0.5i} \dfrac{1}{(2z+4i)}                        \\
+                            &= \lim_{z \to -0.5i} \dfrac{1}{3i}                             \\
+                    \end{MultiLineEquation*}
+                        
+                    Ahora simplemente tenemos que:
+                    \begin{MultiLineEquation*}{3}
+                        \int_0^{2\pi} \dfrac{1}{5 + 4\Sin{\theta}} d\theta
+                            &= \oint_C \dfrac{1}{(z+2i)(2z+1)} \dfrac{dz}{iz}               \\
+                            &= 2 \pi i \Wrap{Res(f(z), -0.5i)}                              \\
+                            &= 2 \pi i  \pfrac{1}{3i}                                       \\
+                            &= \pfrac{2 \pi}{3} 
+                    \end{MultiLineEquation*}
+                        
+                
+                \end{SmallIndentation}
+                    
+
+            % ========================================
+            % ======   VALOR PRINCIPAL DE CAUCHY   ===
+            % ========================================
+            \clearpage
+            \section{Valor Principal de Cauchy}
+
+                El Valor Principal de Cauchy de una intregral impropia es simplemente:
+                \begin{MultiLineEquation*}{3}
+                    \text{P.V }\;
+                    \int_{-\infty}^\infty f(x) dx 
+                        &= \lim_{R \to \infty} \int_R^R f(x) dx 
+                \end{MultiLineEquation*}
+
+
+                \begin{itemize}
+                    \item A veces existe el Valor Principal de Cauchy cuando la integral diverge
+                    
+                    \item Si la integral converge entonces el Valor Principal será igual a la solución
+                        de la integral original
+
+                    \item Si $f(x)$ es una función par y el Valor Principal existe entonces
+                        la integral converge
+                \end{itemize}
+                    
+
+            % ========================================
+            % ======   INTEGRALES INFINITAS     ======
+            % ========================================
+            \clearpage
+            \section{Usar Teorema del Residuo para: $\int_{-\infty}^\infty f(x) dx$}
+
+                \begin{MultiLineEquation*}{3}
+                    \int_{-\infty}^\infty f(x) dx
+                    &= \oint_C f(z) dz                  
+                    &= \int_{-R}^R f(x) dx + \int_{C_R} f(z) dz
+                    &= (2 \pi i) \sum_{i=1}^n Res(f(z), z_i)
+                \end{MultiLineEquation*}
+
+                Decimos que $C$ es un semicírculo que va desde $-R$ a $R$ sobre el plano real y el semicírculo
+                complejo que encierra a todos los puntos singulares reales y a alguno del par de una singularidad
+                compleja (despúes de todo recuerda que las raíces complejas vienen en pares, así que el
+                semicirculo solo tomará a una).
+
+                Despúes al momento de aplicar el siguiente teorema haremos que el semicírculo tienda
+                a un semicírculo infinito centrado en el origen.
+
+                Ahora, podemos decir que $f(z) = \frac{p(z)}{q(z)}$ donde el grado de $q(z)$ es mínimo
+                dos grados mayor que el de $p(z)$, entonces tenemos que: $\int_{C_R} f(z) dz \to 0$ cuando
+                $R \to \infty$.
+
+                Si esto se cumpliera, entonces tendría que:
+                \begin{MultiLineEquation*}{3}
+                    \int_{-R}^R f(x) dx + \int_{C_R} f(z) dz
+                    &= \int_{-R}^R f(x) dx = (2 \pi i) \sum_{i=1}^n Res(f(z), z_i)
+                \end{MultiLineEquation*}
+
+                Ve que la última línea es lo que queríamos ver
+                    
+
+                % =====================================
+                % ===========    EJEMPLOS      ========
+                % =====================================
+                \clearpage
+                \subsection{Ejemplo}
+
+                    Calcule $\int_{-\infty}^\infty \dfrac{1}{(x^2+1)(x^2+9)} dx$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+
+                        Ve que si tomemos el semicírculo igual o mayor que el que encierra a $[-3,3]$ entonces
+                        encerrará a todas las raices reales y al menos a una de cada par de raíces complejas.
+
+                        Ahora tomemos un semicirculo de $[-\infty, \infty]$
+
+                        Y recuerda que si $f(z) = \frac{p(z)}{q(z)}$ donde el grado de $q(z)$ es mínimo
+                        dos grados mayor que el de $p(z)$, entonces tenemos que: $\int_{C_R} f(z) dz \to 0$ cuando
+                        $R \to \infty$. 
+
+                        \begin{MultiLineEquation*}{3}
+                            \int_{-\infty}^\infty \dfrac{1}{(x^2+1)(x^2+9)} dx
+                            &= \oint_C \dfrac{1}{(x^2+1)(x^2+9)} dz                                                 \\
+                            &= \int_{-R}^R \dfrac{1}{(x^2+1)(x^2+9)} dx + \int_{C_R} \dfrac{1}{(z^2+1)(z^2+9)} dz   \\
+                            &= \int_{-R}^R \dfrac{1}{(x^2+1)(x^2+9)} dx                                             \\
+                            &= (2 \pi i) [Res(f(z), i) + Res(f(z), 3i)]                                             \\
+                            &= (2 \pi i) \Brackets{\dfrac{1}{16i} + \dfrac{-1}{48i}}                                \\
+                            &= \dfrac{\pi}{12} 
+                        \end{MultiLineEquation*}
+
+                        Y más aún la función es par, por lo tanto no solo calculamos el valor principal, sino 
+                        la integral completa.
+
+
+                    \end{SmallIndentation}
+
+
+
+
+
+
+            % ========================================
+            % ======   INTEGRALES INFINITAS     ======
+            % ========================================
+            \clearpage
+            \section{Usar Teorema del Residuo para: $\int_{-\infty}^\infty Trig(\alpha x) dx$}
+
+                Decimos $\int_{-\infty}^\infty Trig(\alpha x)dx$ para referirnos a:
+                \begin{itemize}
+                    \item $\int_{-\infty}^\infty \Cos{\alpha x}dx$
+                    \item $\int_{-\infty}^\infty \Sin{\alpha x}dx$
+                \end{itemize}
+
+
+                Estan son conocidas como Integrales de Furier, porque las vemos de manera muy común en
+                estas aplicaciones.
+
+                Ve esto:
+                \begin{MultiLineEquation*}{3}
+                    \int_{-\infty}^\infty f(x) e^{i\alpha x} dx
+                        &=  \int_{-\infty}^\infty f(x) \Cos{i\alpha x} dx
+                            +
+                            i \; \int_{-\infty}^\infty f(x) \Sin{i\alpha x} dx
+                \end{MultiLineEquation*}
+
+
+                % =====================================
+                % ===========    EJEMPLOS      ========
+                % =====================================
+                \clearpage
+                \subsection{Ejemplo}
+
+                    Calcule $\int_0^\infty \dfrac{x}{x^2 + 9} \Sin{x} dx$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+
+                        Lo primero que hay que ver es que como es par entonces:
+                        \begin{MultiLineEquation*}{3}
+                            \int_0^\infty \dfrac{x}{x^2 + 9} \Sin{x} dx 
+                                &= \dfrac{1}{2} \int_{-\infty}^\infty \dfrac{x}{x^2 + 9} \Sin{x} dx 
+                        \end{MultiLineEquation*}
+
+                        Así que primero calculemos $\int_{-\infty}^\infty \dfrac{x}{x^2 + 9} \Sin{x} dx$
+                        o aun más general $\int_{-\infty}^\infty \dfrac{x}{x^2 + 9} e^{iz} dx$
+
+                        Recuerda que haremos que el semicírculo tienda a infinito :D
+                            
+                        \begin{MultiLineEquation*}{3}
+                            \oint_C \dfrac{z}{z^2 + 9} e^{iz} dz 
+                            &= \int_{-R}^R \dfrac{x}{x^2 + 9} e^{ix}dx + \int_{C_R} \dfrac{z}{z^2 + 9} e^{iz} dz   \\
+                            &= \int_{-R}^R \dfrac{x}{x^2 + 9} e^{ix}dx                                             \\
+                            &= (2 \pi i) [Res(f(z) e^{iz}, 3i)]                                                    \\
+                            &= (2 \pi i) [\dfrac{e^{-3}}{2}]                                                       \\
+                            &= \dfrac{\pi}{e^3}i 
+                        \end{MultiLineEquation*}
+
+                        Ahora:
+                        \begin{MultiLineEquation*}{3}
+                            \int_{-\infty}^\infty \dfrac{x}{x^2 + 9} e^{ix} dx
+                                =   \int_{-\infty}^\infty \dfrac{x}{x^2 + 9} \Cos{x} dx
+                                    +
+                                    i \int_{-\infty}^\infty \dfrac{x}{x^2 + 9} \Sin{x} dx
+                                = \dfrac{\pi}{e^3}i
+                        \end{MultiLineEquation*}
+
+                        Ahora igualemos la parte imaginaria y vemos que 
+                        $\int_{-\infty}^\infty \dfrac{x}{x^2 + 9} \Sin{x} dx = \dfrac{\pi}{e^3}$
+
+
+                        Ahora solo recuerda lo primero que dijimos y vemos que:
+                        $\int_0^\infty \dfrac{x}{x^2 + 9} \Sin{x} dx = \dfrac{\pi}{2e^3}$
+
+                    \end{SmallIndentation}
                     
 
 
 
 
-
             % ========================================
             % ======   INTEGRALES INFINITAS     ======
             % ========================================
             \clearpage
-            \section{Usar Teorema del Residuo para: $\int_\infty^\infty f(x) dx$}
+            \section{Recordatorio de las Integrales de Contorno}
 
-
+                Ve que si hubiera Polos dentro del plano real ($c_1, c_2, \dots, c_n$) (cosa que no consideré)
+                en las aplicaciones anteriores tenemos que tendremos que hacer una integral identada:
                 \begin{MultiLineEquation*}{3}
-                    \int_\infty^\infty f(x) dx
-                    = \oint_C \int_\infty^\infty f(z) dz
+                    \lim_{r \to 0} \int_{C_r} f(z) dz = (\pi i) \sum_{i = 1}^n Res(f(z), c_i)
                 \end{MultiLineEquation*}
 
+                Es decir, si tienes Polos en la línea real, entonces al aplicar el Teorema del 
+                Residuo tendrás que:\\
+                $(\pi i) \sum_{i = 1}^n Res(f(z), c_i) + (2\pi i) \sum_{i = 1}^n Res(f(z), z_i)$
 
-            % ========================================
-            % ======   INTEGRALES INFINITAS     ======
-            % ========================================
-            \clearpage
-            \section{Usar Teorema del Residuo para: $\int_\infty^\infty Trig{\alpha x}$ dx}
-
-
-
-
-
-
+                Donde $c_1, c_2, \dots, c_n$ son polos reales y $z_1, z_2, \dots, z_n$ son polos
+                complejos                    
 
 
 \end{document}
