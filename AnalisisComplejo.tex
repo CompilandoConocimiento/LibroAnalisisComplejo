@@ -171,18 +171,18 @@
         {\dfrac{d \; #1}{d #2}}                                     %Use: \Partial for simple use
     
     \newcommand \MiniUpperDerivate[2]                               %Mini Derivate High Orden Derivate -- [x][1]
-        {\dfrac{d^{#2}}{d^{#2}#1}}                                  %Mini Derivate High Orden Derivate
+        {\dfrac{d^{#2}}{d#1^{#2}}}                                  %Mini Derivate High Orden Derivate
     \newcommand \UpperDerivate[3]                                   %Complete High Orden Derivate -- [f(x)][x][1]
-        {\dfrac{d^{#3} \; #1}{d^{#3} #2}}                           %Use: \UpperDerivate for simple use
+        {\dfrac{d^{#3} \; #1}{d#2^{#3}}}                            %Use: \UpperDerivate for simple use
     
     \newcommand \MiniPartial[1][x] {\dfrac{\partial}{\partial #1}} %Use: \MiniDerivate for simple use
     \newcommand \Partial[2]                                        %Complete Derivate -- [f(x)][x]
         {\dfrac{\partial \; #1}{\partial #2}}                      %Use: \Partial for simple use
     
     \newcommand \MiniUpperPartial[2]                                %Mini Derivate High Orden Derivate -- [x][1] 
-        {\dfrac{\partial^{#2}}{\partial^{#2}#1}}                    %Mini Derivate High Orden Derivate
+        {\dfrac{\partial^{#2}}{\partial #1^{#2}}}                   %Mini Derivate High Orden Derivate
     \newcommand \UpperPartial[3]                                    %Complete High Orden Derivate -- [f(x)][x][1]
-        {\dfrac{\partial^{#3} \; #1}{\partial^{#3} #2}}             %Use: \UpperDerivate for simple use
+        {\dfrac{\partial^{#3} \; #1}{\partial#2^{#3}}}              %Use: \UpperDerivate for simple use
 
 
     % =====  GENERAL COLOR  =========
@@ -2451,7 +2451,7 @@
             $\mathcal{C}$ es cerrada y simplemente conexa en una región $R$, entonces
             tenemos si $a$ pertenece a la región $R$ se cumple que:
             \begin{equation*}
-                f(a) = \dfrac{1}{2 \pi i} \oint_C \dfrac{f(z) dz}{z-a}
+                f(a) = \dfrac{1}{2 \pi i} \oint_C \dfrac{f(z)}{z-a} dz
             \end{equation*}
 
             Pero esta no es la forma en la que comunmente la usamos, sino que la usamos
@@ -2815,6 +2815,9 @@
                     Por lo tanto podemos ver a una serie de convergencia como una función $f(z) = w$
             \end{itemize}
 
+
+
+
             
                 
                 
@@ -2829,7 +2832,9 @@
             y radio $r_0$. Entonces para cada punto $z$ en el interior de $C_0$ se tiene
             que $f(z)$ se puede escribir como:
             \begin{equation*}
-                f(z) = \sum_{n=0}^\infty \dfrac{f^{(n)}(z_0)}{n!} (z-z_0)^n
+                f(z)    
+                    = \sum_{n=0}^\infty a_n (z-z_0)^n
+                    = \sum_{n=0}^\infty \dfrac{f^{(n)}(z_0)}{n!} (z-z_0)^n
             \end{equation*}
 
             Además para cualquier círculo en el interior de $C_0$ la serie converge
@@ -2979,14 +2984,28 @@
 
 
             % =====================================
-            % ===========    EJEMPLOS      ========
+            % ====   COEFICIENTES DE LAURENT   ====
             % =====================================
-            \subsection{Coeficientes}
+            \clearpage
+            \subsection{Coeficientes de la Serie de Laurent}
 
-                Podemos decir que los coeficientes de la Serie de Laurent son:
+                Podemos encontrar facilmente los coeficientes de una Serie de Taylor como:\\
+                $a_n = \frac{f^{(n)}(z_0)}{n!}$
+
+                Podemos hacer algo parecido con las Series de Laurent y decir que:
+
+                Para la Parte Análitica tenemos que:
                 \begin{equation*}
-                    a_k = \dfrac{1}{2\pi i} \oint_C \dfrac{f(s) ds}{(s - z_0)^{k+1}}
+                    a_n = \dfrac{1}{2 \pi i} \oint_C \dfrac{f(z)}{(z - z_0)^{n+1}} dz
                 \end{equation*}
+
+                Para la Parte Principal tenemos que:
+                \begin{equation*}
+                    a_n = \dfrac{1}{2 \pi i} \oint_C \dfrac{f(z)}{(z - z_0)^{-n+1}} dz
+                \end{equation*}
+
+
+                Donde $C$ es cualquier curva cerrrada que rodea a $z_0$.
 
 
 
@@ -3002,7 +3021,7 @@
                 % =====================================
                 % ===========    EJEMPLO 1     ========
                 % =====================================
-                \subsection{Ejemplo 1}
+                \subsubsection{Ejemplo 1}
 
                     Encuentra la expansión de $f(z) = \dfrac{\Sin{z}}{z^4}$ alrededor
                     de $z = 0$
@@ -3031,7 +3050,7 @@
                 % =====================================
                 % ===========    EJEMPLO 2     ========
                 % =====================================
-                \subsection{Ejemplo 2}
+                \subsubsection{Ejemplo 2}
 
                     Encuentre la expansión de $f(z) = \dfrac{1}{z(z-1)}$ en:
 
@@ -3142,25 +3161,28 @@
                 Y que $z = z_0$ es nuestra singularidad.
 
                 \begin{itemize}
-                    \item Si la parte principal de nuestra Serie de Laurent no tiene elementos
-                        entonces decimos que existe una singularidad removible.
+                    \item Si la parte principal de nuestra Serie de Laurent \textbf{no tiene elementos}
+                        entonces decimos que existe una \textbf{Singularidad Removible}.
+                        \begin{equation*}
+                            a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots
+                        \end{equation*}
 
-                        $a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots$
-
-                    \item Si la parte principal de nuestra Serie de Laurent tiene una cantidad
-                        finita de elementos entonces decimos que tenemos un Polo de Orden $n$.
+                    \item Si la parte principal de nuestra Serie de Laurent \textbf{tiene una cantidad
+                        finita de elementos} entonces decimos que tenemos un \textbf{Polo de Orden $n$}.
 
                         Si es que tenemos solo un elemento decimos que es un Polo Simple
+                        \begin{equation*}
+                            a_{-n}(z - z_0)^{-n} + \cdots + a_{-1}(z - z_0)^{-1} + 
+                            a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots
+                        \end{equation*}
 
-                        $a_{-n}(z - z_0)^{-n} + \cdots + a_{-1}(z - z_0)^{-1}+ a_0 + a_1(z-z_0)
-                            + a_2(z-z_0)^2 + \cdots$
-
-                    \item Si la parte principal de nuestra Serie de Laurent tiene una cantidad
-                        infinita de elementos entonces decimos que tenemos una Singularidad
-                        escencial 
-
-                        $\cdots + a_{-2}(z - z_0)^{-2} + a_{-1}(z - z_0)^{-1}+ a_0 + a_1(z-z_0)
-                            + a_2(z-z_0)^2 + \cdots$
+                    \item Si la parte principal de nuestra Serie de Laurent \textbf{tiene una cantidad
+                        infinita de elementos} entonces decimos que tenemos una \textbf{Singularidad
+                        Escencial} 
+                        \begin{equation*}
+                            \cdots + a_{-2}(z - z_0)^{-2} + a_{-1}(z - z_0)^{-1} +
+                            a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots
+                        \end{equation*}
                 \end{itemize}
 
 
@@ -3197,35 +3219,33 @@
                 \end{equation*}
 
 
-
-
-
             % ==============================================
             % ======     ENCONTRAR RESIDUOS        =========
             % ==============================================
             \clearpage
             \section{Encontrar Residuos}
 
-
-                % =====================================
-                % =====    RESIDUO E INTEGRAL  ========
-                % =====================================
-                \subsection{Residuo e Integral}
-
-                    Ahora recuerda que ya habiamos dado una formula para poder saber el valor
-                    del residuo como:
-                    \begin{equation*}
-                        a_{-1} = \dfrac{1}{2 \pi i} \oint f(z) dz 
-                    \end{equation*}
-
-                    Como resulta ser mucho más fácil encontrar los residuos que la integral
-                    entonces generalmente decimos que:
-                    \begin{equation*}
-                        (2 \pi i) a_{-1} = \oint f(z) dz 
-                    \end{equation*}
-
-
                 \begin{itemize}
+
+                    \item
+                        La forma más trivial de encontrar nuestro residuo sobre $f(z)$
+                        a lo largo de un punto $z_0$ es simplemente hayar la Serie de Laurent
+                        de dicha función y tomar el coeficiente de $\dfrac{a_{-1}}{z-z_0}$.
+
+                        No tengo que demostrar esto, despúes de todo esta es la definición
+
+
+                    \item
+                        Vimos que encontramos una fórmula para encontrar un coeficiente arbitario
+                        dentro de la Serie de Laurent, esta fórmula funciona para encontrar a
+                        los términos de la Parte Principal:
+                        $a_n = \frac{1}{2 \pi i} \oint_C \frac{f(z)}{(z - z_0)^{-n+1}} dz$
+
+                        Entonces:
+                        \begin{MultiLineEquation*}{3}
+                            a_{-1} = \dfrac{1}{2 \pi i} \oint f(z) dz
+                        \end{MultiLineEquation*}
+                            
                     
                     \item 
                         Si $f(z)$ tiene un Polo Simple en $z = z_0$, entonces
@@ -3240,21 +3260,16 @@
                             
                             Considera que $z_0$ es un Polo Simple, entonces la función
                             tiene esta forma:
-
-                            \begin{MultiLineEquation*}{3}
-                                \dfrac{a_{-1}}{z-z_0} a_0 + a_1(z - z_0)^1 
-                                        + a_2(z - z_0)^2 + \dots
-                            \end{MultiLineEquation*}
+                            $\dfrac{a_{-1}}{z-z_0} a_0 + a_1(z - z_0)^1 
+                                        + a_2(z - z_0)^2 + \dots$
 
                             Donde $a_{-1}$ es diferente de cero. Ahora simplemente al
                             multiplicar todo por $(z-z_0)$ y más aún tomando el
                             límite tenemos que:
-                            \begin{MultiLineEquation*}{3}
-                                \lim_{z \to z_0} (z - z_0) f(z)
-                                    &= \lim_{z \to z_0} [a_{-1} + a_0(z - z_0) 
-                                        + a_1(z - z_0)^2 + \dots]                   \\
-                                    &= a_1
-                            \end{MultiLineEquation*}
+                            $\lim_{z \to z_0} (z - z_0) f(z)
+                                    = \lim_{z \to z_0} [a_{-1} + a_0(z - z_0) 
+                                        + a_1(z - z_0)^2 + \dots]           
+                                    = a_1$
                                 
                         \end{SmallIndentation}
 
@@ -3263,12 +3278,149 @@
                         Si $f(z)$ tiene un Polo de Orden $n$ en $z = z_0$, entonces
                         tenemos que:
                         \begin{equation*}
-                            Res(f(z), z_0) = \dfrac{1}{(n-1)!} 
+                            Res(f(z), z_0) = \pfrac{1}{(n-1)!} \;
                                 \lim_{z \to z_0} \MiniUpperDerivate{z}{n-1}(z - z_0)^n f(z)
                         \end{equation*} 
-                            
 
+
+                    \item 
+                        Si $f(z)$ se puede escribir como $f(z) = \dfrac{g(z)}{h(z)}$
+                        y $g(z_0) \neq 0$ entonces tenemos que podemos encontrar el residuo de un
+                        polo simple como:
+                        \begin{equation*}
+                            Res(f(z), z_0) = \dfrac{g(z_0)}{h'(z_0)}
+                        \end{equation*}
+
+                            
                 \end{itemize}
+
+
+
+            % =====================================
+            % ===========    EJEMPLOS      ========
+            % =====================================
+            \clearpage
+            \section{Ejemplos sobre Encontrar Residuo}
+
+
+                % =====================================
+                % ===========    EJEMPLO 1     ========
+                % =====================================
+                \subsubsection{Ejemplo 1}
+
+                    Encuentra los residuos de $f(z) = \dfrac{1}{(z-1)^2 (z-3)}$
+
+                    % ======== SOLUCIÓN ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+                        
+                        \begin{itemize}
+                            \item
+                                Para $z = 3$ vemos un Polo Simple por lo que podemos
+                                decir que:
+                                \begin{MultiLineEquation*}{3}
+                                    Res(f(z), 3)
+                                        &= \lim_{z \to 3} (z - 3) f(z)                          \\
+                                        &= \lim_{z \to 3} (z - 3) \dfrac{1}{(z-1)^2 (z-3)}
+                                            = \lim_{z \to 3} \dfrac{1}{(z-1)^2}                 \\
+                                        &= \dfrac{1}{(3-1)^2} = \dfrac{1}{2^2} = \dfrac{1}{4}   
+                                \end{MultiLineEquation*}
+
+                            \item
+                                Para $z = 1$ vemos un Polo de Orden 2 por lo que podemos
+                                decir que:
+                                \begin{MultiLineEquation*}{3}
+                                    Res(f(z), 1)
+                                        &= \lim_{z \to 1} \dfrac{1}{1!} 
+                                            \MiniDerivate[z] (z - 1)^2 f(z)                     \\
+                                        &= \lim_{z \to 1} 
+                                            \MiniDerivate[z] (z - 1)^2 \dfrac{1}{(z-1)^2 (z-3)} \\
+                                        &= \lim_{z \to 1} \MiniDerivate[z] \dfrac{1}{z-3}       \\
+                                        &= \lim_{z \to 1} \dfrac{-1}{(z-3)^2}                   \\
+                                        &= -\dfrac{1}{4}                   
+                                \end{MultiLineEquation*}
+                                
+                        \end{itemize}
+                            
+                    \end{SmallIndentation}
+
+
+
+
+            % ==============================================
+            % ====   TEOREMA DE RESIDUO DE CAUCHY     ======
+            % ==============================================
+            \clearpage
+            \section{Teorema de Residuo de Cauchy}
+
+                Supongamos que tenemos una función que sea analítica excepto en $z_1, z_2, \dots, z_n$
+                encerrados por $C$ entonces:
+                \begin{MultiLineEquation*}{3}
+                    \oint_C f(z) dz = 2 \pi i \sum_{i=0}^n Res(f(z), z_i)
+                \end{MultiLineEquation*}
+
+
+
+
+            % ========================================
+            % ====   INTEGRALES TRIGONOMETRICAS   ====
+            % ========================================
+            \clearpage
+            \section{Usar Teorema del Residuo para: $\int_0^{2\pi} F(\Cos{\theta}, \Sin{\theta}) \; d\theta$}
+
+                La idea esta en convertir una integral de variable real en una 
+                integral compleja donde nuestro recorrido será el círculo
+                unitario centrado en el origen.
+
+                El primer paso esta en parametrizar el recorrido como:
+                \begin{itemize}
+                    \item $z = e^{i \theta}$
+                    \item $dz = ie^{i \theta} d\theta$
+                    \item $d\theta  = \dfrac{dz}{ie^{i \theta}} 
+                                    = \dfrac{dz}{iz}$
+                    \item $\Cos{\theta} = \dfrac{e^{i \theta} + e^{-i \theta}}{2}
+                                        = \dfrac{1}{2}\Wrap{z + z^{-1}}$
+                    \item $\Sin{\theta} = \dfrac{e^{i \theta} + e^{-i \theta}}{2}
+                                        = \dfrac{1}{2i}\Wrap{z - z^{-1}}$
+                \end{itemize}
+
+                Por lo tanto finalmente tenemos que:
+                \begin{MultiLineEquation*}{3}
+                    \int_0^{2\pi} F(\Cos{\theta}, \Sin{\theta}) \; d\theta
+                    = \oint_C F\Wrap{
+                            \dfrac{z + z^{-1}}{2}, 
+                            \dfrac{z - z^{-1}}{2i} } \dfrac{dz}{iz}
+                \end{MultiLineEquation*}
+                    
+
+
+
+
+
+            % ========================================
+            % ======   INTEGRALES INFINITAS     ======
+            % ========================================
+            \clearpage
+            \section{Usar Teorema del Residuo para: $\int_\infty^\infty f(x) dx$}
+
+
+                \begin{MultiLineEquation*}{3}
+                    \int_\infty^\infty f(x) dx
+                    = \oint_C \int_\infty^\infty f(z) dz
+                \end{MultiLineEquation*}
+
+
+            % ========================================
+            % ======   INTEGRALES INFINITAS     ======
+            % ========================================
+            \clearpage
+            \section{Usar Teorema del Residuo para: $\int_\infty^\infty Trig{\alpha x}$ dx}
+
+
+
+
+
+
 
 
 \end{document}
