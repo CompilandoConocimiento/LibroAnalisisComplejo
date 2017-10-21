@@ -1389,42 +1389,11 @@
             \end{itemize}
 
 
-        % ==============================================
-        % ========         LEYES               =========
-        % ==============================================
-        \clearpage
-        \section{Ley de Moivre's}
-
-            $z^n = r^n \Wrap{\Cis{n \cdot \theta}} \Space \text{donde } n \in \Integers$
-            
-            % ======== DEMOSTRACION ========
-            \begin{SmallIndentation}[1em]
-                \textbf{Demostración}:
-
-                Se puede dar una demostracion muy sencilla, no se porque los libros usan induccion matematica para
-                demostrar el teorema de Moivre...
-
-                En fin, expresando a $z$ en su forma polar y usando la fórmula de Euler, tenemos: 
-
-                \begin{MultiLineEquation*}{2}
-                  z^n   &= (a+bi)^n                                 \\ 
-                        &= \Brackets{r \Wrap{\Cis{\theta}}}^n       \\
-                        &= r^n \Wrap{\Cis{\theta}}^n                \\
-                        &= r^n \Wrap{e^{\theta i}}^n                \\
-                        &= r^n e^{(\theta i)n}                      \\
-                        &= r^n e^{(n \theta)i}                      \\
-                        &= r^n \Wrap{\Cis{n \cdot \theta}}          \\ 
-                \end{MultiLineEquation*}
-            \end{SmallIndentation}
-
-
-
-
 
     % ===============================================================================
     % ===================         FORMA EXPONENCIAL             =====================
     % ===============================================================================
-    \chapter{Forma Exponencial ó de Euler}
+    \chapter{Forma de Euler y Raíces}
 
 
         % ==============================================
@@ -1449,9 +1418,9 @@
                             &= 1 + \dfrac{k}{1!} + \dfrac{k^2}{2!} + \dfrac{k^3}{3!} + \cdots
                     \end{MultiLineEquation}
 
-                    Pasa algo muy interesante al hacer $k = i\theta$, pues vemos que aparecen claramente
-                    la forma en que tenemos de representar a las funciones seno y coseno como polinomios
-                    infinitos:
+                    Pasa algo muy interesante al hacer $k = i\theta$, (recuerda que elevar $i^k$ es periodico) 
+                    pues vemos que aparecen claramente la forma en que tenemos de representar a las funciones
+                    seno y coseno como polinomios infinitos:
 
                     \begin{itemize}
                         \item $\Sin{\theta} = \sum_{n=0}^{\infty} (-1)^n \dfrac{\theta^{2n+1}}{(2n+1)!}$
@@ -1460,6 +1429,13 @@
 
                     \begin{MultiLineEquation*}{3}
                         e^{i\theta}
+                            &=  \sum_{n=0}^{\infty} \dfrac{(i\theta)^n}{n!}                     \\
+                            &=  \sum_{n=0}^{\infty} \dfrac{i^{2n} \theta^{2n}}{(2n)!}
+                                &&+
+                                \sum_{n=0}^{\infty} \dfrac{i^{2n+1} \theta^{2n+1}}{(2n+1)!}     \\
+                            &=  \sum_{n=0}^{\infty} \dfrac{(-1)^n \theta^{2n}}{(2n)!}
+                                &&+
+                                i\sum_{n=0}^{\infty} \dfrac{(-1)^n \theta^{2n+1}}{(2n+1)!}     \\
                             &=
                                 \Wrap{1 - \dfrac{\theta^2}{2!} + \dfrac{\theta^4}{4!} - \dfrac{\theta^5}{5!} \cdots}
                                 &&+
@@ -1485,7 +1461,7 @@
             % =====      LEMMAS Y PROPIEDADES          =====
             % ==============================================
             \clearpage
-            \subsection{Lemmas y Propiedades}
+            \subsection{Propiedades}
 
                 \begin{itemize}
                     \item $\Cos{\theta} = \dfrac{ e^{i\theta} + e^{-i\theta} }{2}$
@@ -1523,6 +1499,23 @@
                                         && \Remember{Y si simplificamos}                                        \\ 
                                     &= \dfrac{2i\Sin{\theta}}{2i}                                               \\
                                     &= \Sin{\theta}
+                            \end{MultiLineEquation*}
+
+                        \end{SmallIndentation}
+
+
+                    \item $e^{\Over{i\theta}} = e^{-i\theta}$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración:}
+
+                            \begin{MultiLineEquation*}{3}
+                                e^{\Over{i\theta}}
+                                    &= \Cos{\theta} - i \Sin{\theta}       &&\Space \text{Definición de Conjugado}  \\
+                                    &= \Cos{\theta} + i \Sin{-\theta}      &&\Space \text{El Seno es impar}         \\  
+                                    &= \Cos{-\theta} + i \Sin{-\theta}     &&\Space \text{El Coseno es par}         \\  
+                                    &= e^{-i \theta}  
                             \end{MultiLineEquation*}
 
                         \end{SmallIndentation}
@@ -1616,11 +1609,36 @@
 
 
 
+        % ==============================================
+        % ========         LEYES               =========
+        % ==============================================
+        \clearpage
+        \section{Ley de Moivre's}
 
-    % ===============================================================================
-    % ===================         ECUACIONES, POLINOMIOS Y RAICES    ================
-    % ===============================================================================
-    \chapter{Ecuaciones y Raíces}
+            $z^n = r^n \Wrap{\Cis{n \cdot \theta}} \Space \text{donde } n \in \Integers$
+            
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Demostración}:
+
+                Se puede dar una demostracion muy sencilla, no se porque los libros usan induccion matematica para
+                demostrar el teorema de Moivre...
+
+                En fin, expresando a $z$ en su forma polar y usando la fórmula de Euler, tenemos: 
+
+                \begin{MultiLineEquation*}{2}
+                  z^n   &= (a+bi)^n                                 \\ 
+                        &= \Brackets{r \Wrap{\Cis{\theta}}}^n       \\
+                        &= r^n \Wrap{\Cis{\theta}}^n                \\
+                        &= r^n \Wrap{e^{\theta i}}^n                \\
+                        &= r^n e^{(\theta i)n}                      \\
+                        &= r^n e^{(n \theta)i}                      \\
+                        &= r^n \Wrap{\Cis{n \cdot \theta}}          \\ 
+                \end{MultiLineEquation*}
+            \end{SmallIndentation}
+
+
+
 
 
         % ==============================================
@@ -1637,23 +1655,10 @@
             Donde obviamente $n \in \Integers^+$.
 
 
-            % ==============================================
-            % ======   TEOREMA FUNDAMENTAL ALGEBRA    ======
-            % ==============================================
-            \subsection{Teorema Fundamental del Álgebra}
-
-                \begin{Theorem}{Teorema Fundamental del Álgebra}
-                    Todo polinomio de grado $n$ tiene mínimo 1 raíz
-                \end{Theorem}
-
-                No desmotraremos este asombroso teorema por ahora, pero si un colorario (específicamente)
-                en el campo de los complejos: \Quote{Un polinomio de grado $n$ tiene exactamente $n$ raíces}.
-
 
             % ==============================================
             % ==  ENCONTAR LAS N RAICES DE UN COMPLEJO   ===
             % ==============================================
-            \clearpage
             \subsection{Encontrar las Raíces de un Número Complejo}
 
                 \begin{Theorem}
@@ -1704,14 +1709,28 @@
 
 
                         Y finalmente podemos generalizar los resultados como:
-                        \begin{equation}
+                        \begin{equation*}
                             w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
-                        \end{equation}
+                        \end{equation*}
 
 
                     \end{SmallIndentation}
 
 
+
+
+            % ==============================================
+            % ======   TEOREMA FUNDAMENTAL ALGEBRA    ======
+            % ==============================================
+            \clearpage
+            \subsection{Teorema Fundamental del Álgebra}
+
+                \begin{Theorem}{Teorema Fundamental del Álgebra}
+                    Todo polinomio de grado $n$ tiene mínimo 1 raíz
+                \end{Theorem}
+
+                No desmotraremos este asombroso teorema por ahora, pero si un colorario (específicamente)
+                en el campo de los complejos: \Quote{Un polinomio de grado $n$ tiene exactamente $n$ raíces}.
 
 
 
