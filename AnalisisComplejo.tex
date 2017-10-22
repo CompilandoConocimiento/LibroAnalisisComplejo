@@ -1734,8 +1734,10 @@
 
 
 
+
+
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% ///////////////////////////////////         NUMEROS COMPLEJOS       //////////////////////////////////////
+% ///////////////////////////////////         CALCULO COMPLEJO        //////////////////////////////////////
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
 \part{Funciones y Cálculo Complejo}
 \clearpage
@@ -2917,8 +2919,6 @@
 
 
 
-
-
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
 % ///////////////////////////////////        SERIES COMPLEJAS       ////////////////////////////////////////
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3750,7 +3750,7 @@
                 \end{itemize}
 
 
-                Estan son conocidas como Integrales de Furier, porque las vemos de manera muy común en
+                Estan son conocidas como Integrales de Fouerier, porque las vemos de manera muy común en
                 estas aplicaciones.
 
                 Ve esto:
@@ -3834,6 +3834,386 @@
 
                 Donde $c_1, c_2, \dots, c_n$ son polos reales y $z_1, z_2, \dots, z_n$ son polos
                 complejos                    
+
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////////       SERIES Y TRANSFORMADA DE Fouerier      ////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Serie y Transformada de Fouerier}
+\clearpage
+
+    % ===============================================================================
+    % ===================        SERIES DE Fouerier          ==========================
+    % ===============================================================================
+    \chapter{Serie de Fouerier}
+        \clearpage
+
+        % ==============================================
+        % =========    COSAS A RECORDAR  ===============
+        % ==============================================
+        \clearpage
+        \section{Cosas a Recordar}
+
+            Representar una función como una serie es algo que hacemos de manera común en matemáticas.
+            Probablemente la más común son usando Series de Potencias de $x$ como:
+            \begin{MultiLineEquation*}{3}
+                f(x) = \sum_{n=0}^\infty a_nx^n
+            \end{MultiLineEquation*}
+
+            Por ejemplo podemos ver a la función exponencial como:
+            \begin{MultiLineEquation*}{3}
+                e^x
+                    = \sum_{n=0}^\infty \dfrac{x^n}{n!}          
+                    = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dots    
+                \end{MultiLineEquation*}
+
+            Y si te das cuenta damos por sentado que estamos usando una base para dicha expansión, la
+            base es en este caso las potencias de $x$: $x^0, x^1, x^2, x^3, \dots$.
+
+            % ==============================
+            % =====   PERIODICIDAD    ======
+            % ==============================
+            \subsection{Periodicidad}
+
+                Decimos que una función $f(t)$ es periódica, con un periodo $T$ si es que para todos
+                los elementos se cumple que:
+                \begin{equation*}
+                    f(t + T) = f(t)
+                \end{equation*}
+                También es importante mencionar que por obvias razones se da que para una función
+                periódica que: $f(t + kT) = f(t) \Space \forall K \in \Integers$
+
+            % ==============================
+            % ====   FRECUENCIA   ==========
+            % ==============================
+            \subsection{Frecuencia}
+
+                Decimos que la frecuencia $F$ de la función periódica $f(t)$
+                es simplemente $F = \dfrac{1}{T}$
+
+            % ==============================
+            % ====   FRECUENCIA   ==========
+            % ==============================
+            \subsection{Frecuencia Circular $\omega$}
+
+                Este término es muy usado en la ingeniería y esta definido como:
+                \begin{MultiLineEquation*}{3}
+                    W = 2\pi F = \dfrac{2 \pi}{T}
+                \end{MultiLineEquation*}
+                También es muy común usar que $TW = 2\pi$
+                        
+
+
+
+        % ==============================================
+        % ===========   TEOREMA DE FOURIER   ===========
+        % ==============================================
+        \clearpage
+        \section{Teorema de Fouerier}
+
+            Sea $f(t)$ una función periódica que cumple ciertas características, 
+            entonces la podemos escribir como:
+            \begin{MultiLineEquation*}{3}
+                f(t) 
+                    &= A_0 + A_1 \Sin{\omega t + \phi_1} + A_2 \Sin{\omega t + \phi_2}
+                    \dots + A_n \Sin{\omega t + \phi_n}
+            \end{MultiLineEquation*}
+            Donde:
+            \begin{itemize}
+                \item $A_n$ y $\phi_n$ son constantes 
+                \item $\omega = \dfrac{2\pi}{T} = 2 \pi F$
+            \end{itemize}
+
+
+            Y si, ya se lo que estas pensando... ¿Donde demonios estan los cosenos?
+
+            Recuerda que:
+            \begin{MultiLineEquation*}{3}
+                A_n \Sin{\omega t + \phi_n}
+                    &= (A_n \Cos{\phi_n})\Cos{n\omega t} &&+ (A_n \Cos{\phi_n})\Sin{n\omega t}  \\
+                    &= (a_n)\Cos{n\omega t} &&+ (b_n)\Sin{n\omega t}                            \\
+            \end{MultiLineEquation*}
+
+            y con esto podemos escribirla como creo que la conoces:
+            \begin{MultiLineEquation*}{3}
+                f(t) 
+                    &= \dfrac{1}{2}a_0
+                        + \sum_{n=1}^\infty a_n \Cos{n \omega t}
+                        + \sum_{n=1}^\infty a_n \Sin{n \omega t}
+            \end{MultiLineEquation*}
+
+            Recuerda:
+            \begin{itemize}
+
+                \item
+                    Decidimos poner que $a_0 = \frac{1}{2}A_0$ por algo que verás a continuación
+                    y que entonces hará que todo tenga sentido.
+
+                \item
+                    Esta forma de expandir a $f(t)$ es conocida como la expansión de Fouerier
+
+                \item
+                    $a_n$ y $b_n$ son conocidos como los coeficientes de Fouerier.
+
+                \item
+                    Es común también ver que 
+                    $e^{in \omega t} = \Cos{n \omega t} +i \Sin{n \omega t}$
+
+            \end{itemize}
+                
+                
+
+
+            % ==============================================
+            % =============       BASES      ===============
+            % ==============================================
+            \clearpage
+            \subsection{Base de la Serie de Fouerier}
+
+                \subsubsection{Base de un Espacio Vectorial}
+
+                    Dado un espacio vectorial, decimos que $S$, un conjunto de vectores
+                    $S = v_1, v_2, \dots$ son base del espacio vectorial si es que podemos
+                    mediante combinaciones lineales de ellos alcanzar cualquier vector del
+                    espacio y todos son linealmente independientes entre si
+
+                \subsubsection{Ortogonalidad}
+
+                    Un conjunto de vectores $S = v_1, v_2, \dots$ son Ortogonales 
+                    si y solo si $\forall i \; v_i \cdot v_j = 0$ si $i \neq j$
+
+                \subsubsection{Ortonormal}
+
+                    Un conjunto de vectores $S = v_1, v_2, \dots$ son Ortonormales 
+                    si y solo si:
+                    \begin{itemize}
+                        \item $\forall i \; v_i \cdot v_j = 0$ si $i \neq j$
+                        \item $\forall i \; |v_i| = 1$
+                    \end{itemize}
+
+                Podemos también usar que:
+                \begin{MultiLineEquation*}{3}
+                    <f(x), g(x)> = \int_{-\infty}^\infty f(x)g(x) dx     
+                \end{MultiLineEquation*}
+
+                Lo siguiente demuestra que $\Set{1, \Cos{\omega t}, \Cos{2 \omega t}, \dots,
+                \Cos{n \omega t}, \Sin{\omega t}, \Sin{2 \omega t}, \dots, \Sin{n \omega t}}$
+                Es una base ortogonal:
+                \begin{itemize}
+                    \item
+                        ${\displaystyle
+                        \int_d^{d+T} \Cos{n \omega t} dt = 
+                        \begin{cases}
+                            0 &\Space n \neq 0  \\
+                            T &\Space n = 0
+                        \end{cases}
+                        }$
+
+                    \item
+                        ${\displaystyle
+                        \int_d^{d+T} \Sin{n \omega t} dt = 0
+                        }$
+
+                    \item
+                        ${\displaystyle
+                        \int_d^{d+T} \Sin{m \omega t} \Sin{n \omega t} \; dt =
+                        \begin{cases}
+                            0               &\Space m \neq n  \\
+                            \dfrac{T}{2}    &\Space m = n \neq 0
+                        \end{cases}
+                        }$
+
+                    \item
+                        ${\displaystyle
+                        \int_d^{d+T} \Cos{m \omega t} \Cos{n \omega t} \; dt =
+                        \begin{cases}
+                            0               &\Space m \neq n  \\
+                            \dfrac{T}{2}    &\Space m = n \neq 0
+                        \end{cases}
+                        }$
+
+                    \item
+                        ${\displaystyle
+                        \int_d^{d+T} \Cos{m \omega t} \Sin{n \omega t} \; dt =
+                        0
+                        }$
+                \end{itemize}
+
+
+                      
+
+            % ==============================================
+            % =============    COEFICIENTES     ============
+            % ==============================================
+            \clearpage
+            \subsection{Coeficientes de Serie de Fouerier: Gracias a Euler}
+
+                % ==========================
+                % =======  a_0     =========
+                % ==========================
+                \subsubsection{Encontrar a $a_0$}
+
+                    $a_0 = \displaystyle \dfrac{2}{T} \int_d^{T+d} f(t) dt$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Para encontrar a $a_0$ integraremos la Serie de Fouerier:\\
+                        $f(t) 
+                            = \dfrac{1}{2}a_0
+                                + \sum_{n=1}^\infty a_n \Cos{n \omega t}
+                                + \sum_{n=1}^\infty a_n \Sin{n \omega t}$\\
+                        con respecto a $t$ a lo largo de un periodo:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{T+d} f(t) dt
+                                &= \int_d^{T+d} \dfrac{1}{2}a_0 dt 
+                                    &&+ \sum_{n=1}^\infty \int_d^{T+d} a_n \Cos{n \omega t} dt
+                                    &&+ \sum_{n=1}^\infty \int_d^{T+d}a_n \Sin{n \omega t} dt \\
+                                &= \dfrac{1}{2}a_0 \int_d^{T+d} dt 
+                                    &&+ \sum_{n=1}^\infty 0
+                                    &&+ \sum_{n=1}^\infty 0                                   \\
+                                &= \dfrac{a_0T}{2}  
+                        \end{MultiLineEquation*}
+
+                        Esto lo pudimos simplificar por las propiedades que habiamos demostrado
+                        la página pasada.
+                        
+                        Por lo tanto $a_0 = \dfrac{2}{T} \int_d^{T+d} f(t) dt$
+                    
+                    \end{SmallIndentation}
+
+
+                % ==========================
+                % =======  a_n     =========
+                % ==========================
+                \clearpage
+                \subsubsection{Encontrar a $a_n$}
+                    
+                    $a_n = \displaystyle \frac{2}{T} \int_d^{d+T} f(t) \; \Cos{n \omega t} dt
+                        \Space\forall n \in \Naturals \cup \Set{0}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Para encontrar a $a_m$ primero multiplicaremos la Serie de Fouerier:\\
+                        $f(t) 
+                            = \dfrac{1}{2}a_0
+                                + \sum_{n=1}^\infty a_n \Cos{n \omega t}
+                                + \sum_{n=1}^\infty a_n \Sin{n \omega t}$\\
+                        Y multiplicar todo por $\Cos{m \omega t}$ y luego integraremos a
+                        lo largo de un periodo.
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{T+d} &f(t) \Cos{m \omega t} dt \\
+                                &= \dfrac{a_0}{2} \int_d^{T+d} \Cos{m \omega t} dt
+                                    &&+ \sum_{n=1}^\infty 
+                                        \int_d^{T+d} a_n \Cos{n \omega t} \Cos{m \omega t} dt
+                                    &&+ \sum_{n=1}^\infty
+                                        \int_d^{T+d}a_n \Sin{n \omega t} \Cos{m \omega t}  dt \\
+                                &= \dfrac{a_0}{2} (0)
+                                    &&+ \sum_{n=1}^\infty 
+                                        \int_d^{T+d} a_n \Cos{n \omega t} \Cos{m \omega t} dt
+                                    &&+ \sum_{n=1}^\infty 0                                   \\
+                                &= 0
+                                    &&+ \sum_{n=1}^\infty 
+                                        \int_d^{T+d} a_n \Cos{n \omega t} \Cos{m \omega t} dt
+                                    &&+ 0                                                     \\
+                                &= (a_m) \pfrac{T}{2}
+                        \end{MultiLineEquation*}
+
+                        Ahora, entendamos la última línea, enfoquemonos en 
+                        $\int_d^{T+d}a_n\Cos{n\omega t}\Cos{m\omega t}dt$.
+                        Sabemos que
+                        $\int_d^{d+T} \Cos{m \omega t} \Cos{n \omega t} \; dt$ es cero si es que
+                        $n \neq m$, por lo tanto esta suma infinita ira sumando puros ceros ...
+                        excepto cuando $m = n$, por lo tanto podemos simplificar y decir que:
+                        $\sum_{n=1}^\infty \int_d^{T+d} a_n \Cos{n \omega t} \Cos{m \omega t} dt
+                        = (a_m) \frac{T}{2}$
+
+                        Ya que cuando $m = n$ entonces $\int_d^{d+T} \Cos{m \omega t} 
+                        \Cos{n \omega t} \; dt = \frac{T}{2}$
+
+                        Por lo tanto podemos decir que:
+                        $a_m = \frac{2}{T} \int_d^{d+T} f(t) \; \Cos{m \omega t} dt$.
+                        Y ya solo basta con cambiar $m$ por $n$.
+
+                        También es importante decir que gracias a esta formula podemos
+                        encontrar a $a_0$, pues:
+                        \begin{MultiLineEquation*}{3}
+                            a_0 
+                                &= \dfrac{2}{T} \int_d^{T+d} f(t) (1) dt               \\
+                                &= \dfrac{2}{T} \int_d^{T+d} f(t) \Cos{0} dt           \\
+                                &= \dfrac{2}{T} \int_d^{T+d} f(t) \Cos{m \omega t} dt  
+                        \end{MultiLineEquation*}
+
+                        Por eso elegimos a la constante de Fourier es como $\dfrac{a_0}{2}$
+
+                    \end{SmallIndentation}
+                        
+                        
+
+
+                % ==========================
+                % =======  b_n     =========
+                % ==========================
+                \clearpage
+                \subsubsection{Encontrar a $b_n$}
+                    
+                    $b_n = \displaystyle \frac{2}{T} \int_d^{d+T} f(t) \; \Sin{n \omega t} dt
+                        \Space\forall n \in \Naturals$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Para encontrar a $b_m$ primero multiplicaremos la Serie de Fouerier:\\
+                        $f(t) 
+                            = \dfrac{1}{2}a_0
+                                + \sum_{n=1}^\infty a_n \Cos{n \omega t}
+                                + \sum_{n=1}^\infty a_n \Sin{n \omega t}$\\
+                        Y multiplicar todo por $\Sin{m \omega t}$ y luego integraremos a
+                        lo largo de un periodo.
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{T+d} &f(t) \Sin{m \omega t} dt \\
+                                &= \dfrac{a_0}{2} \int_d^{T+d} \Sin{m \omega t} dt
+                                    &&+ \sum_{n=1}^\infty 
+                                        \int_d^{T+d} a_n \Cos{n \omega t} \Sin{m \omega t} dt
+                                    &&+ \sum_{n=1}^\infty
+                                        \int_d^{T+d}a_n \Sin{n \omega t} \Sin{m \omega t}  dt \\
+                                &= \dfrac{a_0}{2} (0)
+                                    &&+ \sum_{n=1}^\infty 
+                                        0
+                                    &&+ \sum_{n=1}^\infty
+                                        \int_d^{T+d}a_n \Sin{n \omega t} \Sin{m \omega t}  dt \\
+                                &= (a_m) \pfrac{T}{2}
+                        \end{MultiLineEquation*}
+
+                        Ahora, entendamos la última línea, enfoquemonos en 
+                        $\int_d^{T+d}a_n\Sin{n\omega t}\Sin{m\omega t}dt$.
+                        Sabemos que
+                        $\int_d^{d+T} \Sin{m \omega t} \Sin{n \omega t} \; dt$ es cero si es que
+                        $n \neq m$, por lo tanto esta suma infinita ira sumando puros ceros ...
+                        excepto cuando $m = n$, por lo tanto podemos simplificar y decir que:
+                        $\sum_{n=1}^\infty \int_d^{T+d} a_n \Sin{n \omega t} \Sin{m \omega t} dt
+                        = (a_m) \frac{T}{2}$
+
+                        Ya que cuando $m = n$ entonces $\int_d^{d+T} \Sin{m \omega t} 
+                        \Sin{n \omega t} \; dt = \frac{T}{2}$
+
+                        Por lo tanto podemos decir que:
+                        $a_m = \frac{2}{T} \int_d^{d+T} f(t) \; \Sin{m \omega t} dt$.
+                        Y ya solo basta con cambiar $m$ por $n$.
+
+                    \end{SmallIndentation}
+                        
+                        
+
+
+
 
 
 \end{document}
