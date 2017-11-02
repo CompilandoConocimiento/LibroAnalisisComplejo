@@ -452,7 +452,7 @@
                 \begin{itemize}
                     \item
                         $
-                            \Cos{n \cdot \theta} 
+                            \Cos{n \cdot \pi} 
                             =
                             (-1)^n  
                             =
@@ -464,7 +464,7 @@
 
                     \item $\Cos{\dfrac{2n+1}{2} \pi } = 0$
 
-                    \item $\Sin{n \cdot \theta} = 0$
+                    \item $\Sin{n \cdot \pi} = 0$
 
                     \item
                         $
@@ -4279,6 +4279,123 @@
 
 
         
+
+        % ==============================================
+        % ========   SERIE COMPLEJA DE FOURIER  ========
+        % ==============================================
+        \clearpage
+        \section{Serie Compleja de Fourier}
+
+            Creo que es más que obvio que $<e^{int}, e^{imt}$ son cero si y solo si $n=m$, por lo
+            tanto podemos ver que son base, por lo tanto creo que es más que obvio que podemos
+            expresar a la Serie de Fourier como:
+            \begin{MultiLineEquation*}{3}
+                f(t) = \dfrac{C_0}{2} + \sum_{n=1}^\infty C_n e^{inwt}
+            \end{MultiLineEquation*}
+
+            Calcular los coeficientes de dicha serie son casi una copia identica a los
+            de la serie original y llegamos a:
+
+            \begin{itemize}
+                \item $C_0$:
+                    \begin{MultiLineEquation*}{3}
+                        \dfrac{C_0}{2} = \dfrac{1}{T}
+                            \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \; dt
+                    \end{MultiLineEquation*}
+
+                \item $C_n$:
+                    \begin{MultiLineEquation*}{3}
+                        C_n = \dfrac{1}{T}
+                            \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \; e^{-inwt}  \; dt
+                    \end{MultiLineEquation*}
+            \end{itemize}
+                
+
+
+        % ==============================================
+        % ========     FUNCIONES ESPECIALES     ========
+        % ==============================================
+        \clearpage
+        \section{Funciones Especiales}
+
+            Tenemos dos funciones especiales que nos servirán mucho pronto
+
+
+            % ==============================================
+            % ========     FUNCIONES HEAVISIDE      ========
+            % ==============================================
+            \subsection{Función Heaviside - Escalón Unitario}
+                \begin{MultiLineEquation*}{3}
+                    H(t - a) =  \begin{cases}
+                                    1 \Space & t \geq a \\ 
+                                    0 \Space & t < a 
+                                \end{cases}
+                \end{MultiLineEquation*}
+
+                \begin{itemize}
+                    \item
+                        Para filtrar $f(t)$ en el rango $[a,b]$
+                        tenemos que hacer que:
+                        \begin{MultiLineEquation*}{3}
+                            f(t) [H(t-a) - H(t-b)]
+                        \end{MultiLineEquation*}
+
+                    \item
+                        Para filtrar $[0,a]$
+                        \begin{MultiLineEquation*}{3}
+                            f(t) [H(t-a) H(t)]
+                        \end{MultiLineEquation*}
+                            
+                            
+                \end{itemize}
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ===============================================
+% ========        BIBLIOGRAFIA            =======
+% ===============================================
+\begin{thebibliography}{10}
+
+    \bibitem{Olvera} 
+        Miguel Olvera Aldana
+        \textit{Matemáticas Avanzadas para la Ingeniería}. 
+        Escuela Superior de Cómputo, IPN, 2017
+
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
