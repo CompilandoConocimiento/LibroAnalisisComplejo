@@ -4347,13 +4347,25 @@
                             
                             
                 \end{itemize}
+
+
+
+            % ==============================================
+            % ========     FUNCIONES HEAVISIDE      ========
+            % ==============================================
+            \subsection{Función Delta de Dirac}
+
+                Sea $\phi(x)$ una función de prueba, donde
+                $\lim_{x \to \infty} \phi(x) = \lim_{x \to \infty} \phi(-x) = 0$
+
+                \begin{itemize}
+                    \item $\int_{-\infty}^\infty \delta(x) \; dx = 1$
+                    \item $\int_{-\infty}^\infty \phi(x) \delta(x) \; dx = \phi(x)$
+                    \item $\int_{-\infty}^\infty \phi(x) \delta(x-x_0) \; dx = \phi(x_0)$
+                    \item $\int_{-\infty}^\infty \phi'(x) \delta(x)  \; dx =
+                           \int_{-\infty}^\infty \phi(x)  \delta'(x) \; dx = \phi'(0)$
+                \end{itemize}
                     
-
-
-
-
-
-
 
 
 
