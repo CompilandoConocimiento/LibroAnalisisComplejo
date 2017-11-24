@@ -177,8 +177,8 @@
     \newcommand \bCis[1] {\Brackets{\Cis{#1}}}                      %Use: \bCis for the same to Brackets
 
     % ====== TRANSFORMS =====
-    \newcommand{\FourierT}[1]                                       %Use: \FourierT {Funtion} 
-        {\mathscr{F} \left\{ #1 \right\} }                          %Use: \FourierT {Funtion}
+    \newcommand{\FourierT}[1]{\mathscr{F} \left\{ #1 \right\} }     %Use: \FourierT {Funtion}
+    \newcommand{\InvFourierT}[1]{\mathscr{F}^{-1}\left\{#1\right\}} %Use: \InvFourierT {Funtion}
 
     % === CALCULUS ===
     \newcommand \MiniDerivate[1][x] {\dfrac{d}{d #1}}               %Use: \MiniDerivate for simple use
@@ -1142,9 +1142,58 @@
                                     &=  \dfrac{\; \Mag{z_1}\; }{\Mag{z_2}}         
                         \end{MultiLineEquation*}
 
-
                     \end{SmallIndentation}
 
+
+                \clearpage
+
+                \item $\Mag{a+b} = \Mag{a} + \Mag{b}$ si y solo si $a \neq 0$ y $\frac{b}{a} \in \Reals$ y 
+                    $\frac{b}{a} \geq 0$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Veamos el regreso, sabemos que $\dfrac{b}{a} \geq 0$
+
+                        Hagamos $t = \dfrac{b}{a}$, por lo tanto $b=ta$
+                        \begin{MultiLineEquation*}{2}
+                            \Mag{a+b}
+                                &= \Mag{a + ta}                 \\
+                                &= \Mag{a} \Mag{t + 1}          \\
+                                &= \Mag{at} + \Mag{a}           \\
+                                &= \Mag{at} + \Mag{a}           \\
+                                &= \Mag{b} + \Mag{a}            \\
+                                &= \Mag{a} + \Mag{b}   
+                        \end{MultiLineEquation*}
+
+                        Ahora hagamos la ida:
+
+                        Supongamos que los $\Mag{a+b} = \Mag{a} + \Mag{b}$ entonces:
+                        \begin{MultiLineEquation*}{2}
+                            \Mag{a+b}                               &= \Mag{a} + \Mag{b}                    \\ 
+                            (\Mag{a+b})^2                           &= (\Mag{a} + \Mag{b})^2                \\ 
+                            (a+b)(\Over{a} + \Over{b})              &= \Mag{a}^2 + \Mag{b}^2 + 2\Mag{ab}    \\
+                            \Mag{a}^2 + \Mag{b}^2 + 2Re(\Over{a}b)  &= \Mag{a}^2 + \Mag{b}^2 + 2\Mag{ab}    \\
+                            2Re(\Over{a}b)                          &=  2\Mag{ab}                           \\
+                            Re(\Over{a}b)                           &=  \Mag{\Over{a}b}                     
+                        \end{MultiLineEquation*}
+
+                        Es decir llegue a que $Re(z) = |z|$, por lo tanto esto nos dice que si $z=a+bi$
+                        tenemos que $\sqrt{a^2+b^2} = a$ y esto ocurre si y solo si $b=0$, por lo tanto
+                        $z$ es un número real.
+
+                        Entonces ve que
+                        \begin{MultiLineEquation*}{3}
+                            \dfrac{b}{a} 
+                                &= \dfrac{b \Over{a}}{a \Over{a}} 
+                                &= \dfrac{|b||\Over{a}|}{|a|^2}     \\
+                        \end{MultiLineEquation*}
+
+                        Ve que $|b||\Over{a}|$ es un positivo y que $|a|^2$ también, por lo tanto
+                        $\dfrac{b}{a}$ es un real y a parte es positivo.
+
+                    \end{SmallIndentation}
 
 
             \end{itemize}
@@ -4410,8 +4459,8 @@
             \begin{itemize}
                 \item $f(t)$ es una función que definimos en el tiempo
                 \item $\FourierT{f(t)}$ ó $F(w)$ es una función en el espacio de la frecuencia
+                \item Diremos que para una función genérica su transformada esta denotada por $F(w)$
             \end{itemize}
-
 
         % ==============================================
         % ========       PROPIEDADES            ========
@@ -4430,10 +4479,6 @@
                 \item 
                     La Transformada es un isomorfismo, es decir, es lo que llamaríamos una \Quote{función
                     biyectiva} por lo tanto podemos hablar de la Transformada inversa.
-
-                \item 
-                    Se conoce como la propiedad de Corrimiento de Tiempo:\\
-                    $\FourierT{f(t-t_0)} = e^{-iwt_0} F(w)$
             \end{itemize}
 
 
@@ -4477,7 +4522,361 @@
                         &= \dfrac{k}{iw} e^{-iwt} \Evaluate_{-\frac{d}{2}}^{\frac{d}{2}}                    \\
                         &= \dfrac{2k}{w} \Sin{\dfrac{wd}{2}}                             
                 \end{MultiLineEquation*}
+
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{\delta(t)}$}
+
+                Recuerda lo que vimos hace unas páginas, porque vamos a usar que
+                $\int_{-\infty}^\infty \delta(t) f(t) = f(0)$
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{\delta(t)}
+                        &= \int_{-\infty}^\infty \delta(t) \; e^{-iwt} \; dt   \\
+                        &= e^{-iw(0)}                                          \\
+                        &= 1
+                \end{MultiLineEquation*}
                     
+
+        % ==============================================
+        % ========     TEOREMA IMPORTANTES     =========
+        % ==============================================
+        \clearpage
+        \section{Teoremas Importantes}
+
+            % ==============================================
+            % =====    DESPLAZAMIENTO EN EL TIEMPO    ======
+            % ==============================================
+            \subsection{Desplazamiento en Tiempo}
+
+                Se conoce también como la propiedad de Corrimiento de Tiempo y nos permite
+                calcular la Transformada de Fourier de una función $f(t)$ que esta desplazada
+                sobre $t$.
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{f(t-t_0)} = e^{-iwt_0} F(w)
+                \end{MultiLineEquation*}
+
+
+
+            % ==============================================
+            % ===  DESPLAZAMIENTO EN EL FRECUENCIA     =====
+            % ==============================================
+            \subsection{Desplazamiento en Frecuencia}
+
+                Se conoce también como la propiedad de Corrimiento de Frecuencia y nos permite
+                encontrar la Transformada de Fourier de una función sabiendo $F(w)$
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{e^{iw_0 t} \; f(t)} = F(w - w_0) 
+                \end{MultiLineEquation*}
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Demostración}:
+                    
+                    Basta con ver que pasa al momento de calcular la transformada de $e^{iw_0 t} \; f(t)$
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{e^{iw_0 t} f(t)} 
+                            &= \int_{-\infty}^\infty e^{iw_0 t} f(t) \; e^{-iw t} dt        \\
+                            &= \int_{-\infty}^\infty e^{-i(w - w_0)t} f(t) dt               \\
+                            &= \int_{-\infty}^\infty e^{-i(w - w_0)t} f(t) dt               \\
+                            &= F(w - w_0)
+                    \end{MultiLineEquation*}
+                        
+                
+                \end{SmallIndentation}
+                    
+
+
+
+            
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \clearpage
+            \subsection{Gran Teorema de la Simetria}
+
+                Esta es la propiedad más importante que verás en todos estos archivos de Fourier,
+                es fácil de escribir pero algo más complicado de explicar.
+
+                Sea $\FourierT {f(t)} = F(w)$, entonces:
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{F(t)} = 2 \pi \; f(-w)
+                \end{MultiLineEquation*}
+
+                Es decir, la transformada de $F(t)$, es decir de una función que se parece mucho
+                a la transformada de $f(t)$ pero en el dominio del tiempo es igual a $2\pi$ por
+                $f(-w)$ donde $f(w)$ es algo parecido a $f(t)$ pero en el dominio de la frecuencia.
+
+            % ==============================================
+            % =====    CONSECUENCIA DE SIMETRIA      =======
+            % ==============================================
+            \clearpage
+            \subsection{Consecuencias del Gran Teorema de la Simetria}
+
+                % ==============================================
+                % =====    TRANSFORMADA MAS FAMOSAS      =======
+                % ==============================================
+                \subsection{$\FourierT{1}$}
+
+                    Usando que $\FourierT{\delta(t)} = 1$ podemos decir que:\\
+                    $\FourierT{1} = 2\pi \delta(-w)$
+
+                % ==============================================
+                % =====    TRANSFORMADA MAS FAMOSAS      =======
+                % ==============================================
+                \subsection{$\FourierT{\dfrac{1}{\alpha + it}}$}
+
+                    Usando que $\FourierT{u(t) e^{-\alpha t}} = \dfrac{1}{\alpha + it}$ podemos decir que:\\
+                    $\FourierT{\dfrac{1}{\alpha + it}} = 2\pi u(-w) e^{\alpha w}$
+
+
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \clearpage
+            \subsection{Teorema del Escalamiento}
+
+                Si para una función $f(t)$ existe su Transformada de Fourier, entonces podemos decir
+                que:
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{f(at)} = \dfrac{1}{|a|} F\pfrac{w}{a}
+                \end{MultiLineEquation*}
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Demostración}:
+                    
+                    Basta con ver que pasa al momento de calcular la transformada de $f(ta)$,
+                    eso si antes sea $r=ta$ y $dt = \frac{dr}{a}$
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{e^{iw_0 t} f(t)} 
+                            &= \int_{-\infty}^\infty f(at) \; e^{-iw t} dt                          \\
+                            &= \int_{-\infty}^\infty f(r) \; e^{-iw \frac{r}{a}} \dfrac{dr}{a}      \\
+                            &= \dfrac{1}{|a|} \int_{-\infty}^\infty f(r) \; e^{-i \frac{w}{a} r} dr \\
+                            &= \dfrac{1}{|a|} F\pfrac{w}{a}
+                    \end{MultiLineEquation*}
+                
+                \end{SmallIndentation}
+
+                % ==============================================
+                % =====    TRANSFORMADA MAS FAMOSAS      =======
+                % ==============================================
+                \subsection{$\FourierT{f(-t)}$}
+
+                    Usando que $a = - 1$, entonces podemos decir que:\\
+                    $\FourierT{f(-t)} = F(-w)$ 
+
+
+
+
+        % ==============================================
+        % =====    EJEMPLOS DE TRANSFORMADAS     =======
+        % ==============================================
+        \clearpage
+        \section{Ejemplos de Calcularla}
+
+            % =================================
+            % ========     EJEMPLO  ===========
+            % =================================
+            \subsection*{Ejemplo 1}
+
+                Sea $f(t) = \begin{cases}
+                                5 \in [4, 10]       \\
+                                0 \notin [4, 10]    \\
+                            \end{cases}$
+
+                Calcular $\FourierT{f(t)}$
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+
+                    Empecemos por la idea de que es una función que esta corrida en el tiempo, por lo tanto
+                    pensemos en la misma función, pero centrada en el origen.
+
+                    De esto sabemos que $\FourierT{5[u(t+3) - u(t-3]} = \dfrac{10}{w} \Sin{3w}$, por lo 
+                    tanto simplemente tenemos que correrla en el tiempo, por lo tanto:
+
+                    $\FourierT{5[u(t-4) - u(t-10]} = \dfrac{10e^{7iw}}{w} \Sin{3w}$
+
+                \end{SmallIndentation}
+
+
+            % =================================
+            % ========     EJEMPLO  ===========
+            % =================================
+            \subsection*{Ejemplo 2}
+
+                Sea $f(t) = 5[u(t-3) -u(t-11)]$
+
+                Calcular $\FourierT{f(t)}$
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+
+                    Primero empecemos por pensar que esta corrida 7 unidades, la original
+                    sería $g(t) = f(t+7) = 5[u(t+4)-u(t-4)]$, por lo tanto $G(w)$ es simplemente
+                    $\dfrac{10}{w} \Sin{4w}$, por lo tanto:
+
+                    \begin{MultiLineEquation*}{3}
+                        F(w)
+                            &= \FourierT{g(t)} = \FourierT{f(t+7)}  \\
+                            &= e^{-iw(-7)} \dfrac{10}{w} \Sin{4w}   \\
+                            &= e^{7iw} \dfrac{10}{w} \Sin{4w}       
+                    \end{MultiLineEquation*}
+
+                \end{SmallIndentation}
+                        
+            % =================================
+            % ========     EJEMPLO  ===========
+            % =================================
+            \clearpage
+            \subsection*{Ejemplo 3}
+
+                Sea $f(t) =u(t-2) e^{-3t}$
+
+                Calcular $\FourierT{f(t)}$
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+
+                    Veamos
+
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{f(t+7)} 
+                            &= \FourierT{u(t-2) \Wrap{e^{-3(t-2)}}e^{-6}}      
+                                && \Remember{Recuerda que $e^{-6}$ es un número}    \\
+                            &= e^{-6}\FourierT{u(t-2) e^{-3(t-2)}}      
+                                && \Remember{Por lo tanto podemos sacarlo}          \\
+                            &= e^{-6} \; e^{-2iw} \FourierT{u(t)e^{-3t}}      
+                                && \Remember{Esta corrido en el tiempo}             \\
+                            &= e^{-6} \; e^{-2iw} \dfrac{1}{3+iw}      
+                                && \Remember{Magia ... casi}                        \\
+                            &= \dfrac{e^{-(2iw + 6)}}{3+iw}      
+                                && \Remember{Magia} 
+                    \end{MultiLineEquation*}
+
+                \end{SmallIndentation}
+
+
+            % =================================
+            % ========     EJEMPLO  ===========
+            % =================================
+            \subsection*{Ejemplo 4}
+
+                Sea $f(t) = 5\dfrac{\Sin{t}}{t}$
+
+                Calcular $\FourierT{f(t)}$
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+
+                    Veamos, pero antes de empezar con las cuentas
+                    tienes que ver que $g(t) = \dfrac{1}{2}[u(t-1) - u(t+1)]$ y por lo
+                    tanto $G(w) = \dfrac{1}{w} \Sin{w}$
+
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{f(t)} 
+                            &= \FourierT{5\dfrac{\Sin{t}}{t}}      
+                                && \Remember{Empecemos}                                 \\
+                            &= 5\FourierT{\dfrac{\Sin{t}}{t}}      
+                                && \Remember{La Transformada es lineal ;)}              \\
+                            &= 10 \pi \Wrap{\dfrac{1}{2}[u(t-1) - u(t+1)]} \Evaluate_{-w}      
+                                && \Remember{Mira lo que esta hasta arriba, simetria}   \\
+                            &= 5 \pi [u(-w-1) - u(-w+1)]
+                    \end{MultiLineEquation*}
+
+                \end{SmallIndentation}
+
+        % ===============================================
+        % =====       EJEMPLOS DE INVERSAS        =======
+        % ===============================================
+        \clearpage
+        \section{Ejemplos de la Inversa}
+
+            % =================================
+            % ========     EJEMPLO  ===========
+            % =================================
+            \subsection*{Ejemplo 1}
+
+                Calcula $\InvFourierT{\dfrac{4e^{(2w-6)i}}{5-(3-w)i}}$
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+                    
+                    Esto va a esta bien intenso, pero bien genial, veamos:
+                    \begin{MultiLineEquation*}{3}
+                        \InvFourierT{\dfrac{4e^{(2w-6)i}}{5-(3-w)i}}
+                            &= \InvFourierT{\dfrac{4e^{2(w-3)i}}{5+(w-3)i}}     
+                                && \Remember{Arreglamos los términos}                                \\
+                            &= e^{i3t} \InvFourierT{\dfrac{4e^{2wi}}{5+wi}}     
+                                && \Remember{Estaba movida}                                          \\
+                            &= 4e^{i3t} \InvFourierT{\dfrac{e^{2wi}}{5+wi}}     
+                                && \Remember{La Transformada (y si inversa el lineal)}               \\
+                            &= 4e^{i3t} \InvFourierT{\dfrac{1}{5+wi}} \Evaluate_{t=t+2}     
+                                && \Remember{También estaba corrida}                                 \\
+                            &= 4e^{i3t} \Wrap{u(t)e^{-5t}}\Evaluate_{t=t+2}     
+                                && \Remember{Nos sabemos la Transformada de esa}                     \\
+                            &= 4e^{i3t} \; u(t+2)e^{-5(t+2)}     
+                                && \Remember{Magia :D}                                             
+                    \end{MultiLineEquation*}
+                        
+                
+                \end{SmallIndentation}
+                    
+
+
+
+        % ===============================================
+        % ========       TRANSFORMARIO            =======
+        % ===============================================
+        \clearpage
+        \section{Transformario de Fourier}
+
+
+
+            % ===================================
+            % ========       TABLE        =======
+            % ===================================
+            \begin{table}[ht]
+                \begin{tabular}{|m{16em}|m{16em}|@{}m{0pt}@{}}
+                    \hline
+                    \large{$f(t)$}          & \large{$\FourierT{f(t)}$}         &\\[2em]    \hline\hline
+                    
+                    \multicolumn{3}{|c|}{Funciones y Transformadas Genéricas}   \\          \hline
+                    $f(t)$                  & $F(w)$                            &\\[1em]    \hline
+                    $g(t)$                  & $G(w)$                            &\\[1em]    \hline\hline
+
+                    \multicolumn{3}{|c|}{Funciones y Transformadas Famosas}     \\          \hline
+                    $u(t)e^{-\alpha t}$     & $\frac{1}{\alpha + iw}$           &\\[1em]    \hline
+                    $k[u(t+d) -u(t-d)]$     & $\frac{2k}{w} \Sin{wd}$           &\\[1em]    \hline
+                    $\delta(t)        $     & $1                    $           &\\[1em]    \hline\hline
+
+                    \multicolumn{3}{|c|}{Corrimiento del Tiempo y Frecuencia}   \\          \hline
+                    $f(t - t_0)       $     & $e^{-iwt_0} F(w)       $          &\\[1em]    \hline
+                    $e^{iw_0t} f(t)   $     & $F(w - w_0)            $          &\\[1em]    \hline\hline
+
+                    \multicolumn{3}{|c|}{Gran Teorema de la Simetria}          \\           \hline
+                    $F(t)             $     & $2\pi f(-w)             $        &\\[1em]     \hline\hline
+                    $1                $     & $2\pi \delta(-w)        $        &\\[1em]     \hline\hline
+                    $\frac{1}{\alpha + iw}$ & $2\pi u(-w) e^{\alpha w}$        &\\[1em]     \hline\hline
+
+                    \multicolumn{3}{|c|}{Teorema de Escalamiento}               \\          \hline
+                    $f(at)            $     & $\frac{1}{|a|} F(\frac{w}{a})$   &\\[1em]     \hline
+                    $f(-t)            $     & $F(-w)$                          &\\[1em]     \hline
+                \end{tabular}
+            \end{table}
+
+
+
+
+
 
 
 
