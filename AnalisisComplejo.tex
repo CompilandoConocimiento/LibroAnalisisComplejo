@@ -3,6 +3,11 @@
 % ****************************************************************************************
 
 
+% ****************************************************************************************
+% ************************          SIMPLE EXAMPLE            ****************************
+% ****************************************************************************************
+
+
 % =======================================================
 % =======         HEADER FOR DOCUMENT        ============
 % =======================================================
@@ -11,6 +16,7 @@
     \usepackage[margin=1.2in]{geometry}                             %Margins and Geometry pacakge
     \usepackage{ifthen}                                             %Allow simple programming
     \usepackage{hyperref}                                           %Create MetaData for a PDF and LINKS!
+    \usepackage{pdfpages}                                           %Create MetaData for a PDF and LINKS!
     \hypersetup{pageanchor=false}                                   %Solve 'double page 1' warnings in build
     \setlength{\parindent}{0pt}                                     %Eliminate ugly indentation
     \author{Oscar Andrés Rosas}                                     %Who I am
@@ -159,11 +165,20 @@
     % TRIGONOMETRIC FUNCTIONS
     \newcommand{\Cos}[1]{\cos\Wrap{#1}}                             %Simple wrappers
     \newcommand{\Sin}[1]{\sin\Wrap{#1}}                             %Simple wrappers
+    \newcommand{\Tan}[1]{tan\Wrap{#1}}                              %Simple wrappers
+    
+    \newcommand{\Sec}[1]{sec\Wrap{#1}}                              %Simple wrappers
+    \newcommand{\Csc}[1]{csc\Wrap{#1}}                              %Simple wrappers
+    \newcommand{\Cot}[1]{cot\Wrap{#1}}                              %Simple wrappers
 
     % === COMPLEX ANALYSIS ===
     \newcommand \Cis[1]  {\Cos{#1} + i \Sin{#1}}                    %Use: \Cis for cos(x) + i sin(x)
     \newcommand \pCis[1] {\Wrap{\Cis{#1}}}                          %Use: \pCis for the same ut parantesis
     \newcommand \bCis[1] {\Brackets{\Cis{#1}}}                      %Use: \bCis for the same to Brackets
+
+    % ====== TRANSFORMS =====
+    \newcommand{\FourierT}[1]                                       %Use: \FourierT {Funtion} 
+        {\mathscr{F} \left\{ #1 \right\} }                          %Use: \FourierT {Funtion}
 
     % === CALCULUS ===
     \newcommand \MiniDerivate[1][x] {\dfrac{d}{d #1}}               %Use: \MiniDerivate for simple use
@@ -184,30 +199,34 @@
     \newcommand \UpperPartial[3]                                    %Complete High Orden Derivate -- [f(x)][x][1]
         {\dfrac{\partial^{#3} \; #1}{\partial#2^{#3}}}              %Use: \UpperDerivate for simple use
 
+    \DeclareMathOperator \Evaluate  {\Big|}                         %Use: \Evaluate por Notation
 
+    
     % =====  GENERAL COLOR  =========
-    \definecolor{IndigoMD}{HTML}{3F51B5}                            %Use: Color :D
-    \definecolor{DeepPurpleMD}{HTML}{673AB7}                        %Use: Color :D
     \definecolor{TealMD}{HTML}{009688}                              %Use: Color :D        
-    \definecolor{BlueGrey800MD}{HTML}{37474F}                       %Use: Color :D
-    \definecolor{BlueGrey100MD}{HTML}{CFD8DC}                       %Use: Color :D
     \definecolor{IndigoMD}{HTML}{3F51B5}                            %Use: Color :D
     \definecolor{Green100MD}{HTML}{DCEDC8}                          %Use: Color :D
+    \definecolor{Blue300MD}{HTML}{64B5F6}                           %Use: Color :D
+    \definecolor{DeepPurpleMD}{HTML}{673AB7}                        %Use: Color :D
+    \definecolor{BlueGrey100MD}{HTML}{CFD8DC}                       %Use: Color :D
+    \definecolor{BlueGrey800MD}{HTML}{37474F}                       %Use: Color :D
+    \definecolor{BlueGrey200MD}{HTML}{B0BEC5}                       %Use: Color :D
+    \definecolor{Lime300MD}{HTML}{E6EE9C}                           %Use: Color :D
 
     \newenvironment{ColorText}[1]{                                  %Use: \begin{ColorText}
         \leavevmode\color{#1}\ignorespaces}                         %That's is!
-
 
     % =====  CODE EDITOR =========
     \lstdefinestyle{CompilandoStyle} {                              %This is Code Style
         backgroundcolor=\color{BlueGrey800MD},                      %Background Color  
         basicstyle=\tiny\color{white},                              %Font color
-        commentstyle=\color{BlueGrey100MD},                         %Comment color
-        stringstyle=\color{TealMD},                                 %String color
-        keywordstyle=\color{Green100MD},                            %keywords color
+        commentstyle=\color{BlueGrey200MD},                         %Comment color
+        stringstyle=\color{Lime300MD},                              %String color
+        keywordstyle=\color{Blue300MD},                             %keywords color
         numberstyle=\tiny\color{TealMD},                            %Size of a number
         frame=shadowbox,                                            %Adds a frame around the code
-        breakatwhitespace=true,                                     %Style                       
+        breakatwhitespace=true,                                     %Style   
+        showstringspaces=false,                                     %Hate those spaces                  
         breaklines=true,                                            %Style                   
         keepspaces=true,                                            %Style                   
         numbers=left,                                               %Style                   
@@ -217,6 +236,7 @@
     }
  
     \lstset{style=CompilandoStyle}                                  %Use this style
+
 
 
 % =====================================================
@@ -4367,9 +4387,97 @@
                 \end{itemize}
                     
 
+    % ===============================================================================
+    % ===================        SERIES DE Fourier          ==========================
+    % ===============================================================================
+    \chapter{Transformada de Fourier}
+        \clearpage
+
+
+        % ==============================================
+        % == DEFINICIÓN DE LA TRANSFORMADA DE FOURIER ==
+        % ==============================================
+        \clearpage
+        \section{Definición}
+
+            Sea $f(t)$ una función periódica tal que $\int_{-\infty}^\infty f(t)dt < \infty$
+            entonces podemos definir a la transformada de Fourier como:
+            \begin{MultiLineEquation*}{3}
+                \FourierT{f(t)} = \int_{-\infty}^\infty f(t) \; e^{-iwt} \; dt
+            \end{MultiLineEquation*}
+
+            Es decir:
+            \begin{itemize}
+                \item $f(t)$ es una función que definimos en el tiempo
+                \item $\FourierT{f(t)}$ ó $F(w)$ es una función en el espacio de la frecuencia
+            \end{itemize}
+
+
+        % ==============================================
+        % ========       PROPIEDADES            ========
+        % ==============================================
+        \section{Propiedades}
+
+            \begin{itemize}
+                \item
+                    Recuerda la función a la cual le quieras aplicar una Transformada de Fourier
+                    tu función tiene que converger, es decir $\int_{-\infty}^\infty f(t)dt < \infty$
+
+                \item
+                    La Transformada es una \Quote{función lineal}, es decir:\\
+                    $\FourierT{a[f(t)] + b[g(t)]} = a\FourierT{f(t)} + b\FourierT{g(t)}$
+
+                \item 
+                    La Transformada es un isomorfismo, es decir, es lo que llamaríamos una \Quote{función
+                    biyectiva} por lo tanto podemos hablar de la Transformada inversa.
+
+                \item 
+                    Se conoce como la propiedad de Corrimiento de Tiempo:\\
+                    $\FourierT{f(t-t_0)} = e^{-iwt_0} F(w)$
+            \end{itemize}
 
 
 
+        % ==============================================
+        % =====    TRANSFORMADA MAS FAMOSAS      =======
+        % ==============================================
+        \clearpage
+        \section{Transformadas más Famosas}
+
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{e^{-\alpha t}}$}
+
+                A ver, a ver, antes de que te me enojes, $e^{-\alpha t}$ no converge, solo converge
+                la parte positiva, por lo tanto, más bien sacaremos la Transformada de $e^{-\alpha t}$ cuando
+                $t \geq 0$.
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{e^{-\alpha t}}
+                        &= \int_{-\infty}^\infty u(t) e^{-\alpha t} \; e^{-iwt} \; dt       \\
+                        &= \int_0^\infty e^{-\alpha t} \; e^{-iwt} \; dt                    \\
+                        &= \int_0^\infty e^{-(iw + \alpha)t} \; dt                          \\
+                        &= \pfrac{1}{iw+\alpha} e^{-(iw + \alpha)t} \Evaluate_0^\infty      \\
+                        &= \dfrac{1}{iw+\alpha}                               
+                \end{MultiLineEquation*}
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{k}$}
+
+                A ver, a ver, antes de que te me enojes, $f(t) = k$ no converge, solo converge
+                si es que tomamos a $f(t) = k$ en un rango y $f(t) = 0$ en los otros lados.
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{k[u(t+\tfrac{d}{2}) - u(t-\tfrac{d}{2})]}
+                        &= \int_{-\infty}^\infty k[u(t+\tfrac{d}{2}) - u(t-\tfrac{d}{2})] \; e^{-iwt} \; dt   \\
+                        &= k\int_{-\infty}^\infty u(t+\tfrac{d}{2}) - u(t-\tfrac{d}{2}) \; e^{-iwt} \; dt     \\
+                        &= k\int_{-\frac{d}{2}}^{\frac{d}{2}}  e^{-iwt} \; dt                               \\
+                        &= \dfrac{k}{iw} e^{-iwt} \Evaluate_{-\frac{d}{2}}^{\frac{d}{2}}                    \\
+                        &= \dfrac{2k}{w} \Sin{\dfrac{wd}{2}}                             
+                \end{MultiLineEquation*}
+                    
 
 
 
