@@ -4025,6 +4025,8 @@
             \end{itemize}
                 
 
+
+
         % ==============================================
         % =============       BASES      ===============
         % ==============================================
@@ -4380,6 +4382,8 @@
                 
 
 
+
+
         % ==============================================
         % ========     FUNCIONES ESPECIALES     ========
         % ==============================================
@@ -4428,16 +4432,236 @@
                 $\lim_{x \to \infty} \phi(x) = \lim_{x \to \infty} \phi(-x) = 0$
 
                 \begin{itemize}
-                    \item $\int_{-\infty}^\infty \delta(x) \; dx = 1$
-                    \item $\int_{-\infty}^\infty \phi(x) \delta(x) \; dx = \phi(x)$
-                    \item $\int_{-\infty}^\infty \phi(x) \delta(x-x_0) \; dx = \phi(x_0)$
-                    \item $\int_{-\infty}^\infty \phi'(x) \delta(x)  \; dx =
-                           \int_{-\infty}^\infty \phi(x)  \delta'(x) \; dx = \phi'(0)$
+                    \item $\displaystyle \int_{-\infty}^\infty \delta(x) \; dx = 1$
+                    \item $\displaystyle \int_{-\infty}^\infty \phi(x) \delta(x) \; dx = \phi(0)$
+                    \item $\displaystyle \int_{-\infty}^\infty \phi(x) \delta(x-x_0) \; dx = \phi(x_0)$
+                    \item $\displaystyle \int_{-\infty}^\infty \phi'(x) \delta(x)  \; dx =
+                           \displaystyle \int_{-\infty}^\infty \phi(x)  \delta'(x) \; dx = \phi'(0)$
                 \end{itemize}
                     
 
+
+
+
+        % ==============================================
+        % ========     APLICACIONES DE SERIE    ========
+        % ==============================================
+        \clearpage
+        \section{Aplicaciones - Problemas de Frontera}
+
+
+            % ==============================================
+            % ========    ECUACIONES DE ONDA        ========
+            % ==============================================
+            \subsection{Ecuación de Onda en una Dimensión}
+                
+                Consideremos una cuerda de longitud l, sujeta en sus extremos.
+
+                Sea $u(x, t)$ una función que te cuenta el desplazamiento que
+                sufre la cuerda en un tiempo t. Supongamos que el desplazamiento
+                inicial esta dado por $f(x)$ y donde $c^2$ es una constante
+                es $\frac{T}{p}$ donde $p$ es la razón de la masa de la cuerda
+                entre unidad de longitud y $T$ es la tensión de la cuerda.
+
+                Entonces:
+                \begin{MultiLineEquation*}{3}
+                    \UpperPartial{u(x, t)}{x}{2} 
+                        &= \dfrac{1}{c^2} \; \UpperPartial{u(x, t)}{t}{2}
+                \end{MultiLineEquation*}
+
+                Veamos ahora algunas consideraciones (de frontera):
+                \begin{itemize}
+                    \item
+                        $\forall t \; u(l, t) = u(0, t) = 0$. 
+                        Porque la cuerda no se puede desplazar en los extremos
+                    \item
+                        $\forall t \; u(x, 0) = f(x)$. 
+                        Porque literalmente así lo definimos tontito
+
+                        $\Partial{u(x,t)}{t} \Evaluate_{t=0} = g(x)$
+                \end{itemize}
+
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+                    
+                    Ok, ok, esto va a ser largo, pero agarrate, veras que es
+                    divertido. (Creo).
+
+                    Supongamos que la solución de $u(x,t)$ es de la forma
+                    $u(x,t) = X(t)T(t)$.
+
+                    Es decir, la función que estamos buscando puede verse
+                    como el producto de dos funciones que solo dependen de 
+                    una variable.
+
+                    Si esto fuera cierto, entonces tendremos que:
+                    \begin{MultiLineEquation*}{3}
+                        \UpperPartial{u(x, t)}{x}{2} = X''(x)T(t)
+                        \Space\Space
+                        \text{ y }
+                        \Space\Space
+                        \UpperPartial{u(x, t)}{t}{2} = X(x)T''(t)
+                    \end{MultiLineEquation*}
+
+                    Por lo tanto nuestra ecuación de la onda se ve como:
+                    \begin{MultiLineEquation*}{3}
+                        X''(x)T(t) = \dfrac{1}{c^2} \; X(x)T''(t)
+                    \end{MultiLineEquation*}
+                        
+
+                    Ahora si separamos tenemos que:
+                    \begin{MultiLineEquation*}{3}
+                        \dfrac{X''(x)}{X(t)} = \dfrac{T''(t)}{c^2 T(t)}
+                    \end{MultiLineEquation*}
+
+
+                    \clearpage
+
+                    Ahora viene lo interesante, ve que la parte a la izquierda
+                    del igual es independiente de $t$ mientras que la parte
+                    derecha de es independiente de $x$, ahora... ¿Cómo es 
+                    posible que estas dos funciones sean iguales sin importar
+                    cual es el valor de $x$ o de $t$?
+
+                    Muy sencillo, si es que tanto $\dfrac{X''(x)}{X(t)}$ como
+                    $\dfrac{T''(t)}{c^2 T(t)}$ es una constante.
+
+                    Por lo tanto veamos que:
+                    \begin{MultiLineEquation*}{3}
+                        \dfrac{X''(x)}{X(t)} 
+                            &= \dfrac{T''(t)}{c^2 T(t)}
+                            &= -k^2
+                    \end{MultiLineEquation*}
+                        
+                    Donde $-k^2$ es un constante, conocida como la constante
+                    de separación.
+
+                    Por lo tanto llegamos a dos ecuaciones diferenciales
+                    lineales:
+                    \begin{MultiLineEquation*}{3}
+                        X''(x) + k^2 X(x)       = 0   \\
+                        T''(x) + c^2k^2 T(t)    = 0   
+                    \end{MultiLineEquation*}
+
+                    Ahora, estas son ecuaciones que podemos solucionar,
+                    de hecho su solución es un famosa:
+                    \begin{MultiLineEquation*}{3}
+                        X(x) = A\Cos{kx} + B\Sin{kx}    \\
+                        T(t) = C\Cos{kct} + D\Sin{kct}
+                    \end{MultiLineEquation*}
+
+                    Ahora usemos las condiciones de frontera:
+
+                    \begin{itemize}
+
+                        \item 
+                            Sabemos que $u(0,t)=X(0)T(t)=0$
+                            por lo tanto como $t \neq 0$ entonces
+                            $X(0)$
+
+                        \item 
+                            Sabemos que $u(l,t)=X(l)T(l)=0$
+                            por lo tanto como $l \neq 0$ entonces
+                            $X(l)=0$
+
+                    \end{itemize}
+
+                    De esto se muestra que:
+                    \begin{MultiLineEquation*}{3}
+                        X(0) &= A\Cos{0} + B\Sin{0}   
+                             &= A
+                             &= 0
+                    \end{MultiLineEquation*}
+
+                    Por otro lado con la segunda condición tenemos que 
+                    \begin{MultiLineEquation*}{3}
+                        X(t) &= B\Sin{kl}   
+                             &= 0
+                    \end{MultiLineEquation*}
+
+                    Ahora, $B$ no puede ser cero, despues de todo si asi fuera
+                    todo $u(x,t)$ sería siempre 0, así que solo nos queda
+                    pensar en que $\Sin{kl}=0$, por lo tanto tenemos que:
+                    $kl=n\pi$, es decir $k=\frac{n\pi}{l}$ donde $n$ podría ser
+                    cualquier natural.
+
+                    Por lo tanto la solución general es la suma de todas las
+                    posibles soluciones, es decir:
+                    \begin{MultiLineEquation*}{3}
+                        u(x,t)
+                            &= \sum_{n=1}^\infty u_n(x, t)
+                            &= \sum_{n=1}^\infty
+                                    \Sin{\frac{n \pi x}{l}}
+                                    \Wrap{
+                                        E_n \Cos{\frac{cn\pi}{l}}t +
+                                        F_n \Sin{\frac{cn\pi}{l}}t
+                                    }
+                    \end{MultiLineEquation*}
+
+                    \clearpage
+
+                    Entonces sabemos que esta nueva forma de ver a $u(x,t)$
+                    podemos ver las otras condiciones de otra manera
+                    pues:
+
+                    \begin{itemize}
+                        
+                        \item
+                            $u(x,0)
+                                = \displaystyle \sum_{n=1}^\infty
+                                    E_n \Sin{\frac{n \pi x}{l}} = f(x)$
+
+                            Por lo tanto $E_n$ son simplemente los coeficientes
+                            de la expansión de la serie de Fourier, por lo 
+                            tanto ya tenemos una forma de encontrar a los $E_n$
+                            como:
+                            \begin{MultiLineEquation*}{3}
+                                E_n = \dfrac{2}{l} 
+                                    \int_0^l f(x) \Sin{\frac{n \pi x}{l}} dx
+                            \end{MultiLineEquation*}
+                                
+
+
+                        \item
+                            $\Partial{u(x,t)}{t} \Evaluate_{t=0}
+                                = \displaystyle\sum_{n=1}^\infty
+                                    F_n \Sin{\frac{n \pi x}{l}} = g(x)$
+
+                            Por lo tanto $F_n$ son simplemente los coeficientes
+                            de la expansión de la serie de Fourier, por lo 
+                            tanto ya tenemos una forma de encontrar a los $E_n$
+                            como:
+                            \begin{MultiLineEquation*}{3}
+                                F_n = \dfrac{2}{cn\pi} 
+                                    \int_0^l g(x) \Sin{\frac{n \pi x}{l}} dx
+                            \end{MultiLineEquation*}
+
+
+                    \end{itemize}
+                        
+                    Y por lo tanto, hemos encontrado una forma de 
+                    encontrar a $u(x,t)$
+
+                
+                \end{SmallIndentation}
+                    
+                    
+
+
+
+
+
+
+
+
+
+
+
+
     % ===============================================================================
-    % ===================        SERIES DE Fourier          ==========================
+    % ===================        SERIES DE FOURIER          ==========================
     % ===============================================================================
     \chapter{Transformada de Fourier}
         \clearpage
@@ -4461,6 +4685,8 @@
                 \item $\FourierT{f(t)}$ ó $F(w)$ es una función en el espacio de la frecuencia
                 \item Diremos que para una función genérica su transformada esta denotada por $F(w)$
             \end{itemize}
+
+
 
         % ==============================================
         % ========       PROPIEDADES            ========
@@ -4507,6 +4733,8 @@
                         &= \dfrac{1}{iw+\alpha}                               
                 \end{MultiLineEquation*}
 
+
+
             % ==============================================
             % =====    TRANSFORMADA MAS FAMOSAS      =======
             % ==============================================
@@ -4538,6 +4766,95 @@
                         &= 1
                 \end{MultiLineEquation*}
                     
+
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{f(t) \; \Cos{w_0t}}$}
+
+                Seguro que esta tiene nombre pero ni idea :/
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{f(t) \; \Cos{w_0t}}
+                        &= \int_{-\infty}^\infty f(t) \Cos{w_0t} \; e^{-iwt} \; dt                      \\
+                        &= \int_{-\infty}^\infty f(t) \pfrac{e^{w_0t}+e^{-w_0t}}{2} \; e^{-iwt} \; dt   \\
+                        &= \dfrac{1}{2} \int_{-\infty}^\infty f(t) e^{-i(w-w_0)} dt
+                                +
+                           \dfrac{1}{2} \int_{-\infty}^\infty f(t) e^{-i(w+w_0)} dt                     \\
+                        &= \dfrac{1}{2}\Brackets{F(w-w_0) + F(w+w_0)}
+                \end{MultiLineEquation*}
+
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{\Cos{w_0t}}$}
+
+                Usando lo anterior:
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{\Cos{w_0t}}
+                        &= \int_{-\infty}^\infty 1 \Cos{w_0t} \; e^{-iwt} \; dt             \\
+                        &= \dfrac{1}{2}\Brackets{2\pi \delta(-w-w_0) + 2\pi\delta(-w+w_0)}  \\
+                        &= \pi \delta(-w-w_0) + \pi \delta(-w+w_0)                          \\
+                        &= \pi (\delta(-w-w_0) + \delta(-w+w_0))
+                \end{MultiLineEquation*}
+
+
+
+            \clearpage                    
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{f(t) \; \Sin{w_0t}}$}
+
+                Seguro que esta tiene nombre pero ni idea :/
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{f(t) \; \Sin{w_0t}}
+                        &= \int_{-\infty}^\infty f(t) \Cos{w_0t} \; e^{-iwt} \; dt                      \\
+                        &= \int_{-\infty}^\infty f(t) \pfrac{e^{w_0t}-e^{-w_0t}}{2i} \; e^{-iwt} \; dt  \\
+                        &= \dfrac{1}{2i} \int_{-\infty}^\infty f(t) e^{-i(w-w_0)} dt
+                                -
+                           \dfrac{1}{2i} \int_{-\infty}^\infty f(t) e^{-i(w+w_0)} dt                     \\
+                        &= \dfrac{1}{2i}\Brackets{F(w-w_0) - F(w+w_0)}                                   \\
+                        &= 2i\Brackets{F(w+w_0) - F(w-w_0)}
+                \end{MultiLineEquation*}
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{\Sin{w_0t}}$}
+
+                Usando lo anterior:
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{\Cos{w_0t}}
+                        &= \int_{-\infty}^\infty 1 \Sin{w_0t} \; e^{-iwt} \; dt             \\
+                        &= \dfrac{1}{2i}\Brackets{2\pi \delta(-w-w_0) - 2\pi\delta(-w+w_0)} \\
+                        &= -i\pi \delta(-w-w_0) + i\pi(-w+w_0)                              \\
+                        &= i\pi\delta(-w+w_0) - i\pi \delta(-w-w_0)
+                \end{MultiLineEquation*}
+
+
+            \clearpage
+
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{$\FourierT{t^n f(t)}$ aka Derivada y la Transformada}
+
+                Esta es de las importantes
+                \begin{MultiLineEquation*}{3}
+                    \UpperDerivate{F(w)}{w}{n}
+                        &= \MiniUpperDerivate{w}{n} \int_{-\infty}^\infty f(t)  \; e^{-iwt} \; dt     \\
+                        &= \int_{-\infty}^\infty f(t)  \; \UpperPartial{e^{-iwt}}{w}{n} dt            \\
+                        &= \int_{-\infty}^\infty f(t)  \; (-it)^n e^{-iwt} dt                         \\
+                        &= \FourierT{f(t) t^n i^{-n}}
+                \end{MultiLineEquation*}
+
+                Por lo tanto $\FourierT{t^n f(t)} = i^n \UpperDerivate{F(w)}{w}{n}$
+
+
+
 
         % ==============================================
         % ========     TEOREMA IMPORTANTES     =========
@@ -4793,6 +5110,9 @@
 
                 \end{SmallIndentation}
 
+
+
+
         % ===============================================
         % =====       EJEMPLOS DE INVERSAS        =======
         % ===============================================
@@ -4832,6 +5152,50 @@
                     
 
 
+        % ===============================================
+        % ========       CONVOLUCION              =======
+        % ===============================================
+        \clearpage
+        \section{Convolución}
+
+            Si tenemos dos funciones $f(t)$, $g(t)$ tienen su transformada de Fourier
+            entonces podemos hablar de la Convolución.
+            \begin{MultiLineEquation*}{3}
+                f(t) * g(t) = \int_{-\infty}^\infty f(t-x) \; g(x) dx
+            \end{MultiLineEquation*}
+            
+            Nota también que $f(t) * g(t) = g(t) * f(t)$
+
+            Además tenemos una propiedad muy importante:
+            \begin{MultiLineEquation*}{3}
+                \FourierT{f(t) \;*\; g(t)} = F(w) \; G(w)
+            \end{MultiLineEquation*}
+
+            Nota que la definición de Convolución no depende de nada de Fourier, por lo tanto
+            esta definición aplica para todas las transformadas.
+
+                % ==================================
+                % =====    EJEMPLO           =======
+                % ==================================
+                \subsection{Ejemplo de Convolución: $\InvFourierT{\frac{1}{(1+iw)^2}}$}
+
+                    Ve que $\MiniDerivate{w} \frac{1}{(1+iw)^2} = \frac{-i}{(1+iw)^2}$
+                    y si multiplicas todo por $i$ tienes que
+                    $i \MiniDerivate{w} \frac{1}{(1+iw)^2} = \frac{1}{(1+iw)^2}$
+
+                    Por lo tanto creo que es muy obvio que $\InvFourierT{\frac{1}{(1+iw)^2}} = t \; u(t) \; e^{-t}$
+
+
+                    \textbf{Pero usando Convolución}:
+                    \begin{MultiLineEquation*}{3}
+                        \InvFourierT{\frac{1}{(1+iw)^2}}
+                            &= \InvFourierT{\frac{1}{(1+iw)} \frac{1}{(1+iw)}}                   \\
+                            &= u(t) e^{-t} * u(t) e^{-t}                                         \\
+                            &= \int_{-\infty}^\infty u(t-x) e^{-(t-x)} * u(x) e^{-x} dx          \\
+                            &= e^{-t} \int_0^t dx                                                \\
+                            &= e^{-t} t \; u(t)
+                    \end{MultiLineEquation*}
+                        
 
         % ===============================================
         % ========       TRANSFORMARIO            =======
@@ -4853,10 +5217,27 @@
                     $f(t)$                  & $F(w)$                            &\\[1em]    \hline
                     $g(t)$                  & $G(w)$                            &\\[1em]    \hline\hline
 
-                    \multicolumn{3}{|c|}{Funciones y Transformadas Famosas}     \\          \hline
-                    $u(t)e^{-\alpha t}$     & $\frac{1}{\alpha + iw}$           &\\[1em]    \hline
-                    $k[u(t+d) -u(t-d)]$     & $\frac{2k}{w} \Sin{wd}$           &\\[1em]    \hline
-                    $\delta(t)        $     & $1                    $           &\\[1em]    \hline\hline
+                    \multicolumn{3}{|c|}{Funciones y Transformadas Famosas}         \\                \hline
+                    $u(t)e^{-\alpha t}$     & $\frac{1}{\alpha + iw}                    $ &\\[1em]    \hline
+                    $k[u(t+d) -u(t-d)]$     & $\frac{2k}{w} \Sin{wd}                    $ &\\[1em]    \hline
+                    $\delta(t)        $     & $1                                        $ &\\[1em]    \hline\hline
+                    $f(t) \Cos{w_0t}  $     & $\frac{1}{2}[F(w-w_0)+F(w+w_0)]           $ &\\[1em]    \hline\hline
+                    $f(t) \Sin{w_0t}  $     & $\frac{1}{2i}[F(w-w_0)-F(w+w_0)]          $ &\\[1em]    \hline\hline
+                    $\Cos{w_0t}       $     & $\pi(\delta(-w-w_0)+\delta(-w+w_0))       $ &\\[1em]    \hline\hline
+                    $\Sin{w_0t}       $     & $i\pi(\delta(-w+w_0)-\delta(-w-w_0))      $ &\\[1em]    \hline\hline
+                    $e^{-\alpha|t|}   $     & $\frac{2\alpha}{\alpha^2+w^2}             $ &\\[1em]    \hline\hline
+                    $\frac{1}{a^2+w^2}$     & $\frac{\pi}{a} e^{-a |w|}                 $ &\\[1em]    \hline\hline
+                    $e^{-\alpha t^2}  $     & $\sqrt{\frac{\pi}{a}} e^{\frac{-w^2}{4a}} $ &\\[1em]    \hline\hline
+                
+                \end{tabular}
+            \end{table}
+
+            \clearpage
+
+            \begin{table}[ht]
+                \begin{tabular}{|m{16em}|m{16em}|@{}m{0pt}@{}}
+                    \hline
+                    \large{$f(t)$}          & \large{$\FourierT{f(t)}$}         &\\[2em]    \hline\hline
 
                     \multicolumn{3}{|c|}{Corrimiento del Tiempo y Frecuencia}   \\          \hline
                     $f(t - t_0)       $     & $e^{-iwt_0} F(w)       $          &\\[1em]    \hline
