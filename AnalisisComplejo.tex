@@ -4458,8 +4458,8 @@
                 Consideremos una cuerda de longitud l, sujeta en sus extremos.
 
                 Sea $u(x, t)$ una función que te cuenta el desplazamiento que
-                sufre la cuerda en un tiempo t. Supongamos que el desplazamiento
-                inicial esta dado por $f(x)$ y donde $c^2$ es una constante
+                sufre la cuerda en un tiempo t. Supongamos la posición 
+                inicial esta dada por $f(x)$ y donde $c^2$ es una constante
                 es $\frac{T}{p}$ donde $p$ es la razón de la masa de la cuerda
                 entre unidad de longitud y $T$ es la tensión de la cuerda.
 
@@ -4472,7 +4472,7 @@
                 Veamos ahora algunas consideraciones (de frontera):
                 \begin{itemize}
                     \item
-                        $\forall t \; u(l, t) = u(0, t) = 0$. 
+                        $\forall t \; u(0, t) = u(l, t) = 0$. 
                         Porque la cuerda no se puede desplazar en los extremos
                     \item
                         $\forall t \; u(x, 0) = f(x)$. 
@@ -4559,7 +4559,7 @@
                         \item 
                             Sabemos que $u(0,t)=X(0)T(t)=0$
                             por lo tanto como $t \neq 0$ entonces
-                            $X(0)$
+                            $X(0)=0$
 
                         \item 
                             Sabemos que $u(l,t)=X(l)T(l)=0$
@@ -4595,8 +4595,8 @@
                             &= \sum_{n=1}^\infty
                                     \Sin{\frac{n \pi x}{l}}
                                     \Wrap{
-                                        E_n \Cos{\frac{cn\pi}{l}}t +
-                                        F_n \Sin{\frac{cn\pi}{l}}t
+                                        E_n \Cos{\frac{cn\pi t}{l}} +
+                                        F_n \Sin{\frac{cn\pi t}{l}}
                                     }
                     \end{MultiLineEquation*}
 
@@ -4646,14 +4646,6 @@
 
                 
                 \end{SmallIndentation}
-                    
-                    
-
-
-
-
-
-
 
 
 
@@ -4673,7 +4665,7 @@
         \clearpage
         \section{Definición}
 
-            Sea $f(t)$ una función periódica tal que $\int_{-\infty}^\infty f(t)dt < \infty$
+            Sea $f(t)$ una función periódica tal que $\int_{-\infty}^\infty |f(t)| dt < \infty$
             entonces podemos definir a la transformada de Fourier como:
             \begin{MultiLineEquation*}{3}
                 \FourierT{f(t)} = \int_{-\infty}^\infty f(t) \; e^{-iwt} \; dt
@@ -4688,24 +4680,24 @@
 
 
 
-        % ==============================================
-        % ========       PROPIEDADES            ========
-        % ==============================================
-        \section{Propiedades}
+            % ======================================
+            % ========       PROPIEDADES    ========
+            % ======================================
+            \subsection{Propiedades}
 
-            \begin{itemize}
-                \item
-                    Recuerda la función a la cual le quieras aplicar una Transformada de Fourier
-                    tu función tiene que converger, es decir $\int_{-\infty}^\infty f(t)dt < \infty$
+                \begin{itemize}
+                    \item
+                        Recuerda la función a la cual le quieras aplicar una Transformada de Fourier
+                        tu función tiene que converger, es decir $\int_{-\infty}^\infty |f(t)| dt < \infty$
 
-                \item
-                    La Transformada es una \Quote{función lineal}, es decir:\\
-                    $\FourierT{a[f(t)] + b[g(t)]} = a\FourierT{f(t)} + b\FourierT{g(t)}$
+                    \item
+                        La Transformada es una \Quote{función lineal}, es decir:\\
+                        $\FourierT{a[f(t)] + b[g(t)]} = a\FourierT{f(t)} + b\FourierT{g(t)}$
 
-                \item 
-                    La Transformada es un isomorfismo, es decir, es lo que llamaríamos una \Quote{función
-                    biyectiva} por lo tanto podemos hablar de la Transformada inversa.
-            \end{itemize}
+                    \item 
+                        La Transformada es un isomorfismo, es decir, es lo que llamaríamos una \Quote{función
+                        biyectiva} por lo tanto podemos hablar de la Transformada inversa.
+                \end{itemize}
 
 
 
@@ -4713,7 +4705,7 @@
         % =====    TRANSFORMADA MAS FAMOSAS      =======
         % ==============================================
         \clearpage
-        \section{Transformadas más Famosas}
+        \section{Transformadas por Definición}
 
 
             % ==============================================
@@ -4741,7 +4733,8 @@
             \subsection{$\FourierT{k}$}
 
                 A ver, a ver, antes de que te me enojes, $f(t) = k$ no converge, solo converge
-                si es que tomamos a $f(t) = k$ en un rango y $f(t) = 0$ en los otros lados.
+                si es que tomamos a $f(t) = k$ en un rango, un rango de longitud $d$, osea desde
+                $\frac{-d}{2}$ hasta $\frac{d}{2}$ y $f(t) = 0$ en todos los otros lados.
                 \begin{MultiLineEquation*}{3}
                     \FourierT{k[u(t+\tfrac{d}{2}) - u(t-\tfrac{d}{2})]}
                         &= \int_{-\infty}^\infty k[u(t+\tfrac{d}{2}) - u(t-\tfrac{d}{2})] \; e^{-iwt} \; dt   \\
@@ -4767,6 +4760,248 @@
                 \end{MultiLineEquation*}
                     
 
+
+        % ==============================================
+        % =====    TRANSFORMADA MAS FAMOSAS      =======
+        % ==============================================
+        \clearpage
+        \section{Teorema de la Derivada: $\FourierT{t^n f(t)}$}
+
+            Esta es de las importantes
+            \begin{MultiLineEquation*}{3}
+                \UpperDerivate{F(w)}{w}{n}
+                    &= \MiniUpperDerivate{w}{n} \int_{-\infty}^\infty f(t)  \; e^{-iwt} \; dt     \\
+                    &= \int_{-\infty}^\infty f(t)  \; \UpperPartial{e^{-iwt}}{w}{n} dt            \\
+                    &= \int_{-\infty}^\infty f(t)  \; (-it)^n e^{-iwt} dt                         \\
+                    &= \FourierT{f(t) t^n i^{-n}}
+            \end{MultiLineEquation*}
+
+            Por lo tanto tienes que:
+            \begin{MultiLineEquation*}{3}
+                \FourierT{t^n f(t)} = i^n \UpperDerivate{F(w)}{w}{n}
+            \end{MultiLineEquation*}
+
+
+
+        % ==============================================
+        % =====    DESPLAZAMIENTO EN EL TIEMPO    ======
+        % ==============================================
+        \clearpage
+        \section{Desplazamiento en Tiempo}
+
+            Se conoce también como la propiedad de Corrimiento de Tiempo y nos permite
+            calcular la Transformada de Fourier de una función $f(t)$ que esta desplazada
+            sobre $t$.
+            \begin{MultiLineEquation*}{3}
+                \FourierT{f(t-t_0)} = e^{-iwt_0} F(w)
+            \end{MultiLineEquation*}
+
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Demostración}:
+                
+                Basta con ver que pasa al momento de calcular la transformada de $f(t - t_0)$
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{e^{iw_0 t} f(t)} 
+                        &= \int_{-\infty}^\infty f(t - t_0) \; e^{-iwt} dt                          \\
+                        &= \int_{-\infty}^\infty f(t - t_0) \; e^{-iwt} e^{+iwt_0} e^{-iwt_0} dt    \\
+                        &= e^{-iwt_0} \int_{-\infty}^\infty f(t - t_0) \; e^{-iw(t - t_0)}  dt      \\
+                        &= e^{-iwt_0} \int_{-\infty}^\infty f(u) \; e^{-iw(u)}  du                  \\
+                        &= e^{-iwt_0} F(w)
+                \end{MultiLineEquation*}
+                    
+            
+            \end{SmallIndentation}
+
+
+            % ==============================================
+            % =====    EJEMPLOS DE TRANSFORMADAS     =======
+            % ==============================================
+            \clearpage
+            \subsection{Ejemplos}
+
+                % =================================
+                % ========     EJEMPLO  ===========
+                % =================================
+                \subsubsection{Ejemplo 1}
+
+                    Sea $f(t) = \begin{cases}
+                                    5 \in [4, 10]       \\
+                                    0 \notin [4, 10]    \\
+                                \end{cases}$
+
+                    Calcular $\FourierT{f(t)}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+
+                        Empecemos por la idea de que es una función que esta corrida en el tiempo, por lo tanto
+                        pensemos en la misma función, pero centrada en el origen.
+
+                        De esto sabemos que $\FourierT{5[u(t+3) - u(t-3]} = \dfrac{10}{w} \Sin{3w}$, por lo 
+                        tanto simplemente tenemos que correrla en el tiempo, por lo tanto:
+
+                        $\FourierT{5[u(t-4) - u(t-10]} = \dfrac{10e^{7iw}}{w} \Sin{3w}$
+
+                    \end{SmallIndentation}
+
+
+                % =================================
+                % ========     EJEMPLO  ===========
+                % =================================
+                \subsubsection{Ejemplo 2}
+
+                    Sea $f(t) = 5[u(t-3) -u(t-11)]$
+
+                    Calcular $\FourierT{f(t)}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+
+                        Primero empecemos por pensar que esta corrida 7 unidades, la original
+                        sería $g(t) = f(t+7) = 5[u(t+4)-u(t-4)]$, por lo tanto $G(w)$ es simplemente
+                        $\dfrac{10}{w} \Sin{4w}$, por lo tanto:
+
+                        \begin{MultiLineEquation*}{3}
+                            F(w)
+                                &= \FourierT{g(t)} = \FourierT{f(t+7)}  \\
+                                &= e^{-iw(-7)} \dfrac{10}{w} \Sin{4w}   \\
+                                &= e^{7iw} \dfrac{10}{w} \Sin{4w}       
+                        \end{MultiLineEquation*}
+
+                    \end{SmallIndentation}
+
+        % ==============================================
+        % ===  DESPLAZAMIENTO EN EL FRECUENCIA     =====
+        % ==============================================
+        \clearpage
+        \section{Desplazamiento en Frecuencia}
+
+            Se conoce también como la propiedad de Corrimiento de Frecuencia y nos permite
+            encontrar la Transformada de Fourier de una función sabiendo $F(w)$
+            \begin{MultiLineEquation*}{3}
+                \FourierT{e^{iw_0 t} \; f(t)} = F(w - w_0) 
+            \end{MultiLineEquation*}
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Demostración}:
+                
+                Basta con ver que pasa al momento de calcular la transformada de $e^{iw_0 t} \; f(t)$
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{e^{iw_0 t} f(t)} 
+                        &= \int_{-\infty}^\infty e^{iw_0 t} f(t) \; e^{-iw t} dt        \\
+                        &= \int_{-\infty}^\infty e^{-i(w - w_0)t} f(t) dt               \\
+                        &= \int_{-\infty}^\infty f(t) e^{-i(w - w_0)t} dt               \\
+                        &= F(w - w_0)
+                \end{MultiLineEquation*}
+                    
+            
+            \end{SmallIndentation}
+                
+
+            
+        % ==============================================
+        % =====    TRANSFORMADA MAS FAMOSAS      =======
+        % ==============================================
+        \clearpage
+        \section{Gran Teorema de la Simetría}
+
+            Esta es la propiedad más importante que verás en todos estos archivos de Fourier,
+            es fácil de escribir pero algo más complicado de explicar.
+
+            Sea $\FourierT {f(t)} = F(w)$, entonces:
+            \begin{MultiLineEquation*}{3}
+                \FourierT{F(t)} = 2 \pi \; f(-w)
+            \end{MultiLineEquation*}
+
+            Es decir, la transformada de $F(t)$, es decir de una función que se parece mucho
+            a la transformada de $f(t)$ osea $F(w)$ pero no en el dominio de la frecuencia sino
+            en el dominio del tiempo es igual a $2\pi$ por $f(-w)$ donde $f(w)$ es algo parecido
+            a $f(t)$ pero en el dominio de la frecuencia.
+
+
+   
+            % ==============================================
+            % =====    TRANSFORMADA MAS FAMOSAS      =======
+            % ==============================================
+            \subsection{Consecuencia: $\FourierT{1}$}
+
+                Usando que $\FourierT{\delta(t)} = 1$ podemos decir que:\\
+                $\FourierT{1} = 2\pi \delta(-w)$
+
+
+
+
+
+
+        % ==============================================
+        % =====    TRANSFORMADA MAS FAMOSAS      =======
+        % ==============================================
+        \clearpage
+        \section{Teorema del Escalamiento}
+
+            Si para una función $f(t)$ existe su Transformada de Fourier, entonces podemos decir
+            que:
+            \begin{MultiLineEquation*}{3}
+                \FourierT{f(at)} = \frac{1}{|a|} \; F\Wrap{\frac{w}{a}}
+            \end{MultiLineEquation*}
+
+            % ======== DEMOSTRACION ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Demostración}:
+                
+                Basta con ver que pasa al momento de calcular la transformada de $f(at)$,
+                eso si antes sea $r=at$ y $dt = \frac{dr}{a}$
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{e^{iw_0 t} f(t)} 
+                        &= \int_{-\infty}^\infty f(at) \; e^{-iw t} dt                          \\
+                        &= \int_{-\infty}^\infty f(r) \; e^{-iw \frac{r}{a}} \dfrac{dr}{a}      \\
+                        &= \dfrac{1}{|a|} \int_{-\infty}^\infty f(r) \; e^{-i \frac{w}{a} r} dr \\
+                        &= \dfrac{1}{|a|} F\Wrap{\frac{w}{a}}
+                \end{MultiLineEquation*}
+            
+            \end{SmallIndentation}
+
+
+            % ==============================================
+            % =====    CONSECUENCIA DE SIMETRIA      =======
+            % ==============================================
+            \subsection{Consecuencia: Inverte el Tiempo $\FourierT{f(-t)}$}
+
+
+                Esto es una consecuencia directa del teorema anterior, pero es tan interesante que
+                le daré su propio espacio:
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{f(-t)} = F(-w)
+                \end{MultiLineEquation*}
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Demostración}:
+                    
+                    Usando el Teorema del Escalamiento podemos pensar en $a = -1$, entonces
+                    basta con ver que:
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{f((-1)t)} 
+                            &= \FourierT{f(-t)}                             \\
+                            &= \frac{1}{|-1|} \; F\Wrap{\frac{w}{-1}}       \\
+                            &= \frac{1}{1} \; F(-w)                         \\
+                            &= F(-w)
+                    \end{MultiLineEquation*}
+                
+                \end{SmallIndentation}
+
+
+
+        % ==============================================
+        % =====    TEOREMA DE LA MODULACIÓN      =======
+        % ==============================================
+        \clearpage
+        \section{Teoremas de la Modulación}
 
             % ==============================================
             % =====    TRANSFORMADA MAS FAMOSAS      =======
@@ -4800,8 +5035,8 @@
                 \end{MultiLineEquation*}
 
 
-
             \clearpage                    
+
 
             % ==============================================
             % =====    TRANSFORMADA MAS FAMOSAS      =======
@@ -4835,321 +5070,82 @@
                 \end{MultiLineEquation*}
 
 
+
+
+
+            % ==============================================
+            % =====    EJEMPLOS DE TRANSFORMADAS     =======
+            % ==============================================
             \clearpage
-
-            % ==============================================
-            % =====    TRANSFORMADA MAS FAMOSAS      =======
-            % ==============================================
-            \subsection{$\FourierT{t^n f(t)}$ aka Derivada y la Transformada}
-
-                Esta es de las importantes
-                \begin{MultiLineEquation*}{3}
-                    \UpperDerivate{F(w)}{w}{n}
-                        &= \MiniUpperDerivate{w}{n} \int_{-\infty}^\infty f(t)  \; e^{-iwt} \; dt     \\
-                        &= \int_{-\infty}^\infty f(t)  \; \UpperPartial{e^{-iwt}}{w}{n} dt            \\
-                        &= \int_{-\infty}^\infty f(t)  \; (-it)^n e^{-iwt} dt                         \\
-                        &= \FourierT{f(t) t^n i^{-n}}
-                \end{MultiLineEquation*}
-
-                Por lo tanto $\FourierT{t^n f(t)} = i^n \UpperDerivate{F(w)}{w}{n}$
+            \subsection{Ejemplos usando los Teoremas}
 
 
-
-
-        % ==============================================
-        % ========     TEOREMA IMPORTANTES     =========
-        % ==============================================
-        \clearpage
-        \section{Teoremas Importantes}
-
-            % ==============================================
-            % =====    DESPLAZAMIENTO EN EL TIEMPO    ======
-            % ==============================================
-            \subsection{Desplazamiento en Tiempo}
-
-                Se conoce también como la propiedad de Corrimiento de Tiempo y nos permite
-                calcular la Transformada de Fourier de una función $f(t)$ que esta desplazada
-                sobre $t$.
-                \begin{MultiLineEquation*}{3}
-                    \FourierT{f(t-t_0)} = e^{-iwt_0} F(w)
-                \end{MultiLineEquation*}
-
-
-
-            % ==============================================
-            % ===  DESPLAZAMIENTO EN EL FRECUENCIA     =====
-            % ==============================================
-            \subsection{Desplazamiento en Frecuencia}
-
-                Se conoce también como la propiedad de Corrimiento de Frecuencia y nos permite
-                encontrar la Transformada de Fourier de una función sabiendo $F(w)$
-                \begin{MultiLineEquation*}{3}
-                    \FourierT{e^{iw_0 t} \; f(t)} = F(w - w_0) 
-                \end{MultiLineEquation*}
-
-                % ======== DEMOSTRACION ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Demostración}:
-                    
-                    Basta con ver que pasa al momento de calcular la transformada de $e^{iw_0 t} \; f(t)$
-                    \begin{MultiLineEquation*}{3}
-                        \FourierT{e^{iw_0 t} f(t)} 
-                            &= \int_{-\infty}^\infty e^{iw_0 t} f(t) \; e^{-iw t} dt        \\
-                            &= \int_{-\infty}^\infty e^{-i(w - w_0)t} f(t) dt               \\
-                            &= \int_{-\infty}^\infty e^{-i(w - w_0)t} f(t) dt               \\
-                            &= F(w - w_0)
-                    \end{MultiLineEquation*}
-                        
                 
-                \end{SmallIndentation}
-                    
+                            
+                % =================================
+                % ========     EJEMPLO  ===========
+                % =================================
+                \clearpage
+                \subsection*{Ejemplo 3}
+
+                    Sea $f(t) =u(t-2) e^{-3t}$
+
+                    Calcular $\FourierT{f(t)}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+
+                        Veamos
+
+                        \begin{MultiLineEquation*}{3}
+                            \FourierT{f(t+7)} 
+                                &= \FourierT{u(t-2) \Wrap{e^{-3(t-2)}}e^{-6}}      
+                                    && \Remember{Recuerda que $e^{-6}$ es un número}    \\
+                                &= e^{-6}\FourierT{u(t-2) e^{-3(t-2)}}      
+                                    && \Remember{Por lo tanto podemos sacarlo}          \\
+                                &= e^{-6} \; e^{-2iw} \FourierT{u(t)e^{-3t}}      
+                                    && \Remember{Esta corrido en el tiempo}             \\
+                                &= e^{-6} \; e^{-2iw} \dfrac{1}{3+iw}      
+                                    && \Remember{Magia ... casi}                        \\
+                                &= \dfrac{e^{-(2iw + 6)}}{3+iw}      
+                                    && \Remember{Magia} 
+                        \end{MultiLineEquation*}
+
+                    \end{SmallIndentation}
 
 
+                % =================================
+                % ========     EJEMPLO  ===========
+                % =================================
+                \subsection*{Ejemplo 4}
 
-            
-            % ==============================================
-            % =====    TRANSFORMADA MAS FAMOSAS      =======
-            % ==============================================
-            \clearpage
-            \subsection{Gran Teorema de la Simetria}
+                    Sea $f(t) = 5\dfrac{\Sin{t}}{t}$
 
-                Esta es la propiedad más importante que verás en todos estos archivos de Fourier,
-                es fácil de escribir pero algo más complicado de explicar.
+                    Calcular $\FourierT{f(t)}$
 
-                Sea $\FourierT {f(t)} = F(w)$, entonces:
-                \begin{MultiLineEquation*}{3}
-                    \FourierT{F(t)} = 2 \pi \; f(-w)
-                \end{MultiLineEquation*}
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
 
-                Es decir, la transformada de $F(t)$, es decir de una función que se parece mucho
-                a la transformada de $f(t)$ pero en el dominio del tiempo es igual a $2\pi$ por
-                $f(-w)$ donde $f(w)$ es algo parecido a $f(t)$ pero en el dominio de la frecuencia.
+                        Veamos, pero antes de empezar con las cuentas
+                        tienes que ver que $g(t) = \dfrac{1}{2}[u(t-1) - u(t+1)]$ y por lo
+                        tanto $G(w) = \dfrac{1}{w} \Sin{w}$
 
-            % ==============================================
-            % =====    CONSECUENCIA DE SIMETRIA      =======
-            % ==============================================
-            \clearpage
-            \subsection{Consecuencias del Gran Teorema de la Simetria}
+                        \begin{MultiLineEquation*}{3}
+                            \FourierT{f(t)} 
+                                &= \FourierT{5\dfrac{\Sin{t}}{t}}      
+                                    && \Remember{Empecemos}                                 \\
+                                &= 5\FourierT{\dfrac{\Sin{t}}{t}}      
+                                    && \Remember{La Transformada es lineal ;)}              \\
+                                &= 10 \pi \Wrap{\dfrac{1}{2}[u(t-1) - u(t+1)]} \Evaluate_{-w}      
+                                    && \Remember{Mira lo que esta hasta arriba, simetria}   \\
+                                &= 5 \pi [u(-w-1) - u(-w+1)]
+                        \end{MultiLineEquation*}
 
-                % ==============================================
-                % =====    TRANSFORMADA MAS FAMOSAS      =======
-                % ==============================================
-                \subsection{$\FourierT{1}$}
-
-                    Usando que $\FourierT{\delta(t)} = 1$ podemos decir que:\\
-                    $\FourierT{1} = 2\pi \delta(-w)$
-
-                % ==============================================
-                % =====    TRANSFORMADA MAS FAMOSAS      =======
-                % ==============================================
-                \subsection{$\FourierT{\dfrac{1}{\alpha + it}}$}
-
-                    Usando que $\FourierT{u(t) e^{-\alpha t}} = \dfrac{1}{\alpha + it}$ podemos decir que:\\
-                    $\FourierT{\dfrac{1}{\alpha + it}} = 2\pi u(-w) e^{\alpha w}$
+                    \end{SmallIndentation}
 
 
-
-            % ==============================================
-            % =====    TRANSFORMADA MAS FAMOSAS      =======
-            % ==============================================
-            \clearpage
-            \subsection{Teorema del Escalamiento}
-
-                Si para una función $f(t)$ existe su Transformada de Fourier, entonces podemos decir
-                que:
-                \begin{MultiLineEquation*}{3}
-                    \FourierT{f(at)} = \dfrac{1}{|a|} F\pfrac{w}{a}
-                \end{MultiLineEquation*}
-
-                % ======== DEMOSTRACION ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Demostración}:
-                    
-                    Basta con ver que pasa al momento de calcular la transformada de $f(ta)$,
-                    eso si antes sea $r=ta$ y $dt = \frac{dr}{a}$
-                    \begin{MultiLineEquation*}{3}
-                        \FourierT{e^{iw_0 t} f(t)} 
-                            &= \int_{-\infty}^\infty f(at) \; e^{-iw t} dt                          \\
-                            &= \int_{-\infty}^\infty f(r) \; e^{-iw \frac{r}{a}} \dfrac{dr}{a}      \\
-                            &= \dfrac{1}{|a|} \int_{-\infty}^\infty f(r) \; e^{-i \frac{w}{a} r} dr \\
-                            &= \dfrac{1}{|a|} F\pfrac{w}{a}
-                    \end{MultiLineEquation*}
-                
-                \end{SmallIndentation}
-
-                % ==============================================
-                % =====    TRANSFORMADA MAS FAMOSAS      =======
-                % ==============================================
-                \subsection{$\FourierT{f(-t)}$}
-
-                    Usando que $a = - 1$, entonces podemos decir que:\\
-                    $\FourierT{f(-t)} = F(-w)$ 
-
-
-
-
-        % ==============================================
-        % =====    EJEMPLOS DE TRANSFORMADAS     =======
-        % ==============================================
-        \clearpage
-        \section{Ejemplos de Calcularla}
-
-            % =================================
-            % ========     EJEMPLO  ===========
-            % =================================
-            \subsection*{Ejemplo 1}
-
-                Sea $f(t) = \begin{cases}
-                                5 \in [4, 10]       \\
-                                0 \notin [4, 10]    \\
-                            \end{cases}$
-
-                Calcular $\FourierT{f(t)}$
-
-                % ======== DEMOSTRACION ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Solución}:
-
-                    Empecemos por la idea de que es una función que esta corrida en el tiempo, por lo tanto
-                    pensemos en la misma función, pero centrada en el origen.
-
-                    De esto sabemos que $\FourierT{5[u(t+3) - u(t-3]} = \dfrac{10}{w} \Sin{3w}$, por lo 
-                    tanto simplemente tenemos que correrla en el tiempo, por lo tanto:
-
-                    $\FourierT{5[u(t-4) - u(t-10]} = \dfrac{10e^{7iw}}{w} \Sin{3w}$
-
-                \end{SmallIndentation}
-
-
-            % =================================
-            % ========     EJEMPLO  ===========
-            % =================================
-            \subsection*{Ejemplo 2}
-
-                Sea $f(t) = 5[u(t-3) -u(t-11)]$
-
-                Calcular $\FourierT{f(t)}$
-
-                % ======== DEMOSTRACION ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Solución}:
-
-                    Primero empecemos por pensar que esta corrida 7 unidades, la original
-                    sería $g(t) = f(t+7) = 5[u(t+4)-u(t-4)]$, por lo tanto $G(w)$ es simplemente
-                    $\dfrac{10}{w} \Sin{4w}$, por lo tanto:
-
-                    \begin{MultiLineEquation*}{3}
-                        F(w)
-                            &= \FourierT{g(t)} = \FourierT{f(t+7)}  \\
-                            &= e^{-iw(-7)} \dfrac{10}{w} \Sin{4w}   \\
-                            &= e^{7iw} \dfrac{10}{w} \Sin{4w}       
-                    \end{MultiLineEquation*}
-
-                \end{SmallIndentation}
-                        
-            % =================================
-            % ========     EJEMPLO  ===========
-            % =================================
-            \clearpage
-            \subsection*{Ejemplo 3}
-
-                Sea $f(t) =u(t-2) e^{-3t}$
-
-                Calcular $\FourierT{f(t)}$
-
-                % ======== DEMOSTRACION ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Solución}:
-
-                    Veamos
-
-                    \begin{MultiLineEquation*}{3}
-                        \FourierT{f(t+7)} 
-                            &= \FourierT{u(t-2) \Wrap{e^{-3(t-2)}}e^{-6}}      
-                                && \Remember{Recuerda que $e^{-6}$ es un número}    \\
-                            &= e^{-6}\FourierT{u(t-2) e^{-3(t-2)}}      
-                                && \Remember{Por lo tanto podemos sacarlo}          \\
-                            &= e^{-6} \; e^{-2iw} \FourierT{u(t)e^{-3t}}      
-                                && \Remember{Esta corrido en el tiempo}             \\
-                            &= e^{-6} \; e^{-2iw} \dfrac{1}{3+iw}      
-                                && \Remember{Magia ... casi}                        \\
-                            &= \dfrac{e^{-(2iw + 6)}}{3+iw}      
-                                && \Remember{Magia} 
-                    \end{MultiLineEquation*}
-
-                \end{SmallIndentation}
-
-
-            % =================================
-            % ========     EJEMPLO  ===========
-            % =================================
-            \subsection*{Ejemplo 4}
-
-                Sea $f(t) = 5\dfrac{\Sin{t}}{t}$
-
-                Calcular $\FourierT{f(t)}$
-
-                % ======== DEMOSTRACION ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Solución}:
-
-                    Veamos, pero antes de empezar con las cuentas
-                    tienes que ver que $g(t) = \dfrac{1}{2}[u(t-1) - u(t+1)]$ y por lo
-                    tanto $G(w) = \dfrac{1}{w} \Sin{w}$
-
-                    \begin{MultiLineEquation*}{3}
-                        \FourierT{f(t)} 
-                            &= \FourierT{5\dfrac{\Sin{t}}{t}}      
-                                && \Remember{Empecemos}                                 \\
-                            &= 5\FourierT{\dfrac{\Sin{t}}{t}}      
-                                && \Remember{La Transformada es lineal ;)}              \\
-                            &= 10 \pi \Wrap{\dfrac{1}{2}[u(t-1) - u(t+1)]} \Evaluate_{-w}      
-                                && \Remember{Mira lo que esta hasta arriba, simetria}   \\
-                            &= 5 \pi [u(-w-1) - u(-w+1)]
-                    \end{MultiLineEquation*}
-
-                \end{SmallIndentation}
-
-
-
-
-        % ===============================================
-        % =====       EJEMPLOS DE INVERSAS        =======
-        % ===============================================
-        \clearpage
-        \section{Ejemplos de la Inversa}
-
-            % =================================
-            % ========     EJEMPLO  ===========
-            % =================================
-            \subsection*{Ejemplo 1}
-
-                Calcula $\InvFourierT{\dfrac{4e^{(2w-6)i}}{5-(3-w)i}}$
-
-                % ======== DEMOSTRACION ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Solución}:
-                    
-                    Esto va a esta bien intenso, pero bien genial, veamos:
-                    \begin{MultiLineEquation*}{3}
-                        \InvFourierT{\dfrac{4e^{(2w-6)i}}{5-(3-w)i}}
-                            &= \InvFourierT{\dfrac{4e^{2(w-3)i}}{5+(w-3)i}}     
-                                && \Remember{Arreglamos los términos}                                \\
-                            &= e^{i3t} \InvFourierT{\dfrac{4e^{2wi}}{5+wi}}     
-                                && \Remember{Estaba movida}                                          \\
-                            &= 4e^{i3t} \InvFourierT{\dfrac{e^{2wi}}{5+wi}}     
-                                && \Remember{La Transformada (y si inversa el lineal)}               \\
-                            &= 4e^{i3t} \InvFourierT{\dfrac{1}{5+wi}} \Evaluate_{t=t+2}     
-                                && \Remember{También estaba corrida}                                 \\
-                            &= 4e^{i3t} \Wrap{u(t)e^{-5t}}\Evaluate_{t=t+2}     
-                                && \Remember{Nos sabemos la Transformada de esa}                     \\
-                            &= 4e^{i3t} \; u(t+2)e^{-5(t+2)}     
-                                && \Remember{Magia :D}                                             
-                    \end{MultiLineEquation*}
-                        
-                
-                \end{SmallIndentation}
-                    
 
 
         % ===============================================
@@ -5196,6 +5192,63 @@
                             &= e^{-t} t \; u(t)
                     \end{MultiLineEquation*}
                         
+
+
+
+        % ===============================================
+        % =====       TRANSFORMADA INVERSA        =======
+        % ===============================================
+        \clearpage
+        \section{Transformada Inversa}
+
+            Ya que tenemos una linda forma de encontrar la transformada de Fourier también podemos
+            hacer algo parecido con la transformada inversa y definirla como:
+            \begin{MultiLineEquation*}{3}
+                f(t) = \dfrac{1}{2\pi} \int_{-\infty}^\infty F(w) e^{iw t} dw
+            \end{MultiLineEquation*}
+                
+
+
+
+            % ===============================================
+            % =====       EJEMPLOS DE INVERSAS        =======
+            % ===============================================
+            \clearpage
+            \subsection{Ejemplos de la Inversa}
+
+                % =================================
+                % ========     EJEMPLO  ===========
+                % =================================
+                \subsection*{Ejemplo 1}
+
+                    Calcula $\InvFourierT{\dfrac{4e^{(2w-6)i}}{5-(3-w)i}}$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Solución}:
+                        
+                        Esto va a esta bien intenso, pero bien genial, veamos:
+                        \begin{MultiLineEquation*}{3}
+                            \InvFourierT{\dfrac{4e^{(2w-6)i}}{5-(3-w)i}}
+                                &= \InvFourierT{\dfrac{4e^{2(w-3)i}}{5+(w-3)i}}     
+                                    && \Remember{Arreglamos los términos}                                \\
+                                &= e^{i3t} \InvFourierT{\dfrac{4e^{2wi}}{5+wi}}     
+                                    && \Remember{Estaba movida}                                          \\
+                                &= 4e^{i3t} \InvFourierT{\dfrac{e^{2wi}}{5+wi}}     
+                                    && \Remember{La Transformada (y si inversa el lineal)}               \\
+                                &= 4e^{i3t} \InvFourierT{\dfrac{1}{5+wi}} \Evaluate_{t=t+2}     
+                                    && \Remember{También estaba corrida}                                 \\
+                                &= 4e^{i3t} \Wrap{u(t)e^{-5t}}\Evaluate_{t=t+2}     
+                                    && \Remember{Nos sabemos la Transformada de esa}                     \\
+                                &= 4e^{i3t} \; u(t+2)e^{-5(t+2)}     
+                                    && \Remember{Magia :D}                                             
+                        \end{MultiLineEquation*}
+                            
+                    
+                    \end{SmallIndentation}
+                        
+
+
 
         % ===============================================
         % ========       TRANSFORMARIO            =======
