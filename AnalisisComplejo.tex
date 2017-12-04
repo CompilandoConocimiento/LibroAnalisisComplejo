@@ -4765,209 +4765,230 @@
         % =====    TRANSFORMADA MAS FAMOSAS      =======
         % ==============================================
         \clearpage
-        \section{Teorema de la Derivada: $\FourierT{t^n f(t)}$}
+        \section{Teoremas de la Derivadas}
 
-            Esta es de las importantes
-            \begin{MultiLineEquation*}{3}
-                \UpperDerivate{F(w)}{w}{n}
-                    &= \MiniUpperDerivate{w}{n} \int_{-\infty}^\infty f(t)  \; e^{-iwt} \; dt     \\
-                    &= \int_{-\infty}^\infty f(t)  \; \UpperPartial{e^{-iwt}}{w}{n} dt            \\
-                    &= \int_{-\infty}^\infty f(t)  \; (-it)^n e^{-iwt} dt                         \\
-                    &= \FourierT{f(t) t^n i^{-n}}
-            \end{MultiLineEquation*}
+            % ==============================================
+            % =====    DERIVADAS EN LA FRECUENCIA    =======
+            % ==============================================
+            \subsection{Derivada con Respecto a la Frecuencia}
+                Esta es de las importantes
+                \begin{MultiLineEquation*}{3}
+                    \UpperDerivate{F(w)}{w}{n}
+                        &= \MiniUpperDerivate{w}{n} \int_{-\infty}^\infty f(t)  \; e^{-iwt} \; dt     \\
+                        &= \int_{-\infty}^\infty f(t)  \; \UpperPartial{e^{-iwt}}{w}{n} dt            \\
+                        &= \int_{-\infty}^\infty f(t)  \; (-it)^n e^{-iwt} dt                         \\
+                        &= \FourierT{f(t) t^n i^{-n}}
+                \end{MultiLineEquation*}
 
-            Por lo tanto tienes que:
-            \begin{MultiLineEquation*}{3}
-                \FourierT{t^n f(t)} = i^n \UpperDerivate{F(w)}{w}{n}
-            \end{MultiLineEquation*}
+                Por lo tanto tienes que:
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{t^n f(t)} = i^n \UpperDerivate{F(w)}{w}{n}
+                \end{MultiLineEquation*}
+
+            % ==============================================
+            % =====    DERIVADAS EN EL TIEMPO        =======
+            % ==============================================
+            \subsection{Derivada con Respecto al Tiempo}
+
+                De una manera similar podemos decir que:
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{\UpperDerivate{f(x)}{x}{n}} = (iw)^n F(w)
+                \end{MultiLineEquation*}
+
+
 
 
 
         % ==============================================
-        % =====    DESPLAZAMIENTO EN EL TIEMPO    ======
+        % =========    DESPLAZAMIENTOS     =============
         % ==============================================
         \clearpage
-        \section{Desplazamiento en Tiempo}
+        \section{Desplazamientos}
 
-            Se conoce también como la propiedad de Corrimiento de Tiempo y nos permite
-            calcular la Transformada de Fourier de una función $f(t)$ que esta desplazada
-            sobre $t$.
-            \begin{MultiLineEquation*}{3}
-                \FourierT{f(t-t_0)} = e^{-iwt_0} F(w)
-            \end{MultiLineEquation*}
+            % ==============================================
+            % =====    DESPLAZAMIENTO EN EL TIEMPO    ======
+            % ==============================================
+            \subsection{Desplazamiento en Tiempo}
 
-
-            % ======== DEMOSTRACION ========
-            \begin{SmallIndentation}[1em]
-                \textbf{Demostración}:
-                
-                Basta con ver que pasa al momento de calcular la transformada de $f(t - t_0)$
+                Se conoce también como la propiedad de Corrimiento de Tiempo y nos permite
+                calcular la Transformada de Fourier de una función $f(t)$ que esta desplazada
+                sobre $t$.
                 \begin{MultiLineEquation*}{3}
-                    \FourierT{e^{iw_0 t} f(t)} 
-                        &= \int_{-\infty}^\infty f(t - t_0) \; e^{-iwt} dt                          \\
-                        &= \int_{-\infty}^\infty f(t - t_0) \; e^{-iwt} e^{+iwt_0} e^{-iwt_0} dt    \\
-                        &= e^{-iwt_0} \int_{-\infty}^\infty f(t - t_0) \; e^{-iw(t - t_0)}  dt      \\
-                        &= e^{-iwt_0} \int_{-\infty}^\infty f(u) \; e^{-iw(u)}  du                  \\
-                        &= e^{-iwt_0} F(w)
+                    \FourierT{f(t-t_0)} = e^{-iwt_0} F(w)
                 \end{MultiLineEquation*}
+
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Demostración}:
                     
-            
-            \end{SmallIndentation}
+                    Basta con ver que pasa al momento de calcular la transformada de $f(t - t_0)$
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{e^{iw_0 t} f(t)} 
+                            &= \int_{-\infty}^\infty f(t - t_0) \; e^{-iwt} dt                          \\
+                            &= \int_{-\infty}^\infty f(t - t_0) \; e^{-iwt} e^{+iwt_0} e^{-iwt_0} dt    \\
+                            &= e^{-iwt_0} \int_{-\infty}^\infty f(t - t_0) \; e^{-iw(t - t_0)}  dt      \\
+                            &= e^{-iwt_0} \int_{-\infty}^\infty f(u) \; e^{-iw(u)}  du                  \\
+                            &= e^{-iwt_0} F(w)
+                    \end{MultiLineEquation*}
+                        
+                
+                \end{SmallIndentation}
+
+
+                % ==============================================
+                % =====    EJEMPLOS DE TRANSFORMADAS     =======
+                % ==============================================
+                \clearpage
+                \subsection{Ejemplos de Desplamiento de Tiempo}
+
+                    % =================================
+                    % ========     EJEMPLO  ===========
+                    % =================================
+                    \subsubsection{Ejemplo 1}
+
+                        Sea $f(t) = \begin{cases}
+                                        5 \in [4, 10]       \\
+                                        0 \notin [4, 10]    \\
+                                    \end{cases}$
+
+                        Calcular $\FourierT{f(t)}$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Solución}:
+
+                            Empecemos por la idea de que es una función que esta corrida en el tiempo, por lo tanto
+                            pensemos en la misma función, pero centrada en el origen.
+
+                            De esto sabemos que $\FourierT{5[u(t+3) - u(t-3]} = \dfrac{10}{w} \Sin{3w}$, por lo 
+                            tanto simplemente tenemos que correrla en el tiempo, por lo tanto:
+
+                            $\FourierT{5[u(t-4) - u(t-10]} = \dfrac{10e^{7iw}}{w} \Sin{3w}$
+
+                        \end{SmallIndentation}
+
+
+                    % =================================
+                    % ========     EJEMPLO  ===========
+                    % =================================
+                    \subsubsection{Ejemplo 2}
+
+                        Sea $f(t) = 5[u(t-3) -u(t-11)]$
+
+                        Calcular $\FourierT{f(t)}$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Solución}:
+
+                            Primero empecemos por pensar que esta corrida 7 unidades, la original
+                            sería $g(t) = f(t+7) = 5[u(t+4)-u(t-4)]$, por lo tanto $G(w)$ es simplemente
+                            $\dfrac{10}{w} \Sin{4w}$, por lo tanto:
+
+                            \begin{MultiLineEquation*}{3}
+                                F(w)
+                                    &= \FourierT{g(t)} = \FourierT{f(t+7)}  \\
+                                    &= e^{-iw(-7)} \dfrac{10}{w} \Sin{4w}   \\
+                                    &= e^{7iw} \dfrac{10}{w} \Sin{4w}       
+                            \end{MultiLineEquation*}
+
+                        \end{SmallIndentation}
+
+
+                    % =================================
+                    % ========     EJEMPLO  ===========
+                    % =================================
+                    \clearpage
+                    \subsubsection{Ejemplo 3}
+
+                        Sea $f(t) =u(t-2) e^{-3t}$
+
+                        Calcular $\FourierT{f(t)}$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Solución}:
+
+                            Veamos
+
+                            \begin{MultiLineEquation*}{3}
+                                \FourierT{f(t+7)} 
+                                    &= \FourierT{u(t-2) \Wrap{e^{-3(t-2)}}e^{-6}}      
+                                        && \Remember{Recuerda que $e^{-6}$ es un número}    \\
+                                    &= e^{-6}\FourierT{u(t-2) e^{-3(t-2)}}      
+                                        && \Remember{Por lo tanto podemos sacarlo}          \\
+                                    &= e^{-6} \; e^{-2iw} \FourierT{u(t)e^{-3t}}      
+                                        && \Remember{Esta corrido en el tiempo}             \\
+                                    &= e^{-6} \; e^{-2iw} \dfrac{1}{3+iw}      
+                                        && \Remember{Magia ... casi}                        \\
+                                    &= \dfrac{e^{-(2iw + 6)}}{3+iw}      
+                                        && \Remember{Magia} 
+                            \end{MultiLineEquation*}
+
+                        \end{SmallIndentation}
+
+
+                    % =================================
+                    % ========     EJEMPLO  ===========
+                    % =================================
+                    \subsubsection{Ejemplo 4}
+
+                        Sea $f(t) = 5 e^{-3(t-5)^2}$
+
+                        Calcular $\FourierT{f(t)}$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Solución}:
+                            \begin{MultiLineEquation*}{3}
+                                F(w)
+                                    &= \FourierT{5 e^{-3(t-5)^2}}                               \\
+                                    &= 5 \FourierT{e^{-3(t-5)^2}}          
+                                        && \Remember{Recuerda que es lineal}                    \\
+                                    &= 5 e^{-5iw} \FourierT{e^{-3t^2}}          
+                                        && \Remember{Estaba corrida en el tiempo}               \\
+                                    &= 5 e^{-5iw} \Wrap{
+                                            \sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}} 
+                                        }         
+                                        && \Remember{Ahora si aplicamos una directa}            \\
+                                    &= \frac{5\pi}{3} e^{-(5iw + \frac{w^2}{12})}
+                                        && \Remember{Magia}           
+                            \end{MultiLineEquation*}
+
+                        \end{SmallIndentation}
 
 
             % ==============================================
-            % =====    EJEMPLOS DE TRANSFORMADAS     =======
+            % ===  DESPLAZAMIENTO EN EL FRECUENCIA     =====
             % ==============================================
             \clearpage
-            \subsection{Ejemplos}
+            \subsection{Desplazamiento en Frecuencia}
 
-                % =================================
-                % ========     EJEMPLO  ===========
-                % =================================
-                \subsubsection{Ejemplo 1}
-
-                    Sea $f(t) = \begin{cases}
-                                    5 \in [4, 10]       \\
-                                    0 \notin [4, 10]    \\
-                                \end{cases}$
-
-                    Calcular $\FourierT{f(t)}$
-
-                    % ======== DEMOSTRACION ========
-                    \begin{SmallIndentation}[1em]
-                        \textbf{Solución}:
-
-                        Empecemos por la idea de que es una función que esta corrida en el tiempo, por lo tanto
-                        pensemos en la misma función, pero centrada en el origen.
-
-                        De esto sabemos que $\FourierT{5[u(t+3) - u(t-3]} = \dfrac{10}{w} \Sin{3w}$, por lo 
-                        tanto simplemente tenemos que correrla en el tiempo, por lo tanto:
-
-                        $\FourierT{5[u(t-4) - u(t-10]} = \dfrac{10e^{7iw}}{w} \Sin{3w}$
-
-                    \end{SmallIndentation}
-
-
-                % =================================
-                % ========     EJEMPLO  ===========
-                % =================================
-                \subsubsection{Ejemplo 2}
-
-                    Sea $f(t) = 5[u(t-3) -u(t-11)]$
-
-                    Calcular $\FourierT{f(t)}$
-
-                    % ======== DEMOSTRACION ========
-                    \begin{SmallIndentation}[1em]
-                        \textbf{Solución}:
-
-                        Primero empecemos por pensar que esta corrida 7 unidades, la original
-                        sería $g(t) = f(t+7) = 5[u(t+4)-u(t-4)]$, por lo tanto $G(w)$ es simplemente
-                        $\dfrac{10}{w} \Sin{4w}$, por lo tanto:
-
-                        \begin{MultiLineEquation*}{3}
-                            F(w)
-                                &= \FourierT{g(t)} = \FourierT{f(t+7)}  \\
-                                &= e^{-iw(-7)} \dfrac{10}{w} \Sin{4w}   \\
-                                &= e^{7iw} \dfrac{10}{w} \Sin{4w}       
-                        \end{MultiLineEquation*}
-
-                    \end{SmallIndentation}
-
-
-                % =================================
-                % ========     EJEMPLO  ===========
-                % =================================
-                \clearpage
-                \subsubsection{Ejemplo 3}
-
-                    Sea $f(t) =u(t-2) e^{-3t}$
-
-                    Calcular $\FourierT{f(t)}$
-
-                    % ======== DEMOSTRACION ========
-                    \begin{SmallIndentation}[1em]
-                        \textbf{Solución}:
-
-                        Veamos
-
-                        \begin{MultiLineEquation*}{3}
-                            \FourierT{f(t+7)} 
-                                &= \FourierT{u(t-2) \Wrap{e^{-3(t-2)}}e^{-6}}      
-                                    && \Remember{Recuerda que $e^{-6}$ es un número}    \\
-                                &= e^{-6}\FourierT{u(t-2) e^{-3(t-2)}}      
-                                    && \Remember{Por lo tanto podemos sacarlo}          \\
-                                &= e^{-6} \; e^{-2iw} \FourierT{u(t)e^{-3t}}      
-                                    && \Remember{Esta corrido en el tiempo}             \\
-                                &= e^{-6} \; e^{-2iw} \dfrac{1}{3+iw}      
-                                    && \Remember{Magia ... casi}                        \\
-                                &= \dfrac{e^{-(2iw + 6)}}{3+iw}      
-                                    && \Remember{Magia} 
-                        \end{MultiLineEquation*}
-
-                    \end{SmallIndentation}
-
-
-                % =================================
-                % ========     EJEMPLO  ===========
-                % =================================
-                \subsubsection{Ejemplo 4}
-
-                    Sea $f(t) = 5 e^{-3(t-5)^2}$
-
-                    Calcular $\FourierT{f(t)}$
-
-                    % ======== DEMOSTRACION ========
-                    \begin{SmallIndentation}[1em]
-                        \textbf{Solución}:
-                        \begin{MultiLineEquation*}{3}
-                            F(w)
-                                &= \FourierT{5 e^{-3(t-5)^2}}                               \\
-                                &= 5 \FourierT{e^{-3(t-5)^2}}          
-                                    && \Remember{Recuerda que es lineal}                    \\
-                                &= 5 e^{-5iw} \FourierT{e^{-3t^2}}          
-                                    && \Remember{Estaba corrida en el tiempo}               \\
-                                &= 5 e^{-5iw} \Wrap{
-                                        \sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}} 
-                                    }         
-                                    && \Remember{Ahora si aplicamos una directa}            \\
-                                &= \frac{5\pi}{3} e^{-(5iw + \frac{w^2}{12})}
-                                    && \Remember{Magia}           
-                        \end{MultiLineEquation*}
-
-                    \end{SmallIndentation}
-
-
-        % ==============================================
-        % ===  DESPLAZAMIENTO EN EL FRECUENCIA     =====
-        % ==============================================
-        \clearpage
-        \section{Desplazamiento en Frecuencia}
-
-            Se conoce también como la propiedad de Corrimiento de Frecuencia y nos permite
-            encontrar la Transformada de Fourier de una función sabiendo $F(w)$
-            \begin{MultiLineEquation*}{3}
-                \FourierT{e^{iw_0 t} \; f(t)} = F(w - w_0) 
-            \end{MultiLineEquation*}
-
-            % ======== DEMOSTRACION ========
-            \begin{SmallIndentation}[1em]
-                \textbf{Demostración}:
-                
-                Basta con ver que pasa al momento de calcular la transformada de $e^{iw_0 t} \; f(t)$
+                Se conoce también como la propiedad de Corrimiento de Frecuencia y nos permite
+                encontrar la Transformada de Fourier de una función sabiendo $F(w)$
                 \begin{MultiLineEquation*}{3}
-                    \FourierT{e^{iw_0 t} f(t)} 
-                        &= \int_{-\infty}^\infty e^{iw_0 t} f(t) \; e^{-iw t} dt        \\
-                        &= \int_{-\infty}^\infty e^{-i(w - w_0)t} f(t) dt               \\
-                        &= \int_{-\infty}^\infty f(t) e^{-i(w - w_0)t} dt               \\
-                        &= F(w - w_0)
+                    \FourierT{e^{iw_0 t} \; f(t)} = F(w - w_0) 
                 \end{MultiLineEquation*}
-                    
-            
-            \end{SmallIndentation}
-                
 
-            
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Demostración}:
+                    
+                    Basta con ver que pasa al momento de calcular la transformada de $e^{iw_0 t} \; f(t)$
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{e^{iw_0 t} f(t)} 
+                            &= \int_{-\infty}^\infty e^{iw_0 t} f(t) \; e^{-iw t} dt        \\
+                            &= \int_{-\infty}^\infty e^{-i(w - w_0)t} f(t) dt               \\
+                            &= \int_{-\infty}^\infty f(t) e^{-i(w - w_0)t} dt               \\
+                            &= F(w - w_0)
+                    \end{MultiLineEquation*}
+                        
+                
+                \end{SmallIndentation}
+                    
+
+                
         % ==============================================
         % =====    TRANSFORMADA MAS FAMOSAS      =======
         % ==============================================
@@ -5487,6 +5508,177 @@
 
 
 
+        % ==============================================
+        % ===  SOLUCIONA ECUACIONES DIFERENCIALES   ====
+        % ==============================================
+        \clearpage
+        \section{Sol. Ecuaciones Diferenciales}
+
+
+            % ==============================================
+            % =============    EJEMPLOS     ================
+            % ==============================================
+            \subsection{Ejemplo 1}
+
+                Solucionar la ecuacion diferencial parcial:
+                \begin{MultiLineEquation*}{3}
+                    4\UpperPartial{u(x,t)}{x}{2} = \UpperPartial{u(x,t)}{t}{2} 
+                \end{MultiLineEquation*}
+                    
+                Donde tenemos las siguientes condiciones:
+                \begin{itemize}
+                    \item $x \in (-\infty, \infty)$
+                    \item $t \in [0, \infty)$
+                    \item $u(x, 0) = 0$
+                    \item $\Partial{u(x, 0)}{t} = 64 xe^{-4x^2}$
+                \end{itemize}
+
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+                    
+                    Por un lado recordemos que $\FourierT{\UpperDerivate{f(x)}{x}{n}} = (iw)^n F(w)$,
+                    entonces:
+                    \begin{MultiLineEquation*}{3}
+                        4\UpperPartial{u(x,t)}{x}{2} &= \UpperPartial{u(x,t)}{t}{2}                            
+                            && \Remember{Esta es la original}                                                   \\ 
+                        4\FourierT{\UpperPartial{u(x,t)}{x}{2}} &= \FourierT{\UpperPartial{u(x,t)}{t}{2}}       
+                            && \Remember{Vamos a hacer la transformada con respecto a $X$}                      \\ 
+                        4(iw)^2 \; U(w,t) &= U_{tt}(w,t)                                                       
+                            && \Remember{Aplicando las tablas}                                                  \\
+                        -4w^2 \; U(w,t) &= U_{tt}(w,t)                                                          
+                            && \Remember{Simple algebra}                                                        \\
+                        -U_{tt}(w,t) - 4w^2 \; U(w,t) &= 0                                                      
+                            && \Remember{Despejamos y todo por (-1)}                                            \\
+                        U_{tt}(w,t) + 4w^2 \; U(w,t) &= 0           
+                            && \Remember{Ahora algebra}                                                         \\
+                        U_{tt}(w,t) + (2w)^2 \; U(w,t) &= 0           
+                            && \Remember{Ahora es una ecuación conocida}
+                    \end{MultiLineEquation*}
+
+                    Por lo tanto podemos resolver la ecuación diferencial como:
+                    $U(w,t) = A(w) \Cos{2wt} + B(w) \Sin{2wt}$
+
+                    Ahora veamos las condiciones iniciales:
+                    \begin{MultiLineEquation*}{3}
+                        \Partial{u(x, 0)}{t} 
+                            &= 64 xe^{-4x^2}                
+                                && \Remember{Esta es la original}                                   \\
+                        \FourierT{\Partial{u(x, 0)}{t}} 
+                            &= \FourierT{64 xe^{-4x^2}}                
+                                && \Remember{Aplicamos Fourier}                                     \\
+                        U_{tt} (w,0) 
+                            &= \FourierT{64 xe^{-4x^2}}                
+                                && \Remember{Recuerda con respecto a que estamos aplicandola}       \\
+                            &= 64 \; \FourierT{x \; e^{-4x^2}}                
+                                && \Remember{Sacamos las constantes}                                \\
+                            &= 64 \; i^1 \Derivate{\FourierT{e^{-4x^2}}}{w}              
+                                && \Remember{Aplicamos Teorema de Derivación}                       \\
+                            &= 64 \; i^1 \Derivate{ \sqrt{\frac{\pi}{4}} e^{-\frac{w^2}{16}}}{w}              
+                                && \Remember{Esta es una transformada directa}                      \\
+                            &= 64i\sqrt{\frac{\pi}{4}} \; \Derivate{e^{-\frac{w^2}{16}}}{w}              
+                                && \Remember{La derivada es lineal}                                 \\
+                            &= 32i\sqrt{\pi} \; \frac{-2w}{16} e^{-\frac{w^2}{16}}              
+                                && \Remember{Ya derivamos}                                          \\
+                            &= -4i\sqrt{\pi} \;w e^{-\frac{w^2}{16}}              
+                                && \Remember{Simplificamos}                                        
+                    \end{MultiLineEquation*}
+
+                    Otra condición inicial es tan sencilla como:
+                    \begin{MultiLineEquation*}{3}
+                                    u(x, 0) &= 0                                                    \\
+                        \FourierT{u(x, 0)}  &= \FourierT{0}                                         \\
+                        U(w, 0)            &= 0
+                    \end{MultiLineEquation*}
+
+                    Ahora si, vayamos a encontar las constantes de la solución de la 
+                    ecuación diferencial:
+                    \begin{MultiLineEquation*}{3}
+                        U(w,t) &= A(w) \Cos{2wt} + B(w) \Sin{2wt} &&
+                            && \Remember{Esta es la solución general}                               \\
+                        U(w,0) &= A(w) \Cos{0} + B(w) \Sin{0} &&=0
+                            && \Remember{Aplicando una condición inicial}                           \\
+                               &= A(w) &&= 0
+                            && \Remember{Encontramos una constante}      
+                    \end{MultiLineEquation*}
+
+                    Ahora finalmente podemos ver que: $U(w,t) = B(w) \Sin{2wt}$
+                    \begin{MultiLineEquation*}{3}
+                        U_t(w, t) 
+                            &= \MiniDerivate{w} B(w) \Sin{2wt}
+                                && \Remember{Derivamos lo que ya tenemos}                           \\
+                            &= 2w B(w) \Cos{2wt}
+                                && \Remember{Aplicamos}                                             \\
+                        U_t(w, 0)
+                            & 2w B(w) \Cos{0} = 2w B(w)
+                                && \Remember{Aplicamos condicion inicial}                           \\
+                    \end{MultiLineEquation*}
+
+                    Pero además ya sabemos que $U_t (w, t) = -4i\sqrt{\pi} \;w e^{-\frac{w^2}{16}}$
+                    por lo tanto podemos decir que $2w B(w) = -4i\sqrt{\pi} \;w e^{-\frac{w^2}{16}}$, 
+                    por lo tanto finalmente tenemos que $B(w) = -2i\sqrt{\pi} \; e^{-\frac{w^2}{16}}$
+
+                    Por lo tanto hemos encontrado a la última constante que nos faltaba, por lo tanto
+                    podemos decir que:
+                    \begin{MultiLineEquation*}{3}
+                        U(w, t) = -2i\sqrt{\pi} \; e^{-\frac{w^2}{16}} \;\; \Sin{2wt}
+                    \end{MultiLineEquation*}
+
+
+                    Ahora ya podemos encontrar la función que queremos:
+                    \begin{MultiLineEquation*}{3}
+                        \InvFourierT{U(w, t)}
+                            &= \InvFourierT{-2i\sqrt{\pi} \; e^{-\frac{w^2}{16}} \;\; \Sin{2wt}}
+                                && \Remember{Ahora solo hay que resolver esto}                      \\
+                            &= \InvFourierT{
+                                -2i\sqrt{\pi} \; e^{-\frac{w^2}{16}} \pfrac{e^{iw2t} -e^{-iw2t}}{2i}
+                                }
+                                && \Remember{Ahora solo hay que resolver esto}                      \\
+                            &= \InvFourierT{
+                                    -\sqrt{\pi} \; e^{-\frac{w^2}{16}} \Wrap{e^{iw2t} -e^{-iw2t}}
+                                }
+                                && \Remember{Simplificamos la fracción}                             \\
+                            &= 
+                                \InvFourierT{-\sqrt{\pi} \; e^{-\frac{w^2}{16}} e^{iw2t}} 
+                                -
+                                \InvFourierT{-\sqrt{\pi} \; e^{-\frac{w^2}{16}} e^{-iw2t}}
+                                && \Remember{Separamos}                                             \\
+                            &= 
+                                \InvFourierT{\sqrt{\pi} \; e^{-\frac{w^2}{16}} e^{-iw2t}} 
+                                -
+                                \InvFourierT{\sqrt{\pi} \; e^{-\frac{w^2}{16}} e^{+iw2t}}
+                                && \Remember{Invertimos para eliminar el - de la raíz}              \\
+                            &= 
+                                2\InvFourierT{\sqrt{\frac{\pi}{4}} \; e^{-\frac{w^2}{16}} e^{-iw2t}} 
+                                -
+                                2\InvFourierT{\sqrt{\frac{\pi}{4}} \; e^{-\frac{w^2}{16}} e^{+iw2t}}
+                                && \Remember{Acomodo para corrimiento}                              \\
+                            &= 
+                                2\InvFourierT{\sqrt{\frac{\pi}{4}} \; e^{-\frac{w^2}{16}}}_{x = x-2} 
+                                -
+                                2\InvFourierT{\sqrt{\frac{\pi}{4}} \; e^{-\frac{w^2}{16}}}_{x = x+2} 
+                                && \Remember{Aplico corrimiento}                                    \\
+                            &= 
+                                2e^{-4(x)^2} \Evaluate_{x = x-2t} 
+                                -
+                                2e^{-4(x)^2} \Evaluate_{x = x+2t} 
+                                && \Remember{Es una transformada directa}                           \\
+                            &= 
+                                2e^{-4(x-2t)^2} - 2e^{-4(x+2t)^2}
+                                && \Remember{Magia}
+                    \end{MultiLineEquation*}
+                        
+                        
+
+                                       
+                        
+
+                \end{SmallIndentation}
+                    
+
+
+
         % ===============================================
         % ========       TRANSFORMARIO            =======
         % ===============================================
@@ -5537,17 +5729,19 @@
                     $e^{iw_0t} f(t)   $     & $F(w - w_0)            $          &\\[1em]    \hline\hline
 
                     \multicolumn{3}{|c|}{Gran Teorema de la Simetria}          \\           \hline
-                    $F(t)             $     & $2\pi f(-w)             $        &\\[1em]     \hline\hline
-                    $1                $     & $2\pi \delta(-w)        $        &\\[1em]     \hline\hline
+                    $F(t)             $     & $2\pi f(-w)             $        &\\[1em]     \hline
+                    $1                $     & $2\pi \delta(-w)        $        &\\[1em]     \hline
                     $\frac{1}{\alpha + iw}$ & $2\pi u(-w) e^{\alpha w}$        &\\[1em]     \hline\hline
 
                     \multicolumn{3}{|c|}{Teorema de Escalamiento}               \\          \hline
                     $f(at)            $     & $\frac{1}{|a|} F(\frac{w}{a})$   &\\[1em]     \hline
-                    $f(-t)            $     & $F(-w)$                          &\\[1em]     \hline
+                    $f(-t)            $     & $F(-w)$                          &\\[1em]     \hline\hline
+
+                    \multicolumn{3}{|c|}{Teoremas de Derivadas}                 \\          \hline
+                    $t^n f(t)               $ & $i^n \frac{d^n \; F(w)}{dw^n}$ &\\[1em]     \hline
+                    $\frac{d^n \; f(x)}{dx^n}$& $(iw)^n F(w)$                  &\\[1em]     \hline
                 \end{tabular}
             \end{table}
-
-
 
 
 
