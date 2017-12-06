@@ -4700,6 +4700,25 @@
                 \end{itemize}
 
 
+        % ==============================================
+        % = TRANSFORMADA - INTEGRAL COMPLEJA FOURIER   =
+        % ==============================================
+        \clearpage
+        \section{Transformada y la Integral Compleja de Fourier}
+
+            En este texto no hablamos mucho de la integral compleja de Fourier, pero 
+            existe una relación bastante interesante entre los mismo, podemos decir que:
+
+            Sea $f(t)$ una función que tenga una Transformada de Fourier, denotada por $F(w)$
+            entonces podemos decir que la integral compleja de Fourier como:
+            \begin{MultiLineEquation*}{3}
+                f(t) = \dfrac{1}{2\pi} \int_{-\infty}^{\infty} F(w) e^{wit} \; dt
+            \end{MultiLineEquation*}
+
+            Si te das cuenta esta forma de escribir a $f(t)$ es una forma de definir a la transformada 
+            inversa.
+
+
 
         % ==============================================
         % =====    TRANSFORMADA MAS FAMOSAS      =======
@@ -4759,6 +4778,8 @@
                         &= 1
                 \end{MultiLineEquation*}
                     
+
+
 
 
         % ==============================================
@@ -5079,6 +5100,50 @@
                 \end{SmallIndentation}
 
 
+            % ==============================================
+            % =====    CONSECUENCIA DE SIMETRIA      =======
+            % ==============================================
+            \subsection{Consecuencia: Una Clásica $\FourierT{e^{-a|t|}}$}
+
+                Esto es una consecuencia directa del teorema anterior, pero es tan interesante que
+                le daré su propio espacio:
+                \begin{MultiLineEquation*}{3}
+                   \FourierT{e^{-a|t|}} = \frac{2a}{a^2 + w^2}
+                \end{MultiLineEquation*}
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Demostración}:
+                    
+                    El truco esta en ver las diferentes formas en que podemos ver a 
+                    $e^{-a|t|}$.
+
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{e^{-a|t|}}
+                            &= \FourierT{u(t) e^{-at} + u(-t) e^{at} }
+                                && \Remember{Dos funciones, una para los negativos otra positivos}  \\
+                            &= \FourierT{f(t) + f(-t) }
+                                && \Remember{Paso Clave, sea $f(t)=u(t)e^{-at}$}                    \\
+                            &= \FourierT{f(t)} + \FourierT{f(-t)}
+                                && \Remember{Separamos}                                             \\
+                            &= F(w) + F(-w)
+                                && \Remember{Aplicamos inverso del tiempo}                          \\
+                            &= \frac{1}{a + iw} + \frac{1}{a - iw}
+                                && \Remember{Son transformadas directas si sabes $f(t)$}            \\
+                            &= \frac{(a + iw) + (a - iw)}{(a + iw)(a - iw)}
+                                && \Remember{Sumamos las 2 fracciones}                              \\
+                            &= \frac{2a}{a^2 - (iw)^2}
+                                && \Remember{Diferencia de Cuadrados}                               \\
+                            &= \frac{2a}{a^2 + w^2}
+                                && \Remember{Magia}
+                    \end{MultiLineEquation*}
+
+                
+                \end{SmallIndentation}
+                    
+
+
+
 
         % ==============================================
         % =====    TEOREMA DE LA MODULACIÓN      =======
@@ -5310,6 +5375,8 @@
                         \end{MultiLineEquation*}
 
                     \end{SmallIndentation}
+
+
 
 
         % ===============================================
@@ -5546,7 +5613,7 @@
                         4\FourierT{\UpperPartial{u(x,t)}{x}{2}} &= \FourierT{\UpperPartial{u(x,t)}{t}{2}}       
                             && \Remember{Vamos a hacer la transformada con respecto a $X$}                      \\ 
                         4(iw)^2 \; U(w,t) &= U_{tt}(w,t)                                                       
-                            && \Remember{Aplicando las tablas}                                                  \\
+                            && \Remember{Así se ven transformadas}                                              \\
                         -4w^2 \; U(w,t) &= U_{tt}(w,t)                                                          
                             && \Remember{Simple algebra}                                                        \\
                         -U_{tt}(w,t) - 4w^2 \; U(w,t) &= 0                                                      
@@ -5568,7 +5635,7 @@
                         \FourierT{\Partial{u(x, 0)}{t}} 
                             &= \FourierT{64 xe^{-4x^2}}                
                                 && \Remember{Aplicamos Fourier}                                     \\
-                        U_{tt} (w,0) 
+                        U_t (w,0) 
                             &= \FourierT{64 xe^{-4x^2}}                
                                 && \Remember{Recuerda con respecto a que estamos aplicandola}       \\
                             &= 64 \; \FourierT{x \; e^{-4x^2}}                
@@ -5606,12 +5673,12 @@
                     Ahora finalmente podemos ver que: $U(w,t) = B(w) \Sin{2wt}$
                     \begin{MultiLineEquation*}{3}
                         U_t(w, t) 
-                            &= \MiniDerivate{w} B(w) \Sin{2wt}
+                            &= \MiniDerivate[t] B(w) \Sin{2wt}
                                 && \Remember{Derivamos lo que ya tenemos}                           \\
                             &= 2w B(w) \Cos{2wt}
                                 && \Remember{Aplicamos}                                             \\
                         U_t(w, 0)
-                            & 2w B(w) \Cos{0} = 2w B(w)
+                            &= 2w B(w) \Cos{0} = 2w B(w)
                                 && \Remember{Aplicamos condicion inicial}                           \\
                     \end{MultiLineEquation*}
 
@@ -5668,14 +5735,188 @@
                                 2e^{-4(x-2t)^2} - 2e^{-4(x+2t)^2}
                                 && \Remember{Magia}
                     \end{MultiLineEquation*}
-                        
-                        
 
-                                       
+
+                    Por lo tanto nuestra función que cumple con todas las condiciones es:
+                    \begin{MultiLineEquation*}{3}
+                        2e^{-4(x-2t)^2} - 2e^{-4(x+2t)^2}
+                    \end{MultiLineEquation*}
                         
 
                 \end{SmallIndentation}
                     
+
+
+            % ==============================================
+            % =============    EJEMPLOS     ================
+            % ==============================================
+            \clearpage
+            \subsection{Ejemplo 2}
+
+                Solucionar la ecuacion diferencial parcial:
+                \begin{MultiLineEquation*}{3}
+                    16\UpperPartial{u(x,t)}{x}{2} = \UpperPartial{u(x,t)}{t}{2} 
+                \end{MultiLineEquation*}
+                    
+                Donde tenemos las siguientes condiciones:
+                \begin{itemize}
+                    \item $x \in (-\infty, \infty)$
+                    \item $t \in [0, \infty)$
+                    \item $u(x, 0) = 8e^{-3x^2}$
+                    \item $\Partial{u(x, 0)}{t} = 0$
+                \end{itemize}
+
+                
+
+                % ======== DEMOSTRACION ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Solución}:
+                    
+                    Vamos primero a transformar todo en el espacio de la frecuencia, empecemos
+                    por la ecuación diferencial:
+
+                    Por un lado recordemos que $\FourierT{\UpperDerivate{f(x)}{x}{n}} = (iw)^n F(w)$,
+                    entonces:
+                    \begin{MultiLineEquation*}{3}
+                        16\UpperPartial{u(x,t)}{x}{2} &= \UpperPartial{u(x,t)}{t}{2}                            
+                            && \Remember{Esta es la original}                                                   \\ 
+                        16\FourierT{\UpperPartial{u(x,t)}{x}{2}} &= \FourierT{\UpperPartial{u(x,t)}{t}{2}}       
+                            && \Remember{Vamos a hacer la transformada con respecto a $X$}                      \\ 
+                        16(iw)^2 \; U(w,t) &= U_{tt}(w,t)                                                       
+                            && \Remember{Así se ven las transformadas}                                          \\
+                        -16w^2 \; U(w,t) &= U_{tt}(w,t)                                                          
+                            && \Remember{Simple algebra}                                                        \\
+                        -U_{tt}(w,t) - 16w^2 \; U(w,t) &= 0                                                      
+                            && \Remember{Despejamos y todo por (-1)}                                            \\
+                        U_{tt}(w,t) + 16w^2 \; U(w,t) &= 0           
+                            && \Remember{Ahora algebra}                                                         \\
+                        U_{tt}(w,t) + (4w)^2 \; U(w,t) &= 0           
+                            && \Remember{Ahora es una ecuación conocida}
+                    \end{MultiLineEquation*}
+
+                    Por lo tanto podemos resolver la ecuación diferencial como:
+                    $U(w,t) = A(w) \Cos{4wt} + B(w) \Sin{4wt}$
+
+                    Ahora veamos las condiciones iniciales:
+                    \begin{MultiLineEquation*}{3}
+                        \Partial{u(x, 0)}{t}                &= 0                                                \\
+                        \FourierT{\Partial{u(x, 0)}{t}}     &= \FourierT{0}                                     \\
+                        U_t(w, 0)                           &= 0
+                    \end{MultiLineEquation*}
+
+
+                    Por otro lado tenemos que:
+                    \begin{MultiLineEquation*}{3}
+                        u(x, 0)
+                            &= 8 e^{-3x^2}                
+                                && \Remember{Esta es la original}                                   \\
+                        \FourierT{u(x, 0)} 
+                            &= \FourierT{8 e^{-3x^2}}                
+                                && \Remember{Aplicamos Fourier}                                     \\
+                        U(w,0) 
+                            &= \FourierT{8 e^{-3x^2}}                
+                                && \Remember{Recuerda con respecto a que estamos aplicandola}       \\
+                            &= 8 \; \FourierT{e^{-3x^2}}                
+                                && \Remember{Sacamos las constantes}                                \\
+                            &= 8 \; \FourierT{e^{-3x^2}}                
+                                && \Remember{Sacamos las constantes}                                \\
+                            &= 8 \; \sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}}               
+                                && \Remember{Transformada Directa}                                 
+                    \end{MultiLineEquation*}
+
+
+                    Ahora si, vayamos a encontar las constantes de la solución de la 
+                    ecuación diferencial:
+                    \begin{MultiLineEquation*}{4}
+                        U(w,t) &= A(w) \Cos{2wt} + B(w) \Sin{2wt} 
+                                &&= 8 \; \sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}}
+                                    && \Remember{Esta es la solución general}                               \\
+                        U(w,0) &= A(w) \Cos{0} + B(w) \Sin{0} 
+                                &&= 8 \; \sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}}
+                                    && \Remember{Aplicando una condición inicial}                           \\
+                               &= A(w) 
+                                &&= 8 \; \sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}}
+                                    && \Remember{Encontramos una constante}      
+                    \end{MultiLineEquation*}
+
+                    Ahora finalmente podemos ver que:
+                    \begin{MultiLineEquation*}{3}
+                        U_t(w, t) = 
+                            & \MiniDerivate[t] A(w) \Cos{4wt} + \MiniDerivate[t] B(w) \Sin{4wt}
+                                && \Remember{Vamos a derivar}                                       \\
+                            & -4w A(w) \Sin{4wt} + 4w B(w) \Cos{4wt}
+                                && \Remember{Derivamos}                                             \\
+                        U_t(w, 0) =
+                            & -4w A(w) \Sin{0} + 4w B(w) \Cos{1}
+                                &&= 0
+                                && \Remember{Aplicamos condiciones iniciales}                       \\
+                            & 4w B(w)
+                                &&= 0
+                                && \Remember{Ahora llegamos a la verdad}                            \\
+                            & B(w)
+                                &&= 0
+                                && \Remember{Encontramos la segunda constante}
+                    \end{MultiLineEquation*}
+
+                    Por lo tanto hemos encontrado la otra \Quote{constante} y ya tenemos a la solución
+                    en el espacio de frecuencia:
+                    \begin{MultiLineEquation*}{3}
+                        U(w, t) 
+                            &= A(w)\; \Cos{4wt}                                     \\
+                            &= 8\sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}}\; \Cos{4wt}
+                    \end{MultiLineEquation*}
+
+
+                    Ahora ya podemos encontrar la función que queremos:
+                    \begin{MultiLineEquation*}{3}
+                        \InvFourierT{U(w, t)}
+                            &= \InvFourierT{8\sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}}\; \Cos{4wt}}
+                                && \Remember{Ahora solo hay que resolver esto}                      \\
+                            &= 8\sqrt{\frac{\pi}{3}}
+                                \InvFourierT{ e^{-\frac{w^2}{12}}\; \Cos{4wt}}
+                                && \Remember{Sacamos a las constantes}                              \\
+                            &= 8\sqrt{\frac{\pi}{3}}
+                                \InvFourierT{
+                                    e^{-\frac{w^2}{12}}\; \pfrac{e^{i(4wt)} + e^{-i(4wt)}}{2}
+                                }
+                                && \Remember{Definición de Cosenos}                                 \\
+                            &= 4\sqrt{\frac{\pi}{3}}
+                                \InvFourierT{
+                                    e^{-\frac{w^2}{12}} e^{i(4wt)} + e^{-\frac{w^2}{12}} e^{-i(4wt)}
+                                }
+                                && \Remember{Separamos}                                            \\
+                            &= 4\sqrt{\frac{\pi}{3}}
+                                \InvFourierT{
+                                    e^{-\frac{w^2}{12}} e^{i(4wt)} + e^{-\frac{w^2}{12}} e^{-i(4wt)}
+                                }
+                                && \Remember{Separamos la transformada}                            \\
+                            &= 
+                                4\InvFourierT{\sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}} e^{i(4wt)}}
+                                + 
+                                4\InvFourierT{\sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}} e^{-i(4wt)}}
+                                && \Remember{Ahora tenemos dos transformadas}                      \\
+                            &= 
+                                4\InvFourierT{\sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}} }_{t = t+4}
+                                + 
+                                4\InvFourierT{\sqrt{\frac{\pi}{3}} e^{-\frac{w^2}{12}} }_{t = t-4}
+                                && \Remember{Esto ocurre cuando se transforma en el tiempo}        \\
+                            &= 
+                                4\Wrap{ e^{-3t^2} }_{t = t+4}
+                                + 
+                                4\Wrap{ e^{-3t^2} }_{t = t-4}
+                                && \Remember{Estas son transformadas directas}                     \\
+                            &= 
+                                4e^{-3(t+4)^2} +  4e^{-3(t-4)^2}
+                                && \Remember{Lo hemos logrado}
+                    \end{MultiLineEquation*}
+                        
+                    
+                    Por lo tanto nuestra función que cumple con todas las condiciones es:
+                    \begin{MultiLineEquation*}{3}
+                        4e^{-3(t+4)^2} +  4e^{-3(t-4)^2}
+                    \end{MultiLineEquation*}
+
+                \end{SmallIndentation}
 
 
 
