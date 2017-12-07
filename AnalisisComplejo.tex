@@ -4641,7 +4641,7 @@
 
 
             % ==============================================
-            % ========     FUNCIONES HEAVISIDE      ========
+            % ========     FUNCIONES DELTA DE DIRAC ========
             % ==============================================
             \subsection{Función Delta de Dirac}
 
@@ -6068,8 +6068,6 @@
         \clearpage
         \section{Transformario de Fourier}
 
-
-
             % ===================================
             % ========       TABLE        =======
             % ===================================
@@ -6077,20 +6075,24 @@
                 \begin{tabular}{|m{16em}|m{16em}|@{}m{0pt}@{}}
                     \hline
                     \large{$f(t)$}          & \large{$\FourierT{f(t)}$}                 &\\[2em]      \hline\hline
+
+                    \multicolumn{3}{|c|}{Definición}                                     \\           \hline
+                    $f(t)$ &        $\int_{-\infty}^\infty f(t) \; e^{-iwt} \; dt$      &\\[1em]      \hline\hline
                     
-                    \multicolumn{3}{|c|}{Funciones y Transformadas Genéricas}       \\                \hline
+                    \multicolumn{3}{|c|}{Funciones y Transformadas Genéricas}           \\            \hline
                     $f(t)$                  & $F(w)$                                    &\\[1em]      \hline
                     $g(t)$                  & $G(w)$                                    &\\[1em]      \hline\hline
 
-                    \multicolumn{3}{|c|}{Funciones y Transformadas Famosas}         \\                \hline
+                    \multicolumn{3}{|c|}{Funciones y Transformadas Famosas}             \\            \hline
                     $u(t)e^{-\alpha t}$     & $\frac{1}{\alpha + iw}                    $ &\\[1em]    \hline
                     $k[u(t+d) -u(t-d)]$     & $\frac{2k}{w} \Sin{wd}                    $ &\\[1em]    \hline
                     $\delta(t)        $     & $1                                        $ &\\[1em]    \hline
                     $e^{-\alpha|t|}   $     & $\frac{2\alpha}{\alpha^2+w^2}             $ &\\[1em]    \hline
                     $\frac{1}{a^2+t^2}$     & $\frac{\pi}{a} e^{-a |w|}                 $ &\\[1em]    \hline
-                    $e^{-\alpha t^2}  $     & $\sqrt{\frac{\pi}{a}} e^{\frac{-w^2}{4a}} $ &\\[1em]    \hline\hline
+                    $e^{-\alpha t^2}  $     & $\sqrt{\frac{\pi}{a}} e^{\frac{-w^2}{4a}} $ &\\[1em]    \hline
+                    $1 - \; |t|       $     & $\frac{2(1 - \Cos{w})}{w^2}               $ &\\[1em]    \hline\hline
                     
-                    \multicolumn{3}{|c|}{Teoremas de Modulación}                    \\                \hline
+                    \multicolumn{3}{|c|}{Teoremas de Modulación}                        \\            \hline
                     $f(t) \Cos{w_0t}  $     & $\frac{1}{2}[F(w-w_0)+F(w+w_0)]           $ &\\[1em]    \hline
                     $f(t) \Sin{w_0t}  $     & $\frac{1}{2i}[F(w-w_0)-F(w+w_0)]          $ &\\[1em]    \hline
                     $\Cos{w_0t}       $     & $\pi(\delta(-w-w_0)+\delta(-w+w_0))       $ &\\[1em]    \hline
@@ -6122,9 +6124,53 @@
 
                     \multicolumn{3}{|c|}{Teoremas de Derivadas}                 \\          \hline
                     $t^n f(t)               $ & $i^n \frac{d^n \; F(w)}{dw^n}$ &\\[1em]     \hline
-                    $\frac{d^n \; f(x)}{dx^n}$& $(iw)^n F(w)$                  &\\[1em]     \hline
+                    $\frac{d^n \;f(t)}{dx^n}$ & $(iw)^n F(w)$                  &\\[1em]     \hline\hline
+
+                    \multicolumn{3}{|c|}{Teorema de Convolución}                \\          \hline
+                    \multicolumn{3}{|c|}{
+                        $f(t) * g(t) = \int_{-\infty}^\infty f(t-x) \; g(x) dx$}\\          \hline
+                    $f(t) \; * \; g(t)       $ & $F(w) \; G(w)$                &\\[1em]     \hline
                 \end{tabular}
             \end{table}
+
+
+
+            % ===================================
+            % ===    ULTIMO RECORDATORIO      ===
+            % ===================================
+            \clearpage
+            \subsection*{Cosas que deberías sabes}
+                \begin{itemize}
+                    \item
+                        $
+                            \Cos{n \cdot \pi} 
+                            =
+                            (-1)^n  
+                            =
+                            \begin{cases}
+                                1 & \text{Si $n$ es par}      \\
+                                -1 & \text{Si $n$ es impar}
+                            \end{cases} 
+                        $                        
+
+                    \item $\Cos{\dfrac{2n+1}{2} \pi } = 0$
+
+                    \item $\Sin{n \cdot \pi} = 0$
+
+                    \item
+                        $
+                            \Sin{\dfrac{2n+1}{2} \pi }
+                            =
+                            (-1)^n  
+                            =
+                            \begin{cases}
+                                1 & \text{Si $n$ es par}      \\
+                                -1 & \text{Si $n$ es impar}
+                            \end{cases}
+                        $
+                    \item $\displaystyle \int_{-\infty}^\infty \phi(x) \delta(x-x_0) \; dx = \phi(x_0)$
+                    \item $f(t) = \dfrac{1}{2\pi} \int_{-\infty}^\infty F(w) e^{iw t} dw$
+                \end{itemize}
 
 
 
