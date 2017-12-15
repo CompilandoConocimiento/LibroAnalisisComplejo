@@ -252,17 +252,16 @@
 
     % ============ NAME OF THE DOCUMENT  ============
     \rule{\linewidth}{0.5mm} \\[1.0cm]
-        { \huge \bfseries Análisis Complejo}\\[1.0cm] 
+        { \huge \bfseries Compilado de Análisis Complejo}\\[1.0cm] 
     \rule{\linewidth}{0.5mm} \\[2.0cm]
     
     % ====== SEMI TITLE ==========
-    {\LARGE Una Pequeña (Gran) Introducción}\\[7cm] 
+    {\LARGE Aquí la respuesta siempre es $i\pi$}\\[7cm] 
     
     % ============  MY INFORMATION  =================
     \begin{center} \large
-    \textbf{\textsc{Autores:}}\\
-    Rosas Hernandez Oscar Andrés \\
-    Lopez Manriquez Angel
+    \textbf{\textsc{Autor:}}\\
+    Rosas Hernandez Oscar Andrés
     \end{center}
 
     \vfill
@@ -986,6 +985,32 @@
             Tenemos que definir el Módulo de $z = a+bi \in \Complexs$ como $|z| = \sqrt{a^2 + b^2}$.
 
             \begin{itemize}
+
+                \item $|ab| = |a\Over{b}|$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Nota que ambos lados de la ecuación hacen referencia a valores absolutos, por lo tanto
+                        siempre son mayores o iguales que 0, por lo tanto $|ab| = |a\Over{b}|$ si y solo si
+                        $|ab|^2 = |a\Over{b}|^2$.
+
+                        Ahora:
+                        \begin{MultiLineEquation*}{3}
+                            |ab|^2 
+                                &= |a|^2 |b|^2                              \\
+                                &= (a)(\Over{a}) (b\Over{b})                
+                                &= (a\Over{b}) (b\Over{a})                  
+                                &= (a\Over{b}) (\Over{(a\Over{b})})         \\
+                                &= |a\Over{b}|^2
+                        \end{MultiLineEquation*}
+                        
+                        Por lo tanto son iguales
+                    
+                    \end{SmallIndentation}
+                        
+
                 \item
                     $|Re(z)| \leq |z|$ y $|Im(z)| \leq |z|$ 
 
@@ -1202,10 +1227,6 @@
 
 
 
-
-
-
-
         % ==============================================
         % ========    PRODUCTO PUNTO Y CRUZ      =======
         % ==============================================
@@ -1259,6 +1280,309 @@
 
                 Donde $\theta$ es el angulo más pequeño entre dichos números.
 
+
+        % ==============================================
+        % ===     PROBLEMAS DE ARIMETICA COMPLEJA   ====
+        % ==============================================
+        \clearpage
+        \section{Problemas Varios}
+
+            En esta sección encontrarás algunos problemas clásicos de números
+            complejos, espero que te gustes y te sirvan.
+
+            \begin{itemize}
+
+                \item 
+                    Si $z_1 + z_2 + z_3 = 0$ y $|z_1|=|z_2|=|z_3|=1$ entonces son vertices
+                    de un triangulo equilatero.
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Ok, primero tenemos que ver que en un triangulo equilatero tenemos que es
+                        el circucentro (es decir el centro del círculo que esta inscrito dentro del
+                        triangulo, o más formalmente es la intersección de 3 ángulos internos bisectores)
+                        y el centroide (es la intersección de 3 medianas).
+
+                        En un triángulo equilátero, cada mediana es también una bisectriz (y viceversa),
+                        por lo que el centroide coincide con el circucentro.
+
+                        Ahora nuestro centroide se puede encontrar muy fácil si sabes las coordenadas
+                        de los vertices, pues esta en $\frac{z_1+z_2+z_3}{3}$.
+
+                        Ahora, por hipotesis, ese punto es simplemente $\frac{0}{3} = 0$, pero resulta
+                        que también por hipotesis tenemos que los 3 puntos tiene un módulo de 1, es decir
+                        estan inscritos en el círculo unitario, por lo tanto el circucentro es también 0.
+
+                        De ahí tenemos que nuestro triangulo es equilatero.
+
+                    \end{SmallIndentation}
+                        
+                
+                \item Sea $a, b \in \Complexs$ 
+
+                    $|a-b|^2 \leq (1+|a|^2)(1+|b|^2)$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Sabemos que $|a-b|^2 = |a|^2 + |b|^2 - 2Re(a\Over{b})$, pero si no me crees
+                        ahorita lo demostramos:
+                        \begin{MultiLineEquation*}{3}
+                            |a-b|^2 
+                                &= (a-b)\Over{(a-b)}                                        
+                                 = (a-b)(\Over{a} - \Over{b})                               \\  
+                                &= (a\Over{a}) -(a\Over{b}) - (b\Over{a}) + (b\Over{b})     \\
+                                &= (|a|^2) -(a\Over{b}) - (b\Over{a}) + (|b|^2)             \\
+                                &= (|a|^2) + (|b|^2) - (a\Over{b} + b\Over{a})              \\
+                                &= (|a|^2) + (|b|^2) - (a\Over{b} + \Over{a\Over{b}})       \\
+                                &= |a|^2 + |b|^2 - 2Re(a\Over{b})                               
+                        \end{MultiLineEquation*}
+
+                        Mientras del otro lado de la desigualdad tenemos que: 
+                        $(1+|a|^2)(1+|b|^2) = 1 + |a|^2 + |b|^2 + |a|^2|b|^2$                       
+
+                        Ahora ve que $|a|^2|b|^2 = (a\Over{a})(b\Over{b}) = (a\Over{b})(\Over{a}b) = |a\Over{b}|^2$
+
+                        Por lo tanto podemos ver a la desigualdad como:
+                        \begin{MultiLineEquation*}{3}
+                            |a|^2 + |b|^2 - 2Re(a\Over{b}) &\leq 1 + |a|^2 + |b|^2 + |a|^2|b|^2     \\
+                            - 2Re(a\Over{b}) &\leq 1 + |a|^2|b|^2                                   \\
+                            0 &\leq 1 + 2Re(a\Over{b}) + |a|^2|b|^2                                 \\
+                            0 &\leq 1 + 2Re(a\Over{b}) + |a\Over{b}|^2                                 
+                        \end{MultiLineEquation*}
+
+                        Con lo anterior queremos decir que $|a-b|^2 \leq (1+|a|^2)(1+|b|^2)$ será verdad
+                        si y solo si $0 \leq 1 + 2Re(a\Over{b}) + |a\Over{b}|^2$.
+
+                        Ahora, sea $z = x + iy = a\Over{b}$, ahora podemos ver que:
+                        \begin{MultiLineEquation*}{3}
+                            0 &\leq 1 + 2Re(z) + |z|^2                  \\
+                            0 &\leq 1 + 2x + (x+iy)(x-iy)               \\
+                            0 &\leq 1 + 2x + x^2 +ixy -ixy + y^2        \\
+                            0 &\leq 1 + 2x + x^2 + y^2                  \\
+                            0 &\leq (x+1)^2 + y^2 
+                        \end{MultiLineEquation*}
+
+                        Ahora probar que $0 \leq (x+1)^2 + y^2$ es equivalente a decir 
+                        que es falso que $0 > (x+1)^2 + y^2$.
+
+                        Y eso ya es muy facil de probar, pues ve que estas sumando dos reales elevados al cuadrado,
+                        por lo tanto cada uno de los terminos de a suma siempre será mayor o igual a cero, por lo tanto
+                        no existe una $x$ tal que $0 > (x+1)^2 + y^2$, por lo tanto es cierto que $0 \leq (x+1)^2 + y^2$,
+                        por lo tanto es cierto que $0 \leq 1 + 2Re(a\Over{b}) + |a\Over{b}|^2$, por lo tanto es cierto
+                        que $|a-b|^2 \leq (1+|a|^2)(1+|b|^2)$.
+
+                    \end{SmallIndentation}
+                    
+
+                \item Sea $a, b \in \Complexs$ y con $a \neq 0$ entonces:
+
+                    $|a+b| = |a|+|b|$ si y solo si $\frac{b}{a} \in \Reals^+$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Sea $a = c + id$ y $b = e + if$ 
+
+                        Ahora, esto es lo mismo que probar que $a = kb$ donde $k \in \Reals^+$
+                        entonces todo se vuelve mas facil, pues por un lado tenemos que:
+                        \begin{MultiLineEquation*}{3}
+                            |a+b|
+                                &= |a+ka|               \\
+                                &= |(1+k)a|             \\
+                                &= (1+k)|a|             \\
+                                &= |a| + k|a|           \\
+                                &= |a| + k|ak|          \\
+                                &= |a| + |b|
+                        \end{MultiLineEquation*}
+
+                        Ahora vamos del otro lado podemos usar una regla de cosenos y ver que:
+                        \begin{MultiLineEquation*}{3}
+                            |a+b|^2 = |a|^2 + |b|^2 - 2|a||b|\Cos{\theta}
+                        \end{MultiLineEquation*}
+                            
+                        Ahora para que $|a||b|\Cos{\theta}$ sea cero tenemos que hacer que:
+                        \begin{itemize}
+                            \item Alguno de los dos sea 0
+                            \item Que su ángulo entre ellos sea 0, es decir que $a = kb$ con $k \in \Reals^+$
+                        \end{itemize}
+
+                    \end{SmallIndentation}
+
+                \clearpage
+
+                \item $|a-b| = |1-\Over{a}b|$ si y solo si $|a|=1$ ó $|b|=1$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Esta asusta mucho, pero veras que linda es :D
+                        \begin{MultiLineEquation*}{3}
+                            |a-b| &= |1-\Over{a}b|                                          \\
+                            (a-b)(\Over{a} - \Over{b}) &= (1-\Over{a}b)(1-\Over{b}a)        \\
+                            a\Over{a} -  a\Over{b} - b\Over{a} + b\Over{b} 
+                                &= 1 - \Over{a}b - \Over{b}a + (a\Over{b})(b\Over{a})       \\
+                            |a| + |b| 
+                                  &= 1 + |ab| - |a| - |b|                                   \\
+                                0 &= 1 + (ab)(\Over{a}\Over{b}) - a\Over{a} - b\Over{b}     \\
+                                0 &= 1 + a(\Over{a}b\Over{b} - \Over{a}) - b\Over{b}        \\
+                                0 &= a(\Over{a}b\Over{b} - \Over{a}) + (1 - b\Over{b})      \\
+                                0 &= a(\Over{a}(b\Over{b} - 1)) + (1 - b\Over{b})           \\
+                                0 &= -a(\Over{a}(1 - b\Over{b}) + (1 - b\Over{b})           \\
+                                0 &= (1 - b\Over{b}) (-a(\Over{a} + 1)                      \\
+                                0 &= (1 - b\Over{b}) (1 - a(\Over{a})                       \\
+                                0 &= (1 - |b|)(1 - |a|)                  
+                        \end{MultiLineEquation*}
+
+                        Ahora como el producto es cero, alguno de ambos tiene que ser cero,
+                        es decir $|a| = 1$ ó $|b| = 1$, el regreso es literal ir de abajo arriba :D
+
+                    \end{SmallIndentation}
+
+
+                \item Si $w \neq 0$ y si $|z+w|=|z-w|$ entonces tenemos que $\frac{iz}{w} \in \Reals$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Ese es fácil:
+                        \begin{MultiLineEquation*}{3}
+                            |z+w|           &= |z-w|                                                            \\
+                            (z+w)(\Over{z} + \Over{w})  &= (z-w)(\Over{z}-\Over{w}                              \\
+                            |z|^2 + |w|^2 + z\Over{w} + w\Over{z} &= |z|^2 + |w|^2 - z\Over{w} - w\Over{z}      \\
+                            z\Over{w} + w\Over{z} &= - z\Over{w} - w\Over{z}                                    \\
+                            2z\Over{w} + 2w\Over{z} &= 0                                                        \\
+                            z\Over{w} &= - \Over{z \Over{w}}
+                        \end{MultiLineEquation*}
+
+                        Ahora $a+bi = - \Over{a + bi}$ si y solo si $a+bi=-a+bi$ es decir solo si $a=-a$, es decir
+                        solo si $a = 0$.
+                        Ahora con esta información podemo ver que $Re(z \Over{w}) = 0$, es decir podemos
+                        ver a $z \Over{w} = ik$ con $k \in \Reals$.
+                        Ahora podemos ver que:
+                        \begin{MultiLineEquation*}{3}
+                            z \Over{w} &= ik                    \\
+                            z \Over{w}w &= ikw                  \\
+                            z |w|^2 &= ikw                      \\
+                            iz |w|^2 &= i^2kw                   \\
+                            \frac{iz}{w} &= \frac{-k}{|w|^2}
+                        \end{MultiLineEquation*}
+
+                        Ahora $k, |w|^2$ son reales, por lo tanto $\frac{iz}{w} \in \Reals$
+
+                    \end{SmallIndentation}
+
+                \clearpage
+
+
+                \item $a, b, c$ son colineales si y solo si $\frac{c-a}{c-b} \in \Reals$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Si en un plano complejo $a$ está representado por el punto A, $b$ por B y
+                        $c$ por C, entonces $c-a$ representa el vector AC, y $c-b$ representa
+                        el vector AB.
+
+                        Por lo tanto, estos puntos A, B, C son colineales si AC y AB son paralelos, ya
+                        que tienen un punto A en común.
+
+                        Por lo tanto $AC  = k(AB)$, por lo tanto $c-a = k (c-b)$, por lo tanto
+                        tenemos que $k = \frac{c-a}{c-b}$
+
+                        Aquí $k$ se toma real porque cuando multiplicamos por un complejo es parte real
+                        da la escala y la parte imaginaria lo gira.
+
+                        Aquí, necesitamos que los vectores sean paralelos, por lo que omitimos la rotación
+                        y $k$ tiene que ser real solamente.
+
+                    \end{SmallIndentation}
+
+                \item $a, b, c$ son colineales si y solo si $c\Over{b} -c\Over{a} -a\Over{b} \in \Reals$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Piensa en el vector AC y AB, como siguen compartiendo un punto tiene que cumplise
+                        que $(c-a) = k_2(b-a)$, por lo tanto podemos decir que:
+                        \begin{MultiLineEquation*}{3}
+                            \frac{c - a}{b-a} &= k_2                                            \\
+                            \frac{c - a}{b-a}(b-a)(\Over{b}-\Over{a}) &= k_2 |b-a|^2            \\
+                            (c - a)(\Over{b} - \Over{a}) &= k_1                                 \\
+                            c\Over{b} -c\Over{a} -a\Over{b} + |a|^2 &= k_1                      \\ 
+                            c\Over{b} -c\Over{a} -a\Over{b}  &= k_1 - |a|^2                     \\ 
+                            c\Over{b} -c\Over{a} -a\Over{b} &= k
+                        \end{MultiLineEquation*}
+
+                        Donde es más que obvio que $k_2, k_1, k \in \Reals$ 
+                            
+
+                    \end{SmallIndentation}
+
+                \clearpage
+
+
+                \item 
+                    $a, b, c$ son colineales si y solo si 
+                    $\lVector{1 & a & \Over{a} \\ 1 & b & \Over{b} \\ 1 & c & \Over{c}} = 0$
+
+                    % ======== DEMOSTRACION ========
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Antes que nada, pasemos del determinante a lo que de verdad queremos llegar 
+                        y esto es: $1(b\Over{c} - \Over{b}c) - a(\Over{c} - \Over{b}) + \Over{a}(c - b) = 0$.
+                        Ahora tenemos que:
+                        \begin{MultiLineEquation*}{3}
+                            1(b\Over{c} - \Over{b}c) - a(\Over{c} - \Over{b}) + \Over{a}(c - b) &= 0    \\
+                            b\Over{c} - \Over{b}c - a\Over{c} + a\Over{b} + c\Over{a} - b\Over{a} &= 0  \\
+                            (b\Over{c} - \Over{b}c) - a\Over{c} + a\Over{b} + c\Over{a} - b\Over{a} &= 0  \\
+                            2iIm(b\Over{c}) +2iIm(a\Over{b}) + 2iIm(\Over{a}c) &= 0  \\
+                            Im((a\Over{b}) + (b\Over{c}) + (\Over{a}c) &= 0  \\
+                        \end{MultiLineEquation*}
+
+                        Ahora, esto es lo mismo que decir que $(a\Over{b}) + (b\Over{c}) + (\Over{a}c)$ es un
+                        número real.
+
+                        Ahora si, vamos a demostrar que eso pasa si y solo si son colineales:
+
+                        Ahora, piensa en que son colineales si y solo si $t(a-c)=a-b$, por lo tanto
+                        $t = \frac{a-b}{a-c}$, ahora también podemos decir ya que $|a-c|^2 = (a-c)(\Over{a}-\Over{c})$
+                        tenemos que $t|a-c|^2 = (a-b)(\Over{a}-\Over{c})$.
+
+                        Donde podemos ver que:
+                        \begin{MultiLineEquation*}{3}
+                            (a-b)(\Over{a}-\Over{c}) &\in \Reals                                        \\
+                            |a|^2 -a\Over{c} -b\Over{a} + b\Over{c} &\in \Reals                         \\
+                            -a\Over{c} -b\Over{a} + b\Over{c} &\in \Reals                               \\
+                            -a\Over{c} -b\Over{a} + b\Over{c} &\in \Reals                               \\
+                            -\Over{a}c -\Over{b}a + \Over{b}c &\in \Reals                               \\
+                            -\Over{a}c -\Over{b}a + \Over{b}c + b\Over{c} - b\Over{c}  &\in \Reals      \\
+                            -\Over{a}c -\Over{b}a + 2Re(\Over{b}c) - b\Over{c}  &\in \Reals             \\
+                            -\Over{a}c -\Over{b}a - b\Over{c}  &\in \Reals                              \\
+                            \Over{a}c + \Over{b}a + b\Over{c}  &\in \Reals                              \\
+                            a\Over{b} + b\Over{c} + c\Over{a}  &\in \Reals
+                        \end{MultiLineEquation*}
+
+                        Y bingo, llegamos justo a lo que queriamos
+
+                        Quiza no quede lo más claro posible, pero la idea fue encontrar una proposición equivalente
+                        a encontrar que el determinante fuera 0, esta fue $(a\Over{b}) + (b\Over{c}) + (\Over{a}c)$
+                        es un número real.
+
+                        Y al final vimos que eso se cumple si y solo si son colineales.
+
+                    \end{SmallIndentation}
+
+            \end{itemize}
 
 
 
@@ -1615,7 +1939,7 @@
                 
             % ======== DEMOSTRACION ========
             \begin{SmallIndentation}[1em]
-              
+                \textbf{Demostración}:
                 \begin{MultiLineEquation*}{3}
                     \sum_{k=0}^{n} \Cos{k\theta} 
                         &= \dfrac{1}{2} \sum_{k=0}^{n}\Wrap{e^{ik\theta}+e^{-ik\theta}}
@@ -1792,12 +2116,79 @@
                     \end{SmallIndentation}
 
 
+            % ==============================================
+            % ======   PROPIEDADES INTERESANTES       ======
+            % ==============================================
+            \clearpage
+            \subsection{Propiedades Interesantes}
+
+                \begin{itemize}
+                    
+                    \item 
+                        Si $w \neq 0$ es un raíz n-ésima de la unidad tenemos que:
+                        $1 + w + w^2 + \dots + w^{n-1} = 0$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+
+                            Esta sale rapido si sabes la geometrica, creo que no hay necesidad de demostrar la
+                            geometrica en este momento, usando su resultado tenemos que:
+                            \begin{MultiLineEquation*}{3}
+                                1 +x+x^2+\dots+x^{n-1} = \frac{x^n-1}{x-1} 
+                            \end{MultiLineEquation*}
+
+                            Ahora, la suma que tenemos es un calco a la anterior y podemos decir que:
+                            \begin{MultiLineEquation*}{3}
+                                1 + w + w^2 + \dots + w^{n-1} 
+                                    &= \frac{1 - w^n}{1 - w}
+                                    &= \frac{1-1}{1-w}
+                                    &= \frac{0}{1-w}
+                                    &= 0
+                            \end{MultiLineEquation*}
+                            
+                            Ahora, este resultado es válido siempre que $1-w \neq 0$, es decir siempre que
+                            $w \neq 0$.
+
+                        \end{SmallIndentation}
+
+                    \item 
+                        Si $w \neq 0$ es un raíz n-ésima de la unidad tenemos que:\\
+                        $1 + 2w + 3w^2 + \dots + nw^{n-1} = 0$
+
+                        % ======== DEMOSTRACION ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+
+                            Esta es una suma bastante sencilla, vamos a demostrarla porque no es tan famosa como
+                            la geometrica, pero igual solo se hace por completez.
+
+                            Sea $S = 1 + 2w + 3w^2 + \dots + nw^{n-1}$, entonces podemos hablar de 
+                            $wS = w + 2w^2 + 3w^3 + \dots + nw^n$.
+
+                            Por lo tanto su resta nos da que 
+                            $S-wS = S(1-w) = 1+w+w^2+w^3+\dots+w{n-1}-nw^n$
+
+                            Esto nos recuerda demasido a la geometrica, por lo tanto tenemos que esto es igual a:
+                            $S(1-w) = \frac{1-w^n}{1-w} - nw^n$
+
+                            Por lo tanto nuestra respuesta es:
+                            $S = \frac{1-w^n}{(1-w)^2} - \frac{nw^n}{1-w}$
+
+                            Ahora, si, aplicando que es una raíz de unidad y que no es uno tenemos que:
+                            $S = \frac{0}{(1-w)^2} - \frac{n}{1-w}$.
+
+                            Por lo tanto llegamos a nuestra respuesta $S = - \frac{n}{1-w}$
+
+                        \end{SmallIndentation}
+                  
+                \end{itemize}
+
 
 
             % ==============================================
             % ======   TEOREMA FUNDAMENTAL ALGEBRA    ======
             % ==============================================
-            \clearpage
             \subsection{Teorema Fundamental del Álgebra}
 
                 \begin{Theorem}{Teorema Fundamental del Álgebra}
