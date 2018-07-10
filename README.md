@@ -71,7 +71,7 @@ En este libro podrás aprender sobre los siguientes temas:
 	- Teorema de la Escalamiento
 	- Teorema de la Modulación
 	- Transformada Inversa
-	- Convulución
+	- Convolución
 	- Ecuaciones Diferenciales
 
 <br><br>
