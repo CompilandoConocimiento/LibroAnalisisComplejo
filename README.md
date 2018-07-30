@@ -43,7 +43,7 @@ acaba de empezar.
 
 <br />
 
-[![DownloadButton](Graphics/BookShow.png)](https://CompilandoConocimiento.github.io/LibroAnalisisComplejo/LibroAnalisisComplejo)
+[![DownloadButton](Graphics/BookShow.png)](https://CompilandoConocimiento.github.io/LibroAnalisisComplejo/LibroAnalisisComplejo.pdf)
 
 ## Contenidos
 
@@ -120,7 +120,7 @@ En este libro podrás aprender sobre los siguientes temas:
 
 ### Ver el Documento en Línea o Descargarlo
 
-[![DownloadButton](Graphics/DownloadButton.png)](https://compilandoconocimiento.github.io/LibroAnalisisComplejo/LibroAnalisisComplejo)
+[![DownloadButton](Graphics/DownloadButton.png)](https://compilandoconocimiento.github.io/LibroAnalisisComplejo/LibroAnalisisComplejo.pdf)
 
 Puedes descargar ambos archivos para tu disfrute o modificar del código fuente siguiendo las ideas del software libre.
 
