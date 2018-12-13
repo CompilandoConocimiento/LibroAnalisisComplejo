@@ -2303,13 +2303,15 @@
                 \end{Theorem}
 
                     Suponiendo a $z = (r, \theta)$ entonces las podemos encontrar tan fácil como:
-                    \begin{equation}
-                        w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
-                        \MiniSpace k = 0, 1, 2, \dots, n-1
-                    \end{equation}
+                    \begin{MultiLineEquation*}{3}
+                        w_k 
+                            &= \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
+                                \MiniSpace k = 0, 1, 2, \dots, n-1                  \\
+                            &= \sqrt[n]{r} \; e^{i\Wrap{\frac{\theta + (2\pi) k}{n}}}
+                    \end{MultiLineEquation*}
 
                     % ======== DEMOSTRACION ========s
-                    \begin{SmallIndentation}[1.5em]
+                    \begin{SmallIndentation}[1em]
                         \textbf{Demostración}:
                         
                         Tengamos dos números: $z = r\bCis{\theta}$ y $w = p\bCis{\phi}$
@@ -2321,39 +2323,76 @@
                         \end{MultiLineEquation*}
 
                         De esta ecuación tenemos que:
-                        \begin{itemize}
-                            \item $p^n = r$\\
-                                
-                                Por lo tanto podemos definir a $p = \sqrt{r}$ donde $\sqrt{r}$
-                                es la raíz enesíma del módulo de dicho número.
-
-                            \item $\pCis{\theta}^n = \Cis{\phi}$\\
-
-                                Gracias a $\Cis{n \theta} = \Cis{\phi}$
-                                Por lo tanto podemos decir que:
-                                \begin{itemize}
-                                    \item $\Cos{n \theta} = \Cos{\phi}$
-                                    \item $\Sin{n \theta} = \Sin{\phi}$
-                                \end{itemize}
-
-                                Y gracias a que ambas funciones son periodicas cada $2\pi$, por lo tanto:
-                                \begin{itemize}
-                                    \item $\Sin{\phi} = \Sin{\dfrac{\theta + (2\pi) k}{n}}$
-                                    \item $\Cos{\phi} = \Cos{\dfrac{\theta + (2\pi) k}{n}}$
-                                \end{itemize}
-
-                        \end{itemize}
 
 
-                        Y finalmente podemos generalizar los resultados como:
-                        \begin{equation*}
-                            w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
-                        \end{equation*}
+                        \begin{multicols}{2}
+                            \begin{itemize}
+                                \item $p^n = r$
+                                    
+                                    Por lo tanto podemos definir a $p = \sqrt{r}$ donde $\sqrt{r}$
+                                    es la raíz enesíma del módulo de dicho número.
 
+                                \item $\pCis{\theta}^n = \Cis{\phi}$
+
+                                    Para resolver esto usaremos la forma de Euler, porque son
+                                    periodicas las sinosuidales:
+                                    $e^{i(\theta)} = e^{i(\theta + (2\pi)k )}$
+
+                                    Ahora lo que queremos encontrar ahorita es:
+                                    $e^{i(\theta) * \frac{1}{n}} = e^{i \pfrac{\theta + (2\pi)k}{n}}$
+
+                                    Y ya encontramos lo que queriamos:
+                                    \begin{itemize}
+                                        \item $\Sin{\phi} = \Sin{\dfrac{\theta + (2\pi) k}{n}}$
+                                        \item $\Cos{\phi} = \Cos{\dfrac{\theta + (2\pi) k}{n}}$
+                                    \end{itemize}
+
+                            \end{itemize}
+
+                            Y finalmente podemos generalizar los resultados como:
+                            \begin{equation*}
+                                w_k = \sqrt[n]{r} \bCis{\dfrac{\theta + (2\pi) k}{n}}
+                            \end{equation*}
+
+                        \end{multicols}
 
                     \end{SmallIndentation}
 
+            % ==============================================
+            % ======        RAICES DE LA UNIDAD       ======
+            % ==============================================
+            \clearpage
+            \subsection{Raices de la Unidad}
 
+                Un caso especial de sacar raíces es cuando sacamos la enesíma raíz de la unidad, es decir:
+                \begin{MultiLineEquation*}{3}
+                    z^n = 1
+                \end{MultiLineEquation*}
+
+                Ahora, tendremos $n$ números complejos que cumplan lo que queramos, los vamos a definir como
+                $z_0, z_1, \dots, z_n$.
+                
+                Ahora con el formulazo que ya vimos podemos sacarlas todas:
+                \begin{MultiLineEquation*}{3}
+                    z_k := \bCis{\dfrac{2\pi k}{n}}
+                \end{MultiLineEquation*}
+                
+
+                Ahora, definimos también a la raíz principal como:
+                \begin{MultiLineEquation*}{3}
+                    w := e^{i \pfrac{2\pi}{n} }
+                \end{MultiLineEquation*}
+                
+
+                Y para encontrar las demás raíces basta con hacer:
+                \begin{MultiLineEquation*}{3}
+                    z_k 
+                        &=  e^{i \pfrac{2\pi k}{n} }    \\
+                        &= w^k   
+                \end{MultiLineEquation*}
+                                    
+
+                
             % ==============================================
             % ======   PROPIEDADES INTERESANTES       ======
             % ==============================================
@@ -2427,6 +2466,7 @@
             % ==============================================
             % ======   TEOREMA FUNDAMENTAL ALGEBRA    ======
             % ==============================================
+            \clearpage
             \subsection{Teorema Fundamental del Álgebra}
 
                 \begin{Theorem}{Teorema Fundamental del Álgebra}
