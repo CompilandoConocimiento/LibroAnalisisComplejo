@@ -1,0 +1,176 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {0.1}\IeC {\textquestiondown }Qu\IeC {\'e} es lo que estoy leyendo?}{7}{section.0.1}% 
+\contentsline {part}{I\hspace {1em}N\IeC {\'u}meros Complejos}{8}{part.1}% 
+\contentsline {chapter}{\numberline {1}Cosas que Debes Recordar}{9}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Heaviside: Tips para Fracciones Parciales}{10}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Ejemplos}{11}{subsection.1.1.1}% 
+\contentsline {subsubsection}{Ejemplo 1}{11}{section*.2}% 
+\contentsline {subsubsection}{Ejemplo 2}{12}{section*.3}% 
+\contentsline {section}{\numberline {1.2}Funciones Trigonometricos}{13}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Evaluaci\IeC {\'o}n R\IeC {\'a}pida}{13}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Identidades Importantes}{13}{subsection.1.2.2}% 
+\contentsline {chapter}{\numberline {2}Definiciones}{14}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Definici\IeC {\'o}n de N\IeC {\'u}meros Complejos}{15}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Definiciones Utiles}{15}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Repeticiones de $i$}{15}{section.2.3}% 
+\contentsline {chapter}{\numberline {3}Aritm\IeC {\'e}tica Compleja}{16}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Operaciones B\IeC {\'a}sicas}{17}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Elemento Identidad}{18}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Inverso Multiplicativo}{18}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Campo de los Complejos}{19}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}Conjugados}{20}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.5.1}Coordenadas Conjugadas}{22}{subsection.3.5.1}% 
+\contentsline {section}{\numberline {3.6}M\IeC {\'o}dulo o Valor Absoluto}{23}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}Producto Punto y Cruz}{27}{section.3.7}% 
+\contentsline {subsection}{\numberline {3.7.1}Producto Punto}{27}{subsection.3.7.1}% 
+\contentsline {subsection}{\numberline {3.7.2}Producto Cruz}{27}{subsection.3.7.2}% 
+\contentsline {section}{\numberline {3.8}Problemas Varios}{28}{section.3.8}% 
+\contentsline {chapter}{\numberline {4}Forma Polar y Argumentos}{33}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Forma Polar}{34}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}De forma Polar a forma Rectangular}{34}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.2}De forma Rectangular a forma Polar}{34}{subsection.4.1.2}% 
+\contentsline {section}{\numberline {4.2}Argumento de $z$}{35}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Leyes de Aritmetica}{36}{section.4.3}% 
+\contentsline {chapter}{\numberline {5}Forma de Euler y Ra\IeC {\'\i }ces}{38}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Forma de Euler}{39}{section.5.1}% 
+\contentsline {subsection}{\numberline {5.1.1}$e^z$}{39}{subsection.5.1.1}% 
+\contentsline {subsection}{\numberline {5.1.2}Propiedades}{40}{subsection.5.1.2}% 
+\contentsline {section}{\numberline {5.2}Identidad de Lagrange}{41}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Ley de Moivre's}{42}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}n-Ra\IeC {\'\i }ces de un Numero Complejo}{43}{section.5.4}% 
+\contentsline {subsection}{\numberline {5.4.1}Encontrar las Ra\IeC {\'\i }ces de un N\IeC {\'u}mero Complejo}{43}{subsection.5.4.1}% 
+\contentsline {subsection}{\numberline {5.4.2}Raices de la Unidad}{44}{subsection.5.4.2}% 
+\contentsline {subsection}{\numberline {5.4.3}Propiedades Interesantes}{45}{subsection.5.4.3}% 
+\contentsline {subsection}{\numberline {5.4.4}Teorema Fundamental del \IeC {\'A}lgebra}{46}{subsection.5.4.4}% 
+\contentsline {part}{II\hspace {1em}Funciones y C\IeC {\'a}lculo Complejo}{47}{part.2}% 
+\contentsline {chapter}{\numberline {6}Funciones Complejas}{48}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Funciones en General}{49}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Funciones Hiperbolicas $cosh(x)$ y $senh(x)$}{50}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Trigonometricas Complejas: $cos(z)$ y $sin(z)$}{51}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Funciones $e^z$ y $Ln(z)$}{52}{section.6.4}% 
+\contentsline {section}{\numberline {6.5}$z_1^{z_2}$}{52}{section.6.5}% 
+\contentsline {chapter}{\numberline {7}L\IeC {\'\i }mites}{53}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}L\IeC {\'\i }mites en C\IeC {\'a}lculo Real}{54}{section.7.1}% 
+\contentsline {subsection}{\numberline {7.1.1}Definici\IeC {\'o}n Formal}{54}{subsection.7.1.1}% 
+\contentsline {chapter}{\numberline {8}Derivaci\IeC {\'o}n}{55}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Funciones Anal\IeC {\'\i }ticas}{56}{section.8.1}% 
+\contentsline {section}{\numberline {8.2}Continuidad}{56}{section.8.2}% 
+\contentsline {section}{\numberline {8.3}Definici\IeC {\'o}n Formal}{56}{section.8.3}% 
+\contentsline {section}{\numberline {8.4}Ecuaciones de Cauchy - Riemann en Rectangular}{57}{section.8.4}% 
+\contentsline {section}{\numberline {8.5}Ecuaciones de Cauchy - Riemann en Forma Polar}{58}{section.8.5}% 
+\contentsline {subsection}{\numberline {8.5.1}Demostraci\IeC {\'o}n usando Rectangular}{58}{subsection.8.5.1}% 
+\contentsline {subsubsection}{Demostraci\IeC {\'o}n}{59}{section*.5}% 
+\contentsline {subsection}{\numberline {8.5.2}Comprobaci\IeC {\'o}n usando Rectangular}{61}{subsection.8.5.2}% 
+\contentsline {section}{\numberline {8.6}Funciones Anal\IeC {\'\i }ticas y Cauchy - Riemann}{63}{section.8.6}% 
+\contentsline {section}{\numberline {8.7}Funciones Armonicas y Ecuaciones de Laplace}{63}{section.8.7}% 
+\contentsline {chapter}{\numberline {9}Integraci\IeC {\'o}n}{64}{chapter.9}% 
+\contentsline {section}{\numberline {9.1}Integrales Complejas}{65}{section.9.1}% 
+\contentsline {subsection}{\numberline {9.1.1}Calcular un Integral Compleja sobre $C$}{66}{subsection.9.1.1}% 
+\contentsline {subsection}{\numberline {9.1.2}Parametrizaci\IeC {\'o}n}{67}{subsection.9.1.2}% 
+\contentsline {section}{\numberline {9.2}Integrales Bonitas: Antiderivadas}{67}{section.9.2}% 
+\contentsline {section}{\numberline {9.3}Teorema de la Deformaci\IeC {\'o}n}{67}{section.9.3}% 
+\contentsline {section}{\numberline {9.4}Teorema de Cauchy-Goursat}{68}{section.9.4}% 
+\contentsline {section}{\numberline {9.5}Teorema de la Integral de Cauchy}{69}{section.9.5}% 
+\contentsline {subsection}{\numberline {9.5.1}Teorema de Integral vs Formula de la Integral}{69}{subsection.9.5.1}% 
+\contentsline {subsection}{\numberline {9.5.2}Ejemplos}{70}{subsection.9.5.2}% 
+\contentsline {section}{\numberline {9.6}Teorema de Cauchy de Derivaci\IeC {\'o}n de Orden Superior}{71}{section.9.6}% 
+\contentsline {subsection}{\numberline {9.6.1}Ejemplos}{71}{subsection.9.6.1}% 
+\contentsline {part}{III\hspace {1em}Series Complejas y Residuos}{74}{part.3}% 
+\contentsline {chapter}{\numberline {10}Series Complejas}{75}{chapter.10}% 
+\contentsline {section}{\numberline {10.1}Serie Geom\IeC {\'e}trica}{76}{section.10.1}% 
+\contentsline {section}{\numberline {10.2}Series de Potencias}{77}{section.10.2}% 
+\contentsline {section}{\numberline {10.3}Series de Taylor}{78}{section.10.3}% 
+\contentsline {subsection}{\numberline {10.3.1}Series de Taylor Famosas}{79}{subsection.10.3.1}% 
+\contentsline {section}{\numberline {10.4}Series de Maclaurin}{79}{section.10.4}% 
+\contentsline {section}{\numberline {10.5}Series de Laurent}{80}{section.10.5}% 
+\contentsline {subsection}{\numberline {10.5.1}Coeficientes de la Serie de Laurent}{81}{subsection.10.5.1}% 
+\contentsline {subsection}{\numberline {10.5.2}Ejemplos}{82}{subsection.10.5.2}% 
+\contentsline {subsubsection}{Ejemplo 1}{82}{section*.8}% 
+\contentsline {subsubsection}{Ejemplo 2}{82}{section*.9}% 
+\contentsline {subsection}{\numberline {10.5.3}Polos y Singularidades Aisladas}{84}{subsection.10.5.3}% 
+\contentsline {chapter}{\numberline {11}Residuos}{85}{chapter.11}% 
+\contentsline {section}{\numberline {11.1}Definici\IeC {\'o}n}{86}{section.11.1}% 
+\contentsline {section}{\numberline {11.2}Encontrar Residuos}{87}{section.11.2}% 
+\contentsline {section}{\numberline {11.3}Ejemplos sobre Encontrar Residuo}{88}{section.11.3}% 
+\contentsline {subsubsection}{Ejemplo 1}{88}{section*.10}% 
+\contentsline {section}{\numberline {11.4}Teorema de Residuo de Cauchy}{89}{section.11.4}% 
+\contentsline {section}{\numberline {11.5}Usar Teorema del Residuo para: $\DOTSI \intop \ilimits@ _0^{2\pi } F(\qopname \relax o{cos}\left ( \theta \right ), \qopname \relax o{sin}\left ( \theta \right )) \tmspace +\thickmuskip {.2777em} d\theta $}{90}{section.11.5}% 
+\contentsline {subsection}{\numberline {11.5.1}Ejemplo}{91}{subsection.11.5.1}% 
+\contentsline {section}{\numberline {11.6}Valor Principal de Cauchy}{92}{section.11.6}% 
+\contentsline {section}{\numberline {11.7}Usar Teorema del Residuo para: $\DOTSI \intop \ilimits@ _{-\infty }^\infty f(x) dx$}{93}{section.11.7}% 
+\contentsline {subsection}{\numberline {11.7.1}Ejemplo}{94}{subsection.11.7.1}% 
+\contentsline {section}{\numberline {11.8}Usar Teorema del Residuo para: $\DOTSI \intop \ilimits@ _{-\infty }^\infty Trig(\alpha x) dx$}{95}{section.11.8}% 
+\contentsline {subsection}{\numberline {11.8.1}Ejemplo}{96}{subsection.11.8.1}% 
+\contentsline {section}{\numberline {11.9}Recordatorio de las Integrales de Contorno}{97}{section.11.9}% 
+\contentsline {part}{IV\hspace {1em}Serie y Transformada de Fourier}{98}{part.4}% 
+\contentsline {chapter}{\numberline {12}Serie de Fourier}{99}{chapter.12}% 
+\contentsline {section}{\numberline {12.1}Cosas a Recordar}{100}{section.12.1}% 
+\contentsline {section}{\numberline {12.2}Teorema de Fourier}{101}{section.12.2}% 
+\contentsline {section}{\numberline {12.3}Base de la Serie de Fourier}{102}{section.12.3}% 
+\contentsline {subsubsection}{Base de un Espacio Vectorial}{102}{section*.14}% 
+\contentsline {subsubsection}{Ortogonalidad}{102}{section*.15}% 
+\contentsline {subsubsection}{Ortonormal}{102}{section*.16}% 
+\contentsline {section}{\numberline {12.4}Coeficientes de Fourier}{107}{section.12.4}% 
+\contentsline {subsection}{\numberline {12.4.1}Encontrar a alguna en general}{107}{subsection.12.4.1}% 
+\contentsline {subsection}{\numberline {12.4.2}Encontrar a $a_0$}{108}{subsection.12.4.2}% 
+\contentsline {subsection}{\numberline {12.4.3}Encontrar a $a_n$}{109}{subsection.12.4.3}% 
+\contentsline {subsection}{\numberline {12.4.4}Encontrar a $b_n$}{110}{subsection.12.4.4}% 
+\contentsline {section}{\numberline {12.5}Tips para Encontrar los Coeficientes}{111}{section.12.5}% 
+\contentsline {subsection}{\numberline {12.5.1}Encontrar a $a_0$}{111}{subsection.12.5.1}% 
+\contentsline {subsection}{\numberline {12.5.2}Encontrar a $a_n$}{112}{subsection.12.5.2}% 
+\contentsline {subsection}{\numberline {12.5.3}Encontrar a $b_n$}{112}{subsection.12.5.3}% 
+\contentsline {section}{\numberline {12.6}Serie Compleja de Fourier}{113}{section.12.6}% 
+\contentsline {section}{\numberline {12.7}Aplicaciones - Problemas de Frontera}{114}{section.12.7}% 
+\contentsline {subsection}{\numberline {12.7.1}Ecuaci\IeC {\'o}n de Onda en una Dimensi\IeC {\'o}n}{114}{subsection.12.7.1}% 
+\contentsline {chapter}{\numberline {13}Transformada de Fourier}{117}{chapter.13}% 
+\contentsline {section}{\numberline {13.1}Funciones Especiales}{118}{section.13.1}% 
+\contentsline {subsection}{\numberline {13.1.1}Funci\IeC {\'o}n Heaviside - Escal\IeC {\'o}n Unitario}{118}{subsection.13.1.1}% 
+\contentsline {subsection}{\numberline {13.1.2}Funci\IeC {\'o}n Delta de Dirac}{118}{subsection.13.1.2}% 
+\contentsline {section}{\numberline {13.2}Definici\IeC {\'o}n}{119}{section.13.2}% 
+\contentsline {subsection}{\numberline {13.2.1}Propiedades}{119}{subsection.13.2.1}% 
+\contentsline {section}{\numberline {13.3}Transformada y la Integral Compleja de Fourier}{120}{section.13.3}% 
+\contentsline {section}{\numberline {13.4}Transformadas por Definici\IeC {\'o}n}{121}{section.13.4}% 
+\contentsline {subsection}{\numberline {13.4.1}$\mathscr {F} \left \{ e^{-\alpha t} \right \} $}{121}{subsection.13.4.1}% 
+\contentsline {subsection}{\numberline {13.4.2}$\mathscr {F} \left \{ k \right \} $}{121}{subsection.13.4.2}% 
+\contentsline {subsection}{\numberline {13.4.3}$\mathscr {F} \left \{ \delta (t) \right \} $}{122}{subsection.13.4.3}% 
+\contentsline {section}{\numberline {13.5}Teoremas de la Derivadas}{123}{section.13.5}% 
+\contentsline {subsection}{\numberline {13.5.1}Derivada con Respecto a la Frecuencia}{123}{subsection.13.5.1}% 
+\contentsline {subsection}{\numberline {13.5.2}Derivada con Respecto al Tiempo}{123}{subsection.13.5.2}% 
+\contentsline {section}{\numberline {13.6}Desplazamientos}{124}{section.13.6}% 
+\contentsline {subsection}{\numberline {13.6.1}Desplazamiento en Tiempo}{124}{subsection.13.6.1}% 
+\contentsline {subsection}{\numberline {13.6.2}Ejemplos de Desplamiento de Tiempo}{125}{subsection.13.6.2}% 
+\contentsline {subsubsection}{Ejemplo 1}{125}{section*.17}% 
+\contentsline {subsubsection}{Ejemplo 2}{125}{section*.18}% 
+\contentsline {subsubsection}{Ejemplo 3}{126}{section*.19}% 
+\contentsline {subsubsection}{Ejemplo 4}{126}{section*.20}% 
+\contentsline {subsection}{\numberline {13.6.3}Desplazamiento en Frecuencia}{127}{subsection.13.6.3}% 
+\contentsline {section}{\numberline {13.7}Gran Teorema de la Simetr\IeC {\'\i }a}{128}{section.13.7}% 
+\contentsline {subsection}{\numberline {13.7.1}Consecuencia: $\mathscr {F} \left \{ 1 \right \} $}{128}{subsection.13.7.1}% 
+\contentsline {section}{\numberline {13.8}Teorema del Escalamiento}{129}{section.13.8}% 
+\contentsline {subsection}{\numberline {13.8.1}Consecuencia: Inverte el Tiempo $\mathscr {F} \left \{ f(-t) \right \} $}{129}{subsection.13.8.1}% 
+\contentsline {subsection}{\numberline {13.8.2}Consecuencia: Una Cl\IeC {\'a}sica $\mathscr {F} \left \{ e^{-a|t|} \right \} $}{130}{subsection.13.8.2}% 
+\contentsline {section}{\numberline {13.9}Teoremas de la Modulaci\IeC {\'o}n}{131}{section.13.9}% 
+\contentsline {subsection}{\numberline {13.9.1}$\mathscr {F} \left \{ f(t) \tmspace +\thickmuskip {.2777em} \qopname \relax o{cos}\left ( w_0t \right ) \right \} $}{131}{subsection.13.9.1}% 
+\contentsline {subsection}{\numberline {13.9.2}$\mathscr {F} \left \{ \qopname \relax o{cos}\left ( w_0t \right ) \right \} $}{131}{subsection.13.9.2}% 
+\contentsline {subsection}{\numberline {13.9.3}$\mathscr {F} \left \{ f(t) \tmspace +\thickmuskip {.2777em} \qopname \relax o{sin}\left ( w_0t \right ) \right \} $}{132}{subsection.13.9.3}% 
+\contentsline {subsection}{\numberline {13.9.4}$\mathscr {F} \left \{ \qopname \relax o{sin}\left ( w_0t \right ) \right \} $}{132}{subsection.13.9.4}% 
+\contentsline {subsection}{\numberline {13.9.5}Ejemplos}{133}{subsection.13.9.5}% 
+\contentsline {subsubsection}{Ejemplo 1}{133}{section*.21}% 
+\contentsline {subsubsection}{Ejemplo 2}{133}{section*.22}% 
+\contentsline {section}{\numberline {13.10}Transformada Inversa}{134}{section.13.10}% 
+\contentsline {subsection}{\numberline {13.10.1}Ejemplos de la Inversa}{135}{subsection.13.10.1}% 
+\contentsline {subsubsection}{Ejemplo 2}{135}{section*.24}% 
+\contentsline {section}{\numberline {13.11}Convoluci\IeC {\'o}n}{136}{section.13.11}% 
+\contentsline {subsection}{\numberline {13.11.1}Propiedades}{136}{subsection.13.11.1}% 
+\contentsline {subsection}{\numberline {13.11.2}Ejemplos usando Convoluci\IeC {\'o}n para la Inversa}{137}{subsection.13.11.2}% 
+\contentsline {subsubsection}{Ejemplo 1}{137}{section*.25}% 
+\contentsline {subsubsection}{Ejemplo 2}{137}{section*.26}% 
+\contentsline {subsubsection}{Ejemplo 3}{138}{section*.27}% 
+\contentsline {subsubsection}{Ejemplo 4}{139}{section*.28}% 
+\contentsline {section}{\numberline {13.12}Sol. Ecuaciones Diferenciales}{140}{section.13.12}% 
+\contentsline {subsection}{\numberline {13.12.1}Ejemplo 1}{140}{subsection.13.12.1}% 
+\contentsline {subsection}{\numberline {13.12.2}Ejemplo 2}{143}{subsection.13.12.2}% 
+\contentsline {subsection}{\numberline {13.12.3}Ejemplo 3}{146}{subsection.13.12.3}% 
+\contentsline {section}{\numberline {13.13}Transformario de Fourier}{148}{section.13.13}% 
+\contentsline {part}{V\hspace {1em}Se\IeC {\~n}ales y sistemas de comunicaci\IeC {\'o}n}{152}{part.5}% 
+\contentsline {chapter}{\numberline {14}Serie de Fourier}{153}{chapter.14}% 

@@ -4750,8 +4750,8 @@
             \Cos{n \omega t}, \Sin{\omega t}, \Sin{2 \omega t}, \dots, \Sin{n \omega t}}$
             Es una base ortogonal:
             \begin{itemize}
-                \item
-                    ${\displaystyle
+                \item 
+                ${\displaystyle
                     \int_d^{d+T} \Cos{n \omega t} dt = 
                     \begin{cases}
                         0 &\Space n \neq 0  \\
@@ -4759,34 +4759,181 @@
                     \end{cases}
                     }$
 
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Si $n = 0$ entonces:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Cos{n \omega t} dt 
+                                = \int_d^{d+T} \Cos{0} dt      
+                                = \int_d^{d+T} 1 dt            
+                                = t \Evaluate_d^{d+T} dt       
+                                = (d + T) - d   
+                                = T   
+                        \end{MultiLineEquation*}
+
+                        Sino:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Cos{n \omega t} dt 
+                                &= \frac{1}{n \omega} \Wrap{\Evaluate_d^{T+d} \Sin{n \omega t}  dt}             \\
+                                &= \frac{1}{n \omega} \Wrap{\Sin{n \omega (T + d)}  - \Sin{n \omega d}}       \\
+                                &= \frac{1}{n \omega} \Wrap{\Sin{2n\pi + n \omega d)}  - \Sin{n \omega d}}    \\
+                                &= \frac{1}{n \omega} \Wrap{\Sin{n \omega d)}  - \Sin{n \omega d}}            \\
+                                &= \frac{1}{n \omega}  0                                                        \\
+                                &= 0
+                        \end{MultiLineEquation*}
+                    \end{SmallIndentation}
+
                 \item
                     ${\displaystyle
                     \int_d^{d+T} \Sin{n \omega t} dt = 0
                     }$
 
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Si $n = 0$ entonces:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Sin{n \omega t} dt 
+                                = \int_d^{d+T} \Sin{0} dt      
+                                = \int_d^{d+T} 0 dt            
+                                = 0 
+                        \end{MultiLineEquation*}
+
+                        Sino:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Sin{n \omega t} dt 
+                            &= \frac{-1}{n \omega} \Wrap{\Evaluate_d^{T+d} \Cos{n \omega t}  dt}             \\
+                            &= \frac{-1}{n \omega} \Wrap{\Cos{n \omega (T + d)}  - \Cos{n \omega d}}       \\
+                            &= \frac{-1}{n \omega} \Wrap{\Cos{2n\pi + n \omega d)}  - \Cos{n \omega d}}    \\
+                            &= \frac{-1}{n \omega} \Wrap{\Cos{n \omega d)}  - \Cos{n \omega d}}            \\
+                            &= \frac{-1}{n \omega}  0                                                        \\
+                            &= 0
+                        \end{MultiLineEquation*}
+                    \end{SmallIndentation}
+
+                \clearpage
                 \item
                     ${\displaystyle
                     \int_d^{d+T} \Sin{m \omega t} \Sin{n \omega t} \; dt =
                     \begin{cases}
                         0               &\Space m \neq n  \\
-                        \dfrac{T}{2}    &\Space m = n \neq 0
+                        \dfrac{T}{2}    &\Space m = n \text{ y } n \neq 0
                     \end{cases}
                     }$
 
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+
+                        Recuerda que $2sin(x)sin(y)=-cos(x+y)+cos(x-y)$.
+                        
+                        Si $m \neq n$ entonces:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Sin{m \omega t} \Sin{n \omega t} \; dt  
+                                &= \frac12 \int_d^{d+T} -\Cos{m \omega t + n \omega t} + \Cos{m \omega t - n \omega t}
+                                    && \Remember{Llamemos $x = m + n$ y $y = m - n$}    \\
+                                &= \frac12 \int_d^{d+T} -\Cos{x \omega t} + \Cos{y \omega t}    \\
+                                &= -\frac12 \int_d^{d+T} \Cos{x \omega t} + \frac12 \int_d^{d+T} \Cos{y \omega t}
+                                    && \Remember{Ya lo sabemos por las integrales anteriores}    \\
+                                &= 0 + 0 \\
+                                &= 0
+                            \end{MultiLineEquation*}
+
+                        Sino:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Sin{m \omega t} \Sin{n \omega t} \; dt  
+                                &= \frac12 \int_d^{d+T} -\Cos{m \omega t + n \omega t} + \Cos{m \omega t - n \omega t}
+                                    && \Remember{Recuerda que m = n}    \\
+                                &= \frac12 \int_d^{d+T} -\Cos{(n + m) \omega t} + \Cos{0}
+                                    && \Remember{Sea que x = n + m}    \\
+                                &= -\frac12 \int_d^{d+T} \Cos{x \omega t} + \frac12 \int_d^{d+T} \Cos{0}
+                                    && \Remember{Ya lo sabemos por las anteriores}    \\
+                                &= -\frac12 \int_d^{d+T} \Cos{x \omega t} + \frac{T}{2} \\
+                                &= -0 + \frac{T}{2} \\
+                                &= \frac{T}{2}
+                            \end{MultiLineEquation*}
+                    \end{SmallIndentation}
+
+                \clearpage
                 \item
                     ${\displaystyle
                     \int_d^{d+T} \Cos{m \omega t} \Cos{n \omega t} \; dt =
                     \begin{cases}
                         0               &\Space m \neq n  \\
-                        \dfrac{T}{2}    &\Space m = n \neq 0
+                        \dfrac{T}{2}    &\Space m = n \text{ y } n \neq 0
                     \end{cases}
                     }$
 
+                    \begin{SmallIndentation}[1em]
+                        \textbf{Demostración}:
+                        
+                        Recuerda que $2cos(x)cos(y)=cos(x+y)+cos(x-y)$.
+
+                        Si $m \neq n$ entonces:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Cos{m \omega t} \Cos{n \omega t} \; dt  
+                                &= \frac12 \int_d^{d+T} \Cos{m \omega t + n \omega t} + \Cos{m \omega t - n \omega t}
+                                    && \Remember{Llamemos $x = m + n$ y $y = m - n$}    \\
+                                &= \frac12 \int_d^{d+T} \Cos{x \omega t} + \Cos{y \omega t}
+                                    && \Remember{Ya lo sabemos por las integrales anteriores}    \\
+                                &= \frac12 (0 + 0) \\
+                                &= 0
+                            \end{MultiLineEquation*}
+
+                        Sino:
+                        \begin{MultiLineEquation*}{3}
+                            \int_d^{d+T} \Cos{m \omega t} \Cos{n \omega t} \; dt  
+                                &= \frac12 \int_d^{d+T} \Cos{m \omega t + n \omega t} + \Cos{m \omega t - n \omega t}
+                                    && \Remember{Recuerda que m = n}    \\
+                                &= \frac12 \int_d^{d+T} \Cos{(n + m) \omega t} + \Cos{0}
+                                    && \Remember{Sea que x = n + m}    \\
+                                &= \frac12 \int_d^{d+T} \Cos{x \omega t} + \frac12 \int_d^{d+T} \Cos{0}
+                                    && \Remember{Ya lo sabemos por las anteriores}    \\
+                                &= \frac12 \int_d^{d+T} \Cos{x \omega t} + \frac{T}{2} \\
+                                &= 0 + \frac{T}{2} \\
+                                &= \frac{T}{2}
+                            \end{MultiLineEquation*}
+                    \end{SmallIndentation}
+
+                \clearpage
                 \item
                     ${\displaystyle
-                    \int_d^{d+T} \Cos{m \omega t} \Sin{n \omega t} \; dt =
-                    0
-                    }$
+                        \int_d^{d+T} \Cos{m \omega t} \Sin{n \omega t} \; dt =
+                        0
+                        }$
+
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Demostración}:
+                            Recuerda que $2sin(x) cos(y) = sin(x+y)+sin(x-y)$.
+    
+                            Si $m \neq n$ entonces:
+                            \begin{MultiLineEquation*}{3}
+                                \int_d^{d+T} \Cos{m \omega t} \Sin{n \omega t} \; dt  
+                                    &= \frac12 \int_d^{d+T} \Sin{m \omega t + n \omega t} + \Sin{m \omega t - n \omega t}
+                                        && \Remember{Llamemos $x = m + n$ y $y = m - n$}    \\
+                                    &= \frac12 \int_d^{d+T} \Sin{x \omega t} + \Sin{y \omega t}
+                                        && \Remember{Ya lo sabemos por las integrales anteriores}    \\
+                                    &= \frac12 (0 + 0) \\
+                                    &= 0
+                                \end{MultiLineEquation*}
+    
+                            Sino:
+                            \begin{MultiLineEquation*}{3}
+                                \int_d^{d+T} \Cos{m \omega t} \Sin{n \omega t} \; dt  
+                                    &= \frac12 \int_d^{d+T} \Sin{m \omega t + n \omega t} + \Sin{m \omega t - n \omega t}
+                                        && \Remember{Recuerda que m = n}    \\
+                                    &= \frac12 \int_d^{d+T} \Sin{(n + m) \omega t} + \Sin{0}
+                                        && \Remember{Sea que x = n + m}    \\
+                                    &= \frac12 \int_d^{d+T} \Sin{x \omega t} + 0
+                                        && \Remember{Ya lo sabemos por las anteriores}    \\
+                                    &= \frac12 \int_d^{d+T} \Sin{x \omega t} + 0 \\
+                                    &= 0 + 0 \\
+                                    &= 0
+                                \end{MultiLineEquation*}
+                        \end{SmallIndentation}
+
+
+                        
             \end{itemize}
 
 
@@ -4801,6 +4948,29 @@
             % ==========================
             % =======  a_0     =========
             % ==========================
+            \subsection{Encontrar a alguna en general}
+
+                Suponte que tienes un conjunto de funciones generadoras con la
+                que quieres representar a una función $f(t)$, tal como:
+                \begin{MultiLineEquation*}{3}
+                    f(t) = \sum^\infty_{n = 0} C_n g_n(t)
+                \end{MultiLineEquation*}
+
+                Entonces podemos decir que:
+                \begin{MultiLineEquation*}{3}
+                    C_n = \dfrac
+                    {
+                        \displaystyle \int_{t_i}^{t_f} f(t) g_r(t) dt
+                    }
+                    {
+                        \displaystyle \int_{t_i}^{t_f} (g_r(t))^2 dt
+                    }
+                \end{MultiLineEquation*}
+
+            % ========================w==
+            % =======  a_0     =========
+            % ==========================
+            \clearpage
             \subsection{Encontrar a $a_0$}
 
                 $a_0 = \displaystyle \dfrac{2}{T} \int_d^{T+d} f(t) dt$
@@ -6844,6 +7014,23 @@
 
 
 
+
+
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////////       SERIES Y TRANSFORMADA DE FOURIER        /////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Señales y sistemas de comunicación}
+\clearpage
+
+    % ===============================================================================
+    % ===================        SERIES DE Fourier          ==========================
+    % ===============================================================================
+    \chapter{Serie de Fourier}
+        \clearpage
 
 
 
