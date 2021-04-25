@@ -349,6 +349,8 @@
     \definecolor{BlueGrey900MD}{HTML}{263238}                       %Use: Color :D        
 
     \definecolor{DeepPurpleMD}{HTML}{673AB7}                        %Use: Color :D
+    \definecolor{Background}{HTML}{FAFAF9}                          %Use: Color :D
+    \definecolor{Foreground}{HTML}{27272A}                          %Use: Color :D
 
     % =====  ENVIRONMENT ==============
     \newcommand{\Color}[2]{\textcolor{#1}{#2}}                      %Simple color environment
@@ -406,7 +408,6 @@
 
 
 
-
 % =====================================================
 % ============        COVER PAGE       ================
 % =====================================================
@@ -455,6 +456,8 @@
 % =====================================================
 \restoregeometry                                                    %Restores the geometry
 \nopagecolor                                                        %Use to restore the color to white
+\pagecolor{Background}
+\color{Foreground}
 
 
 
@@ -809,7 +812,7 @@
         % ==============================================
         % =======        REPETICIONES DE I       =======
         % ==============================================
-        \section{Repeticiones de $i$} 
+        \section{Repeticiones de $i$}
 
             \begin{itemize}
                 \item $\forall n \in \Integers, i^{4n} = 1$
@@ -4671,7 +4674,7 @@
                 f(t) 
                     &= \dfrac{1}{2}a_0
                         + \sum_{n=1}^\infty a_n \Cos{n \omega t}
-                        + \sum_{n=1}^\infty a_n \Sin{n \omega t}
+                        + \sum_{n=1}^\infty b_n \Sin{n \omega t}
             \end{MultiLineEquation*}
 
             Recuerda:
@@ -5189,17 +5192,31 @@
 
         
 
+            % ==========================
+            % =======  TIPS    =========
+            % ==========================
+            \subsection{Tips generales}
+
+                \begin{itemize}
+                    \item Recuerda que el producto de funciones de paridad igual es par.
+                    \item Recuerda que el producto de funciones de paridad diferente es impar.
+                    \item Tambien recuerda que podemos mover en el eje vertical u horizontal 
+                    la serie para forzar una casi paridad.
+                \end{itemize}
+
+
         % ==============================================
         % ========   SERIE COMPLEJA DE FOURIER  ========
         % ==============================================
         \clearpage
         \section{Serie Compleja de Fourier}
 
-            Creo que es más que obvio que $<e^{int}, e^{imt}$ son cero si y solo si $n=m$, por lo
+            Creo que es más que obvio que $e^{int}, e^{imt}$ son cero si y solo si $n=m$, por lo
             tanto podemos ver que son base, por lo tanto creo que es más que obvio que podemos
             expresar a la Serie de Fourier como:
             \begin{MultiLineEquation*}{3}
-                f(t) = \dfrac{C_0}{2} + \sum_{n=1}^\infty C_n e^{inwt}
+                f(t) &= \sum_{n=-\infty}^\infty C_n e^{inwt} \\
+                     &= \sum_{n=1}^\infty C_n e^{inwt} + \Over{C_n} e^{-inwt}
             \end{MultiLineEquation*}
 
             Calcular los coeficientes de dicha serie son casi una copia identica a los
@@ -5208,7 +5225,7 @@
             \begin{itemize}
                 \item $C_0$:
                     \begin{MultiLineEquation*}{3}
-                        \dfrac{C_0}{2} = \dfrac{1}{T}
+                        C_0 = \dfrac{2}{T}
                             \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \; dt
                     \end{MultiLineEquation*}
 
@@ -5217,6 +5234,21 @@
                         C_n = \dfrac{1}{T}
                             \int_{\frac{-T}{2}}^{\frac{T}{2}} f(t) \; e^{-inwt}  \; dt
                     \end{MultiLineEquation*}
+
+                \item $C_n$:
+                \begin{MultiLineEquation*}{3}
+                    C_n = \frac{a_n - ib_n}{2}
+                \end{MultiLineEquation*}
+
+                \item $a_n$:
+                \begin{MultiLineEquation*}{3}
+                    2Real(C_n)
+                \end{MultiLineEquation*}
+
+                \item $b_n$:
+                \begin{MultiLineEquation*}{3}
+                    -2Img(C_n)
+                \end{MultiLineEquation*}
             \end{itemize}
                 
 
@@ -5575,7 +5607,7 @@
                 la parte positiva, por lo tanto, más bien sacaremos la Transformada de $e^{-\alpha t}$ cuando
                 $t \geq 0$.
                 \begin{MultiLineEquation*}{3}
-                    \FourierT{e^{-\alpha t}}
+                    \FourierT{e^{-\alpha t} u(t)}
                         &= \int_{-\infty}^\infty u(t) e^{-\alpha t} \; e^{-iwt} \; dt       \\
                         &= \int_0^\infty e^{-\alpha t} \; e^{-iwt} \; dt                    \\
                         &= \int_0^\infty e^{-(iw + \alpha)t} \; dt                          \\
@@ -5588,7 +5620,7 @@
             % ==============================================
             % =====    TRANSFORMADA MAS FAMOSAS      =======
             % ==============================================
-            \subsection{$\FourierT{k}$}
+            \subsection{$\FourierT{k}$ - Funcion gate} 
 
                 A ver, a ver, antes de que te me enojes, $f(t) = k$ no converge, solo converge
                 si es que tomamos a $f(t) = k$ en un rango, un rango de longitud $d$, osea desde
@@ -6016,9 +6048,9 @@
                 \begin{MultiLineEquation*}{3}
                     \FourierT{\Cos{w_0t}}
                         &= \int_{-\infty}^\infty 1 \Cos{w_0t} \; e^{-iwt} \; dt             \\
-                        &= \dfrac{1}{2}\Brackets{2\pi \delta(-w-w_0) + 2\pi\delta(-w+w_0)}  \\
-                        &= \pi \delta(-w-w_0) + \pi \delta(-w+w_0)                          \\
-                        &= \pi (\delta(-w-w_0) + \delta(-w+w_0))
+                        &= \dfrac{1}{2}\Brackets{2\pi \delta(w-w_0) + 2\pi\delta(w+w_0)}  \\
+                        &= \pi \delta(w-w_0) + \pi \delta(w+w_0)                          \\
+                        &= \pi (\delta(w-w_0) + \delta(w+w_0))
                 \end{MultiLineEquation*}
 
 
@@ -6051,9 +6083,9 @@
                 \begin{MultiLineEquation*}{3}
                     \FourierT{\Cos{w_0t}}
                         &= \int_{-\infty}^\infty 1 \Sin{w_0t} \; e^{-iwt} \; dt             \\
-                        &= \dfrac{1}{2i}\Brackets{2\pi \delta(-w-w_0) - 2\pi\delta(-w+w_0)} \\
-                        &= -i\pi \delta(-w-w_0) + i\pi(-w+w_0)                              \\
-                        &= i\pi\delta(-w+w_0) - i\pi \delta(-w-w_0)
+                        &= \dfrac{1}{2i}\Brackets{2\pi \delta(w-w_0) - 2\pi\delta(w+w_0)} \\
+                        &= -i\pi \delta(w-w_0) + i\pi(w+w_0)                              \\
+                        &= i\pi\delta(w+w_0) - i\pi \delta(w-w_0)
                 \end{MultiLineEquation*}
 
 
@@ -6934,8 +6966,8 @@
                     \multicolumn{3}{|c|}{Teoremas de Modulación}                        \\            \hline
                     $f(t) \Cos{w_0t}  $     & $\frac{1}{2}[F(w-w_0)+F(w+w_0)]           $ &\\[1em]    \hline
                     $f(t) \Sin{w_0t}  $     & $\frac{1}{2i}[F(w-w_0)-F(w+w_0)]          $ &\\[1em]    \hline
-                    $\Cos{w_0t}       $     & $\pi(\delta(-w-w_0)+\delta(-w+w_0))       $ &\\[1em]    \hline
-                    $\Sin{w_0t}       $     & $i\pi(\delta(-w+w_0)-\delta(-w-w_0))      $ &\\[1em]    \hline
+                    $\Cos{w_0t}       $     & $\pi(\delta(w-w_0)+\delta(w+w_0))         $ &\\[1em]    \hline
+                    $\Sin{w_0t}       $     & $i\pi(\delta(w+w_0)-\delta(w-w_0))        $ &\\[1em]    \hline
                     
                 
                 \end{tabular}
