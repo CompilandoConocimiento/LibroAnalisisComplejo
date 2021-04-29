@@ -5631,7 +5631,8 @@
                         &= k\int_{-\infty}^\infty u(t+\tfrac{d}{2}) - u(t-\tfrac{d}{2}) \; e^{-iwt} \; dt     \\
                         &= k\int_{-\frac{d}{2}}^{\frac{d}{2}}  e^{-iwt} \; dt                               \\
                         &= \dfrac{k}{iw} e^{-iwt} \Evaluate_{-\frac{d}{2}}^{\frac{d}{2}}                    \\
-                        &= \dfrac{2k}{w} \Sin{\dfrac{wd}{2}}                             
+                        &= \dfrac{2k}{w} \Sin{\dfrac{wd}{2}}                                                \\   
+                        &= kd \; Sampling\Wrap{\dfrac{wd}{2}}                             
                 \end{MultiLineEquation*}
 
 
@@ -5687,6 +5688,11 @@
                     \FourierT{\UpperDerivate{f(x)}{x}{n}} = (iw)^n F(w)
                 \end{MultiLineEquation*}
 
+                O dicho incluso mas sencillo:
+                \begin{MultiLineEquation*}{3}
+                    F(w) = \FourierT{f(t)} = \dfrac{1}{(iw)^n}\FourierT{\UpperDerivate{f(x)}{x}{n}}
+                \end{MultiLineEquation*}
+
 
 
 
@@ -5726,6 +5732,27 @@
                         
                 
                 \end{SmallIndentation}
+
+                % ==============================================
+                % =====            DELTA CORRIDA         =======
+                % ==============================================
+                \subsection{$\FourierT{\delta(t - t_0)}$}
+                
+                    \begin{MultiLineEquation*}{3}
+                        \FourierT{\delta(t - t_0)}
+                            &= e^{-it_0w}
+                    \end{MultiLineEquation*}
+
+                % ==============================================
+                % =====            DELTA CORRIDA         =======
+                % ==============================================
+                \subsection{$\FourierT{ \frac{d^n}{dt^n} \delta(t - t_0)}$}
+                
+                \begin{MultiLineEquation*}{3}
+                    \FourierT{\frac{d^n}{dt^n} \delta(t - t_0)}
+                        &= (iw)^n e^{-it_0w}
+                \end{MultiLineEquation*}
+
 
 
                 % ==============================================
